@@ -1,6 +1,7 @@
 /** Basic config file **/
-configuration {
+/**configuration {
   theme:   "nord";
   show-icons:	true;
   icon-theme:	"Papirus";
-}
+}**/
+@import "~/.cache/wal/colors-rofi-dark"
