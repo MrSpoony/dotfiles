@@ -9,6 +9,7 @@ picom --backend glx -f -I 0.075 -O 0.075 &
 # x-commands
 # keyboard layout colemak and repetitive CapsLock/Backspace presses
 setxkbmap us -variant colemak &
+# sudo kmonad ~/testing/colemak-extend-iso.kbd &
 xset r 66 &
 # set tapping and natural scrolling on touchpad
 xinput set-prop 12 "libinput Tapping Enabled" 1 &

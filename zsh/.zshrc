@@ -124,6 +124,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+. "~/.cache/wal/colors.sh"
 
 
 source .aliasrc

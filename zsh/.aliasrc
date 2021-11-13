@@ -45,7 +45,7 @@ alias neofetch="fastfetch"
 alias autoremove="-Rcns $(pacman -Qdtq)"
 alias newbackground="wpg -m"
 alias nextbackground="wpg -m"
-
+alias spotify="spicetify apply; spotify"
 # so that all aliases also work with sudo
 alias sudo="sudo "
 
