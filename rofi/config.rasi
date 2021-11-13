@@ -1,0 +1,6 @@
+/** Basic config file **/
+configuration {
+  theme:   "nord";
+  show-icons:	true;
+  icon-theme:	"Papirus";
+}

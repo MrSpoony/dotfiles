@@ -1,0 +1,86 @@
+# list commands
+alias l="lsd -la"
+alias ls="lsd"
+alias ll="lsd -l"
+alias la="lsd -la"
+
+# remove commands
+alias rf="rm -rf"
+
+# clear commands
+alias clear="clear; neofetch"
+alias clearl="clear; ll"
+alias cclearl="cd;clearl"
+alias cclear="cd:clear"
+
+# quick access scripts
+alias zshrc="vim ~/.zshrc"
+alias aliasrc="vim ~/.aliasrc"
+
+# find/grep command
+alias findeverywhere="find /. | grep"
+
+# color mode
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# volumecontrol
+alias mute="amixer sset Master mute"
+alias unmute="amixer sset Master unmute; pactl set-sink-mute 0 0"
+alias louder="amixer set Master 5%+ unmut"
+alias quieter="amixer set Master 5%- unmut"
+
+# kinda like PATH but without PATH cause I'm to lazy to add it to the PATH
+# alias spd="~/apps/spotifyd/target/release/spotifyd"
+# alias spicetify="~/apps/spicetify-cli/spicetify"
+# alias ttyper="~/.cargo/bin/ttyper"
+# alias signalcli="~/apps/signal/signal-cli*/bin/signal-cli"
+
+# "new" commands/easier access/easier to remember
+alias sizeofall="du -shc ./*"
+alias battery="cat /sys/class/power_supply/BAT0/capacity"
+alias archey="archey3"
+alias neofetch="fastfetch"
+alias autoremove="-Rcns $(pacman -Qdtq)"
+alias newbackground="wpg -m"
+alias nextbackground="wpg -m"
+
+# so that all aliases also work with sudo
+alias sudo="sudo "
+
+# vim as default
+alias vi="nvim"
+alias vim="nvim"
+alias svi='sudo vi'
+alias vis='vim "+set si"'
+alias edit='vim'
+alias nano="vim "
+
+# fun remaps
+alias why="man "
+alias fuck="killall -9"
+alias please="sudo "
+alias fucking="sudo $(history -p !!)"
+
+# shorted commands
+alias :wq="exit"
+alias :q="exit"
+alias c="code .;exit"
+alias ci="code-insiders .;exit"
+alias n="nautilus .;exit"
+alias s="startx"
+alias cm="clipmenu"
+
+alias us="setxkbmap us"
+alias co="setxkbmap us -variant colemak"
+
+alias diff="colordiff"
+alias lol="lolcat"
+
+# misstypes
+alias suod="sl"
+alias claer="sl"
+alias ext="sl"
+alias xeit="sl"
+alias exti="sl"
