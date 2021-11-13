@@ -53,8 +53,8 @@
 (deflayer extend
   _        play rewind previoussong nextsong ejectcd refresh brdn brup www mail prog1 prog2
   _        f1   f2   f3   f4   f5   f6   f7   f8   f9  f10   f11  f12  ret
-  _        esc  @bk  @fnd @fw  ins  pgup home up   end  menu prnt slck
-  _        @all tab  lsft lctl lalt pgdn lft  down rght del  caps _    _
+  _        esc  @bk  @fnd @fw  ins  pgup home up   end  menu del slck
+  _        @all tab  lsft lctl lalt pgdn lft  down rght bspc  caps _    _
   _     @udo @cut @cpy @pst @pst _    pgdn bks  f13  f14  comp _
   _        _    _              ret            _    _    _    _
 )
