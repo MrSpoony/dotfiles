@@ -23,12 +23,15 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 # first add all the wallpapers then apply a random wallpaper including the theme
 wpg -a $HOME/.config/wallpapers/*
 wpg -m
-
+# spicetify apply
+pywal-discord -t abou
 # clipboardmenu
 clipmenud
 
 dunst
 
+bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         1
