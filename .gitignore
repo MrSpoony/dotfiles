@@ -1,8 +1,8 @@
 /*
 /.gitignore
 !/alacritty/
-!/bspwm/
 /bspwm/bspwm_colors.sh
+!/bspwm/
 !/dunst/
 /dunst/dunstrc
 !/nvim/
