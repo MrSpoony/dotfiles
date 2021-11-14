@@ -14,7 +14,7 @@ super + shift + e
 
 # next background
 super + n
-	wpg -m # ; spicetify apply	
+	wpg -m ; pywal-discord -t abou # ; spicetify apply	
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -25,8 +25,12 @@ super + shift + Escape
 	$HOME/.config/polybar/launch.sh
 
 # open clipmenu
-alt + v
+super + v
 	clipmenu
+
+# open wlan menu
+super + w
+    networkmanager_dmenu
 
 #
 # bspwm hotkeys
@@ -41,7 +45,7 @@ super + shift + q
 	bspc node -c
 
 # alternate between the tiled and monocle layout
-super + m
+super + f
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
@@ -134,7 +138,9 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+#
 # Media hotkeys
+#
 
 # Volume control
 XF86AudioLowerVolume
