@@ -26,6 +26,22 @@ let mapleader=","
 " don't pass messages to ins-vompletion-menu
 set shortmess+=c
 
+" nnoremap h h|xnoremap h h
+" nnoremap n j|xnoremap n j
+" nnoremap e k|xnoremap e k
+" nnoremap i l|xnoremap i l
+" nnoremap j e|xnoremap j e
+" nnoremap k n|xnoremap k n
+" nnoremap l i|xnoremap l i
+
+" If im dumb as shit
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
