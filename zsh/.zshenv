@@ -11,3 +11,5 @@ export XSECURELOCK_SAVER="saver_xscreensaver"
 export XSECURELOCK_SAVER="saver_mplayer"
 export XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
 export XSECURELOCK_PASSWORD_PROMPT="disco"
+
+export EDITOR="nvim"

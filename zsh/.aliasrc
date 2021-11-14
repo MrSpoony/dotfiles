@@ -44,8 +44,9 @@ alias archey="archey3"
 alias neofetch="fastfetch"
 alias autoremove="-Rcns $(pacman -Qdtq)"
 alias newbackground="wpg -m"
-alias nextbackground="wpg -m"
+alias nextbackground="wpg -m; pywal-discord -t abou"
 alias spotify="spicetify apply; spotify"
+alias netmgr="networkmanager_dmenu"
 # so that all aliases also work with sudo
 alias sudo="sudo "
 
