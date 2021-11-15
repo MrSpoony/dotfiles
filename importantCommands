@@ -1,0 +1,60 @@
+sudo systemctl start NetworkManager
+nmcli device wifi connect AP NAME password PASSWORD
+
+amixer sset Master unmute
+alsamixer
+speaker-test -c2
+
+to see all monitors
+xrandr
+
+to add extend layout
+sudo kmonad ~/.config/colemak-extend-iso.kbd
+
+remove entry from rofi
+shift + delete
+
+for screenshots
+maim
+for crops to clipboard
+maim -s | xclip -selection clipboard -t image/png
+
+for mousemovement in console (macros maybe)
+xdotool mousemove y x
+
+edit spicetify theme and config shit
+spicetify config current_theme THEME_NAME color_scheme COLOR_SCHEME; spicetify apply
+
+Sync command
+rsync -auv
+
+for touch input (in i3 mostly)
+xinput set-prop 12 359 1
+
+autoremove in pacman 
+sudo pacman -Rcns $(pacman -Qdtq)
+autoremove with yay
+yay -Rcns $(yay -Qdtq)
+
+export DOTNET_ROOT=/snap/dotnet-sdk/current
+
+for building sln projects
+xbuild
+msbuild
+then run them with
+wine ./././.exe
+
+TAR
+to compress use
+tar -zcvf archive-name.tar.gz source-directory-name
+to unpack use
+tar -zxvf archive-name.tar.gz
+difference is the c and the x (c for compress x for extract)
+
+GIT
+to create local repository
+git init -b main
+to create github repository
+gh repo create project-name
+git pull --set-upstream origin main
+git add . && git commit -m "Initial commti" && git push

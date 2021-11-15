@@ -1,5 +1,7 @@
-
-
+# Kimi's SXHKD SCRIPT 
+# not finished, wip
+#
+#
 # terminal emulator
 super + Return
 	alacritty	
@@ -7,6 +9,10 @@ super + Return
 # program launcher
 super + space
 	rofi -show run
+
+# open browser(opera)
+super + shift + Return
+    opera
 
 # lock screen
 super + shift + e
@@ -32,6 +38,13 @@ super + v
 super + w
     networkmanager_dmenu
 
+# make selection screenshot and add it to copy 
+super + shift + s
+    maim -s | xclip -selection clipboard -t image/png
+
+# make selection screenshot and add it to folder ~/pictures/screenshots
+super + shift + r
+    maim -s -o ~/pictures/screenshots/$( date '+%F-%H-%M-%S').png
 #
 # bspwm hotkeys
 #
@@ -145,12 +158,18 @@ super + {Left,Down,Up,Right}
 # Volume control
 XF86AudioLowerVolume
 	pulseaudio-control --volume-max 100 down
+super + F2
+    pulseaudio-control --voleme-max 100 down
 
 XF86AudioRaiseVolume
 	pulseaudio-control --volume-max 100 up
+super + F3
+    pulseaudio-control --volume-max 100 down
 
 XF86AudioMute
 	pulseaudio-control togmute
+super + F1
+    pulseaudio-control togmute
 
 # BrightnessControl
 XF86MonBrightnessUp

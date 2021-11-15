@@ -26,6 +26,7 @@ let mapleader=","
 " don't pass messages to ins-vompletion-menu
 set shortmess+=c
 
+" colemak remaps
 " nnoremap h h|xnoremap h h
 " nnoremap n j|xnoremap n j
 " nnoremap e k|xnoremap e k
@@ -39,7 +40,6 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-
 
 
 call plug#begin('~/.vim/plugged')
