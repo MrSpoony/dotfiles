@@ -8,7 +8,7 @@ alias la="lsd -la"
 alias rf="rm -rf"
 
 # clear commands
-alias clear="clear; neofetch"
+alias clear="clear; fastfetch"
 alias clearl="clear; ll"
 alias cclearl="cd;clearl"
 alias cclear="cd:clear"
@@ -42,11 +42,13 @@ alias sizeofall="du -shc ./*"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
 alias archey="archey3"
 alias neofetch="fastfetch"
-alias autoremove="-Rcns $(pacman -Qdtq)"
+alias autorm="sudo pacman -Rcns $(pacman -Qdtq)"
 alias newbackground="wpg -m"
 alias nextbackground="wpg -m; pywal-discord -t abou"
 alias spotify="spicetify apply; spotify"
 alias netmgr="networkmanager_dmenu"
+alias py="python3"
+
 # so that all aliases also work with sudo
 alias sudo="sudo "
 
@@ -70,7 +72,7 @@ alias :q="exit"
 alias c="code .;exit"
 alias ci="code-insiders .;exit"
 alias n="nautilus .;exit"
-alias s="startx"
+# alias s="startx"
 alias cm="clipmenu"
 
 alias us="setxkbmap us"

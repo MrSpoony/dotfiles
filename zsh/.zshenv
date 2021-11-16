@@ -10,6 +10,10 @@ export CM_LAUNCHER="rofi"
 export XSECURELOCK_SAVER="saver_xscreensaver"
 export XSECURELOCK_SAVER="saver_mplayer"
 export XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
-export XSECURELOCK_PASSWORD_PROMPT="disco"
+export XSECURELOCK_PASSWORD_PROMPT="cursor"
 
+# editor to vim
 export EDITOR="nvim"
+
+
+export _JAVA_AWT_WM_NONPARENTING=1
