@@ -1,6 +1,7 @@
 /*
 !/importantCommands
-/.gitignore
+!/picom/picom.conf
+!/.gitignore
 !/alacritty/
 !/bspwm/
 !/dunst/
