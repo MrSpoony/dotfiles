@@ -58,3 +58,11 @@ to create github repository
 gh repo create project-name
 git pull --set-upstream origin main
 git add . && git commit -m "Initial commti" && git push
+
+BLUETOOTH Connect
+https://wiki.archlinux.org/title/bluetooth
+bluetoothctl
+scan on
+devices
+pair MAC_ADRESS
+connect MAC_ADRESS
