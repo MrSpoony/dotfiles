@@ -20,7 +20,7 @@ super + shift + e
 
 # next background
 super + n
-	wpg -m ; pywal-discord -t abou # ; spicetify apply	
+	wpg -s ~/.config/wallpapers ; pywal-discord -t abou # ; spicetify apply	
 
 # make sxhkd reload its configuration files:
 super + Escape

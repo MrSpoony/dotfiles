@@ -26,8 +26,7 @@ xset s 600 5
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 # first add all the wallpapers then apply a random wallpaper including the theme
-wpg -a $HOME/.config/wallpapers/*
-wpg -m
+wpg -s ~/.config/wallpapers
 # spicetify apply
 pywal-discord -t abou
 bash /home/kimil/.config/bspwm/bspwm_colors.sh &
@@ -36,6 +35,14 @@ bash /home/kimil/.config/bspwm/bspwm_colors.sh &
 clipmenud
 
 dunst
+
+# copied from https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643 for github auth in vscode/vscode-insiders for setting-sync etc
+# init keyring
+# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# export keyring
+# export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+# exec dbus-launch dwm
+
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
