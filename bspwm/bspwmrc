@@ -4,20 +4,25 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 $HOME/.config/polybar/launch.sh &
 
-picom --backend glx -f -I 0.075 -O 0.075 &
+# Compositor picom
+picom --config /home/kimil/.config/picom/picom.conf --backend glx -f -I 0.075 -O 0.075 &
 
 # x-commands
 # keyboard layout colemak and repetitive CapsLock/Backspace presses
 setxkbmap us -variant colemak &
+
 # sudo kmonad ~/testing/colemak-extend-iso.kbd &
 xset r 66 &
+
 # set tapping and natural scrolling on touchpad
 xinput set-prop 12 "libinput Tapping Enabled" 1 &
 xinput set-prop 12 "libinput Natural Scrolling Enabled" 1 &
+
 # set cursor
 xsetroot -cursor_name crosshair &
+
 # set screen timeout
-xset s 300 5
+xset s 600 5
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 # first add all the wallpapers then apply a random wallpaper including the theme
@@ -25,13 +30,13 @@ wpg -a $HOME/.config/wallpapers/*
 wpg -m
 # spicetify apply
 pywal-discord -t abou
+bash /home/kimil/.config/bspwm/bspwm_colors.sh &
+
 # clipboardmenu
 clipmenud
 
 dunst
 
-bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d I II III IV V VI VII VIII IX X
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         1
@@ -43,4 +48,3 @@ bspc config gapless_monocle      true
 
 bspc rule -a Firefox desktop='^1'
 bspc rule -a Opera dektop='^1'
-bash /home/kimil/.config/bspwm/bspwm_colors.sh &
