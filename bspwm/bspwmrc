@@ -31,10 +31,10 @@ wpg -s ~/.config/wallpapers
 pywal-discord -t abou
 bash /home/kimil/.config/bspwm/bspwm_colors.sh &
 
-# clipboardmenu
+# start clients like clipmenu, dunst, vpn etc 
 clipmenud
-
 dunst
+mullvad-vpn
 
 # copied from https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643 for github auth in vscode/vscode-insiders for setting-sync etc
 # init keyring
