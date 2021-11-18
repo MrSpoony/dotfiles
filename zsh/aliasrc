@@ -13,41 +13,47 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 # some additional flags
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias df="df -h"
+alias free="free -m"
 
 # ps commands
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias psmem='ps auxf | sort -nr -k 4'
-alias pscpu='ps auxf | sort -nr -k 3'
+alias psmem="ps auxf | sort -nr -k 4"
+alias pscpu="ps auxf | sort -nr -k 3"
 
 # error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
+alias cclear="cd;clear"
+alias cclearl="cd;clear; ls"
 alias clear="clear; fastfetch"
-alias clearl="clear; ll"
+alias clearl="clear; ls"
+alias cls="clear"
+alias cll="clear;ll"
 
 # pacman and yay update etc.
-alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" # does the same as autoremove in apt
-alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
-alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
-alias cclearl="cd;clearl"
-alias cclear="cd:clear"
+alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
+alias pacsyu="sudo pacman -Syyu"
+alias yaysyu="yay -Syu --noconfirm"  
 
 # quick access scripts
 alias zshrc="vim ~/.zshrc"
 alias aliasrc="vim ~/.aliasrc"
+alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
+alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
+alias nvimrc="vim ~/.config/nvim/init.vim"
+alias polybarrc="vim ~/.config/polybar/config"
+alias picomrc="vim ~/.config/picom/picom.conf"
 
 # find/grep command
 alias findeverywhere="find /. | grep"
 
 # color mode
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
 
 # volumecontrol
 alias mute="amixer sset Master mute"
@@ -79,9 +85,9 @@ alias sudo="sudo "
 # vim as default
 alias vi="nvim"
 alias vim="nvim"
-alias svi='sudo vi'
-alias vis='vim "+set si"'
-alias edit='vim'
+alias svi="sudo vi"
+alias vis="vim '+set si'"
+alias edit="vim"
 alias nano="vim "
 
 # fun remaps
@@ -96,16 +102,16 @@ alias :q="exit"
 alias c="dbus-launch code .;exit"
 alias ci="dbus-launch code-insiders .;exit"
 alias n="nautilus .;exit"
-# alias s="startx"
 alias cm="clipmenu"
-
-alias us="setxkbmap us"
-alias co="setxkbmap us -variant colemak"
-
 alias diff="colordiff"
 alias lol="lolcat"
+# alias s="startx"
 
-# misstypes
+# set layouts (s for setxkbmap)
+alias sus="setxkbmap us"
+alias scol="setxkbmap us -variant colemak"
+
+# misstypes to sl
 alias suod="sl"
 alias claer="sl"
 alias ext="sl"
@@ -113,18 +119,17 @@ alias xeit="sl"
 alias exti="sl"
 
 # git commands
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias stat='git status'  # status is protected so stat it is
-alias tag='git tag'
-alias newtag='git tag -a'
+alias addup="git add -u"
+alias addall="git add ."
+alias branch="git branch"
+alias checkout="git checkout"
+alias clone="git clone"
+alias commit="git commit -m"
+alias fetch="git fetch"
+alias pull="git pull origin"
+alias push="git push origin"
+alias stat="git status"  # status is protected so stat it is
 
-# just test it out
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+# just test it out its fine believe me...
+alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
