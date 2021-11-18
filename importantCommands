@@ -72,3 +72,14 @@ for i in *.jpg; do
   new=$(printf "%04d.jpg" "$a") #04 pad to length of 4
   mv -i -- "$i" "$new"let a=a+1
 done
+
+VIM Cheatsheet
+How to fold stuff in vim:
+set foldmethod=syntax
+set foldmethod=indent
+for fold level 1
+set foldnestmax=1
+fold all 'zM'
+fold level by level 'zm'
+unfold all 'zr'
+unfold level by level 'zr'
