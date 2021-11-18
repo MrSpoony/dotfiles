@@ -14,6 +14,9 @@ sudo kmonad ~/.config/colemak-extend-iso.kbd
 remove entry from rofi
 shift + delete
 
+convert png to jpg 
+convert image.png image.jpg
+
 for screenshots
 maim
 for crops to clipboard
@@ -42,9 +45,7 @@ for building sln projects
 xbuild
 msbuild
 then run them with
-wine ./././.exe
-
-TAR
+wine ./././TAR
 to compress use
 tar -zcvf archive-name.tar.gz source-directory-name
 to unpack use
