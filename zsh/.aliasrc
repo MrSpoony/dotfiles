@@ -6,10 +6,34 @@ alias la="lsd -la"
 
 # remove commands
 alias rf="rm -rf"
+alias rm="rm -i"
+
+# confirm before overwriting stuff
+alias cp="cp -i"
+alias mv="mv -i"
+
+# some additional flags
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+
+# ps commands
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem='ps auxf | sort -nr -k 4'
+alias pscpu='ps auxf | sort -nr -k 3'
+
+# error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
 
 # clear commands
 alias clear="clear; fastfetch"
 alias clearl="clear; ll"
+
+# pacman and yay update etc.
+alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" # does the same as autoremove in apt
+alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
 alias cclearl="cd;clearl"
 alias cclear="cd:clear"
 
@@ -42,7 +66,7 @@ alias sizeofall="du -shc ./*"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
 alias archey="archey3"
 alias neofetch="fastfetch"
-alias autorm="sudo pacman -Rcns $(pacman -Qdtq)"
+
 alias newbackground="wpg -s ~/.config/wallpapers"
 alias nextbackground="wpg -s ~/.config/wallpapers; pywal-discord -t abou"
 alias spotify="spicetify apply; spotify"
@@ -87,3 +111,20 @@ alias claer="sl"
 alias ext="sl"
 alias xeit="sl"
 alias exti="sl"
+
+# git commands
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias stat='git status'  # status is protected so stat it is
+alias tag='git tag'
+alias newtag='git tag -a'
+
+# just test it out
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
