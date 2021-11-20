@@ -14,6 +14,9 @@ export XSECURELOCK_PASSWORD_PROMPT="cursor"
 
 # editor to vim
 export EDITOR="nvim"
+export VISUAL="nvim"
 
+export TERMINAL="$TERM"
 
+# for wine idk why but it helps
 export _JAVA_AWT_WM_NONPARENTING=1

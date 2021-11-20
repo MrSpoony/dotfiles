@@ -85,7 +85,8 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	zsh-z)
+	zsh-z
+)
 
 # source /usr/share/zsh/plugins/zsh-vi/mode/zsh-vi-mode.plugin.zsh
 source $ZSH/oh-my-zsh.sh
