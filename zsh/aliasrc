@@ -46,6 +46,7 @@ alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias nvimrc="vim ~/.config/nvim/init.vim"
 alias polybarrc="vim ~/.config/polybar/config"
 alias picomrc="vim ~/.config/picom/picom.conf"
+alias alacrittyrc="vim ~/.config/alacritty/alacritty.yml"
 
 # find/grep command
 alias findeverywhere="find /. | grep"
@@ -121,6 +122,7 @@ alias exti="sl"
 # git commands
 alias addup="git add -u"
 alias addall="git add ."
+alias gadd="git add "
 alias branch="git branch"
 alias checkout="git checkout"
 alias clone="git clone"
@@ -130,6 +132,7 @@ alias pull="git pull origin"
 alias push="git push origin"
 alias stat="git status"  # status is protected so stat it is
 alias glog="git log"  # log is also protected so glog it is
+alias gitsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
