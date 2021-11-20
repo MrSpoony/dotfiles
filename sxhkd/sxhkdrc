@@ -4,7 +4,7 @@
 #
 # terminal emulator
 super + Return
-	alacritty	
+    alacritty	
 
 # program launcher
 super + space
@@ -173,8 +173,11 @@ super + F1
 
 # BrightnessControl
 XF86MonBrightnessUp
-	light -A 5
+    light -A 5
+super + F7
+    light -A 5
 
 XF86MonBrightnessDown
 	light -U 5
-
+super + F6
+    light -U 5
