@@ -24,6 +24,8 @@ Plug 'preservim/nerdtree'
 " ranger for opening files easier
 Plug 'francoiscabrol/ranger.vim'
 
+" collection of language packs
+Plug 'sheerun/vim-polyglot'
 " Plug 'lervag/vimtex'
 call plug#end()
 
@@ -164,7 +166,8 @@ let g:neovide_cursor_trail_length=0.8
 " extensions
 let g:coc_global_extensions = ['coc-pairs', 
             \'coc-pyright', 
-            \'coc-snippets']
+            \'coc-snippets',
+            \'coc-omnisharp']
 " use tab to complete
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -252,6 +255,10 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Set keybindings for formatting code
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
