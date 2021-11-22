@@ -1,8 +1,9 @@
 # list commands
-alias l="lsd -la"
-alias ls="lsd"
-alias ll="lsd -l"
-alias la="lsd -la"
+alias ls="exa --color=always --group-directories-first"
+alias l="exa -la --color=always --group-directories-first"
+alias ls="exa --color=always --group-directories-first"
+alias ll="exa -l --color=always --group-directories-first"
+alias la="exa -la --color=always --group-directories-first"
 
 # remove commands
 alias rf="rm -rf"
@@ -32,7 +33,7 @@ alias clear="clear; fastfetch"
 alias clearl="clear; ls"
 alias cls="clear"
 alias cll="clear;ll"
-
+alias clearall="nextbackground; /bin/clear; colorscript -r; fastfetch"
 # pacman and yay update etc.
 alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
 alias pacsyu="sudo pacman -Syyu"
