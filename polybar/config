@@ -66,12 +66,12 @@ line-size = 3
 
 modules-left = powermenu round-left bspwm round-right 
 modules-center =  
-modules-right =     wireless-network alsa battery temperature round-left cpu round-right  mem xbacklight round-left time round-right   
+modules-right =     wireless-network alsa battery round-left cpu temperature round-right  mem xbacklight round-left time round-right   
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
 font-1 = JetBrainsMono Nerd Font:size=18;5
 font-2 = Material Design Icons:style=Bold:size=13;3
-font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+;font-3 = unifont:fontformat=truetype:size=13:antialias=true;
 
 
 
@@ -90,13 +90,16 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 70
 
+format-background = #2b2f37
+format-foreground = #989cff
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 format-padding = 0
-label = %temperature%
+label =%temperature%
+;format-suffix = " "
 label-warn = %temperature%
 ramp-0 =  "󰜗" 
-ramp-foreground = #a4ebf3
+;ramp-foreground = #a4ebf3
 label-padding-right = 1
 
 [module/bspwm]
@@ -210,16 +213,20 @@ time-alt = %a, %b %d%{F-}
 
 label = %date%%time%
 
+format-suffix = " "
+format-prefix = " "
+
 
 [module/mem]
 type = custom/script
 exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
 format = <label>
-format-prefix = " ﬙ " 
+format-prefix = "  ﬙ " 
 label = %output% MB
 label-padding = 1
 format-prefix-foreground = #d19a66
 
+format-suffix = " "
 
 [module/powermenu]
 type = custom/text 
@@ -227,6 +234,7 @@ content =" "
 content-padding =1
 click-left = rofi -show power-menu -modi power-menu:rofi-power-menu &
 content-foreground =  #61afef
+
 
 [module/wlan]
 type = internal/network
@@ -254,9 +262,12 @@ label-discharging = %percentage%%
 
 format-discharging-foreground = ${colors.foreground}
 
-format-full-prefix = "  "
+format-full-prefix = "   "
+label-full = %percentage%% 
+format-full-suffix = " "
 
 format-full-prefix-foreground = #A0E8A2
+format-full-prefix-padding = 0
 format-foreground = ${colors.color4}
 format-background = #2b2f37 
 
@@ -265,17 +276,17 @@ label-discharging-foreground = ${colors.foreground}
 ramp-capacity-foreground =  #A0E8A2  
 label-charging-foreground = ${colors.foreground}
 
-ramp-capacity-0 = "  " 
-ramp-capacity-1 = "  " 
-ramp-capacity-2 = "  " 
-ramp-capacity-3 = "  " 
-ramp-capacity-4 = "  "
+ramp-capacity-0 = "   " 
+ramp-capacity-1 = "   " 
+ramp-capacity-2 = "   " 
+ramp-capacity-3 = "   " 
+ramp-capacity-4 = "   "
 
-animation-charging-0 = "  " 
-animation-charging-1 = "  " 
-animation-charging-2 = "  " 
-animation-charging-3 = "  " 
-animation-charging-4 = "  "
+animation-charging-0 = "   " 
+animation-charging-1 = "   " 
+animation-charging-2 = "   " 
+animation-charging-3 = "   " 
+animation-charging-4 = "   "
 
 animation-charging-foreground = #DF8890
 animation-charging-framerate = 910 
@@ -295,16 +306,20 @@ label-padding = 1
 type = internal/xbacklight
 format = <label>
 format-prefix = "  "
+format-suffix = " "
 label = %percentage%
 format-prefix-foreground = #61afef
 label-foreground =   #D8DEE9
 format-padding = 1
 
+
+
 [module/cpu]
 type = internal/cpu
 interval = 2.5
 
-format-prefix = "  " 
+format-prefix = " "
+format-suffix = "   " 
 format = <label> 
 
 label = CPU %percentage%%
