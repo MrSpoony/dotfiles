@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 call plug#begin('~/.vim/plugged')
 
@@ -78,6 +77,8 @@ set splitbelow
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
+set filetype=on
+
 
 " colorscheme
 colorscheme wal
@@ -103,10 +104,19 @@ map <C-q> :q<CR>
 " for faster commandline access
 nmap \<Space> :
 
-" Ctrl+W and Q in VIM
-" map <C-s> :w<CR>
-" map <C-w> :q<CR>
-map <C-t> :tabnew<CR>
+
+" Save and run files acoording to filetypes
+"
+"
+" C#
+autocmd FileType cs  map <F5>      :w<CR>:!csc %<CR>:term mono %:r.exe<CR>
+autocmd FileType cs imap <F5> <Esc>:w<CR>:!csc %<CR>:term mono %:r.exe<CR>
+" Python
+autocmd FileType python  map <F5>      :w<CR>:term python3 %<CR>
+autocmd FileType python imap <F5> <Esc>:w<CR>:term python3 %<CR>
+" C++
+autocmd FileType cpp  map <F5>      :w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
+autocmd FileType cpp imap <F5> <Esc>:w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
 
 " add lines above and below without going into insert mode
 nmap oo o<Esc>
@@ -187,7 +197,8 @@ let g:coc_global_extensions = ['coc-pairs',
             \'coc-pyright', 
             \'coc-snippets',
             \'coc-omnisharp',
-            \'coc-prettier']
+            \'coc-prettier',
+            \'coc-tabnine']
 
 " Ctrl Space to trigger autocompletion
 if has('nvim')
