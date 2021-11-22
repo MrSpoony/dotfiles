@@ -41,6 +41,7 @@ dark-light = #66272A2B
 active-light = #66313435
 
 [bar/mybar]
+wm-restack=bspwm
 tray-position = right
 tray-padding =5
 monitor = eDP-1
@@ -62,11 +63,10 @@ offset-y = 0%;0.5%
 fixed-center = true
 line-size = 3
 
-wm-restack = bspwm
 
 modules-left = powermenu round-left bspwm round-right 
 modules-center =  
-modules-right =     wireless-network alsa battery round-left cpu round-right  mem xbacklight round-left time round-right   
+modules-right =     wireless-network alsa battery temperature round-left cpu round-right  mem xbacklight round-left time round-right   
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
 font-1 = JetBrainsMono Nerd Font:size=18;5
@@ -125,16 +125,17 @@ label-focused =  %icon%
 ;label-focused = %{F#F9DE8F}
 ;label-focused =  ;%icon%  
 label-focused-foreground = ${colors.foreground}
-label-focused-underline =  #565c64
+label-focused-underline = #565c64
 label-focused-padding = 1
 label-focused-background = #2b2f37
 
-label-occupied =  %icon%  
+label-occupied =  %icon%  
 label-occupied-foreground = #646870  
 label-occupied-background = #2b2f37
 label-occupied-padding = 1
 
-label-empty =  %icon%
+;label-empty =  %icon%
+label-empty =  %icon%  %icon% 
 label-empty-foreground =   ${colors.foreground}
 label-empty-padding = 1
 label-empty-background = #2b2f37
@@ -204,8 +205,8 @@ type = internal/date
 interval = 60
 format = <label>
 format-background = #2b2f37
-date = %{F#888e96}󰥔 %I:%M %p%{F-}
-time-alt = %{F#61afef}󰃭 %a, %b %d%{F-}
+date = %I:%M %p%{F-}
+time-alt = %a, %b %d%{F-}
 
 label = %date%%time%
 
@@ -224,7 +225,7 @@ format-prefix-foreground = #d19a66
 type = custom/text 
 content =" " 
 content-padding =1
-click-left = xfce4-settings-manager &
+click-left = rofi -show power-menu -modi power-menu:rofi-power-menu &
 content-foreground =  #61afef
 
 [module/wlan]
