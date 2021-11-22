@@ -8,6 +8,12 @@ speaker-test -c2
 to see all monitors
 xrandr
 
+to see infos about window 
+xprop
+
+to change rate of repeating letters
+xset r rate [delay] [cycle]
+
 to add extend layout
 sudo kmonad ~/.config/colemak-extend-iso.kbd
 
@@ -27,6 +33,7 @@ xdotool mousemove y x
 
 edit spicetify theme and config shit
 spicetify config current_theme THEME_NAME color_scheme COLOR_SCHEME; spicetify apply
+spicetify apply
 
 Sync command
 rsync -auv
@@ -52,6 +59,19 @@ to unpack use
 tar -zxvf archive-name.tar.gz
 difference is the c and the x (c for compress x for extract)
 
+GRUB
+grub-customizer mit sudo
+
+Stanni colors:
+Normal: Font 
+light blue
+Normal: Background
+transparent
+Highlighted: Font
+light-cyan
+Highlighted: Background
+blue
+
 GIT
 to create local repository
 git init -b main
@@ -76,6 +96,16 @@ for i in *.jpg; do
 done
 
 VIM Cheatsheet
+Next/Prev result in autocompletion
+Ctrl+N/Ctrl+P
+Execute Python file with input in vim:
+:term python3 %
+Execute Python without input in vim:
+:python %
+To compile a file in vim (e.g. c++)
+:make %:r (% to refer to the name, :r to strip of the ending of the filename)
+to run it inside of vim
+:!./%:r
 How to fold stuff in vim:
 set foldmethod=syntax
 set foldmethod=indent
@@ -83,7 +113,7 @@ for fold level 1
 set foldnestmax=1
 fold all 'zM'
 fold level by level 'zm'
-unfold all 'zr'
+unfold all 'zR'
 unfold level by level 'zr'
 
 EasyMove DefaultMappings (<Leader> = <Leader><Leader>)
