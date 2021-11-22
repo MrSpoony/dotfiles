@@ -105,7 +105,7 @@ map <C-q> :q<CR>
 nmap \<Space> :
 
 
-" Save and run files acoording to filetypes
+"  Save and run files acoording to filetypes
 "
 "
 " C#
