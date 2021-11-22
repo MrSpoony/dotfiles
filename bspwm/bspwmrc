@@ -13,7 +13,7 @@ setxkbmap us -variant colemak &
 
 # sudo kmonad ~/testing/colemak-extend-iso.kbd &
 xset r 66 & # set repetitive backspace on CapsLock
-xset r rate 250 45 & # set repetitive keyboardpresses faster
+xset r rate 180 85 & # set repetitive keyboardpresses faster
 
 # set tapping and natural scrolling on touchpad
 xinput set-prop 12 "libinput Tapping Enabled" 1 &
@@ -33,9 +33,12 @@ pywal-discord -t abou &
 bash /home/kimil/.config/bspwm/bspwm_colors.sh &
 
 # start clients like clipmenu, dunst, vpn etc 
-clipmenud
-dunst
-mullvad-vpn
+clipmenud &
+dunst &
+mullvad connect &
+
+# start spotifyd clients
+spotifyd --no-daemon --device-name spotifydDellXPS15 &
 
 # copied from https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643 for github auth in vscode/vscode-insiders for setting-sync etc
 # init keyring
@@ -54,5 +57,15 @@ bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Firefox desktop='^1'
-bspc rule -a Opera dektop='^1'
+# to move and resize floating windows with my pointer and the super key
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action2 resize_corner
+
+
+# configurations in external rules file
+# bspc config external_rules_command "${HOME}/.config/bspwm/external_rules"
+
+# bspc rule -a Spotify desktop='^10'
+bspc rule -a firefox dektop='^3' follow=on
