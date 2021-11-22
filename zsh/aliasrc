@@ -132,7 +132,8 @@ alias pull="git pull origin"
 alias push="git push origin"
 alias stat="git status"  # status is protected so stat it is
 alias glog="git log"  # log is also protected so glog it is
-alias gitsize="git gc;git count-objects -vH"
+alias gdiff="git diff" # diff is its own command so gdiff it is
+alias gsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
