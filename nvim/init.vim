@@ -3,6 +3,9 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+" Themes
+Plug 'dylanaraps/wal.vim'
+
 " for nicer bar at the bottom
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -18,6 +21,9 @@ Plug 'easymotion/vim-easymotion'
 
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" for C# coding
+" Plug 'OmniSharp/omnisharp-vim'
 
 " nerdtree for code structure
 Plug 'preservim/nerdtree'
@@ -61,7 +67,7 @@ set textwidth=0
 set noswapfile
 set nobackup
 set nowritebackup
-set so=5
+set so=7
 set mouse=a
 set visualbell
 set t_vb=
@@ -73,6 +79,9 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
+" colorscheme
+colorscheme wal
+
 
 " If im dumb as shit
 command WQ wq
@@ -82,12 +91,21 @@ command Q q
 
 let mapleader = ","
 
+" for easier moving between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-q> :q<CR>
+
+
+
 " for faster commandline access
 nmap \<Space> :
 
 " Ctrl+W and Q in VIM
 " map <C-s> :w<CR>
-map <C-w> :q<CR>
+" map <C-w> :q<CR>
 map <C-t> :tabnew<CR>
 
 " add lines above and below without going into insert mode
@@ -120,14 +138,15 @@ noremap <Right> <Nop>
 "
 
 map <C-b> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFocus<CR>
 let g:NERDTreeHijackNetrw = 0 "// add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 "// open ranger when vim open a directory
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:NERDTreeShowHidden=1
 
-" Start NERDtree, unless file or session is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" " Start NERDtree, unless file or session is specified
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 " same as above but open when directory specified
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
@@ -160,25 +179,15 @@ let g:neovide_cursor_trail_length=0.8
 
 
 " 
-" coc autocompletion
+" coc-stuff
 "
 
 " extensions
 let g:coc_global_extensions = ['coc-pairs', 
             \'coc-pyright', 
             \'coc-snippets',
-            \'coc-omnisharp']
-" use tab to complete
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+            \'coc-omnisharp',
+            \'coc-prettier']
 
 " Ctrl Space to trigger autocompletion
 if has('nvim')
@@ -286,3 +295,78 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Some coc-snippet configurations
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+xmap <leader>x <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+
+"" OmniSharp configurations
+"let g:OmniSharp_server_use_mono = 1
+"
+"let g:OmniSharp_selector_ui = 'fzf'
+"let g:OmniSharp_selector_findusages = 'fzf'
+"
+"" let g:OmniSharp_highlighting = 3
+"
+"
+"" Copy pasted from https://github.com/OmniSharp/omnisharp-vim hope it works
+"augroup omnisharp_commands
+"  autocmd!
+"
+"  " Show type information automatically when the cursor stops moving.
+"  " Note that the type is echoed to the Vim command line, and will overwrite
+"  " any other messages in this space including e.g. ALE linting messages.
+"  autocmd CursorHold *.cs OmniSharpTypeLookup
+"
+"  " The following commands are contextual, based on the cursor position.
+"  autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+"  autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+"  autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+"
+"  " Navigate up and down by method/property/field
+"  autocmd FileType cs nmap <silent> <buffer> [[ <Plug>(omnisharp_navigate_up)
+"  autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
+"  " Find all code errors/warnings for the current solution and populate the quickfix window
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osgcc <Plug>(omnisharp_global_code_check)
+"  " Contextual code actions (uses fzf, vim-clap, CtrlP or unite.vim selector when available)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+"  autocmd FileType cs xmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+"  " Repeat the last code action performed (does not use a selector)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+"  autocmd FileType cs xmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+"
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>os= <Plug>(omnisharp_code_format)
+"
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osnm <Plug>(omnisharp_rename)
+"
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osre <Plug>(omnisharp_restart_server)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>osst <Plug>(omnisharp_start_server)
+"  autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
+"augroup END
