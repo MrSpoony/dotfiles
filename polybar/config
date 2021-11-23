@@ -88,7 +88,7 @@ content-foreground = #2b2f37
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 70
+warn-temperature = 50
 
 format-background = #2b2f37
 format-foreground = #989cff
@@ -96,11 +96,14 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 format-padding = 0
 label =%temperature%
-;format-suffix = " "
-label-warn = %temperature%
-ramp-0 =  "󰜗" 
-;ramp-foreground = #a4ebf3
-label-padding-right = 1
+;format-suffix = "°C"
+format-suffix = " "
+;label-warn = %temperature%
+;ramp-0 =  "󰜗" 
+ramp-0 =  "" 
+;ramp-0 =  "°C" 
+;ramp-foreground = #ff0000
+;label-padding-right = 1
 
 [module/bspwm]
 type = internal/bspwm
@@ -205,12 +208,13 @@ format-volume-padding = 1
 
 [module/time]
 type = internal/date
-interval = 60
+interval = 1 ;60
 format = <label>
 format-background = #2b2f37
-date = %I:%M %p%{F-}
+date = %I:%M:%S %p%{F-}
 time-alt = %a, %b %d%{F-}
 
+;content = %date%%time%
 label = %date%%time%
 
 format-suffix = " "
@@ -316,7 +320,7 @@ format-padding = 1
 
 [module/cpu]
 type = internal/cpu
-interval = 2.5
+interval = 1.5
 
 format-prefix = " "
 format-suffix = "   " 
