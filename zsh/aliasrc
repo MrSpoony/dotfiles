@@ -33,7 +33,10 @@ alias clear="clear; fastfetch"
 alias clearl="clear; ls"
 alias cls="clear"
 alias cll="clear;ll"
-alias clearall="nextbackground; /bin/clear; colorscript -r; fastfetch"
+alias clearall="nextbackground; /bin/clear; colorscript random; echo ; fastfetch"
+alias {clsall,cleall}="/bin/clear; colorscript random; fastfetch"
+alias clea="/bin/clear; colorscript random"
+
 # pacman and yay update etc.
 alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
 alias pacsyu="sudo pacman -Syyu"
@@ -64,11 +67,7 @@ alias louder="amixer set Master 5%+ unmut"
 alias quieter="amixer set Master 5%- unmut"
 
 # kinda like PATH but without PATH cause I'm to lazy to add it to the PATH
-# alias spd="~/apps/spotifyd/target/release/spotifyd"
-# alias spicetify="~/apps/spicetify-cli/spicetify"
-# alias ttyper="~/.cargo/bin/ttyper"
-# alias signalcli="~/apps/signal/signal-cli*/bin/signal-cli"
-
+alias beook="wine ~/.wine/drive_c/Apps/beook/beook.exe"
 # "new" commands/easier access/easier to remember
 alias sizeofall="du -shc ./*"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
@@ -103,6 +102,7 @@ alias :wq="exit"
 alias :q="exit"
 alias c="dbus-launch code .;exit"
 alias ci="dbus-launch code-insiders .;exit"
+alias v="nvim ./"
 alias n="nautilus .;exit"
 alias cm="clipmenu"
 alias diff="colordiff"
