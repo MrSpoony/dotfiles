@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/polybar/launch.sh &
 
 # Compositor picom
-picom --config /home/kimil/.config/picom/picom.conf --backend glx -f -I 0.075 -O 0.075 &
+picom --backend glx &
 
 # x-commands
 # keyboard layout colemak and repetitive CapsLock/Backspace presses
