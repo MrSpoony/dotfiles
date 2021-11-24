@@ -93,7 +93,7 @@ alias nano="vim "
 
 # fun remaps
 alias why="man "
-alias fuck="killall -9"
+alias fuck="killall -9 "
 alias please="sudo "
 alias fucking="sudo $(history -p !!)"
 
@@ -120,6 +120,8 @@ alias ext="sl"
 alias xeit="sl"
 alias exti="sl"
 
+# dumb stuff
+alias discord="Discord"
 # git commands
 alias addup="git add -u"
 alias addall="git add ."
