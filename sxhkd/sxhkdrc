@@ -14,13 +14,17 @@ super + Return
 super + shift + e
 	xsecurelock
 
-# open browser(opera)
+# open browsers
+# opera
 super + shift + Return
     opera
+# firefox
+super + alt + Return
+    firefox
 
-# open filemanager
-super + e
-    nautilus
+# open MS-teams
+super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12}
+    {teams,discord,signal-desktop,whatsapp-for-linux,nautilus,ranger} 
 
 
 #
@@ -30,6 +34,9 @@ super + e
 # program launcher
 super + space
 	rofi -show run
+
+super + shift + space
+    rofi -show drun
 
 # open clipmenu
 super + v
@@ -42,6 +49,7 @@ super + w
 # open bitwarden menu
 super + b
     bwmenu
+
 super + p
     bwmenu
 
