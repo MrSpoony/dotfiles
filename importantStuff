@@ -109,6 +109,9 @@ to run it inside of vim
 How to fold stuff in vim:
 set foldmethod=syntax
 set foldmethod=indent
+zc to close a fold
+zo to open one
+za to toggle
 for fold level 1
 set foldnestmax=1
 fold all 'zM'
