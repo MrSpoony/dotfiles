@@ -21,13 +21,22 @@ Plug 'easymotion/vim-easymotion'
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" debugger
+" Plug 'cpiger/NeoDebug'
+Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+
 " for C# coding
 Plug 'OmniSharp/omnisharp-vim'
+
+" for webdev
+Plug 'ap/vim-css-color'
 
 " nerdtree for code structure
 Plug 'preservim/nerdtree'
 " ranger for opening files easier
 Plug 'francoiscabrol/ranger.vim'
+" nerdcommenter
+Plug 'preservim/nerdcommenter'
 
 " collection of language packs
 Plug 'sheerun/vim-polyglot'
@@ -35,7 +44,6 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 syntax on
-
 " 
 " all set commands
 "
@@ -57,6 +65,7 @@ set incsearch
 set hlsearch
 set hidden
 set lazyredraw
+set noignorecase
 set laststatus=2
 set autoread
 set ofu=syntaxcomplete#Complete
@@ -67,7 +76,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set so=7
-set mouse=a
+" set mouse=a
 set visualbell
 set t_vb=
 set history=1000
@@ -78,10 +87,15 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set filetype=on
+set spelllang=en_US
+" set shellcmdflag=-ic
+" set foldmethod=indent
+" set foldnestmax=1
 
-
-" colorscheme
+" colorscheme theme stuff
 colorscheme wal
+
+highlight Comment cterm=italic
 
 
 " If im dumb as shit
@@ -91,7 +105,6 @@ command W w
 command Q q
 
 let mapleader = ","
-
 " for easier moving between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -101,8 +114,14 @@ map <C-q> :q<CR>
 
 
 
-" for faster commandline access
+" for faster  access
 nmap \<Space> :
+inoremap ;; <Esc>
+
+
+" Toggle spellchecker
+map <leader>s :setlocal spell!<CR>
+
 
 
 "  Save and run files acoording to filetypes
@@ -316,7 +335,7 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x <Plug>(coc-convert-snippet)
 
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <TAB> 
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -381,3 +400,19 @@ augroup omnisharp_commands
   autocmd FileType cs nmap <silent> <buffer> <Leader>osst <Plug>(omnisharp_start_server)
   autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
 augroup END
+
+
+
+
+
+
+"
+" Nerdcommenter stuff
+"
+
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmplyLines = 1
+let g:NEADToggleCheckAllLines = 1
