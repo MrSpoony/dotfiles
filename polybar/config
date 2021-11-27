@@ -45,6 +45,7 @@ wm-restack=bspwm
 tray-position = right
 tray-padding =5
 monitor = eDP-1
+;                                                 change this if it doesn't work check display name with xrandr
 width =  100%;98.7%
 height = 30
 padding-left =0
@@ -210,12 +211,15 @@ format-volume-padding = 1
 type = internal/date
 interval = 1 ;60
 format = <label>
+;time-alt = %a, %b %d%{F-}
+date = %I:%M:%S %p %a, %b %d
+
+format-foreground = #61afef
 format-background = #2b2f37
-date = %I:%M:%S %p%{F-}
-time-alt = %a, %b %d%{F-}
+
 
 ;content = %date%%time%
-label = %date%%time%
+;label = %date%%time%
 
 format-suffix = " "
 format-prefix = " "
@@ -228,7 +232,8 @@ format = <label>
 format-prefix = "  ﬙ " 
 label = %output% MB
 label-padding = 1
-format-prefix-foreground = #d19a66
+;format-prefix-foreground = #d19a66
+format-foreground = #d19a66
 
 format-suffix = " "
 
@@ -270,14 +275,16 @@ format-full-prefix = "   "
 label-full = %percentage%% 
 format-full-suffix = " "
 
-format-full-prefix-foreground = #A0E8A2
+;format-full-prefix-foreground = #A0E8A2
+format-full-foreground = #A0E8A2
 format-full-prefix-padding = 0
 format-foreground = ${colors.color4}
 format-background = #2b2f37 
 
-label-discharging-foreground = ${colors.foreground}
+;label-discharging-foreground = ${colors.foreground}
+label-discharging-foreground = #A0E8A2  
 
-ramp-capacity-foreground =  #A0E8A2  
+ramp-capacity-foreground =  #A0E8A2
 label-charging-foreground = ${colors.foreground}
 
 ramp-capacity-0 = "   " 
