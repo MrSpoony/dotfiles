@@ -96,6 +96,9 @@ for i in *.jpg; do
 done
 
 VIM Cheatsheet
+Debugger shortcuts
+https://github.com/sakhnik/nvim-gdb
+oder :help nvimgdb
 Next/Prev result in autocompletion
 Ctrl+N/Ctrl+P
 Execute Python file with input in vim:
