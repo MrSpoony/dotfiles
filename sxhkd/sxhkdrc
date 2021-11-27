@@ -53,6 +53,9 @@ super + b
 super + p
     bwmenu
 
+# open power-menu
+super + alt + Escape
+    rofi -show power-menu -modi power-menu:rofi-power-menu 
 
 #
 # launch stuff/scripts, reload stuff etc. 
@@ -62,6 +65,9 @@ super + p
 super + n
 	wpg -s ~/.config/wallpapers ; pywal-discord -t abou # ; spicetify apply	
 
+# black background
+super + u
+    feh --bg-fill ~/.config/wallpapers/black/black.jpg
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -70,6 +76,9 @@ super + Escape
 super + shift + Escape
 	$HOME/.config/polybar/launch.sh
 
+# reload spotifyd
+super + shift + d
+    spotifyd --no-daemon --device-name test
 
 #
 # screenshot stuff
@@ -222,4 +231,8 @@ super + alt + shift + {Left,Up,Down,Right}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+# resize mode
+super + r : {h, j, k, l, alt + shift + h, alt + shift + j, alt + shift + k, alt + shift + l, shift + h, shift + j, shift + k, shift + l} bspc node {-v -20 0, -v 0 20,-v 0 -20,-v 20 0,-z right -20 0,-z top 0 20,-z bottom 0 -20,-z left 20 0, -z left -20 0,-z bottom 0 20,-z top 0 -20,-z right 20 0}
 
