@@ -119,6 +119,8 @@ alias claer="sl"
 alias ext="sl"
 alias xeit="sl"
 alias exti="sl"
+alias cim="sl"
+alias vin="sl"
 
 # dumb stuff
 alias discord="Discord"
