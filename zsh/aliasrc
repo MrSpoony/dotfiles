@@ -27,15 +27,14 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias cclear="cd;clear"
-alias cclearl="cd;clear; ls"
-alias clear="clear; fastfetch"
-alias clearl="clear; ls"
+alias clear="clear; if ((\$RANDOM % 2)); then; colorscript random; else; fastfetch; fi;"
 alias cls="clear"
+alias clearl="clear; la"
 alias cll="clear;ll"
 alias clearall="nextbackground; /bin/clear; colorscript random; echo ; fastfetch"
-alias {clsall,cleall}="/bin/clear; colorscript random; fastfetch"
+alias {clsall,cleall,cla}="/bin/clear; colorscript random; echo ; fastfetch"
 alias clea="/bin/clear; colorscript random"
+alias cle="/bin/clear; fastfetch"
 
 # pacman and yay update etc.
 alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
@@ -107,6 +106,7 @@ alias n="nautilus .;exit"
 alias cm="clipmenu"
 alias diff="colordiff"
 alias lol="lolcat"
+alias open="xdg-open "
 # alias s="startx"
 
 # set layouts (s for setxkbmap)
