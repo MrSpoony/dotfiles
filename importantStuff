@@ -1,52 +1,82 @@
 sudo systemctl start NetworkManager
 nmcli device wifi connect AP NAME password PASSWORD
 
+
+
 amixer sset Master unmute
 alsamixer
 speaker-test -c2
 
+
+
 to see all monitors
 xrandr
+
+
 
 to see infos about window 
 xprop
 
+
+
 to change rate of repeating letters
 xset r rate [delay] [cycle]
+
+
 
 to add extend layout
 sudo kmonad ~/.config/colemak-extend-iso.kbd
 
+
+
 remove entry from rofi
 shift + delete
 
+
+
 convert png to jpg 
 convert image.png image.jpg
+
+
 
 for screenshots
 maim
 for crops to clipboard
 maim -s | xclip -selection clipboard -t image/png
 
+
+
 for mousemovement in console (macros maybe)
 xdotool mousemove y x
+
+
 
 edit spicetify theme and config shit
 spicetify config current_theme THEME_NAME color_scheme COLOR_SCHEME; spicetify apply
 spicetify apply
 
+
+
 Sync command
 rsync -auv
 
+
+
 for touch input (in i3 mostly)
 xinput set-prop 12 359 1
+
+
 
 autoremove in pacman 
 sudo pacman -Rcns $(pacman -Qdtq)
 autoremove with yay
 yay -Rcns $(yay -Qdtq)
 
+
+
 export DOTNET_ROOT=/snap/dotnet-sdk/current
+
+
 
 for building sln projects
 xbuild
@@ -59,8 +89,12 @@ to unpack use
 tar -zxvf archive-name.tar.gz
 difference is the c and the x (c for compress x for extract)
 
+
+
 GRUB
 grub-customizer mit sudo
+
+
 
 Stanni colors:
 Normal: Font 
@@ -72,13 +106,52 @@ light-cyan
 Highlighted: Background
 blue
 
+
+
 GIT
-to create local repository
-git init -b main
-to create github repository
-gh repo create project-name
-git pull --set-upstream origin main
-git add . && git commit -m "Initial commti" && git push
+ganz basic shit:
+# repository clonen
+git clone <URL>
+git status
+# git repo lokal erstellen
+git init -b origin main
+# git repo mit github/lab verknüpfen
+git remote add origin <URL>
+
+HOW TO GUIDE:
+git add -u
+git commit -m 'sinvoller text'
+git push
+
+intermediate shit:
+# neueste informationen herunterladen veränedert keine files man sieht aber im git status dass man pullen kann
+git fetch
+# merged braches oder commits zusammen solange kein merge conflict bestheht
+git merge
+# neueste informationen herunterladen und mergen
+git pull
+# unstage file/remove it from git repo
+git remove
+# alias
+git rm
+# restore all addede files, cna also be used to get older version of git file
+git restore
+# rename a file in git
+git mv
+# show differences between commits/files
+git diff
+# letze commits anzeigen
+git log
+
+advanced shit:
+# branches anzeigen
+git branch
+# branch erstellend und wechseln
+git checkout
+# wie merge aber halt einfach force also ohne merge -> ersetzt
+git rebase
+
+
 
 BLUETOOTH Connect
 https://wiki.archlinux.org/title/bluetooth
@@ -88,12 +161,17 @@ devices
 pair MAC_ADRESS
 connect MAC_ADRESS
 
+
+
 Rename files in order
 a=1
 for i in *.jpg; do
   new=$(printf "%04d.jpg" "$a") #04 pad to length of 4
   mv -i -- "$i" "$new"let a=a+1
 done
+
+
+
 
 VIM Cheatsheet
 Debugger shortcuts
