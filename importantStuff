@@ -2,41 +2,33 @@ sudo systemctl start NetworkManager
 nmcli device wifi connect AP NAME password PASSWORD
 
 
-
 amixer sset Master unmute
 alsamixer
 speaker-test -c2
-
 
 
 to see all monitors
 xrandr
 
 
-
 to see infos about window 
 xprop
-
 
 
 to change rate of repeating letters
 xset r rate [delay] [cycle]
 
 
-
 to add extend layout
 sudo kmonad ~/.config/colemak-extend-iso.kbd
-
 
 
 remove entry from rofi
 shift + delete
 
 
-
 convert png to jpg 
 convert image.png image.jpg
-
 
 
 for screenshots
@@ -45,10 +37,8 @@ for crops to clipboard
 maim -s | xclip -selection clipboard -t image/png
 
 
-
 for mousemovement in console (macros maybe)
 xdotool mousemove y x
-
 
 
 edit spicetify theme and config shit
@@ -56,15 +46,12 @@ spicetify config current_theme THEME_NAME color_scheme COLOR_SCHEME; spicetify a
 spicetify apply
 
 
-
 Sync command
 rsync -auv
 
 
-
 for touch input (in i3 mostly)
 xinput set-prop 12 359 1
-
 
 
 autoremove in pacman 
@@ -73,9 +60,7 @@ autoremove with yay
 yay -Rcns $(yay -Qdtq)
 
 
-
 export DOTNET_ROOT=/snap/dotnet-sdk/current
-
 
 
 for building sln projects
@@ -90,10 +75,8 @@ tar -zxvf archive-name.tar.gz
 difference is the c and the x (c for compress x for extract)
 
 
-
 GRUB
 grub-customizer mit sudo
-
 
 
 Stanni colors:
@@ -105,7 +88,6 @@ Highlighted: Font
 light-cyan
 Highlighted: Background
 blue
-
 
 
 GIT
@@ -152,7 +134,6 @@ git checkout
 git rebase
 
 
-
 BLUETOOTH Connect
 https://wiki.archlinux.org/title/bluetooth
 bluetoothctl
@@ -160,7 +141,6 @@ scan on
 devices
 pair MAC_ADRESS
 connect MAC_ADRESS
-
 
 
 Rename files in order
@@ -171,7 +151,11 @@ for i in *.jpg; do
 done
 
 
-
+JAVA
+How to run IntelliJ project from Command Line
+go to project folder
+go to /out/production/
+run com.myexample.test.myfile
 
 VIM Cheatsheet
 Debugger shortcuts
