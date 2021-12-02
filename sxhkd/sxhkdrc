@@ -50,9 +50,6 @@ super + w
 super + b
     bwmenu
 
-super + p
-    bwmenu
-
 # open power-menu
 super + alt + Escape
     rofi -show power-menu -modi power-menu:rofi-power-menu 
@@ -79,6 +76,18 @@ super + shift + Escape
 # reload spotifyd
 super + shift + d
     spotifyd --no-daemon --device-name test
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# stop picom
+super + p
+    killall -9 picom
+
+# start picom again
+    picom --backend glx
+
 
 #
 # screenshot stuff
@@ -127,10 +136,6 @@ super + F6
 
 # bspwm hotkeys
 #
-
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
 
 # close and kill
 super + shift + q    

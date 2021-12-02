@@ -28,6 +28,7 @@ alias jctl="journalctl -p 3 -xb"
 
 # clear commands
 alias clear="clear; if ((\$RANDOM % 2)); then; colorscript random; else; fastfetch; fi;"
+alias claer="clear"
 alias cls="clear"
 alias clearl="clear; la"
 alias cll="clear;ll"
@@ -115,7 +116,6 @@ alias scol="setxkbmap us -variant colemak"
 
 # misstypes to sl
 alias suod="sl"
-alias claer="sl"
 alias ext="sl"
 alias xeit="sl"
 alias exti="sl"
