@@ -1,7 +1,29 @@
+"
+"
+" KIMI's NEOVIM config file, linked to .vimrc so it should mostly be also
+" compatible with vim 
+"
+"
+"
+"
+
+
 set nocompatible
+
+"
+" Plugin installation
+"
+
+" Install vim-plug if it isn't already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'rhysd/vim-clang-format'
 " Themes
 Plug 'dylanaraps/wal.vim'
 
@@ -11,9 +33,16 @@ Plug 'vim-airline/vim-airline-themes'
 " To see buffers/tabs in bottom airline bar
 Plug 'bling/vim-bufferline'
 
+" Templates
+" Plug 'tibabit/vim-templates'
+
 " fzf in vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" telescope
+Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
@@ -27,9 +56,14 @@ Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
 
 " for C# coding
 Plug 'OmniSharp/omnisharp-vim'
+"for C# code highlighting
+Plug 'dense-analysis/ale'
 
 " for webdev
 Plug 'ap/vim-css-color'
+
+" Debugger
+Plug 'puremourning/vimspector'
 
 " nerdtree for code structure
 Plug 'preservim/nerdtree'
@@ -40,10 +74,12 @@ Plug 'preservim/nerdcommenter'
 
 " collection of language packs
 Plug 'sheerun/vim-polyglot'
-" Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 call plug#end()
 
 syntax on
+
+
 " 
 " all set commands
 "
@@ -57,6 +93,7 @@ set expandtab
 set autoindent
 set number
 set relativenumber   
+set signcolumn=yes
 set showmode
 set ruler
 set showcmd
@@ -76,7 +113,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set so=7
-" set mouse=a
+set mouse=nvc
 set visualbell
 set t_vb=
 set history=1000
@@ -88,6 +125,8 @@ set updatetime=300
 set shortmess+=c
 set filetype=on
 set spelllang=en_US
+set wrap
+set linebreak
 " set shellcmdflag=-ic
 " set foldmethod=indent
 " set foldnestmax=1
@@ -104,19 +143,21 @@ command Wq wq
 command W w
 command Q q
 
-let mapleader = ","
-" for easier moving between windows
+let mapleader = " "
+" for easier moving between windows inside of vim
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-q> :q<CR>
 
-
+" auto indentation
+map <F7> gg=G<C-o><C-o>
 
 " for faster  access
 nmap \<Space> :
 inoremap ;; <Esc>
+inoremap .. <Esc>
 
 
 " Toggle spellchecker
@@ -128,14 +169,17 @@ map <leader>s :setlocal spell!<CR>
 "
 "
 " C#
-autocmd FileType cs  map <F5>      :w<CR>:!csc %<CR>:term mono %:r.exe<CR>
-autocmd FileType cs imap <F5> <Esc>:w<CR>:!csc %<CR>:term mono %:r.exe<CR>
+autocmd FileType cs  map <F2>      :w<CR>:!csc %<CR>:term mono %:r.exe<CR>
+autocmd FileType cs imap <F2> <Esc>:w<CR>:!csc %<CR>:term mono %:r.exe<CR>
 " Python
-autocmd FileType python  map <F5>      :w<CR>:term python3 %<CR>
-autocmd FileType python imap <F5> <Esc>:w<CR>:term python3 %<CR>
+autocmd FileType python  map <F2>      :w<CR>:term python3 %<CR>
+autocmd FileType python imap <F2> <Esc>:w<CR>:term python3 %<CR>
 " C++
-autocmd FileType cpp  map <F5>      :w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
-autocmd FileType cpp imap <F5> <Esc>:w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
+autocmd FileType cpp  map <F2>      :w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
+autocmd FileType cpp imap <F2> <Esc>:w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
+" Java
+autocmd FileType java  map <F2>      :w<CR>:!javac %<CR>:term java %:r<CR>
+autocmd FileType java imap <F2> <Esc>:w<CR>:!javac %<CR>:term java %:r<CR>
 
 " add lines above and below without going into insert mode
 nmap oo o<Esc>
@@ -174,8 +218,8 @@ let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:NERDTreeShowHidden=1
 
 " " Start NERDtree, unless file or session is specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 " same as above but open when directory specified
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
@@ -212,10 +256,13 @@ let g:neovide_cursor_trail_length=0.8
 "
 
 " extensions
-let g:coc_global_extensions = ['coc-pairs', 
+let g:coc_global_extensions = [
+            \'coc-pairs', 
             \'coc-pyright', 
-            \'coc-snippets',
+            \'coc-java',
+            \'coc-vimtex',
             \'coc-omnisharp',
+            \'coc-snippets',
             \'coc-prettier',
             \'coc-tabnine']
 
@@ -255,7 +302,6 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming
-nmap <F2> <Plug>(coc-rename)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Applying codeAction to the selected region
@@ -293,11 +339,12 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :ClangFormat
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Set keybindings for formatting code
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+vmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -348,8 +395,10 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-
+"
 " OmniSharp configurations
+"
+
 let g:OmniSharp_server_use_mono = 1
 
 let g:OmniSharp_selector_ui = 'fzf'
@@ -358,9 +407,10 @@ let g:OmniSharp_selector_findusages = 'fzf'
 " let g:OmniSharp_highlighting = 3
 
 
-" Copy pasted from https://github.com/OmniSharp/omnisharp-vim hope it works
+" Mostly copy pasted from https://github.com/OmniSharp/omnisharp-vim hope it works
 augroup omnisharp_commands
   autocmd!
+    
 
   " Show type information automatically when the cursor stops moving.
   " Note that the type is echoed to the Vim command line, and will overwrite
@@ -401,9 +451,9 @@ augroup omnisharp_commands
   autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
 augroup END
 
-
-
-
+let g:ale_linters = {
+        \ 'cs' : ['OmniSharp']
+      \ }
 
 
 "
@@ -416,3 +466,28 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmplyLines = 1
 let g:NEADToggleCheckAllLines = 1
+
+"
+" Telescope stuff
+"
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+
+"
+" Templates
+"
+
+autocmd BufNewFile *.cpp            0r ~/.config/nvim/templates/cpp.cpp
+
+
+"
+" Vimspector Configuration
+"
+
+let g:vimspector_enable_mappings = 'HUMAN'
