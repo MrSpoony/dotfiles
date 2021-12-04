@@ -206,3 +206,18 @@ Default Mapping      | Details
     <Leader>s            | Find(Search) {char} forward and backward.
                          | See |f| and |F|.
 
+
+JAVA GRADLE
+to create 
+gradle init
+to build
+gradle build
+to run 
+add mainClassName = project.findProperty("mainClass").toString() to build.gradle
+./gradlew run
+to run with input
+add run {
+    standardInput = System.in
+} to build.gradle
+and run with gradle -q --console plain run TASKNAME
+
