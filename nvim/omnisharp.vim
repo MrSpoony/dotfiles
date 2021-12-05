@@ -1,9 +1,3 @@
-call plug#begin('~/.vim/plugged')
-Plug 'OmniSharp/omnisharp-vim'
-call plug#end()
-
-
-
 let g:OmniSharp_server_use_mono = 1
 
 let g:OmniSharp_selector_ui = 'fzf'

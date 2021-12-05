@@ -4,6 +4,8 @@
 " compatible with vim 
 "
 "
+"
+"
 
 
 set nocompatible
@@ -25,7 +27,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'neovide/neovide'
 
 Plug 'rhysd/vim-clang-format'
+" Themes
+Plug 'dylanaraps/wal.vim'
 
+" for nicer bar at the bottom
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" To see buffers/tabs in bottom airline bar
+Plug 'bling/vim-bufferline'
 
 " Templates
 " Plug 'tibabit/vim-templates'
@@ -41,10 +50,15 @@ Plug 'nvim-lua/plenary.nvim'
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
 
+" autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " debugger
 " Plug 'cpiger/NeoDebug'
-" Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
 
+" for C# coding
+Plug 'OmniSharp/omnisharp-vim'
 "for C# code highlighting
 Plug 'dense-analysis/ale'
 
@@ -59,7 +73,8 @@ Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 " Repeat commands
 Plug 'tpope/vim-repeat'
 
-
+" nerdtree for code structure
+Plug 'preservim/nerdtree'
 " ranger for opening files easier
 Plug 'francoiscabrol/ranger.vim'
 " nerdcommenter
@@ -71,7 +86,6 @@ Plug 'lervag/vimtex'
 
 " Discord precense
 Plug 'andweeb/presence.nvim'
-
 
 call plug#end()
 
@@ -132,7 +146,18 @@ set undofile
 " set foldmethod=indent
 " set foldnestmax=1
 
-source ~/.config/nvim/colorscheme.vim
+" colorscheme theme stuff
+colorscheme wal
+
+highlight Comment cterm=italic
+
+source ~/.config/nvim/airline.vim
+source ~/.config/nvim/coc.vim
+source ~/.config/nvim/neovide.vim
+source ~/.config/nvim/nerdTree.vim
+source ~/.config/nvim/omnisharp.vim
+source ~/.config/nvim/runFiles.vim
+
 
 " If im dumb as shit
 command WQ wq
@@ -177,8 +202,6 @@ inoremap .. <Esc>
 " Toggle spellchecker
 map <leader>s :setlocal spell!<CR>
 
-source ~/.config/nvim/runFiles.vim
-
 
 " add lines above and below without going into insert mode
 nmap oo o<Esc>
@@ -205,17 +228,7 @@ noremap <Right> <Nop>
 " nnoremap l i|xnoremap l i
 
 
-
-source ~/.config/nvim/nerdTree.vim
-
-source ~/.config/nvim/airline.vim
-
-source ~/.config/nvim/neovide.vim
-
-source ~/.config/nvim/coc.vim
-
-source ~/.config/nvim/omnisharp.vim
-
+nmap <leader>u :UndotreeToggle<CR>
 
 "
 " Nerdcommenter stuff
