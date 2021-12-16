@@ -23,7 +23,6 @@ typedef vector<lint> VI;
 typedef vector<PII> VII;
 typedef vector<string> VS;
 typedef vector<VI> VVI;
-typedef vector<VII> VVVI;
 
 
 

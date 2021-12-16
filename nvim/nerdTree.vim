@@ -1,6 +1,6 @@
 " Shortcuts
 nmap <leader>u :UndotreeToggle<CR>
-map <C-b> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFocus<CR>
 
 " Settings
