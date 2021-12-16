@@ -7,6 +7,9 @@ $HOME/.config/polybar/launch.sh &
 # Compositor picom
 picom --backend glx &
 
+# Start session
+lxsession &
+
 # x-commands
 # keyboard layout colemak and repetitive CapsLock/Backspace presses
 setxkbmap us -variant colemak &
@@ -72,3 +75,4 @@ bspc config pointer_action2 resize_corner
 # bspc rule -a Spotify desktop='^10'
 bspc rule -a firefox dektop='^3' follow=on
 bspc rule -a Firefox dektop='^3' follow=on
+bash /home/kimil/.config/bspwm/bspwm_colors.sh &
