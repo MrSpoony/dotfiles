@@ -10,4 +10,6 @@ autocmd FileType cpp imap <F2> <Esc>:w<CR>:!g++ % -o %:r<CR>:term ./%:r<CR>
 " Java
 autocmd FileType java  map <F2>      :w<CR>:!javac %<CR>:term java %:r<CR>
 autocmd FileType java imap <F2> <Esc>:w<CR>:!javac %<CR>:term java %:r<CR>
-
+" Latex
+autocmd FileType tex  map <F2>      :w<CR>:!pdflatex %<CR>
+autocmd FileType tex imap <F2> <Esc>:w<CR>:!pdflatex %<CR>

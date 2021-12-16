@@ -1,11 +1,9 @@
 let g:coc_global_extensions = [
-            \'coc-pairs', 
             \'coc-markdownlint',
             \'coc-pyright', 
             \'coc-java',
             \'coc-vimtex',
             \'coc-omnisharp',
-            \'coc-snippets',
             \'coc-prettier',
             \'coc-tabnine']
 

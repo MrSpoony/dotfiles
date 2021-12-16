@@ -36,16 +36,16 @@ Plug 'vim-airline/vim-airline-themes'
 " To see buffers/tabs in bottom airline bar
 Plug 'bling/vim-bufferline'
 
+" For better auto pairinp brackets
+Plug 'jiangmiao/auto-pairs'
+
+
 " Templates
 " Plug 'tibabit/vim-templates'
 
 " fzf in vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" telescope
-Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
 
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
@@ -77,16 +77,30 @@ Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
 " ranger for opening files easier
 Plug 'francoiscabrol/ranger.vim'
-" nerdcommenter
-Plug 'preservim/nerdcommenter'
+
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+
+" Comments
+Plug 'tpope/vim-commentary'
+
 
 " collection of language packs
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 
+" Git integration
+Plug 'tpope/vim-fugitive'
+
+
 " Discord precense
 Plug 'andweeb/presence.nvim'
 
+" Snippet stuff
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 filetype plugin on
@@ -157,7 +171,8 @@ source ~/.config/nvim/neovide.vim
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
-
+source ~/.config/nvim/ultisnips.vim
+source ~/.config/nvim/vimtex.vim
 
 " If im dumb as shit
 command WQ wq
@@ -196,7 +211,6 @@ map <F7> gg=G<C-o><C-o>
 " for faster  access
 nmap \<Space> :
 inoremap ;; <Esc>
-inoremap .. <Esc>
 
 
 " Toggle spellchecker
@@ -212,59 +226,18 @@ map <f3> :noh<CR>
 
 
 
-" Disable arrow keys cause I shall better learn those hjkl commands in colemak
-" or use colemak maps
+" Disable arrow keys cause I shall better learn those hjkl commands with colemak
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" nnoremap h h|xnoremap h h
-" nnoremap n j|xnoremap n j
-" nnoremap e k|xnoremap e k
-" nnoremap i l|xnoremap i l
-" nnoremap j e|xnoremap j e
-" nnoremap k n|xnoremap k n
-" nnoremap l i|xnoremap l i
-
 
 nmap <leader>u :UndotreeToggle<CR>
-
-"
-" Nerdcommenter stuff
-"
-
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCommentEmplyLines = 1
-let g:NEADToggleCheckAllLines = 1
-
-"
-" Telescope stuff
-"
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-
 
 "
 " Templates
 "
 
+" C++ template
 autocmd BufNewFile *.cpp            0r ~/.config/nvim/templates/cpp.cpp
-
-
-"
-" Vimspector Configuration
-"
-
-" let g:vimspector_enable_mappings = 'HUMAN'
-" let g:vimspector_install_gadgets = [
-"         \ 'debugpy'
-"       \ ]
