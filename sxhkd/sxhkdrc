@@ -15,10 +15,10 @@ super + shift + e
 	xsecurelock
 
 # open browsers
-# opera
+# brave
 super + shift + Return
-    opera
-# firefox
+    brave
+    # firefox
 super + alt + Return
     firefox
 
@@ -124,14 +124,14 @@ super + F1
 
 # BrightnessControl
 XF86MonBrightnessUp
-    light -A 5
+    xbacklight -inc 5
 super + F7
-    light -A 5
+    xbacklight -inc 5
 
 XF86MonBrightnessDown
-	light -U 5
+    xbacklight -dec 5
 super + F6
-    light -U 5
+    xbacklight -dec 5
 
 
 # bspwm hotkeys
