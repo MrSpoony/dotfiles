@@ -6,6 +6,7 @@ $HOME/.config/polybar/launch.sh &
 
 # Compositor picom
 picom --backend glx &
+pulseaudio &
 
 # Start session
 lxsession &
