@@ -5,8 +5,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/polybar/launch.sh &
 
 # Compositor picom
-picom --backend glx &
-pulseaudio &
+# picom --backend glx &
+picom --experimental-backends &
 
 # Start session
 lxsession &
@@ -20,10 +20,8 @@ xset r 66 & # set repetitive backspace on CapsLock
 xset r rate 180 85 & # set repetitive keyboardpresses faster
 
 # set tapping and natural scrolling on touchpad
-xinput set-prop 12 "libinput Tapping Enabled" 1 &
-xinput set-prop 12 "libinput Natural Scrolling Enabled" 1 &
-xinput set-prop 17 "libinput Tapping Enabled" 1 &
-xinput set-prop 17 "libinput Natural Scrolling Enabled" 1 &
+xinput set-prop "DLL0945:00 04F3:311C Touchpad" "libinput Tapping Enabled" 1 &
+xinput set-prop "DLL0945:00 04F3:311C Touchpad" "libinput Natural Scrolling Enabled" 1 &
 
 # set cursor
 xsetroot -cursor_name crosshair &
