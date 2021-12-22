@@ -156,7 +156,12 @@ set wrap
 set linebreak
 set wildmode=longest:full,full
 set undofile
+
+
+" If i want to use my aliases in vimterminal
 " set shellcmdflag=-ic
+"
+" Indenting 
 " set foldmethod=indent
 " set foldnestmax=1
 
@@ -180,50 +185,21 @@ command Wq wq
 command W w
 command Q q
 
+inoremap :w<CR> <Esc>:w<CR>
+inoremap :q<CR> <Esc>:q<CR>
+inoremap :q!<CR> <Esc>:q!<CR>
+
+
+" Set mapleader to space
 let mapleader = " "
+
+
 " for easier moving between windows inside of vim
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
-map <C-q> :q<CR>
-
 nnoremap <C-t> :tabnew<CR>
-
-
-nnoremap Y y$
-
-nnoremap n nzz
-nnoremap N Nzz
-
-
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
-
-
-" auto indentation
-map <F7> gg=G<C-o><C-o>
-
-" for faster  access
-nmap \<Space> :
-inoremap ;; <Esc>
-
-
-" Toggle spellchecker
-map <leader>s :setlocal spell!<CR>
-
-
-" add lines above and below without going into insert mode
-nmap oo o<Esc>
-nmap OO O<Esc>
-
-" reset highlighting of search
-map <f3> :noh<CR>
-
 
 
 " Disable arrow keys cause I shall better learn those hjkl commands with colemak
@@ -233,7 +209,58 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 
-nmap <leader>u :UndotreeToggle<CR>
+" It just makes sense
+nnoremap Y y$
+
+
+" Search results always in the middle
+nnoremap n nzz
+nnoremap N Nzz
+
+
+" add lines above and below without going into insert mode
+nmap oo o<Esc>
+nmap OO O<Esc>
+
+
+" reset highlighting of search
+map <f3> :noh<CR>
+
+
+" currently just testing
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+
+vnoremap j gj
+vnoremap gj j
+vnoremap k gk
+vnoremap gk k
+
+" Move lines around
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+
+" auto indentation
+map <F7> gg=G<C-o><C-o>
+
+
+" for faster  access
+" maybe deleting it because I never use it...
+nmap \<Space> :
+
+
+
+" Toggle spellchecker
+" Also not really using it currently
+map <leader>s :setlocal spell!<CR>
+
 
 "
 " Templates
