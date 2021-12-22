@@ -18,13 +18,13 @@ snippet textemp "Latex Template" bA
 \author{$2}
 
 \begin{document}
-	$0
+$0
 \end{document}
 endsnippet
 
 snippet beg "\begin{} / \end{}" bA
 \begin{$1}
-	$0
+$0
 \end{$1}
 endsnippet
 
@@ -85,7 +85,7 @@ endsnippet
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
-\] $0
+.\] $0
 endsnippet
 
 
@@ -98,7 +98,6 @@ endsnippet
 snippet / "Fraction" iA
 \\frac{${VISUAL}}{$1}$0
 endsnippet
-
 
 context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
@@ -120,8 +119,6 @@ while True:
 snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
 `{$1}$0
 endsnippet
-
-
 snippet != "equals" iA
 \neq 
 endsnippet
