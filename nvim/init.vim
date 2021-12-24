@@ -178,6 +178,7 @@ source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/vimtex.vim
+source ~/.config/nvim/undotree.vim
 
 " If im dumb as shit
 command WQ wq
