@@ -27,7 +27,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias clear="clear; if ((\$RANDOM % 2)); then; colorscript random; else; fastfetch; fi;"
+alias clear='echo -en "\x1b[2J\x1b[1;1H"; if (($RANDOM % 2)); then; colorscript random; else; fastfetch; fi;'
 alias claer="clear"
 alias cls="clear"
 alias clearl="clear; la"
@@ -116,12 +116,13 @@ alias sus="setxkbmap us"
 alias scol="setxkbmap us -variant colemak"
 
 # misstypes to sl
-alias suod="sl"
-alias ext="sl"
-alias xeit="sl"
-alias exti="sl"
-alias cim="sl"
-alias vin="sl"
+# Currently deactiaveted
+alias suod="sudo"
+alias ext="exit"
+alias xeit="exit"
+alias exti="exit"
+alias cim="vim"
+alias vin="vim"
 
 # dumb stuff
 alias discord="Discord"
