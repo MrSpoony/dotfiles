@@ -38,13 +38,12 @@ super + space
 super + shift + space
     rofi -show drun
 
+# Wifi menus
+super + w
+    ~/apps/rofi-wifi-menu/rofi-wifi-menu.sh
 # open clipmenu
 super + v
 	clipmenu
-
-# open wlan menu
-super + w
-    networkmanager_dmenu
 
 # open bitwarden menu
 super + b
@@ -62,9 +61,16 @@ super + alt + Escape
 super + n
 	wpg -s ~/.config/wallpapers ; pywal-discord -t abou # ; spicetify apply	
 
-# black background
+# no transparency
 super + u
-    feh --bg-fill ~/.config/wallpapers/black/black.jpg
+    picom-trans -c 100
+
+# revert it
+super + shift + u
+    picom-trans -c -r
+
+    # feh --bg-fill ~/.config/wallpapers/black/black.jpg
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -183,7 +189,7 @@ super + bracket{left,right}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 alt + Tab
-    bspc desktop -f last
+    bspc node -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
