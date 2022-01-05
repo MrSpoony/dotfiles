@@ -21,4 +21,6 @@ export TERMINAL="$TERM"
 
 # for wine idk why but it helps
 export _JAVA_AWT_WM_NONPARENTING=1
+export _JAVA_AWT_WM_NONREPARTENTING=1
+
 export QT_STYLE_OVERRIDE=gtk2
