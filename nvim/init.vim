@@ -171,14 +171,16 @@ colorscheme wal
 highlight Comment cterm=italic
 
 source ~/.config/nvim/airline.vim
+source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/neovide.vim
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
-source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/vimtex.vim
 source ~/.config/nvim/undotree.vim
+
+
 
 " If im dumb as shit
 command WQ wq
@@ -194,6 +196,10 @@ inoremap :q!<CR> <Esc>:q!<CR>
 " Set mapleader to space
 let mapleader = " "
 
+" Trying to remap <C-p> for moving between snippet results to <C-e>
+" imap <C-e> <C-p>
+" inoremap <expr><C-p> pumvisible() ? "\<C-e>" : "\<C-p>"
+inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " for easier moving between windows inside of vim
 nnoremap <C-j> <C-W>j
