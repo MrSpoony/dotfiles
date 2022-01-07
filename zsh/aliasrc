@@ -27,7 +27,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias clear='echo -en "\x1b[2J\x1b[1;1H"; if (($RANDOM % 2)); then; colorscript random; else; fastfetch; fi;'
+alias clear="clear; ~/.config/zsh/clearcommand.sh"
 alias claer="clear"
 alias cls="clear"
 alias clearl="clear; la"
@@ -36,6 +36,7 @@ alias clearall="nextbackground; /bin/clear; colorscript random; echo ; fastfetch
 alias {clsall,cleall,cla}="/bin/clear; colorscript random; echo ; fastfetch"
 alias clea="/bin/clear; colorscript random"
 alias cle="/bin/clear; fastfetch"
+alias cl="/bin/clear; rxfetch"
 
 # pacman and yay update etc.
 alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
@@ -116,13 +117,12 @@ alias sus="setxkbmap us"
 alias scol="setxkbmap us -variant colemak"
 
 # misstypes to sl
-# Currently deactiaveted
-alias suod="sudo"
-alias ext="exit"
-alias xeit="exit"
-alias exti="exit"
-alias cim="vim"
-alias vin="vim"
+alias suod="sl"
+alias ext="sl"
+alias xeit="sl"
+alias exti="sl"
+alias cim="sl"
+alias vin="sl"
 
 # dumb stuff
 alias discord="Discord"
