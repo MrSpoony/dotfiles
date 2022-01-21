@@ -248,10 +248,10 @@ vnoremap gk k
 " Move lines around
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
+inoremap <A-j> <esc>:m .+1<CR>==
+inoremap <A-k> <esc>:m .-2<CR>==
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 
 
 " auto indentation
