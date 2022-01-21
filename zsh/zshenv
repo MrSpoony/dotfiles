@@ -13,7 +13,7 @@ export XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
 export XSECURELOCK_PASSWORD_PROMPT="cursor"
 export XSECURELOCK_COMPOSITE_OBSCURER=0
 
-# editor to vim
+# editor to neovim
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -22,5 +22,17 @@ export TERMINAL="$TERM"
 # for wine idk why but it helps
 export _JAVA_AWT_WM_NONPARENTING=1
 export _JAVA_AWT_WM_NONREPARTENTING=1
+# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+
+export SAVEHIST=1000000000
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export HISTFILE=~/.zsh_history
+
 
 export QT_STYLE_OVERRIDE=gtk2
+
+# for go programming
+export GOPATH="/home/kimil/code/go"
+export GOMODCACHE="/home/kimil/code/go/pkg/mod"
