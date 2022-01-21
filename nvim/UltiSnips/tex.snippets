@@ -1,4 +1,5 @@
 global !p
+
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 def comment(): 
@@ -15,10 +16,12 @@ snippet textemp "Latex Template" bA
 \usepackage[ngerman]{babel}
 
 \title{$1}
-\author{$2}
+\author{Kimi Löffel}
 
 \begin{document}
+
 $0
+
 \end{document}
 endsnippet
 
@@ -95,6 +98,7 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+context "math()"
 snippet / "Fraction" iA
 \\frac{${VISUAL}}{$1}$0
 endsnippet
