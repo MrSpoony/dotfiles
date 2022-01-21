@@ -35,8 +35,9 @@ alias cll="clear;ll"
 alias clearall="nextbackground; /bin/clear; colorscript random; echo ; fastfetch"
 alias {clsall,cleall,cla}="/bin/clear; colorscript random; echo ; fastfetch"
 alias clea="/bin/clear; colorscript random"
-alias cle="/bin/clear; fastfetch"
-alias cl="/bin/clear; rxfetch"
+alias clef="/bin/clear; fastfetch"
+alias cler="/bin/clear; rxfetch"
+alias clep="/bin/clear; pfetch"
 
 # pacman and yay update etc.
 alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
@@ -47,6 +48,7 @@ alias yaysyu="yay -Syu --noconfirm"
 alias zshrc="vim ~/.zshrc"
 alias zshenv="vim ~/.zshenv"
 alias aliasrc="vim ~/.aliasrc"
+alias startuprc="vim ~/.config/zsh/startup.sh"
 alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
 alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias nvimrc="vim ~/.config/nvim/init.vim"
@@ -69,6 +71,7 @@ alias louder="amixer set Master 5%+ unmut"
 alias quieter="amixer set Master 5%- unmut"
 
 # kinda like PATH but without PATH cause I'm to lazy to add it to the PATH
+alias doom="~/.emacs.d/bin/doom"
 alias beook="wine ~/.wine/drive_c/Apps/beook/beook.exe"
 # "new" commands/easier access/easier to remember
 alias sizeofall="du -shc ./*"
@@ -78,7 +81,6 @@ alias neofetch="fastfetch"
 
 alias newbackground="wpg -s ~/.config/wallpapers"
 alias nextbackground="wpg -s ~/.config/wallpapers; pywal-discord -t abou"
-alias spotify="spicetify apply; spotify"
 alias netmgr="networkmanager_dmenu"
 alias py="python3"
 
@@ -125,6 +127,7 @@ alias xeit="exit"
 alias exti="exit"
 alias cim="vim"
 alias vin="vim"
+alias clac="calc"
 
 # dumb stuff
 alias discord="Discord"
