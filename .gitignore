@@ -7,6 +7,9 @@
 !/alacritty/
 !/bspwm/
 !/dunst/
+!/doom/
+!/qtile/
+/qtile/__pycache__/
 !/nvim/
 !/polybar/
 !/rofi/
