@@ -75,6 +75,13 @@ tar -zxvf archive-name.tar.gz
 difference is the c and the x (c for compress x for extract)
 
 
+BASH
+convert all svgs in folder to pngs
+for i in *.svg; do
+inkscape -w 2500 -h 3500 $i -o $(basename $i .svg)$(echo ".png")
+done;
+
+
 GRUB
 grub-customizer mit sudo
 
@@ -207,6 +214,13 @@ Default Mapping      | Details
                          | See |f| and |F|.
 
 
+DOOM EMACS Cheatsheet
+
+SPC o n -> Neotree
+SPC o t -> Terminal
+
+
+
 JAVA GRADLE
 to create 
 gradle init
@@ -220,4 +234,3 @@ add run {
     standardInput = System.in
 } to build.gradle
 and run with gradle -q --console plain run TASKNAME
-
