@@ -33,10 +33,10 @@ super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12}
 
 # program launcher
 super + space
-	rofi -show run
+	rofi -show drun
 
 super + shift + space
-    rofi -show drun
+    rofi -show run
 
 # Wifi menus
 super + w
