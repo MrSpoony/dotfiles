@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kimil/.config/wallpapers/0120.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#070609",
+        "foreground": "#e4d5b8",
+        "cursor": "#e4d5b8"
+    },
+    "colors": {
+        "color0": "#070609",
+        "color1": "#8F4C26",
+        "color2": "#AE6928",
+        "color3": "#A76334",
+        "color4": "#D59034",
+        "color5": "#BA9763",
+        "color6": "#DEAA5D",
+        "color7": "#e4d5b8",
+        "color8": "#9f9580",
+        "color9": "#8F4C26",
+        "color10": "#AE6928",
+        "color11": "#A76334",
+        "color12": "#D59034",
+        "color13": "#BA9763",
+        "color14": "#DEAA5D",
+        "color15": "#e4d5b8"
+    }
+}
