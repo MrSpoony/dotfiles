@@ -1,6 +1,6 @@
 #!/bin/sh
 
-.config/zsh/startup.sh
+.config/zsh/startupbspwm.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -22,6 +22,5 @@ bspc config pointer_action2 resize_corner
 # bspc config external_rules_command "${HOME}/.config/bspwm/external_rules"
 
 # bspc rule -a Spotify desktop='^10'
-bspc rule -a firefox dektop='^3' follow=on
-bspc rule -a Firefox dektop='^3' follow=on
+bspc rule -a Emacs state=fullscreen
 bash /home/kimil/.config/bspwm/bspwm_colors.sh &
