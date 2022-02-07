@@ -46,10 +46,6 @@ super + w
 super + v
 	clipmenu
 
-# open bitwarden menu
-super + b
-    bwmenu
-
 # open power-menu
 super + alt + Escape
     rofi -show power-menu -modi power-menu:rofi-power-menu 
@@ -83,7 +79,6 @@ super + n
 # Colorful color scheme
 super + b
 	wpg -s ~/.config/wallpapers/colorful/colorful02.jpg ; # pywal-discord -t abou # ; spicetify apply	
-    
 
 # no transparency
 super + u
