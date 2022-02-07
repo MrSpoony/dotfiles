@@ -63,6 +63,9 @@ Plug 'dense-analysis/ale'
 " for webdev
 Plug 'ap/vim-css-color'
 
+" for SQL
+Plug 'exu/pgsql.vim'
+
 " for gradle stuff
 Plug 'hdiniz/vim-gradle'
 
@@ -188,6 +191,7 @@ source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
 source ~/.config/nvim/vimtex.vim
+source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
 
 
