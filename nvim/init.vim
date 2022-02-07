@@ -6,8 +6,6 @@
 "
 "
 "
-
-
 set nocompatible
 
 "
@@ -65,6 +63,9 @@ Plug 'dense-analysis/ale'
 " for webdev
 Plug 'ap/vim-css-color'
 
+" for gradle stuff
+Plug 'hdiniz/vim-gradle'
+
 " Debugger
 " Plug 'puremourning/vimspector'
 
@@ -75,6 +76,8 @@ Plug 'tpope/vim-repeat'
 
 " nerdtree for code structure
 Plug 'preservim/nerdtree'
+" Icons for nerdtree
+Plug 'ryanoasis/vim-devicons'
 " ranger for opening files easier
 Plug 'francoiscabrol/ranger.vim'
 
@@ -93,10 +96,15 @@ Plug 'lervag/vimtex'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+" Better git integration ig
+Plug 'airblade/vim-gitgutter'
 
 
 " Discord precense
 Plug 'andweeb/presence.nvim'
+
+" Time counting and stuff
+Plug 'wakatime/vim-wakatime'
 
 " Snippet stuff
 Plug 'SirVer/ultisnips'
@@ -148,7 +156,7 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 set cmdheight=2
-set updatetime=300
+set updatetime=100
 set shortmess+=c
 set filetype=on
 set spelllang=en_US
@@ -156,6 +164,7 @@ set wrap
 set linebreak
 set wildmode=longest:full,full
 set undofile
+set modifiable
 
 
 " If i want to use my aliases in vimterminal
@@ -173,6 +182,7 @@ highlight Comment cterm=italic
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/gitgutter.vim
 source ~/.config/nvim/neovide.vim
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
