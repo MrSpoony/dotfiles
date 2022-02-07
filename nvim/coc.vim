@@ -1,11 +1,17 @@
 let g:coc_global_extensions = [
-            \'coc-markdownlint',
             \'coc-pyright', 
+            \'coc-eslint',
+            \'coc-tsserver',
+            \'coc-html',
+            \'coc-json',
             \'coc-java',
             \'coc-vimtex',
+            \'coc-markdownlint',
             \'coc-omnisharp',
             \'coc-prettier',
+            \'coc-pairs',
             \'coc-tabnine']
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

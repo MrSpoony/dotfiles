@@ -8,6 +8,7 @@ let g:NERDTreeHijackNetrw = 0 "// add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 "// open ranger when vim open a directory
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 let g:NERDTreeShowHidden=1
+let NERDTreeWinSize=50
 
 " " Start NERDtree, unless file or session is specified
 autocmd StdinReadPre * let s:std_in=1
