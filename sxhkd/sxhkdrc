@@ -28,7 +28,7 @@ super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12}
 
 
 #
-# rofi launch stuff
+# rofi stuff
 # 
 
 # program launcher
@@ -38,9 +38,10 @@ super + space
 super + shift + space
     rofi -show run
 
-# Wifi menus
+# Wifi menu
 super + w
     ~/apps/rofi-wifi-menu/rofi-wifi-menu.sh
+
 # open clipmenu
 super + v
 	clipmenu
@@ -53,22 +54,36 @@ super + b
 super + alt + Escape
     rofi -show power-menu -modi power-menu:rofi-power-menu 
 
+super + a
+    rofi -show calc -modi calc -no-show-match -no-sort
+
+super + e
+    rofi_trans
+
+super + i
+    rofimoji -f all
+
+super + shift + i
+    rofi -show emoji
+
+super + y
+    rofi-spotify
+
 #
 # launch stuff/scripts, reload stuff etc. 
 #
 
 # next background
 super + n
-	wpg -s ~/.config/wallpapers ; pywal-discord -t abou # ; spicetify apply	
+	wpg -s ~/.config/wallpapers ; # pywal-discord -t abou # ; spicetify apply	
 
 # no transparency
 super + u
     picom-trans -c 100
 
-# revert it
+# revert it / add transparency again
 super + shift + u
     picom-trans -c -r
-
     # feh --bg-fill ~/.config/wallpapers/black/black.jpg
 
 # make sxhkd reload its configuration files:
@@ -81,23 +96,16 @@ super + shift + Escape
 
 # reload spotifyd
 super + shift + d
-    spotifyd --no-daemon --device-name test
+    spotifyd --no-daemon --device-name spotifydDellXPS15
 
 # quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+super + alt + q
+    bspc quit 1 && pkill polybar && pkill picom
 
-# stop picom
-super + p
-    killall -9 picom
+super + alt + r
+	bspc wm -r
 
-# start picom again
-    picom --backend glx
-
-#
-# Mullvad
-#
-
+# Mullvad connect and disconnect respectively with shift
 super + c
     mullvad connect
 
@@ -148,34 +156,25 @@ XF86MonBrightnessDown
 super + F6
     xbacklight -dec 5
 
-
-# bspwm hotkeys
+#
+# state/flags
 #
 
 # close and kill
 super + shift + q    
 	bspc node -c
 
-# alternate between the tiled and monocle layout
-super + {f, m}
-	bspc desktop -l next
-
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
-
-#
-# state/flags
-#
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# # set the node flags
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
 
 
 #
@@ -193,14 +192,14 @@ super + bracket{left,right}
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
-alt + Tab
+alt + {grave,Tab}
     bspc node -f last
 
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+# # focus the older or newer node in the focus history
+# super + {o,i}
+# 	bspc wm -h off; \
+# 	bspc node {older,newer} -f; \
+# 	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
