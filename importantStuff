@@ -234,3 +234,16 @@ add run {
     standardInput = System.in
 } to build.gradle
 and run with gradle -q --console plain run TASKNAME
+
+
+GO
+To create create structure in ~/code/go/src
+e.g. ~/code/go/src/github.com/MrSpoony/test/test.go
+then run go install this_path
+then run the executable in the ~/code/go/bin folder
+important go env:
+GOPATH="/home/kimil/code/go"                # Important
+GOBIN="/home/kimil/code/go/bin"             # Important
+GOROOT="/usr/lib/go"                        # Very important but default value
+GOENV="/home/kimil/.config/go/env"          # Idk don't think it's important
+GOMODCACHE="/home/kimil/code/go/pkg/mod"    # Idk i guess rather less important
