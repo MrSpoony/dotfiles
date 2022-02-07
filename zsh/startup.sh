@@ -2,8 +2,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-$HOME/.config/polybar/launch.sh &
-
 # Compositor picom
 # picom --backend glx &
 picom --experimental-backends &
@@ -30,20 +28,21 @@ xsetroot -cursor_name crosshair &
 xset s 600 5 &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
-# first add all the wallpapers then apply a random wallpaper including the theme
-wpg -s ~/.config/wallpapers &
-pywal-discord -t abou &
-
 # start clients like clipmenu, dunst, vpn etc 
-# clipmenud &
+clipmenud &
 dunst &
 # mullvad connect &
 
 # start spotifyd clients
 spotifyd --no-daemon --device-name spotifydDellXPS15 &
+cd /opt/whoogle-search/
+./run & 
 
+# eval $(gnome-keyring-daemon --start) &
+# export SSH_AUTH_SOCK &
 
 wmname LG3D &
+
 
 # copied from https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643 for github auth in vscode/vscode-insiders for setting-sync etc
 # init keyring
