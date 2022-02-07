@@ -6,8 +6,8 @@ alias ll="exa -l --color=always --group-directories-first"
 alias la="exa -la --color=always --group-directories-first"
 
 # remove commands
+alias rm="trash -i"
 alias rf="rm -rf"
-alias rm="rm -i"
 
 # confirm before overwriting stuff
 alias cp="cp -i"
@@ -74,9 +74,6 @@ alias unmute="amixer sset Master unmute; pactl set-sink-mute 0 0"
 alias louder="amixer set Master 5%+ unmut"
 alias quieter="amixer set Master 5%- unmut"
 
-# kinda like PATH but without PATH cause I'm to lazy to add it to the PATH
-alias doom="~/.emacs.d/bin/doom"
-alias beook="wine ~/.wine/drive_c/Apps/beook/beook.exe"
 # "new" commands/easier access/easier to remember
 alias sizeofall="du -shc ./*"
 alias battery="cat /sys/class/power_supply/BAT0/capacity"
@@ -108,8 +105,7 @@ alias fucking="sudo $(history -p !!)"
 # shorted commands
 alias :wq="exit"
 alias :q="exit"
-alias c="dbus-launch code .;exit"
-alias ci="dbus-launch code-insiders .;exit"
+alias c="dbus-launch codium .;exit"
 alias v="nvim ./"
 alias n="nautilus .;exit"
 alias cm="clipmenu"
@@ -117,6 +113,11 @@ alias diff="colordiff"
 alias lol="lolcat"
 alias open="xdg-open "
 # alias s="startx"
+
+# simply usefull
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+alias shutdown="sudo shutdown"
 
 # set layouts (s for setxkbmap)
 alias sus="setxkbmap us"
@@ -153,5 +154,5 @@ alias gdiff="git diff" # diff is its own command so gdiff it is
 alias gsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
-alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
-alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+alias rickroll="~/.config/zsh/roll.sh"
+alias rr="~/.config/zsh/roll.sh"
