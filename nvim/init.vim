@@ -12,13 +12,6 @@ set nocompatible
 " Plugin installation
 "
 
-" Install vim-plug if it isn't already installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin('~/.vim/plugged')
 
 " neovide
@@ -27,10 +20,15 @@ Plug 'neovide/neovide'
 Plug 'rhysd/vim-clang-format'
 " Themes
 Plug 'dylanaraps/wal.vim'
+Plug 'joshdick/onedark.vim'
+
+" Dashboard when opening neovim
+Plug 'glepnir/dashboard-nvim'
 
 " for nicer bar at the bottom
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 " To see buffers/tabs in bottom airline bar
 Plug 'bling/vim-bufferline'
 
@@ -38,12 +36,22 @@ Plug 'bling/vim-bufferline'
 Plug 'jiangmiao/auto-pairs'
 
 
-" Templates
+
+" For better Tab display
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+
+" " Templates
 " Plug 'tibabit/vim-templates'
 
-" fzf in vim
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" " fzf in vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+
+" Telescope plugin
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
@@ -78,11 +86,15 @@ Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'tpope/vim-repeat'
 
 " nerdtree for code structure
-Plug 'preservim/nerdtree'
-" Icons for nerdtree
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'ryanoasis/vim-devicons'
+
 " ranger for opening files easier
-Plug 'francoiscabrol/ranger.vim'
+" Plug 'francoiscabrol/ranger.vim'
 
 
 " Treesitter
@@ -121,7 +133,6 @@ syntax on
 " 
 " all set commands
 "
-set background=dark
 set clipboard=unnamed,unnamedplus
 set nospell
 set shiftwidth=4
@@ -178,23 +189,45 @@ set modifiable
 " set foldnestmax=1
 
 " colorscheme theme stuff
-colorscheme wal
+set background=dark
+set termguicolors
+" colorscheme wal
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+colorscheme onedark
 
 highlight Comment cterm=italic
 
 source ~/.config/nvim/airline.vim
+source ~/.config/nvim/dashboard.vim
+source ~/.config/nvim/barbar.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/gitgutter.vim
 source ~/.config/nvim/neovide.vim
+source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
 source ~/.config/nvim/vimtex.vim
 source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
-
-
 
 " If im dumb as shit
 command WQ wq
@@ -208,7 +241,8 @@ inoremap :q!<CR> <Esc>:q!<CR>
 
 
 " Set mapleader to space
-let mapleader = " "
+let mapleader =","
+" let mapleader = <20>
 
 " Trying to remap <C-p> for moving between snippet results to <C-e>
 " imap <C-e> <C-p>

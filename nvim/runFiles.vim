@@ -2,7 +2,7 @@
 autocmd FileType cs  map <F2>      :w<CR>:!csc %<CR>:term mono %:r.exe<CR>
 autocmd FileType cs imap <F2> <Esc>:w<CR>:!csc %<CR>:term mono %:r.exe<CR>
 " Python
-autocmd FileType python map <buffer> <F2> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python  map <buffer>  <F2>     :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F2> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 " C++
 autocmd FileType cpp  map <F2>      :w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:term ./%:r<CR>
