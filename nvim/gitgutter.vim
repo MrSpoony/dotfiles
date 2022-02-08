@@ -1,1 +1,1 @@
-autocmd VimEnter * :GitGutterEnable<CR>
+autocmd VimEnter * GitGutterEnable

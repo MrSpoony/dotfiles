@@ -1,6 +1,6 @@
 " Shortcuts
 nmap <leader>u :UndotreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
+map <C-y> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFocus<CR>
 
 " Settings
@@ -12,7 +12,7 @@ let NERDTreeWinSize=50
 
 " " Start NERDtree, unless file or session is specified
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 " same as above but open when directory specified
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
