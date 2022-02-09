@@ -190,7 +190,6 @@ set modifiable
 
 " colorscheme theme stuff
 set background=dark
-set termguicolors
 " colorscheme wal
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -210,7 +209,7 @@ if (empty($TMUX))
 endif
 
 
-colorscheme onedark
+ colorscheme onedark
 
 highlight Comment cterm=italic
 
