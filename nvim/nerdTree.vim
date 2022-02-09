@@ -1,5 +1,4 @@
 " Shortcuts
-nmap <leader>u :UndotreeToggle<CR>
 map <C-y> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFocus<CR>
 
