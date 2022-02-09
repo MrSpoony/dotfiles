@@ -1,16 +1,23 @@
 let g:coc_global_extensions = [
             \'coc-pyright', 
+            \'coc-kite',
             \'coc-eslint',
             \'coc-tsserver',
             \'coc-html',
             \'coc-json',
+            \'coc-json',
             \'coc-java',
+            \'coc-sql',
             \'coc-vimtex',
             \'coc-markdownlint',
             \'coc-omnisharp',
             \'coc-prettier',
             \'coc-pairs',
-            \'coc-tabnine']
+            \'coc-ultisnips',
+            \'coc-tabnine',
+            \'coc-dictionary',
+            \'coc-word',
+            \'coc-emoji']
 
 
 " Use tab for trigger completion with characters ahead and navigate.
