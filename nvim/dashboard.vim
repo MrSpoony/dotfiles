@@ -10,11 +10,13 @@ nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
 nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
 nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
 nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+
+" highlight dashboardHeader ctermfg=255
 " let g:dashboard_preview_command = 'cat /home/kimil/.config/nvim/dashboard/neovim.cat'
 " let g:dashboard_preview_pipeline = 'lolcat'
 " let g:bashboard_preview_file = ' /home/kimil/.config/nvim/dashboard/neovim.cat'
-" let g:dashboard_preview_file_height = 12
-" let g:dashboard_preview_file_width = 80
+let g:dashboard_preview_file_height = 12
+let g:dashboard_preview_file_width = 80
 let g:dashboard_custom_header = [
 \ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
 \ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
