@@ -180,6 +180,9 @@ set wildmode=longest:full,full
 set undofile
 set modifiable
 
+" Set mapleader to space
+let mapleader =" "
+" let mapleader = <20>
 
 " If i want to use my aliases in vimterminal
 " set shellcmdflag=-ic
@@ -239,9 +242,6 @@ inoremap :q<CR> <Esc>:q<CR>
 inoremap :q!<CR> <Esc>:q!<CR>
 
 
-" Set mapleader to space
-let mapleader =","
-" let mapleader = <20>
 
 " Trying to remap <C-p> for moving between snippet results to <C-e>
 " imap <C-e> <C-p>
