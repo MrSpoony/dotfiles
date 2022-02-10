@@ -1,6 +1,6 @@
 " Shortcuts
 map <C-y> :NERDTreeToggle<CR>
-map <leader>n :NERDTreeFocus<CR>
+map <leader>y :NERDTreeFocus<CR>
 
 " Settings
 let g:NERDTreeHijackNetrw = 0 "// add this line if you use NERDTree
