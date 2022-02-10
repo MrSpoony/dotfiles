@@ -39,6 +39,8 @@ maim -s | xclip -selection clipboard -t image/png
 
 for mousemovement in console (macros maybe)
 xdotool mousemove y x
+xdotool click 1 # 1 left mouse button 
+xdotool key F5 # sends F5 key
 
 
 edit spicetify theme and config shit
