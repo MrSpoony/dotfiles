@@ -59,9 +59,15 @@ Plug 'easymotion/vim-easymotion'
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" For code-actions
+Plug 'python-rope/ropevim'
+
+" Formatter
+
 " debugger
 " Plug 'cpiger/NeoDebug'
 Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+
 
 " for C# coding
 Plug 'OmniSharp/omnisharp-vim'
