@@ -197,7 +197,11 @@ let mapleader =" "
 " set foldmethod=indent
 " set foldnestmax=1
 
-" colorscheme theme stuff
+" Themy stuff
+" transparent background
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+
 set background=dark
 
 " colorscheme wal
@@ -214,6 +218,8 @@ colorscheme onedark
 
 highlight Comment cterm=italic
 
+
+" Source all the different scripts
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/dashboard.vim
 source ~/.config/nvim/barbar.vim
