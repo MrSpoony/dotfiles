@@ -73,10 +73,3 @@ if [ -n "$DESKTOP_SESSION" ]; then
     eval $(gnome-keyring-daemon --start --start)
     export SSH_AUTH_SOCK
 fi
-
-# Google Rofi and Googler
-# export GOOGLE_API_KEY='google-api-key'
-# export GOOGLE_SEARCH_ID='google-search-engine-id'
-# export ROFI_SEARCH='cse'
-export GOOGLE_ARGS='["--count", 5]'
-export ROFI_SEARCH='googler'
