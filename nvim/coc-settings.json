@@ -24,5 +24,7 @@
                 }
             }
         }
-    }
+    },
+    "prettier.tabWidth": 4,
+    "prettier.formatterPriority": 9
 }
