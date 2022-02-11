@@ -1,6 +1,6 @@
 " Shortcuts
 map <C-y> :NERDTreeToggle<CR>
-map <leader>y :NERDTreeFocus<CR>
+map <leader>n :NERDTreeFocus<CR>
 
 " Settings
 let g:NERDTreeHijackNetrw = 0 "// add this line if you use NERDTree
@@ -14,7 +14,7 @@ autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 " same as above but open when directory specified
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | execute 'NERDTreeFocus' | endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
