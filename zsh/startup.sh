@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Compositor picom
 # picom --backend glx &
-picom --experimental-backends &
+picom &
 
 # Start session
 lxsession &
