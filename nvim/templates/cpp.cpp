@@ -15,14 +15,17 @@ using namespace std;
 #define endl "\n";
 
 typedef long long int lint;
+typedef pair<lint, lint> PII;
 typedef priority_queue<lint> PQI;
 typedef priority_queue<lint, vector<lint>, greater<lint>> RPQI;
-typedef pair<lint, lint> PII;
-typedef vector<lint> VI;
+typedef priority_queue<PII> PQII;
+typedef queue<lint> QI;
 typedef vector<bool> VB;
-typedef vector<PII> VII;
 typedef vector<string> VS;
+typedef vector<lint> VI;
+typedef vector<PII> VII;
 typedef vector<VI> VVI;
+typedef vector<VII> VVII;
 
 
 
