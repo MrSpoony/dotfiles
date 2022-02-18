@@ -3,3 +3,13 @@
 snippet icin "cin to long long int" bA
 lint $1 = 0; cin >> $1;$0
 endsnippet
+
+snippet dfs "quick bfs"
+void dfs(int v) {
+	if (visited[v]) return;
+	visited[v] = true;
+	for (int w : graph[v]) {
+		dfs(w);
+	}
+}
+endsnippet
