@@ -12,6 +12,7 @@ using namespace std;
 #define INF 2147483647
 #define INFINITE 9223372036854775807
 #define PI 3.1415926535897932384626433832795
+#define MOD 1000000007
 #define endl "\n";
 
 typedef long long int lint;
