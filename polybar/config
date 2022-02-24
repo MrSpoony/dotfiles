@@ -67,14 +67,21 @@ line-size = 3
 
 modules-left = powermenu round-left bspwm round-right 
 modules-center =  
-modules-right =     wireless-network alsa battery round-left cpu temperature round-right  mem xbacklight round-left time round-right
+modules-right =      alsa network battery round-left cpu temperature round-right  mem xbacklight round-left time round-right
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
 font-1 = JetBrainsMono Nerd Font:size=18;5
 font-2 = Material Design Icons:style=Bold:size=13;3
 ;font-3 = unifont:fontformat=truetype:size=13:antialias=true;
 
-
+[module/network]
+type = internal/network
+interface = wlp0s20f3
+interval = 1.0
+label-connected = "  %downspeed%  祝 %upspeed%  "
+label-disconnected = disconnected
+;label-connected-background = #FFFFFF
+label-connected-foreground = #d19a66
 
 [module/round-left]
 type = custom/text

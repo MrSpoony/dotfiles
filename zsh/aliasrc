@@ -113,11 +113,13 @@ alias diff="colordiff"
 alias lol="lolcat"
 alias open="xdg-open "
 # alias s="startx"
+alias sshlin="ssh 172.105.79.115"
 
 # simply usefull
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias shutdown="sudo shutdown"
+
 
 # set layouts (s for setxkbmap)
 alias sus="setxkbmap us"
@@ -136,6 +138,7 @@ alias clac="calc"
 
 # dumb stuff
 alias discord="Discord"
+
 # git commands
 alias addup="git add -u"
 alias addall="git add ."

@@ -66,7 +66,8 @@ Plug 'python-rope/ropevim'
 
 " debugger
 " Plug 'cpiger/NeoDebug'
-Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+" Plug 'puremourning/vimspector'
+" Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
 
 
 " for C# coding
@@ -83,8 +84,6 @@ Plug 'exu/pgsql.vim'
 " for gradle stuff
 Plug 'hdiniz/vim-gradle'
 
-" Debugger
-" Plug 'puremourning/vimspector'
 
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 
@@ -130,6 +129,7 @@ Plug 'wakatime/vim-wakatime'
 " Snippet stuff
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
 call plug#end()
 
 filetype plugin on
@@ -139,6 +139,7 @@ syntax on
 " 
 " all set commands
 "
+
 set clipboard=unnamed,unnamedplus
 set nospell
 set shiftwidth=4
@@ -232,6 +233,7 @@ source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
 source ~/.config/nvim/vimtex.vim
+source ~/.config/nvim/vimspector.vim
 source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
 
@@ -312,7 +314,6 @@ map <F7> gg=G<C-o><C-o>
 " for faster  access
 " maybe deleting it because I never use it...
 nmap \<Space> :
-
 
 
 " Toggle spellchecker
