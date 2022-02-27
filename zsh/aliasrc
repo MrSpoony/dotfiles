@@ -27,7 +27,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias clear="clear; ~/.config/zsh/clearcommand.sh"
+alias clear="~/.config/zsh/clearcommand.sh"
 alias claer="clear"
 alias cls="clear"
 alias clearl="clear; la"
@@ -138,6 +138,12 @@ alias clac="calc"
 
 # dumb stuff
 alias discord="Discord"
+
+# development
+# Command line alias to start the browser-sync server
+alias serve="browser-sync start --server --files ."
+alias servejs="nodemon "
+alias nvmsource="source ~/.nvm/nvm.sh"
 
 # git commands
 alias addup="git add -u"
