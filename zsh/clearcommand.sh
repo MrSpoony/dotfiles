@@ -1,5 +1,8 @@
 #!/bin/bash
 
+printf '\033\143'
+# clear
+
 NUMBER_OF_COMMANDS=4
 RNDNR=$((RANDOM%NUMBER_OF_COMMANDS))
 
