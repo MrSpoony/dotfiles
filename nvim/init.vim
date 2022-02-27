@@ -1,5 +1,4 @@
 "
-"
 " KIMI's NEOVIM config file, linked to .vimrc so it should mostly be also
 " compatible with vim 
 "
@@ -35,8 +34,6 @@ Plug 'bling/vim-bufferline'
 " For better auto pairinp brackets
 Plug 'jiangmiao/auto-pairs'
 
-
-
 " For better Tab display
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
@@ -65,6 +62,7 @@ Plug 'python-rope/ropevim'
 " Formatter
 
 " debugger
+" Plug 'idanarye/vim-vebugger'
 " Plug 'cpiger/NeoDebug'
 " Plug 'puremourning/vimspector'
 " Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
@@ -77,6 +75,7 @@ Plug 'dense-analysis/ale'
 
 " for webdev
 Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
 
 " for SQL
 Plug 'exu/pgsql.vim'
@@ -105,6 +104,8 @@ Plug 'ryanoasis/vim-devicons'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Indentline
+Plug 'Yggdroot/indentLine'
 
 " Comments
 Plug 'tpope/vim-commentary'
@@ -113,6 +114,7 @@ Plug 'tpope/vim-commentary'
 " collection of language packs
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
+Plug 'engeljh/vim-latexfmt'
 
 " Git integration
 Plug 'tpope/vim-fugitive'

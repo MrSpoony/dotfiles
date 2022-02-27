@@ -1,5 +1,5 @@
 " Shortcuts
-map <C-y> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFocus<CR>
 
 " Settings
