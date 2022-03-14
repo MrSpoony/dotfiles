@@ -113,7 +113,7 @@ alias diff="colordiff"
 alias lol="lolcat"
 alias open="xdg-open "
 # alias s="startx"
-alias sshlin="ssh 172.105.79.115"
+alias sshlin="ssh -p 5040 172.105.79.115"
 
 # simply usefull
 alias reboot="sudo reboot"
@@ -165,3 +165,7 @@ alias gsize="git gc;git count-objects -vH"
 # just test it out its fine believe me...
 alias rickroll="~/.config/zsh/roll.sh"
 alias rr="~/.config/zsh/roll.sh"
+
+alias parrot="curl parrot.live"
+
+alias weather="curl wttr.in/Zollikofen"
