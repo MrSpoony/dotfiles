@@ -49,7 +49,6 @@ Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
 
@@ -116,6 +115,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 Plug 'engeljh/vim-latexfmt'
 
+" Markdown
+Plug 'iamcco/markdown-preview.nvim'
+
+
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Better git integration ig
@@ -159,7 +162,8 @@ set showmatch
 set incsearch
 set hlsearch
 set hidden
-set lazyredraw
+" set lazyredraw
+set noshowmode
 set noignorecase
 set laststatus=2
 set autoread
@@ -235,6 +239,7 @@ source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
 source ~/.config/nvim/vimtex.vim
+source ~/.config/nvim/markdownPreview.vim
 source ~/.config/nvim/vimspector.vim
 source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
@@ -320,7 +325,7 @@ nmap \<Space> :
 
 " Toggle spellchecker
 " Also not really using it currently
-map <leader>s :setlocal spell!<CR>
+map <leader>sp :setlocal spell!<CR>
 
 
 " Trims all lines at end of files on save
