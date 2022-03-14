@@ -7,6 +7,8 @@ let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+let g:tex_conceal=''
+set conceallevel=0
 let maplocalleader=","
 
 nmap fk <Plug>latexfmt_format

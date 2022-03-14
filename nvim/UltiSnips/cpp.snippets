@@ -71,6 +71,27 @@ void bfs(lint start) {
 $0
 endsnippet
 
+snippet shortestpath "quick shortest path Dijkstra" bA
+lint bfs(lint start, lint end) {
+	VI dist(n, -1);
+	PQII pq;
+	pq.push({0, start});
+	while (!pq.empty()) {
+		lint d = -pq.top().first;
+		lint pos = pq.top().second;
+		pq.pop();
+		if (dist[pos] != -1) continue;
+		dist[pos] = d;
+		REP (i, graph[pos]) {
+			lint v = graph[pos][i].first;
+			lint w = graph[pos][i].second;
+			pq.push({-(dist[pos] + w), v});
+		}
+	}
+	return dist[finish];
+}
+endsnippet
+
 snippet shortpathtemp "quick shortest path finder" bA
 VI visited;
 VI dist;
@@ -172,9 +193,9 @@ void unite(lint v, lint w) {
     v = find(v);
     w = find(w);
     if (rand()%2) {
-        chef[a] = b;
+        chef[v] = w;
     } else {
-        chef[b] = a;
+        chef[w] = v;
     }
 }
 
@@ -230,4 +251,38 @@ void printSeg(const VI &segTreePrint) {
     printSegTree(1, 0, segTreePrint.size() / 2, 0, segTreePrint);
     printf("------------------------------------------\n");
 }
+endsnippet
+
+snippet msttemp "quick minimal spanning tree" bA
+VVII graph;
+lint n;
+
+lint mst() {
+    lint weight = 0;
+    VB visited(n, false);
+    PQII pq;
+    pq.push({0, 0});
+
+    /* cout << "in here at least" << dl; */
+    while (pq.size() != 0) {
+        lint pos = pq.top().second;
+        lint dist = -pq.top().first;
+        pq.pop();
+
+        if (visited[pos] == true) continue;
+        visited[pos] = true;
+        weight += dist;
+        /* cout << "in here too " << graph[pos].size() << dl; */
+
+        REP (i, graph[pos].size()) {
+            lint next = graph[pos][i].first;
+            lint edge = graph[pos][i].second;
+            if (visited[next] == true) continue;
+            pq.push({-edge, next});
+        }
+    }
+
+    return weight;
+}
+$0
 endsnippet

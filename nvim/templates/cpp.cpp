@@ -9,6 +9,8 @@ using namespace std;
 #define FOREACH(i, j) for (auto i : j) 
 #define MP make_pair
 #define PB push_back
+#define F first
+#define S second
 #define INF 2147483647
 #define INFINITE 9223372036854775807
 #define PI 3.1415926535897932384626433832795
