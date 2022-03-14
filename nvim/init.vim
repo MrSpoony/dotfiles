@@ -1,4 +1,5 @@
 "
+"
 " KIMI's NEOVIM config file, linked to .vimrc so it should mostly be also
 " compatible with vim 
 "
@@ -54,6 +55,12 @@ Plug 'easymotion/vim-easymotion'
 
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" surround
+Plug 'tpope/vim-surround'
+
+" Multiple cursors
+Plug 'mg979/vim-visual-multi'
 
 " For code-actions
 Plug 'python-rope/ropevim'
@@ -235,6 +242,7 @@ source ~/.config/nvim/coc.vim
 source ~/.config/nvim/gitgutter.vim
 source ~/.config/nvim/neovide.vim
 source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/vim-visual-multi.vim
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/omnisharp.vim
 source ~/.config/nvim/runFiles.vim
@@ -306,12 +314,12 @@ vnoremap k gk
 vnoremap gk k
 
 " Move lines around
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <A-j> <esc>:m .+1<CR>==
-inoremap <A-k> <esc>:m .-2<CR>==
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
+" inoremap <A-j> <esc>:m .+1<CR>==
+" inoremap <A-k> <esc>:m .-2<CR>==
+" nnoremap <A-j> :m .+1<CR>==
+" nnoremap <A-k> :m .-2<CR>==
 
 
 " auto indentation
