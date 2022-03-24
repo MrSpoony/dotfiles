@@ -50,6 +50,23 @@ Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'liuchengxu/vim-clap'
+
+" Build the extra binary if cargo exists on your system.
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+
+" The bang version will try to download the prebuilt binary if cargo does not exist.
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+
+" :Clap install-binary[!] will always try to compile the binary locally,
+" if you do care about the disk used for the compilation, try using the force download way,
+" which will download the prebuilt binary even you have installed cargo.
+Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
+
+" `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
+" If you don't want that and hope to run the hook synchorously:
+Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
+
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
 
@@ -181,7 +198,7 @@ set textwidth=0
 set noswapfile
 set nobackup
 set nowritebackup
-set so=7
+set so=3
 set mouse=nvc
 set visualbell
 set t_vb=
