@@ -1,9 +1,12 @@
 # list commands
-alias ls="exa --color=always --group-directories-first"
-alias l="exa -la --color=always --group-directories-first"
-alias ls="exa --color=always --group-directories-first"
-alias ll="exa -l --color=always --group-directories-first"
-alias la="exa -la --color=always --group-directories-first"
+alias ls="exa --icons --color=always --group-directories-first --git-ignore"
+alias ll="exa --icons -l --color=always --group-directories-first --git-ignore --git"
+alias la="exa --icons -la --color=always --group-directories-first --git"
+alias  l="la"
+
+alias lst="ls -T -L 3"
+alias llt="ll -T -L 3"
+alias lat="la -T -L 3"
 
 # remove commands
 alias rm="trash -i"
@@ -57,6 +60,7 @@ alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias qtilerc="vim ~/.config/qtile/config.py"
 alias nvimrc="vim ~/.config/nvim/init.vim"
 alias polybarrc="vim ~/.config/polybar/config"
+alias tmuxrc="vim ~/.config/tmux/tmux.conf"
 alias picomrc="vim ~/.config/picom/picom.conf"
 alias alacrittyrc="vim ~/.config/alacritty/alacritty.yml"
 
