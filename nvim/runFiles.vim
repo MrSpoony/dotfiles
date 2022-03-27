@@ -13,3 +13,6 @@ autocmd FileType java imap <F2> <Esc>:w<CR>:!javac %<CR>:term java %:r<CR>
 " Latex
 autocmd FileType tex  map <F2>      :w<CR>:!pdflatex %<CR>
 autocmd FileType tex imap <F2> <Esc>:w<CR>:!pdflatex %<CR>
+" Assembly
+autocmd FileType nasm  map <F2>      :w<CR>:!nasm -felf64 -o %:r.o %<CR>:!ld %:r.o -o %:r<CR>:term ./%:r<CR>
+autocmd FileType nasm  map <F2> <Esc>:w<CR>:!nasm -felf64 -o %:r.o %<CR>:!ld %:r.o -o %:r<CR>:term ./%:r<CR>
