@@ -261,6 +261,24 @@ https://stackoverflow.com/questions/29403212/forwarding-to-gitlab-subdomain-with
 
 
 GDB
+run to start/rerun program
+break to set breakpoint
+layout next for next layout
+refresh of Ctrl-L if stuff is messed up
+step or si for stepinto
+si 3 to stepinto 3 times
+next or n for next 
+print <VARNAME> to print variable
+watch <VARNAME> to watch variable (everytime it changes it printes it out)
+print <VARNAME>@10 to print first 10 elements of an array
+
+with 7.0 gdb go back with reverse step or reverse-next
+if Target child does not support this command error run `target record` after running `run`
+
+don't set breakpoint let it segfault
+then run `backtrace full` to see which functions have been called in one command
+
+nasm
 
 compile with `nasm -felf file.asm -o file.o`
 link with `ld file.o -o file -m elf_x86_64`
@@ -268,5 +286,7 @@ debug with `gdb ./file`
 run `break _start` to set a breakpoint at the start
 run `layout asm` and `layout regs` to layout those
 then 
-si for stepinto
-si 3 to stepinto 3 times
+
+g++
+compile with -g flag
+run gdb a.out or whatever file was after -o flag
