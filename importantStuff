@@ -69,7 +69,10 @@ for building sln projects
 xbuild
 msbuild
 then run them with
-wine ./././TAR
+wine ./././
+
+
+TAR
 to compress use
 tar -zcvf archive-name.tar.gz source-directory-name
 to unpack use
@@ -249,3 +252,21 @@ GOBIN="/home/kimil/code/go/bin"             # Important
 GOROOT="/usr/lib/go"                        # Very important but default value
 GOENV="/home/kimil/.config/go/env"          # Idk don't think it's important
 GOMODCACHE="/home/kimil/code/go/pkg/mod"    # Idk i guess rather less important
+
+
+
+GITLAB INSTALLATION
+https://stackoverflow.com/questions/29403212/forwarding-to-gitlab-subdomain-with-existing-nginx-installation
+
+
+
+GDB
+
+compile with `nasm -felf file.asm -o file.o`
+link with `ld file.o -o file -m elf_x86_64`
+debug with `gdb ./file`
+run `break _start` to set a breakpoint at the start
+run `layout asm` and `layout regs` to layout those
+then 
+si for stepinto
+si 3 to stepinto 3 times
