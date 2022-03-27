@@ -70,6 +70,9 @@ Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'ma
 " easymotion to make navigating in the code easier
 Plug 'easymotion/vim-easymotion'
 
+" Try to get rid of s and use it for vim-sneak
+Plug 'justinmk/vim-sneak'
+
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -95,6 +98,7 @@ Plug 'python-rope/ropevim'
 Plug 'OmniSharp/omnisharp-vim'
 "for C# code highlighting
 Plug 'dense-analysis/ale'
+
 
 " for webdev
 Plug 'ap/vim-css-color'
@@ -269,6 +273,12 @@ source ~/.config/nvim/vimspector.vim
 source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
 
+" Specific files
+source ~/.config/nvim/assembly.vim
+source ~/.config/nvim/c++.vim
+
+
+
 " If im dumb as shit
 command WQ wq
 command Wq wq
@@ -361,11 +371,3 @@ function TrimEndLines()
 endfunction
 
 autocmd BufWritePre * call TrimEndLines()
-
-
-"
-" Templates
-"
-
-" C++ template
-autocmd BufNewFile *.cpp            0r ~/.config/nvim/templates/cpp.cpp
