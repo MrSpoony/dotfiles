@@ -12,161 +12,161 @@ set nocompatible
 " Plugin installation
 "
 
-call plug#begin('~/.vim/plugged')
+call plug#begin("~/.vim/plugged")
 
 " neovide
-Plug 'neovide/neovide'
+Plug "neovide/neovide"
 
-Plug 'rhysd/vim-clang-format'
+Plug "rhysd/vim-clang-format"
 " Themes
-Plug 'dylanaraps/wal.vim'
-Plug 'joshdick/onedark.vim'
+Plug "dylanaraps/wal.vim"
+Plug "joshdick/onedark.vim"
 
 " Dashboard when opening neovim
-Plug 'glepnir/dashboard-nvim'
+Plug "glepnir/dashboard-nvim"
 
 " for nicer bar at the bottom
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug "vim-airline/vim-airline"
+Plug "vim-airline/vim-airline-themes"
 
 " To see buffers/tabs in bottom airline bar
-Plug 'bling/vim-bufferline'
+Plug "bling/vim-bufferline"
 
 " For better auto pairinp brackets
-Plug 'jiangmiao/auto-pairs'
+Plug "jiangmiao/auto-pairs"
 
 " For better Tab display
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+Plug "kyazdani42/nvim-web-devicons"
+Plug "romgrk/barbar.nvim"
 
 " " Templates
-" Plug 'tibabit/vim-templates'
+" Plug "tibabit/vim-templates"
 
 " " fzf in vim
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+" Plug "junegunn/fzf", { "do": { -> fzf#install() } }
+" Plug "junegunn/fzf.vim"
 
 " Telescope plugin
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug "nvim-lua/plenary.nvim"
+Plug "nvim-telescope/telescope.nvim"
 
-Plug 'liuchengxu/vim-clap'
+Plug "liuchengxu/vim-clap"
 
 " Build the extra binary if cargo exists on your system.
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug "liuchengxu/vim-clap", { "do": ":Clap install-binary" }
 
 " The bang version will try to download the prebuilt binary if cargo does not exist.
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+Plug "liuchengxu/vim-clap", { "do": ":Clap install-binary!" }
 
 " :Clap install-binary[!] will always try to compile the binary locally,
 " if you do care about the disk used for the compilation, try using the force download way,
 " which will download the prebuilt binary even you have installed cargo.
-Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
+Plug "liuchengxu/vim-clap", { "do": { -> clap#installer#force_download() } }
 
 " `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
 " If you don't want that and hope to run the hook synchorously:
-Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
+Plug "liuchengxu/vim-clap", { "do": has("win32") ? "cargo build --release" : "make" }
 
 " easymotion to make navigating in the code easier
-Plug 'easymotion/vim-easymotion'
+Plug "easymotion/vim-easymotion"
 
 " Try to get rid of s and use it for vim-sneak
-Plug 'justinmk/vim-sneak'
+Plug "justinmk/vim-sneak"
 
 " autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug "neoclide/coc.nvim", {"branch": "release"}
 
 " surround
-Plug 'tpope/vim-surround'
+Plug "tpope/vim-surround"
 
 " Multiple cursors
-Plug 'mg979/vim-visual-multi'
+Plug "mg979/vim-visual-multi"
 
 " For code-actions
-Plug 'python-rope/ropevim'
+Plug "python-rope/ropevim"
 
 " Formatter
 
 " debugger
-" Plug 'idanarye/vim-vebugger'
-" Plug 'cpiger/NeoDebug'
-" Plug 'puremourning/vimspector'
-" Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+" Plug "idanarye/vim-vebugger"
+" Plug "cpiger/NeoDebug"
+" Plug "puremourning/vimspector"
+" Plug "sakhnik/nvim-gdb", { "do": ":!.install.sh"}
 
 
 " for C# coding
-Plug 'OmniSharp/omnisharp-vim'
+Plug "OmniSharp/omnisharp-vim"
 "for C# code highlighting
-Plug 'dense-analysis/ale'
+Plug "dense-analysis/ale"
 
 
 " for webdev
-Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim'
+Plug "ap/vim-css-color"
+Plug "mattn/emmet-vim"
 
 " for SQL
-Plug 'exu/pgsql.vim'
+Plug "exu/pgsql.vim"
 
 " for gradle stuff
-Plug 'hdiniz/vim-gradle'
+Plug "hdiniz/vim-gradle"
 
 
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug "mbbill/undotree", {"on": "UndotreeToggle"}
 
 " Repeat commands
-Plug 'tpope/vim-repeat'
+Plug "tpope/vim-repeat"
 
 " nerdtree for code structure
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'PhilRunninger/nerdtree-buffer-ops'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'ryanoasis/vim-devicons'
+Plug "preservim/nerdtree" |
+            \ Plug "Xuyuanp/nerdtree-git-plugin"
+Plug "tiagofumo/vim-nerdtree-syntax-highlight"
+Plug "PhilRunninger/nerdtree-buffer-ops"
+Plug "PhilRunninger/nerdtree-visual-selection"
+Plug "ryanoasis/vim-devicons"
 
 " ranger for opening files easier
-" Plug 'francoiscabrol/ranger.vim'
+" Plug "francoiscabrol/ranger.vim"
 
 
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug "nvim-treesitter/nvim-treesitter", {"do": ":TSUpdate"}
 
 " Indentline
-Plug 'Yggdroot/indentLine'
+Plug "Yggdroot/indentLine"
 
 " Comments
-Plug 'tpope/vim-commentary'
+Plug "tpope/vim-commentary"
 
 
 " collection of language packs
-Plug 'sheerun/vim-polyglot'
-Plug 'lervag/vimtex'
-Plug 'engeljh/vim-latexfmt'
+Plug "sheerun/vim-polyglot"
+Plug "lervag/vimtex"
+Plug "engeljh/vim-latexfmt"
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim'
+Plug "iamcco/markdown-preview.nvim"
 
 
 " Git integration
-Plug 'tpope/vim-fugitive'
+Plug "tpope/vim-fugitive"
 " Better git integration ig
-Plug 'airblade/vim-gitgutter'
+Plug "airblade/vim-gitgutter"
 
 
 " Discord precense
-Plug 'andweeb/presence.nvim'
+Plug "andweeb/presence.nvim"
 
 " Time counting and stuff
-Plug 'wakatime/vim-wakatime'
+Plug "wakatime/vim-wakatime"
 
 " Snippet stuff
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug "SirVer/ultisnips"
+Plug "honza/vim-snippets"
 
 
 
 " Tmux
-Plug 'christoomey/vim-tmux-navigator'
+Plug "christoomey/vim-tmux-navigator"
 
 
 
@@ -377,7 +377,7 @@ map <leader>sp :setlocal spell!<CR>
 function TrimEndLines()
     let save_cursor = getpos(".")
     silent! %s#\($\n\s*\)\+\%$##
-    call setpos('.', save_cursor)
+    call setpos(".", save_cursor)
 endfunction
 
 autocmd BufWritePre * call TrimEndLines()
