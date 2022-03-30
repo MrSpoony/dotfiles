@@ -1,0 +1,277 @@
+sudo systemctl start NetworkManager
+nmcli device wifi connect AP NAME password PASSWORD
+
+
+amixer sset Master unmute
+alsamixer
+speaker-test -c2
+
+
+to see all monitors
+xrandr
+
+
+to see infos about window 
+xprop
+
+
+to change rate of repeating letters
+xset r rate [delay] [cycle]
+
+
+to add extend layout
+sudo kmonad ~/.config/colemak-extend-iso.kbd
+
+
+remove entry from rofi
+shift + delete
+
+
+convert png to jpg 
+convert image.png image.jpg
+
+
+for screenshots
+maim
+for crops to clipboard
+maim -s | xclip -selection clipboard -t image/png
+
+
+for mousemovement in console (macros maybe)
+xdotool mousemove y x
+xdotool click 1 # 1 left mouse button 
+xdotool key F5 # sends F5 key
+
+
+edit spicetify theme and config shit
+spicetify config current_theme THEME_NAME color_scheme COLOR_SCHEME; spicetify apply
+spicetify apply
+
+
+Sync command
+rsync -auv
+
+
+for touch input (in i3 mostly)
+xinput set-prop 12 359 1
+
+
+autoremove in pacman 
+sudo pacman -Rcns $(pacman -Qdtq)
+autoremove with yay
+yay -Rcns $(yay -Qdtq)
+
+
+export DOTNET_ROOT=/snap/dotnet-sdk/current
+
+
+for building sln projects
+xbuild
+msbuild
+then run them with
+wine ./././
+
+
+TAR
+to compress use
+tar -zcvf archive-name.tar.gz source-directory-name
+to unpack use
+tar -zxvf archive-name.tar.gz
+difference is the c and the x (c for compress x for extract)
+
+
+BASH
+convert all svgs in folder to pngs
+for i in *.svg; do
+inkscape -w 2500 -h 3500 $i -o $(basename $i .svg)$(echo ".png")
+done;
+
+
+GRUB
+grub-customizer mit sudo
+
+
+Stanni colors:
+Normal: Font 
+light blue
+Normal: Background
+transparent
+Highlighted: Font
+light-cyan
+Highlighted: Background
+blue
+
+
+GIT
+ganz basic shit:
+# repository clonen
+git clone <URL>
+git status
+# git repo lokal erstellen
+git init -b origin main
+# git repo mit github/lab verknüpfen
+git remote add origin <URL>
+
+HOW TO GUIDE:
+git add -u
+git commit -m 'sinvoller text'
+git push
+
+intermediate shit:
+# neueste informationen herunterladen veränedert keine files man sieht aber im git status dass man pullen kann
+git fetch
+# merged braches oder commits zusammen solange kein merge conflict bestheht
+git merge
+# neueste informationen herunterladen und mergen
+git pull
+# unstage file/remove it from git repo
+git remove
+# alias
+git rm
+# restore all addede files, cna also be used to get older version of git file
+git restore
+# rename a file in git
+git mv
+# show differences between commits/files
+git diff
+# letze commits anzeigen
+git log
+
+advanced shit:
+# branches anzeigen
+git branch
+# branch erstellend und wechseln
+git checkout
+# wie merge aber halt einfach force also ohne merge -> ersetzt
+git rebase
+
+
+BLUETOOTH Connect
+https://wiki.archlinux.org/title/bluetooth
+bluetoothctl
+scan on
+devices
+pair MAC_ADRESS
+connect MAC_ADRESS
+
+
+Rename files in order
+a=1
+for i in *.jpg; do
+  new=$(printf "%04d.jpg" "$a") #04 pad to length of 4
+  mv -i -- "$i" "$new"let a=a+1
+done
+
+
+JAVA
+How to run IntelliJ project from Command Line
+go to project folder
+go to /out/production/
+run com.myexample.test.myfile
+
+VIM Cheatsheet
+Debugger shortcuts
+https://github.com/sakhnik/nvim-gdb
+oder :help nvimgdb
+Next/Prev result in autocompletion
+Ctrl+N/Ctrl+P
+Execute Python file with input in vim:
+:term python3 %
+Execute Python without input in vim:
+:python %
+To compile a file in vim (e.g. c++)
+:make %:r (% to refer to the name, :r to strip of the ending of the filename)
+to run it inside of vim
+:!./%:r
+How to fold stuff in vim:
+set foldmethod=syntax
+set foldmethod=indent
+zc to close a fold
+zo to open one
+za to toggle
+for fold level 1
+set foldnestmax=1
+fold all 'zM'
+fold level by level 'zm'
+unfold all 'zR'
+unfold level by level 'zr'
+
+vim-surround:
+cs"' to replace " with '
+ds ' to delete single quotes around
+ysiw] to surround word (iw) with []
+
+
+DOOM EMACS Cheatsheet
+
+SPC o n -> Neotree
+SPC o t -> Terminal
+
+
+
+JAVA GRADLE
+to create 
+gradle init
+to build
+gradle build
+to run 
+add mainClassName = project.findProperty("mainClass").toString() to build.gradle
+./gradlew run
+to run with input
+add run {
+    standardInput = System.in
+} to build.gradle
+and run with gradle -q --console plain run TASKNAME
+
+
+GO
+To create create structure in ~/code/go/src
+e.g. ~/code/go/src/github.com/MrSpoony/test/test.go
+then run go install this_path
+then run the executable in the ~/code/go/bin folder
+important go env:
+GOPATH="/home/kimil/code/go"                # Important
+GOBIN="/home/kimil/code/go/bin"             # Important
+GOROOT="/usr/lib/go"                        # Very important but default value
+GOENV="/home/kimil/.config/go/env"          # Idk don't think it's important
+GOMODCACHE="/home/kimil/code/go/pkg/mod"    # Idk i guess rather less important
+
+
+
+GITLAB INSTALLATION
+https://stackoverflow.com/questions/29403212/forwarding-to-gitlab-subdomain-with-existing-nginx-installation
+
+
+
+GDB
+run to start/rerun program
+break to set breakpoint
+layout next for next layout
+refresh of Ctrl-L if stuff is messed up
+step or si for stepinto
+si 3 to stepinto 3 times
+next or n for next 
+print <VARNAME> to print variable
+watch <VARNAME> to watch variable (everytime it changes it printes it out)
+print <VARNAME>@10 to print first 10 elements of an array
+
+with 7.0 gdb go back with reverse step or reverse-next
+if Target child does not support this command error run `target record` after running `run`
+
+don't set breakpoint let it segfault
+then run `backtrace full` to see which functions have been called in one command
+
+nasm
+
+compile with `nasm -felf file.asm -o file.o`
+link with `ld file.o -o file -m elf_x86_64`
+debug with `gdb ./file`
+run `break _start` to set a breakpoint at the start
+run `layout asm` and `layout regs` to layout those
+
+to see `variable` run `x/5cd &<VARNAME>` to see it
+to see value stored at pointer 0xSOMETHING run `x/s 0x<SOMEPTR>`
+
+g++
+compile with -g flag
+run gdb a.out or whatever file was after -o flag
