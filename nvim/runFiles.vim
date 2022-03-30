@@ -7,6 +7,9 @@ autocmd FileType python imap <buffer> <F2> <esc>:w<CR>:exec '!python3' shellesca
 " C++
 autocmd FileType cpp  map <F2>      :w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:term ./%:r<CR>
 autocmd FileType cpp imap <F2> <Esc>:w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:term ./%:r<CR>
+" C
+autocmd FileType c  map <F2>      :w<CR>:!gcc -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c2x -O2 -static % -o %:r<CR>:term ./%:r<CR>
+autocmd FileType c imap <F2> <Esc>:w<CR>:!gcc -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c2x -O2 -static % -o %:r<CR>:term ./%:r<CR>
 " Java
 autocmd FileType java  map <F2>      :w<CR>:!javac %<CR>:term java %:r<CR>
 autocmd FileType java imap <F2> <Esc>:w<CR>:!javac %<CR>:term java %:r<CR>

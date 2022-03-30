@@ -17,7 +17,9 @@
 !/sxhkd/
 !/wallpapers/
 !/wpg/
+!/tmux/
 !/zsh/
 !/.xinitrc
+!/.gdbinit
 !/colemak-extend-iso.kbd
 !/README.md
