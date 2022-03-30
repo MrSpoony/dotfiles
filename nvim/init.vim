@@ -163,6 +163,13 @@ Plug 'wakatime/vim-wakatime'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+
+
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'
+
+
+
 call plug#end()
 
 filetype plugin on
@@ -183,6 +190,7 @@ set autoindent
 set number
 set relativenumber   
 set signcolumn=yes
+set colorcolumn=80
 set showmode
 set ruler
 set showcmd
@@ -272,6 +280,7 @@ source ~/.config/nvim/markdownPreview.vim
 source ~/.config/nvim/vimspector.vim
 source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/undotree.vim
+source ~/.config/nvim/vimtmux.vim
 
 " Specific files
 source ~/.config/nvim/assembly.vim
@@ -297,11 +306,12 @@ inoremap :q!<CR> <Esc>:q!<CR>
 inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " for easier moving between windows inside of vim
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
-nnoremap <C-t> :tabnew<CR>
+" nnoremap <C-j> <C-W>j
+" nnoremap <C-k> <C-W>k
+" nnoremap <C-h> <C-W>h
+" nnoremap <C-l> <C-W>l
+" nnoremap <C-t> :tabnew<CR>
+
 
 
 " Disable arrow keys cause I shall better learn those hjkl commands with colemak
