@@ -19,7 +19,9 @@
 !/wpg/
 !/tmux/
 !/zsh/
-!/.xinitrc
-!/.gdbinit
+!/xinitrc
+!/gdb/
 !/colemak-extend-iso.kbd
 !/README.md
+!/important
+!/keyboard
