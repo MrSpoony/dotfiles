@@ -46,6 +46,10 @@ super + w
 super + v
 	clipmenu
 
+# bitwarden menu
+super + b
+    bwmenu
+
 # open power-menu
 super + alt + Escape
     rofi -show power-menu -modi power-menu:rofi-power-menu 
@@ -55,9 +59,6 @@ super + a
 
 super + e
     rofi_trans
-
-super + g
-    rofi -modi blocks -blocks-wrap /sbin/rofi-search -show blocks -eh 3 -kb-custom-1 'Control+y' -theme ~/.config/rofi/config.rasi 
 
 super + i
     rofimoji -f all
@@ -76,10 +77,6 @@ super + y
 super + n
 	wpg -s ~/.config/wallpapers ; # pywal-discord -t abou # ; spicetify apply	
 
-# Colorful color scheme
-super + b
-	wpg -s ~/.config/wallpapers/colorful/colorful02.jpg ; # pywal-discord -t abou # ; spicetify apply	
-
 # no transparency
 super + u
     picom-trans -c 100
@@ -88,7 +85,6 @@ super + u
 super + shift + u
     picom-trans -c -r
     # feh --bg-fill ~/.config/wallpapers/black/black.jpg
-
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -161,6 +157,18 @@ XF86MonBrightnessDown
     xbacklight -dec 5
 super + F6
     xbacklight -dec 5
+
+# Sound control
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioStop
+    playerctl play-pause
+XF86AudioPlay
+    playerctl play-pause
+
 
 #
 # state/flags
