@@ -269,6 +269,9 @@ battery = BAT0
 adapter = AC0
 full-at = 98
 
+
+time-format = %H:%M
+
 format-charging = <animation-charging> <label-charging>
 label-charging = %percentage%%
 
@@ -276,7 +279,7 @@ format-charging-padding = 1
 format-charging-foreground = ${colors.color4}
 
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%%
+label-discharging = %percentage%%  %time%h
 
 format-discharging-foreground = ${colors.foreground}
 
@@ -285,7 +288,7 @@ label-full = %percentage%%
 format-full-suffix = " "
 
 ; format-full-prefix-foreground = #A0E8A2
-format-full-foreground = #A0E8A2
+;format-full-foreground = #A0E8A2
 format-full-prefix-padding = 0
 format-foreground = ${colors.color4}
 format-background = #2b2f37 
@@ -294,7 +297,7 @@ format-background = #2b2f37
 label-discharging-foreground = #A0E8A2  
 
 ramp-capacity-foreground =  #A0E8A2
-label-charging-foreground = ${colors.foreground}
+;label-charging-foreground = ${colors.foreground}
 
 ramp-capacity-0 = "   " 
 ramp-capacity-1 = "   " 
