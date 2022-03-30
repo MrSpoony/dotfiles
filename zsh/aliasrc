@@ -63,6 +63,7 @@ alias polybarrc="vim ~/.config/polybar/config"
 alias tmuxrc="vim ~/.config/tmux/tmux.conf"
 alias picomrc="vim ~/.config/picom/picom.conf"
 alias alacrittyrc="vim ~/.config/alacritty/alacritty.yml"
+alias gdbrc="vim ~/.gdbinit"
 
 # find/grep command
 alias findeverywhere="find /. | grep"
@@ -138,6 +139,8 @@ alias xeit="exit"
 alias exti="exit"
 alias cim="vim"
 alias vin="vim"
+alias ivm="vim"
+alias ivim="vim"
 alias clac="calc"
 
 # dumb stuff
