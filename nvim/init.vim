@@ -318,26 +318,29 @@ inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
 " It just makes sense to yank till the end of the line like `C` or `D`
 nnoremap Y y$
 " Search results always in the middle
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
 " Reset highlighting of search
 map <f3> :noh<CR>
 " Add lines above and below without going into insert mode
 nmap oo o<Esc>
 nmap OO O<Esc>
 " Move lines around
-""" vnoremap J :m '>+1<CR>gv=gv
-""" vnoremap K :m '<-2<CR>gv=gv
-""" inoremap <A-j> <esc>:m .+1<CR>==
-""" inoremap <A-k> <esc>:m .-2<CR>==
-""" nnoremap <A-j> :m .+1<CR>==
-""" nnoremap <A-k> :m .-2<CR>==
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <A-j> <esc>:m .+1<CR>==
+inoremap <A-k> <esc>:m .-2<CR>==
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 " auto indentation
 map <F7> gg=G<C-o><C-o>
 " Toggle spellchecker
 map <leader>sp :setlocal spell!<CR>
 nnoremap <Leader>l :bnext<CR>
 nnoremap <Leader>h :bprev<CR>
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
 map <Leader>z :Files<CR>
 map <Leader>b :Ex<CR>
 
