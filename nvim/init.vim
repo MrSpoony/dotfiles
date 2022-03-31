@@ -14,79 +14,66 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" neovide
-Plug 'neovide/neovide'
-
-Plug 'rhysd/vim-clang-format'
 " Themes
-Plug 'dylanaraps/wal.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'dylanaraps/wal.vim'             " Wal theme
+Plug 'joshdick/onedark.vim'           " Onedark
+Plug 'glepnir/dashboard-nvim'         " Dashboard when opening neovim
+" Bar at the bottom
+Plug 'vim-airline/vim-airline'        " For nicer bar at the bottom
+Plug 'vim-airline/vim-airline-themes' " Themes for the bar
+Plug 'bling/vim-bufferline'           " To see buffers/tabs in bottom airline bar
+" Brackets
+Plug 'jiangmiao/auto-pairs'           " For better auto pairinp brackets
+Plug 'tpope/vim-surround'             " Surround your stuff easier with brackets or quotes
+" Tab display 
+Plug 'kyazdani42/nvim-web-devicons'   " Icons like the name implies
+Plug 'romgrk/barbar.nvim'             " For better Tab display
 
-" Dashboard when opening neovim
-Plug 'glepnir/dashboard-nvim'
 
-" for nicer bar at the bottom
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
-" To see buffers/tabs in bottom airline bar
-Plug 'bling/vim-bufferline'
-
-" For better auto pairinp brackets
-Plug 'jiangmiao/auto-pairs'
-
-" For better Tab display
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
-
-" " Templates
-" Plug 'tibabit/vim-templates'
-
-" " fzf in vim
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-
+" I have to learn those things onece, I think they're great when you can use
+" them propperly
+" Fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
+" Clap
 Plug 'liuchengxu/vim-clap'
-
 " Build the extra binary if cargo exists on your system.
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-
 " The bang version will try to download the prebuilt binary if cargo does not exist.
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-
 " :Clap install-binary[!] will always try to compile the binary locally,
 " if you do care about the disk used for the compilation, try using the force download way,
 " which will download the prebuilt binary even you have installed cargo.
 Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
-
 " `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
 " If you don't want that and hope to run the hook synchorously:
 Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
 
-" easymotion to make navigating in the code easier
-Plug 'easymotion/vim-easymotion'
 
-" Try to get rid of s and use it for vim-sneak
-Plug 'justinmk/vim-sneak'
 
-" autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Better Motions and other stuff
+Plug 'easymotion/vim-easymotion' " Easymotion to make navigating in the code easier
+Plug 'justinmk/vim-sneak'        " Try to get rid of s and use it for vim-sneak
+Plug 'mg979/vim-visual-multi'    " Multiple cursors
 
-" surround
-Plug 'tpope/vim-surround'
 
-" Multiple cursors
-Plug 'mg979/vim-visual-multi'
 
-" For code-actions
-Plug 'python-rope/ropevim'
+" Other useful stuff
+Plug 'junegunn/vim-easy-align' " Algin stuff
+Plug 'tpope/vim-repeat'        " Repeat commands
+Plug 'Yggdroot/indentLine'     " Indentline
+Plug 'tpope/vim-commentary'    " Comments
 
-" Formatter
 
+
+" Autocompletion stuff
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Best Autocompletion
+Plug 'python-rope/ropevim'                      " For code-actions
+Plug 'sheerun/vim-polyglot'                     " Collection of language packs
 " debugger
 " Plug 'idanarye/vim-vebugger'
 " Plug 'cpiger/NeoDebug'
@@ -94,83 +81,68 @@ Plug 'python-rope/ropevim'
 " Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
 
 
-" for C# coding
-Plug 'OmniSharp/omnisharp-vim'
-"for C# code highlighting
-Plug 'dense-analysis/ale'
+
+" Formatter
+Plug 'sbdchd/neoformat' " Prettier
 
 
-" for webdev
-Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim'
-
-" for SQL
-Plug 'exu/pgsql.vim'
-
-" for gradle stuff
+" Language specific stuff
+" Java Gradle
 Plug 'hdiniz/vim-gradle'
-
-
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-
-" Repeat commands
-Plug 'tpope/vim-repeat'
-
-" nerdtree for code structure
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'PhilRunninger/nerdtree-buffer-ops'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'ryanoasis/vim-devicons'
-
-" ranger for opening files easier
-" Plug 'francoiscabrol/ranger.vim'
-
-
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Indentline
-Plug 'Yggdroot/indentLine'
-
-" Comments
-Plug 'tpope/vim-commentary'
-
-
-" collection of language packs
-Plug 'sheerun/vim-polyglot'
+" Webdev
+Plug 'ap/vim-css-color'        " For CSS
+Plug 'mattn/emmet-vim'         " For HTML
+" LaTeX
 Plug 'lervag/vimtex'
 Plug 'engeljh/vim-latexfmt'
-
 " Markdown
 Plug 'iamcco/markdown-preview.nvim'
-
-
-" Git integration
-Plug 'tpope/vim-fugitive'
-" Better git integration ig
-Plug 'airblade/vim-gitgutter'
-
-
-" Discord precense
-Plug 'andweeb/presence.nvim'
-
-" Time counting and stuff
-Plug 'wakatime/vim-wakatime'
-
-" Snippet stuff
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" SQL
+Plug 'exu/pgsql.vim'
+" C#
+Plug 'OmniSharp/omnisharp-vim' " For C# coding
+Plug 'dense-analysis/ale'      " For C# code highlighting
 
 
 
-" Tmux
-Plug 'christoomey/vim-tmux-navigator'
+" Neovide support
+Plug 'neovide/neovide'
 
 
+
+" Trees
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
+" Currently not in use, switching back to :E
+" Plug 'preservim/nerdtree' |                               " NerdTree for code structure
+" \ Plug 'Xuyuanp/nerdtree-git-plugin'                      " Git integration
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'            " Syntax highlighting
+" Plug 'PhilRunninger/nerdtree-buffer-ops'                  " Highlight open buffers
+" Plug 'PhilRunninger/nerdtree-visual-selection'            " Visaul selection in NerdTree
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter but currently no configuration so currently useless...
+
+
+
+" Git
+Plug 'tpope/vim-fugitive'     " The best Git integration
+Plug 'airblade/vim-gitgutter' " See changes etc. at the left of the buffer
+
+
+
+" Other stuff
+Plug 'andweeb/presence.nvim'          " Discord precense
+Plug 'wakatime/vim-wakatime'          " Time counting and stuff
+Plug 'christoomey/vim-tmux-navigator' " Integration with Tmux
+Plug 'ryanoasis/vim-devicons'         " Nice Icons
+
+
+
+" Snippets
+Plug 'SirVer/ultisnips'   " The best ones
+Plug 'honza/vim-snippets' " Also good
 
 call plug#end()
+
+
 
 filetype plugin on
 syntax on
@@ -180,166 +152,84 @@ syntax on
 " all set commands
 "
 
-set clipboard=unnamed,unnamedplus
-set nospell
-set shiftwidth=4
-set encoding=utf-8
-set tabstop=4
-set expandtab
-set autoindent
-set number
-set relativenumber   
-set signcolumn=yes
-set colorcolumn=80
-set showmode
-set ruler
-set showcmd
-set showmatch
-set incsearch
-set hlsearch
-set hidden
-" set lazyredraw
-set noshowmode
-set noignorecase
-set laststatus=2
-set autoread
-set ofu=syntaxcomplete#Complete
-set wildmenu
-set wildmode=list:longest,full
-set textwidth=0
-set noswapfile
-set nobackup
-set nowritebackup
-set so=3
-set mouse=nvc
-set visualbell
-set t_vb=
-set history=1000
-set backspace=indent,eol,start
-set splitright
-set splitbelow
-set cmdheight=2
-set updatetime=100
-set shortmess+=c
-set filetype=on
-set spelllang=en_US
-set wrap
-set linebreak
-set wildmode=longest:full,full
-set undofile
-set modifiable
+set clipboard=unnamed,unnamedplus " Share clipboard between winbows not vim-only clipboard
+
+set spelllang=en_US               " Language
+set nospell                       " Disable by default
+
+set encoding=utf-8                " File encoding
+
+set shiftwidth=4                  " Number of spaces to autoindent
+set tabstop=4                     " Number of spaces for a tabstop
+set expandtab                     " Expand tab to spaces in insert mode
+set autoindent                    " Autoindenting enabled
+set backspace=indent,eol,start    " What happens when I press backspace
+
+set number                        " View line numbers at the left side
+set relativenumber                " Set relative line numbers
+set signcolumn=yes                " For gitgutter and errors in the left sidebar
+
+set colorcolumn=80                " Column at line 80 so I know where to make a carriage return
+set wrap                          " Wrap to long lines around
+set linebreak                     " Wrap lines at the breakat parameter (which is currently not set)
+
+set noshowmode                    " Don't show current mode (INSERT, NORMAL, etc.)"
+set ruler                         " Always show cursor position
+set showcmd                       " Display incomplete commands on lower right
+set laststatus=2                  " Always show statusline
+
+set cmdheight=2                   " Use 2 lines for the commandline
+set filetype=on                   " Set the standard filetype to on
+set modifiable                    " Buffer can be edited
+set wildmenu                      " Enable wildmenu
+set wildmode=longest:full,full    " How wild mode should behave
+
+set incsearch                     " Incremental search
+set hlsearch                      " Highlight search results
+set noignorecase                  " Don't ignore case when searching
+
+set hidden                        " Edit another buffer whine another one is unsaved IMPORTANT ONE!!
+
+set ofu=syntaxcomplete#Complete   " Autocompletion so that menu will always appear
+set showmatch                     " highlight matching braces
+
+set textwidth=0                   " Don't insert EOLs at linebreak
+set autoread                      " Automatically read a file that has changed on the disk
+set noswapfile                    " Don't use a swapfile
+set updatetime=100                " Doesn't matter since I disabled writing to the swapfile
+set nobackup                      " Don't create annoying backup files
+set history=1000                  " Store last 1000 commands in history
+set undofile                      " Save undo stuff for undotree
+
+set scrolloff=3                   " Keep 3 empty lines at the borders when moving with j and k
+set mouse=nvc                     " Use mouse in Normal, Visual and Command mode
+set visualbell                    " No annoying bell
+
+set splitright                    " Put the new window to the right
+set splitbelow                    " Put the new window at the bottom
+
+set t_vb=                         " Couldn't figuere out what it does probably copied from somehwere
+set filetype=on                   " Set the standard filetype to on
+set modifiable                    " Buffer can be edited
+
+
 
 " Set mapleader to space
 let mapleader =" "
-" let mapleader = <20>
-
-" If i want to use my aliases in vimterminal
-" set shellcmdflag=-ic
-"
-" Indenting 
-" set foldmethod=indent
-" set foldnestmax=1
-
-" Themy stuff
-" transparent background
-au ColorScheme * hi Normal ctermbg=none guibg=none
-au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
-
-set background=dark
-
-" colorscheme wal
-
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-colorscheme onedark
-
-highlight Comment cterm=italic
-
-
-" Source all the different scripts
-source ~/.config/nvim/airline.vim
-source ~/.config/nvim/dashboard.vim
-source ~/.config/nvim/barbar.vim
-source ~/.config/nvim/ultisnips.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/gitgutter.vim
-source ~/.config/nvim/neovide.vim
-source ~/.config/nvim/telescope.vim
-source ~/.config/nvim/vim-visual-multi.vim
-source ~/.config/nvim/nerdTree.vim
-source ~/.config/nvim/omnisharp.vim
-source ~/.config/nvim/runFiles.vim
-source ~/.config/nvim/vimtex.vim
-source ~/.config/nvim/markdownPreview.vim
-source ~/.config/nvim/vimspector.vim
-source ~/.config/nvim/pgsql.vim
-source ~/.config/nvim/undotree.vim
-source ~/.config/nvim/vimtmux.vim
-
-" Specific files
-source ~/.config/nvim/assembly.vim
-source ~/.config/nvim/c++.vim
 
 
 
-" If im dumb as shit
+" Capital case does the same
 command WQ wq
 command Wq wq
 command W w
 command Q q
-
 inoremap :w<CR> <Esc>:w<CR>
 inoremap :q<CR> <Esc>:q<CR>
 inoremap :q!<CR> <Esc>:q!<CR>
 
 
-
-" Trying to remap <C-p> for moving between snippet results to <C-e>
-" imap <C-e> <C-p>
-" inoremap <expr><C-p> pumvisible() ? "\<C-e>" : "\<C-p>"
-inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" for easier moving between windows inside of vim
-" nnoremap <C-j> <C-W>j
-" nnoremap <C-k> <C-W>k
-" nnoremap <C-h> <C-W>h
-" nnoremap <C-l> <C-W>l
-" nnoremap <C-t> :tabnew<CR>
-
-
-
-" Disable arrow keys cause I shall better learn those hjkl commands with colemak
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-
-" It just makes sense
-nnoremap Y y$
-
-
-" Search results always in the middle
-nnoremap n nzz
-nnoremap N Nzz
-
-
-" add lines above and below without going into insert mode
-nmap oo o<Esc>
-nmap OO O<Esc>
-
-
-" reset highlighting of search
-map <f3> :noh<CR>
-
-
-" currently just testing
+" Movement
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
@@ -350,28 +240,106 @@ vnoremap gj j
 vnoremap k gk
 vnoremap gk k
 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" If I want to use my aliases in vimterminal but also prints the fastfetch
+" set shellcmdflag=-ic
+
+" Indenting 
+" set foldmethod=indent
+" set foldnestmax=1
+
+" Themes stuff
+" Transparent background
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+set background=dark
+
+" Comments
+highlight Comment cterm=italic
+
+" WAL
+" colorscheme wal
+
+
+" ONEDARK
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+colorscheme onedark
+
+
+" Source all the different scripts
+
+" Theme stuff
+source ~/.config/nvim/airline.vim
+source ~/.config/nvim/dashboard.vim
+source ~/.config/nvim/barbar.vim
+source ~/.config/nvim/neovide.vim
+" Completion
+source ~/.config/nvim/ultisnips.vim
+source ~/.config/nvim/coc.vim
+""" source ~/.config/nvim/vimspector.vim
+" Git
+source ~/.config/nvim/gitgutter.vim
+" Useful stuff
+source ~/.config/nvim/easyalign.vim
+source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/vim-visual-multi.vim
+""" source ~/.config/nvim/nerdTree.vim
+source ~/.config/nvim/undotree.vim
+source ~/.config/nvim/vimtmux.vim
+" Language specific
+source ~/.config/nvim/omnisharp.vim
+source ~/.config/nvim/vimtex.vim
+source ~/.config/nvim/markdownPreview.vim
+source ~/.config/nvim/pgsql.vim
+
+" Own files
+source ~/.config/nvim/runFiles.vim
+" Specific
+source ~/.config/nvim/assembly.vim
+source ~/.config/nvim/c++.vim
+
+
+" Shortcuts
+
+" C-P to C-E for cycling back the code-completion list
+inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" It just makes sense to yank till the end of the line like `C` or `D`
+nnoremap Y y$
+" Search results always in the middle
+nnoremap n nzz
+nnoremap N Nzz
+" Reset highlighting of search
+map <f3> :noh<CR>
+" Add lines above and below without going into insert mode
+nmap oo o<Esc>
+nmap OO O<Esc>
 " Move lines around
-" vnoremap J :m '>+1<CR>gv=gv
-" vnoremap K :m '<-2<CR>gv=gv
-" inoremap <A-j> <esc>:m .+1<CR>==
-" inoremap <A-k> <esc>:m .-2<CR>==
-" nnoremap <A-j> :m .+1<CR>==
-" nnoremap <A-k> :m .-2<CR>==
-
-
+""" vnoremap J :m '>+1<CR>gv=gv
+""" vnoremap K :m '<-2<CR>gv=gv
+""" inoremap <A-j> <esc>:m .+1<CR>==
+""" inoremap <A-k> <esc>:m .-2<CR>==
+""" nnoremap <A-j> :m .+1<CR>==
+""" nnoremap <A-k> :m .-2<CR>==
 " auto indentation
 map <F7> gg=G<C-o><C-o>
-
-
-" for faster  access
-" maybe deleting it because I never use it...
-nmap \<Space> :
-
-
 " Toggle spellchecker
-" Also not really using it currently
 map <leader>sp :setlocal spell!<CR>
-
+nnoremap <Leader>l :bnext<CR>
+nnoremap <Leader>h :bprev<CR>
+map <Leader>z :Files<CR>
+map <Leader>b :Ex<CR>
 
 " Trims all lines at end of files on save
 function TrimEndLines()
@@ -379,5 +347,4 @@ function TrimEndLines()
     silent! %s#\($\n\s*\)\+\%$##
     call setpos('.', save_cursor)
 endfunction
-
 autocmd BufWritePre * call TrimEndLines()
