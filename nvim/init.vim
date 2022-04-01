@@ -90,8 +90,9 @@ Plug 'sbdchd/neoformat' " Prettier
 " Java Gradle
 Plug 'hdiniz/vim-gradle'
 " Webdev
-Plug 'ap/vim-css-color'        " For CSS
-Plug 'mattn/emmet-vim'         " For HTML
+Plug 'ap/vim-css-color'         " For CSS
+Plug 'mattn/emmet-vim'          " For HTML
+Plug 'neoclide/vim-jsx-improve' " For JSX
 " LaTeX
 Plug 'lervag/vimtex'
 Plug 'engeljh/vim-latexfmt'
