@@ -5,8 +5,8 @@ autocmd FileType cs imap <F2> <Esc>:w<CR>:!csc %<CR>:term mono %:r.exe<CR>
 autocmd FileType python  map <buffer>  <F2>     :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F2> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 " C++
-autocmd FileType cpp  map <F2>      :w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:term ./%:r<CR>
-autocmd FileType cpp imap <F2> <Esc>:w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:term ./%:r<CR>
+autocmd FileType cpp  map <F2>      :w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=never -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:vsplit<CR>:term ./%:r<CR>
+autocmd FileType cpp imap <F2> <Esc>:w<CR>:!g++ -Wall -Wextra -fdiagnostics-color=never -Wno-sign-compare -std=c++20 -O2 -static % -o %:r<CR>:vsplit<CR>:term ./%:r<CR>
 " C
 autocmd FileType c  map <F2>      :w<CR>:!gcc -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c2x -O2 -static % -o %:r<CR>:term ./%:r<CR>
 autocmd FileType c imap <F2> <Esc>:w<CR>:!gcc -Wall -Wextra -fdiagnostics-color=always -Wno-sign-compare -std=c2x -O2 -static % -o %:r<CR>:term ./%:r<CR>

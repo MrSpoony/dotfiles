@@ -276,6 +276,7 @@ if (empty($TMUX))
 endif
 colorscheme onedark
 
+let g:netrw_liststyle = 3
 
 " Source all the different scripts
 
@@ -337,12 +338,12 @@ nnoremap <A-k> :m .-2<CR>==
 map <F7> gg=G<C-o><C-o>
 " Toggle spellchecker
 map <leader>sp :setlocal spell!<CR>
-nnoremap <Leader>l :bnext<CR>
-nnoremap <Leader>h :bprev<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
-map <Leader>z :Files<CR>
-map <Leader>b :Ex<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>h :bprev<CR>
+nnoremap <leader>+ :vertical resize +5<CR>
+nnoremap <leader>- :vertical resize -5<CR>
+map <leader>z :Files<CR>
+map <leader>ex :Ex<CR>
 
 " Trims all lines at end of files on save
 function TrimEndLines()

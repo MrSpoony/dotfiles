@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
             \'coc-html',
             \'coc-css',
             \'coc-json',
-            \'coc-json',
             \'coc-java',
             \'coc-sql',
             \'coc-vimtex',
@@ -93,9 +92,12 @@ augroup end
 " Example: `<leader>aap` for current paragraph
 xmap <leader>ss  <Plug>(coc-codeaction-selected)
 nmap <leader>ss  <Plug>(coc-codeaction-selected)
+xmap <M-Enter>      <Plug>(coc-codeaction-selected)
+nmap <M-Enter>      <Plug>(coc-codeaction-selected)
+nmap <M-Enter>      <Plug>(coc-codeaction)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>sc  <Plug>(coc-codeaction)
 nmap <leader>st  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
