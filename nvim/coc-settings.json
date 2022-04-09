@@ -19,6 +19,11 @@
                 ".hg/"
             ],
             "initializationOptions": {
+                "clang": {
+                    "extraargs": [
+                        "-std=c++17"
+                    ]
+                },
                 "cache": {
                     "directory": "/tmp/ccls"
                 }
