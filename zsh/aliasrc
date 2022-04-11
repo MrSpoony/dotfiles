@@ -96,6 +96,7 @@ alias sudo="sudo "
 
 # vim as default
 alias vi="nvim"
+alias v="nvim"
 alias vim="nvim"
 alias svi="sudo vi"
 alias vis="vim '+set si'"
