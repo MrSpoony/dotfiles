@@ -3,6 +3,7 @@ let g:coc_global_extensions = [
             \'coc-kite',
             \'coc-eslint',
             \'coc-tsserver',
+            \'coc-tslint-plugin',
             \'coc-html',
             \'coc-css',
             \'coc-json',
