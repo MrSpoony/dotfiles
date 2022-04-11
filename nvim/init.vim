@@ -112,12 +112,6 @@ Plug 'neovide/neovide'
 
 " Trees
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
-" Currently not in use, switching back to :E
-" Plug 'preservim/nerdtree' |                               " NerdTree for code structure
-" \ Plug 'Xuyuanp/nerdtree-git-plugin'                      " Git integration
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'            " Syntax highlighting
-" Plug 'PhilRunninger/nerdtree-buffer-ops'                  " Highlight open buffers
-" Plug 'PhilRunninger/nerdtree-visual-selection'            " Visaul selection in NerdTree
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter but currently no configuration so currently useless...
 
 
