@@ -134,7 +134,7 @@ Plug 'andweeb/presence.nvim'          " Discord precense
 Plug 'wakatime/vim-wakatime'          " Time counting and stuff
 Plug 'christoomey/vim-tmux-navigator' " Integration with Tmux
 Plug 'ryanoasis/vim-devicons'         " Nice Icons
-
+Plug 'voldikss/vim-floaterm'          " Floating terminal
 
 
 " Snippets
@@ -296,6 +296,7 @@ source ~/.config/nvim/gitgutter.vim
 source ~/.config/nvim/easyalign.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/vim-visual-multi.vim
+source ~/.config/nvim/floaterm.vim
 """ source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/undotree.vim
 source ~/.config/nvim/vimtmux.vim
