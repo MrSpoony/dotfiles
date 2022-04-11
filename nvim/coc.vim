@@ -7,6 +7,7 @@ let g:coc_global_extensions = [
             \'coc-css',
             \'coc-json',
             \'coc-java',
+            \'coc-vimlsp',
             \'coc-sql',
             \'coc-vimtex',
             \'coc-markdownlint',
