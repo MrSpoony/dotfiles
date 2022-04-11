@@ -128,6 +128,7 @@ Plug 'wakatime/vim-wakatime'          " Time counting and stuff
 Plug 'christoomey/vim-tmux-navigator' " Integration with Tmux
 Plug 'ryanoasis/vim-devicons'         " Nice Icons
 Plug 'voldikss/vim-floaterm'          " Floating terminal
+Plug 'junegunn/goyo.vim'              " Distraction free writing
 
 
 " Snippets
