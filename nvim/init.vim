@@ -65,7 +65,6 @@ Plug 'mg979/vim-visual-multi'    " Multiple cursors
 " Other useful stuff
 Plug 'junegunn/vim-easy-align'   " Algin stuff
 Plug 'tpope/vim-repeat'          " Repeat commands
-Plug 'Yggdroot/indentLine'       " Indentline
 Plug 'tpope/vim-commentary'      " Comments
 
 
