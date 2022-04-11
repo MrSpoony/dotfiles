@@ -305,6 +305,9 @@ nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 " auto indentation
 map <F7> gg=G<C-o><C-o>
+" Reselect block after indenting
+vmap < <gv
+vmap > >gv
 " Toggle spellchecker
 map <leader>sp :setlocal spell!<CR>
 nnoremap <leader>l :bnext<CR>
