@@ -67,7 +67,7 @@ line-size = 3
 
 modules-left = powermenu round-left bspwm round-right 
 modules-center =  
-modules-right =      alsa network battery round-left cpu temperature round-right  mem xbacklight round-left time round-right
+modules-right =      backlight alsa network battery round-left cpu temperature round-right  mem xbacklight round-left time round-right
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
 font-1 = JetBrainsMono Nerd Font:size=18;5
@@ -216,6 +216,34 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 format-volume-padding = 1
 
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Use the `/sys/class/backlight/.../actual-brightness` file
+; rather than the regular `brightness` file.
+; Defaults to true unless the specified card is an amdgpu backlight.
+; New in version 3.6.0
+use-actual-brightness = true
+
+; Enable changing the backlight with the scroll wheel
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT. 
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = true
+
+label = %percentage%%
+format-foreground = #A0E8A2
+
 [module/time]
 type = internal/date
 interval = 1 ;60
@@ -269,7 +297,6 @@ battery = BAT0
 adapter = AC0
 full-at = 98
 
-
 time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
@@ -288,7 +315,7 @@ label-full = %percentage%%
 format-full-suffix = " "
 
 ; format-full-prefix-foreground = #A0E8A2
-;format-full-foreground = #A0E8A2
+format-full-foreground = #A0E8A2
 format-full-prefix-padding = 0
 format-foreground = ${colors.color4}
 format-background = #2b2f37 
