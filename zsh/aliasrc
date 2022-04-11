@@ -153,6 +153,7 @@ alias servejs="nodemon "
 alias nvmsource="source ~/.nvm/nvm.sh"
 
 # git commands
+alias lg="lazygit"
 alias addup="git add -u"
 alias addall="git add ."
 alias gadd="git add "
