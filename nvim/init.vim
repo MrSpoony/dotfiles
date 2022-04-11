@@ -63,10 +63,10 @@ Plug 'mg979/vim-visual-multi'    " Multiple cursors
 
 
 " Other useful stuff
-Plug 'junegunn/vim-easy-align' " Algin stuff
-Plug 'tpope/vim-repeat'        " Repeat commands
-Plug 'Yggdroot/indentLine'     " Indentline
-Plug 'tpope/vim-commentary'    " Comments
+Plug 'junegunn/vim-easy-align'   " Algin stuff
+Plug 'tpope/vim-repeat'          " Repeat commands
+Plug 'Yggdroot/indentLine'       " Indentline
+Plug 'tpope/vim-commentary'      " Comments
 
 
 
@@ -74,7 +74,7 @@ Plug 'tpope/vim-commentary'    " Comments
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Best Autocompletion
 Plug 'python-rope/ropevim'                      " For code-actions
 Plug 'sheerun/vim-polyglot'                     " Collection of language packs
-" debugger
+" Debugger
 " Plug 'idanarye/vim-vebugger'
 " Plug 'cpiger/NeoDebug'
 " Plug 'puremourning/vimspector'
@@ -124,8 +124,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter but cur
 
 
 " Git
-Plug 'tpope/vim-fugitive'     " The best Git integration
-Plug 'airblade/vim-gitgutter' " See changes etc. at the left of the buffer
+Plug 'tpope/vim-fugitive'             " The best Git integration
+Plug 'airblade/vim-gitgutter'         " See changes etc. at the left of the buffer
 
 
 
@@ -138,8 +138,14 @@ Plug 'voldikss/vim-floaterm'          " Floating terminal
 
 
 " Snippets
-Plug 'SirVer/ultisnips'   " The best ones
-Plug 'honza/vim-snippets' " Also good
+Plug 'SirVer/ultisnips'               " The best ones
+Plug 'honza/vim-snippets'             " Also good
+
+
+" Own plugins
+Plug 'MrSpoony/soicode.vim'           " For soi stuff with the .stoml support
+
+
 
 call plug#end()
 
@@ -310,7 +316,6 @@ source ~/.config/nvim/pgsql.vim
 source ~/.config/nvim/runFiles.vim
 " Specific
 source ~/.config/nvim/assembly.vim
-source ~/.config/nvim/c++.vim
 
 
 " Shortcuts
