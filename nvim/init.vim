@@ -285,39 +285,6 @@ colorscheme onedark
 
 let g:netrw_liststyle = 3
 
-" Source all the different scripts
-
-" Theme stuff
-source ~/.config/nvim/airline.vim
-source ~/.config/nvim/dashboard.vim
-source ~/.config/nvim/barbar.vim
-source ~/.config/nvim/neovide.vim
-" Completion
-source ~/.config/nvim/ultisnips.vim
-source ~/.config/nvim/coc.vim
-""" source ~/.config/nvim/vimspector.vim
-" Git
-source ~/.config/nvim/gitgutter.vim
-" Useful stuff
-source ~/.config/nvim/easyalign.vim
-source ~/.config/nvim/telescope.vim
-source ~/.config/nvim/vim-visual-multi.vim
-source ~/.config/nvim/floaterm.vim
-""" source ~/.config/nvim/nerdTree.vim
-source ~/.config/nvim/undotree.vim
-source ~/.config/nvim/vimtmux.vim
-" Language specific
-source ~/.config/nvim/omnisharp.vim
-source ~/.config/nvim/vimtex.vim
-source ~/.config/nvim/markdownPreview.vim
-source ~/.config/nvim/pgsql.vim
-
-" Own files
-source ~/.config/nvim/runFiles.vim
-" Specific
-source ~/.config/nvim/assembly.vim
-
-
 " Shortcuts
 
 " C-P to C-E for cycling back the code-completion list
