@@ -32,6 +32,7 @@ alias jctl="journalctl -p 3 -xb"
 # clear commands
 alias clear="~/.config/zsh/clearcommand.sh"
 alias claer="clear"
+alias lcear="clear"
 alias cls="clear"
 alias clearl="clear; la"
 alias cll="clear;ll"
