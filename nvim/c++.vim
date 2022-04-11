@@ -3,10 +3,15 @@ let path = expand('%:p:h')
 
 if (stridx(path, soi) > 0)
     autocmd BufNewFile *.cpp            0r ~/.config/nvim/templates/cpp.cpp
-    command -nargs=1 -complete=customlist,ListOfSamples RunOneSample
+    command -nargs=1 -complete=customlist,s:listOfSamples
+                \ RunOneSample
                 \ call RunSample(<f-args>)
-    command RunAllSamples
+    command
+                \ RunAllSamples
                 \ call RunAllSamples()
+    command
+                \ CreateStoml
+                \ call CreateStoml()
 endif
 
 let s:cppflags = "-Wall -Wextra -fdiagnostics-color=never -Wno-sign-compare -std=c++20 -O2 -static "
@@ -19,7 +24,7 @@ endfunction
 function! RunAllSamples()
     let compiler = s:compileCppFile()
     let filename = expand('%:p:r')
-    let samples = ListOfSamples()
+    let samples = s:listOfSamples()
     split output
     1,$d
     if trim(compiler) != ""
@@ -95,7 +100,7 @@ function! s:runOneSample(sample, filename)
     execute "normal! i\n\<Esc>"
 endfunction
 
-function ListOfSamples()
+function s:listOfSamples(A = "", B = "", C = "")
     let file = readfile(expand('%:p:r') . '.stoml')
     let samples = []
     for line in file
@@ -106,4 +111,12 @@ function ListOfSamples()
         endif
     endfor
     return samples
+endfunction
+
+
+function! CreateStoml()
+    let file = expand('%:p:r') . '.stoml'
+    execute 'edit ' . file
+    execute "normal! i\<C-r>+\<Esc>"
+    write
 endfunction
