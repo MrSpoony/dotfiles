@@ -129,6 +129,7 @@ Plug 'christoomey/vim-tmux-navigator' " Integration with Tmux
 Plug 'ryanoasis/vim-devicons'         " Nice Icons
 Plug 'voldikss/vim-floaterm'          " Floating terminal
 Plug 'junegunn/goyo.vim'              " Distraction free writing
+Plug 'dhruvasagar/vim-table-mode'     " Awesome automatic tables
 
 
 " Snippets
