@@ -7,6 +7,7 @@ using namespace std;
 #define REP(i, j) FOR(i, 0, j, 1)
 #define RREP(i, j) RFOR(i, j, 0, 1)
 #define FOREACH(i, j) for (auto i : j) 
+#define DPG(x) x;
 #define MP make_pair
 #define PB push_back
 #define F first
@@ -15,7 +16,7 @@ using namespace std;
 #define INFINITE 9223372036854775807
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
-#define dl "\n";
+#define dl "\n"
 
 typedef long long int lint;
 typedef pair<lint, lint> PII;
