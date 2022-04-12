@@ -15,19 +15,20 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " Themes
-Plug 'dylanaraps/wal.vim'             " Wal theme
-Plug 'joshdick/onedark.vim'           " Onedark
-Plug 'glepnir/dashboard-nvim'         " Dashboard when opening neovim
+Plug 'dylanaraps/wal.vim'                            " Wal theme
+Plug 'joshdick/onedark.vim'                          " Onedark
+Plug 'kaicataldo/material.vim', { 'branch': 'main' } " Material
+Plug 'glepnir/dashboard-nvim'                        " Dashboard when opening neovim
 " Bar at the bottom
-Plug 'vim-airline/vim-airline'        " For nicer bar at the bottom
-Plug 'vim-airline/vim-airline-themes' " Themes for the bar
-Plug 'bling/vim-bufferline'           " To see buffers/tabs in bottom airline bar
+Plug 'vim-airline/vim-airline'                       " For nicer bar at the bottom
+Plug 'vim-airline/vim-airline-themes'                " Themes for the bar
+Plug 'bling/vim-bufferline'                          " To see buffers/tabs in bottom airline bar
 " Brackets
-Plug 'jiangmiao/auto-pairs'           " For better auto pairinp brackets
-Plug 'tpope/vim-surround'             " Surround your stuff easier with brackets or quotes
-" Tab display 
-Plug 'kyazdani42/nvim-web-devicons'   " Icons like the name implies
-Plug 'romgrk/barbar.nvim'             " For better Tab display
+Plug 'jiangmiao/auto-pairs'                          " For better auto pairinp brackets
+Plug 'tpope/vim-surround'                            " Surround your stuff easier with brackets or quotes
+" Tab display
+Plug 'kyazdani42/nvim-web-devicons'                  " Icons like the name implies
+Plug 'romgrk/barbar.nvim'                            " For better Tab display
 
 
 
@@ -37,22 +38,15 @@ Plug 'romgrk/barbar.nvim'             " For better Tab display
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Telescope plugin
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'         " Some helpful lua functions other plugins need
+Plug 'BurntSushi/ripgrep'            " Line-oriented search tool
+Plug 'nvim-telescope/telescope.nvim' " Telescope search etc.
 " Clap
 Plug 'liuchengxu/vim-clap'
-" Build the extra binary if cargo exists on your system.
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-" The bang version will try to download the prebuilt binary if cargo does not exist.
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-" :Clap install-binary[!] will always try to compile the binary locally,
-" if you do care about the disk used for the compilation, try using the force download way,
-" which will download the prebuilt binary even you have installed cargo.
 Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
-" `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
-" If you don't want that and hope to run the hook synchorously:
 Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
-
 
 
 " Better Motions and other stuff
@@ -85,6 +79,7 @@ Plug 'sheerun/vim-polyglot'                     " Collection of language packs
 Plug 'sbdchd/neoformat' " Prettier
 
 
+
 " Language specific stuff
 " Java Gradle
 Plug 'hdiniz/vim-gradle'
@@ -113,6 +108,7 @@ Plug 'neovide/neovide'
 " Trees
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter for syntax highlighting and code `understanding`
+Plug 'nvim-treesitter/playground'
 
 
 
@@ -132,9 +128,11 @@ Plug 'junegunn/goyo.vim'              " Distraction free writing
 Plug 'dhruvasagar/vim-table-mode'     " Awesome automatic tables
 
 
+
 " Snippets
 Plug 'SirVer/ultisnips'               " The best ones
 Plug 'honza/vim-snippets'             " Also good
+
 
 
 " Own plugins
@@ -154,7 +152,7 @@ syntax on
 " all set commands
 "
 
-set clipboard=unnamed,unnamedplus " Share clipboard between winbows not vim-only clipboard
+set clipboard=unnamed,unnamedplus " Share clipboard not vim-only clipboard
 
 set spelllang=en_US               " Language
 set nospell                       " Disable by default
@@ -201,7 +199,7 @@ set autoread                      " Automatically read a file that has changed o
 set noswapfile                    " Don't use a swapfile
 set updatetime=100                " Doesn't matter since I disabled writing to the swapfile
 set nobackup                      " Don't create annoying backup files
-set history=1000                  " Store last 1000 commands in history
+set history=10000                 " Store last 1000 commands in history
 set undofile                      " Save undo stuff for undotree
 
 set scrolloff=3                   " Keep 3 empty lines at the borders when moving with j and k
@@ -211,8 +209,6 @@ set visualbell                    " No annoying bell
 set splitright                    " Put the new window to the right
 set splitbelow                    " Put the new window at the bottom
 
-set t_vb=                         " Couldn't figuere out what it does probably copied from somehwere
-set filetype=on                   " Set the standard filetype to on
 set modifiable                    " Buffer can be edited
 
 
