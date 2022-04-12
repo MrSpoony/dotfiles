@@ -112,7 +112,7 @@ Plug 'neovide/neovide'
 
 " Trees
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter but currently no configuration so currently useless...
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter for syntax highlighting and code `understanding`
 
 
 
@@ -189,6 +189,7 @@ set wildmode=longest:full,full    " How wild mode should behave
 set incsearch                     " Incremental search
 set hlsearch                      " Highlight search results
 set noignorecase                  " Don't ignore case when searching
+set path+=**                      " Search everywhere
 
 set hidden                        " Edit another buffer whine another one is unsaved IMPORTANT ONE!!
 
@@ -314,6 +315,7 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
+" File searching
 map <leader>z :Files<CR>
 map <leader>ex :Ex<CR>
 
