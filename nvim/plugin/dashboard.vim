@@ -14,9 +14,9 @@ nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
 let g:dashboard_default_executive ='telescope'
 
-let g:dashboard_preview_command = 'cat'
-let g:dashboard_preview_pipeline = 'lolcat'
-let g:dashboard_preview_file = '~/.config/nvim/dashboard/neovim.cat'
+" let g:dashboard_preview_command = 'cat'
+" let g:dashboard_preview_pipeline = 'lolcat'
+" let g:dashboard_preview_file = '~/.config/nvim/dashboard/neovim.cat'
 let g:dashboard_preview_file_height = 10
 let g:dashboard_preview_file_width = 80
 
@@ -28,3 +28,16 @@ let g:dashboard_preview_file_width = 80
 " \ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
 " \ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
 " \]
+"
+let g:dashboard_custom_header = [
+            \'                                ',
+            \'        ███████████        █████      ██',
+            \'       ███████████          █████ ███',
+            \'       ██████████████████    ████████ ███  ████████',
+            \'      ████████████████████████████ █████ ██████████████',
+            \'     █████████████████████████████ █████ █████ ████ █████',
+            \'    ██████████████████████████████ █████ █████ ████ █████',
+            \'   █████████ ███████  █████████ ████ █████ █████ ████ ██████',
+            \'  █████████  ███████████████  ██ █████████████████',
+            \'█████████████   ███████ █████   ██ █████████████████',
+            \]
