@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SNIPS=${HOME}/.config/snippets
+SNIPS=${HOME}/bin/snippets
 
 FILE=`ls ${SNIPS} | /usr/bin/rofi -dmenu`
 
