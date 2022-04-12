@@ -6,7 +6,6 @@
 !/.gitignore
 !/alacritty/
 !/bspwm/
-!/dunst/
 !/doom/
 !/qtile/
 /qtile/__pycache__/
