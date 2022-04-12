@@ -105,7 +105,7 @@ super + alt + q
     bspc quit 1 && pkill polybar && pkill picom
 
 super + alt + r
-	bspc wm -r
+	bspc wm -r && ~/.config/bspwm/bspwmrc
 
 # Mullvad connect and disconnect respectively with shift
 super + c
