@@ -1,6 +1,6 @@
 #! /bin/sh
 
-~/.config/zsh/startup.sh &
+~/bin/startup.sh &
 
 $HOME/.config/polybar/launch.sh &
 
