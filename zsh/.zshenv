@@ -1,6 +1,6 @@
 # Path variable and stuff
 export PATH=$PATH:"/usr/local/bin:/usr/local/go/bin"
-export PATH=$PATH:~/.emacs.d/bin/doom
+export PATH=$PATH:~/bin/
 export PATH=$PATH:~/apps/rofi-translate
 
 # clipboard things
