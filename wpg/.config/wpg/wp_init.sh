@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -rs '/home/kimil/.config/wallpapers' '/home/kimil/.config/wallpapers'
+wpg -rs '/home/kimil/pictures/wallpapers' '/home/kimil/pictures/wallpapers'
