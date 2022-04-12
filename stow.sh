@@ -15,3 +15,4 @@ stow tmux
 stow wallpapers
 stow wpg
 stow X
+stow zsh
