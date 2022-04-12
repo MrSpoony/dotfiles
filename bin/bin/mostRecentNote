@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ls -r ~/docs/notes/src/*.md  | head -n1 | xargs buildNote
+ls -r ~/docs/notes/pdf/*.pdf | head -n1 | xargs qpdfview
