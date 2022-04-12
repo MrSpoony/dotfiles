@@ -4,7 +4,7 @@
 
 # Terminal emulator
 super + Return
-    alacritty	
+    alacritty    
 
 # Brave
 super + shift + Return
@@ -15,8 +15,16 @@ super + shift + Return
 #
 
 # Snippet script
-super + shift + n
+super + o
     snippy
+
+# Notes
+super + g
+    bspc rule -a Alacritty -o state=floating; \
+    alacritty -e notetaker
+
+super + shift + g
+    mostRecentNote
 
 
 #
@@ -25,7 +33,7 @@ super + shift + n
 
 # Program launcher
 super + space
-	rofi -show drun
+    rofi -show drun
 
 # Command launcher
 super + shift + space
@@ -37,7 +45,7 @@ super + w
 
 # Open clipmenu
 super + v
-	clipmenu
+    clipmenu
 
 # Bitwarden menu
 super + b
@@ -73,7 +81,7 @@ super + y
 
 # Next background
 super + n
-	wpg -s ~/pictures/wallpapers
+    wpg -s ~/pictures/wallpapers
 
 # No transparency
 super + u
@@ -91,7 +99,7 @@ super + shift + c
 
 # Lock screen
 super + shift + e
-	xsecurelock
+    xsecurelock
 
 # Screenshot stuff
 # Save it into screenshots folder
@@ -108,13 +116,13 @@ super + shift + s
 
 # reload sxkhd
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 
 # reload polybar & picom
 super + shift + Escape
-	$HOME/.config/polybar/launch.sh
-    killall -9 picom
-    picom 
+    $HOME/.config/polybar/launch.sh; \
+    killall -9 picom; \
+    picom
 
 # reload spotifyd
 super + shift + d
@@ -126,7 +134,7 @@ super + alt + q
     bspc quit 1 && pkill polybar && pkill picom
 # Restart bspwm
 super + alt + r
-	bspc wm -r && ~/.config/bspwm/bspwmrc
+    bspc wm -r && ~/.config/bspwm/bspwmrc
 
 
 #
@@ -135,17 +143,17 @@ super + alt + r
 
 # VolumeControl
 XF86AudioLowerVolume
-	pulseaudio-control --volume-max 100 down
+    pulseaudio-control --volume-max 100 down
 super + F2
     pulseaudio-control --voleme-max 100 down
 
 XF86AudioRaiseVolume
-	pulseaudio-control --volume-max 100 up
+    pulseaudio-control --volume-max 100 up
 super + F3
     pulseaudio-control --volume-max 100 down
 
 XF86AudioMute
-	pulseaudio-control togmute
+    pulseaudio-control togmute
 super + F1
     pulseaudio-control togmute
 
@@ -178,19 +186,19 @@ XF86AudioPlay
 
 # close and kill
 super + shift + q    
-	bspc node -c
+    bspc node -c
 
 # set the window state
 super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # alternate between the tiled and monocle layout
 super + m
-	bspc desktop -l next
+    bspc desktop -l next
 
 # # set the node flags
 # super + ctrl + {m,x,y,z}
-# 	bspc node -g {marked,locked,sticky,private}
+#     bspc node -g {marked,locked,sticky,private}
 
 
 #
@@ -199,27 +207,27 @@ super + m
 
 # focus/move the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+    bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
-alt + {grave,Tab}
+    bspc {node,desktop} -f last
+alt + grave
     bspc node -f last
 
-# # focus the older or newer node in the focus history
-# super + {o,i}
-# 	bspc wm -h off; \
-# 	bspc node {older,newer} -f; \
-# 	bspc wm -h on
+# focus the older or newer node in the focus history
+alt + {_, shift + } Tab
+    bspc wm -h off; \
+    bspc node {newer,older} -f; \
+    bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+    bspc {desktop -f,node -d} '^{1-9,10}'
 
 
 #
@@ -228,19 +236,19 @@ super + {_,shift + }{1-9,0}
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+    bspc node -p {west,south,north,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+    bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
-	bspc node -p cancel
+    bspc node -p cancel
 
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 
 #
@@ -249,20 +257,16 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 super + alt + {Left,Up,Down,Right}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 super + alt + shift + {Left,Up,Down,Right}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-
-# resize mode
-super + r : {h, j, k, l, alt + shift + h, alt + shift + j, alt + shift + k, alt + shift + l, shift + h, shift + j, shift + k, shift + l} bspc node {-v -20 0, -v 0 20,-v 0 -20,-v 20 0,-z right -20 0,-z top 0 20,-z bottom 0 -20,-z left 20 0, -z left -20 0,-z bottom 0 20,-z top 0 -20,-z right 20 0}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
