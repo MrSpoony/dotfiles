@@ -75,7 +75,7 @@ super + y
 
 # next background
 super + n
-	wpg -s ~/.config/wallpapers ; # pywal-discord -t abou # ; spicetify apply	
+	wpg -s ~/pictures/wallpapers ; # pywal-discord -t abou # ; spicetify apply	
 
 # no transparency
 super + u
