@@ -3,6 +3,7 @@
 stow alacritty
 stow bin
 stow bspwm
+stow sxhkd
 stow gdb
 stow important
 stow lazygit
