@@ -1,40 +1,33 @@
-# Kimi's SXHKD SCRIPT 3
-# not finished, wip
+#
+# Programs
 #
 
-#
-# Run programms from hotkey
-#
-
-# terminal emulator
+# Terminal emulator
 super + Return
     alacritty	
 
-# lock screen
-super + shift + e
-	xsecurelock
-
-# open browsers
-# brave
+# Brave
 super + shift + Return
     brave
-    # firefox
-super + alt + Return
-    firefox
 
-# open MS-teams
-super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12}
-    {teams,discord,signal-desktop,whatsapp-for-linux,nautilus,ranger} 
+#
+# My scripts
+#
+
+# Snippet script
+super + shift + n
+    snippy
 
 
 #
 # rofi stuff
 # 
 
-# program launcher
+# Program launcher
 super + space
 	rofi -show drun
 
+# Command launcher
 super + shift + space
     rofi -show run
 
@@ -42,55 +35,82 @@ super + shift + space
 super + w
     ~/apps/rofi-wifi-menu/rofi-wifi-menu.sh
 
-# open clipmenu
+# Open clipmenu
 super + v
 	clipmenu
 
-# bitwarden menu
+# Bitwarden menu
 super + b
     bwmenu
 
-# open power-menu
+# Power-menu
 super + alt + Escape
     rofi -show power-menu -modi power-menu:rofi-power-menu 
 
 super + a
     rofi -show calc -modi calc -no-show-match -no-sort
 
+# Translate
 super + e
     rofi_trans
 
+# Emojis unicode
 super + i
     rofimoji -f all
 
+# Only emojis
 super + shift + i
     rofimoji
 
+# Spotify
 super + y
     rofi-spotify
 
+
 #
-# launch stuff/scripts, reload stuff etc. 
+# Launch stuff
 #
 
-# next background
+# Next background
 super + n
-	wpg -s ~/pictures/wallpapers ; # pywal-discord -t abou # ; spicetify apply	
+	wpg -s ~/pictures/wallpapers
 
-# no transparency
+# No transparency
 super + u
     picom-trans -c 100
 
-# revert it / add transparency again
+# Revert it / add transparency again
 super + shift + u
     picom-trans -c -r
-    # feh --bg-fill ~/.config/wallpapers/black/black.jpg
 
-# make sxhkd reload its configuration files:
+# Mullvad connect and disconnect respectively
+super + c
+    mullvad connect
+super + shift + c
+    mullvad disconnect
+
+# Lock screen
+super + shift + e
+	xsecurelock
+
+# Screenshot stuff
+# Save it into screenshots folder
+super + shift + r
+    maim -s -o ~/pictures/screenshots/$( date '+%F-%H-%M-%S').png
+# copy it to the clipboard
+super + shift + s
+    maim -s | xclip -selection clipboard -t image/png
+
+
+#
+# Kill and reload
+#
+
+# reload sxkhd
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# reload polybar
+# reload polybar & picom
 super + shift + Escape
 	$HOME/.config/polybar/launch.sh
     killall -9 picom
@@ -100,31 +120,13 @@ super + shift + Escape
 super + shift + d
     spotifyd --no-daemon --device-name spotifydDellXPS15
 
-# quit/restart bspwm
+# Bspwm stuff
+# Kill bspwm
 super + alt + q
     bspc quit 1 && pkill polybar && pkill picom
-
+# Restart bspwm
 super + alt + r
 	bspc wm -r && ~/.config/bspwm/bspwmrc
-
-# Mullvad connect and disconnect respectively with shift
-super + c
-    mullvad connect
-
-super + shift + c
-    mullvad disconnect
-
-#
-# screenshot stuff
-# 
-
-# make selection screenshot and add it to folder ~/pictures/screenshots
-super + shift + r
-    maim -s -o ~/pictures/screenshots/$( date '+%F-%H-%M-%S').png
-
-# make selection screenshot and add it to copy 
-super + shift + s
-    maim -s | xclip -selection clipboard -t image/png
 
 
 #
