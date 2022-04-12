@@ -30,7 +30,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias clear="~/.config/zsh/clearcommand.sh"
+alias clear="~/bin/clearcommand.sh"
 alias claer="clear"
 alias lcear="clear"
 alias cls="clear"
@@ -55,13 +55,12 @@ alias yaysyu="yay -Syu --noconfirm"
 alias zshrc="vim ~/.zshrc"
 alias zshenv="vim ~/.zshenv"
 alias aliasrc="vim ~/.aliasrc"
-alias startuprc="vim ~/.config/zsh/startup.sh"
+alias startuprc="vim ~/bin/zsh/startup.sh"
 alias sxhkdrc="vim ~/.config/sxhkd/sxhkdrc"
 alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
-alias qtilerc="vim ~/.config/qtile/config.py"
 alias nvimrc="vim ~/.config/nvim/init.vim"
 alias polybarrc="vim ~/.config/polybar/config"
-alias tmuxrc="vim ~/.config/tmux/tmux.conf"
+alias tmuxrc="vim ~/.tmux.conf"
 alias picomrc="vim ~/.config/picom/picom.conf"
 alias alacrittyrc="vim ~/.config/alacritty/alacritty.yml"
 alias gdbrc="vim ~/.gdbinit"
@@ -173,8 +172,8 @@ alias gdiff="git diff" # diff is its own command so gdiff it is
 alias gsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
-alias rickroll="~/.config/zsh/roll.sh"
-alias rr="~/.config/zsh/roll.sh"
+alias rickroll="~/bin/zsh/roll.sh"
+alias rr="~/bin/zsh/roll.sh"
 
 alias parrot="curl parrot.live"
 
