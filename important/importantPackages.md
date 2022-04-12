@@ -10,6 +10,7 @@ if I forget my packages or so I know what I have to install on a new system.
 I know I should switch to NixOS I also want to but till now I haven't found
 the time to read the documentation.
 
+* stow (To manage my dotfiles)
 * bspwm (Window Manager)
 * sxhkd (Shortcut Manager)
 * picom (Compositor)
