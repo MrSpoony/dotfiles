@@ -308,6 +308,14 @@ ysiw] to surround word (iw) with []
 SPC o n -> Neotree
 SPC o t -> Terminal
 
+#### Emacs
+
+C-x C-c    to close
+C-g        don't get stuck in prompts
+C-x b      to open buffers
+C-x k      close buffer
+C-x C-f    open file
+
 ### Less random commands
 
 #### Pacman/Yay
