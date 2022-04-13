@@ -14,149 +14,129 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+
+
 " Themes
-Plug 'dylanaraps/wal.vim'                            " Wal theme
-Plug 'joshdick/onedark.vim'                          " Onedark
-Plug 'kaicataldo/material.vim', { 'branch': 'main' } " Material
-Plug 'glepnir/dashboard-nvim'                        " Dashboard when opening neovim
-" Bar at the bottom
-Plug 'vim-airline/vim-airline'                       " For nicer bar at the bottom
-Plug 'vim-airline/vim-airline-themes'                " Themes for the bar
-Plug 'bling/vim-bufferline'                          " To see buffers/tabs in bottom airline bar
-" Brackets
-Plug 'windwp/nvim-autopairs'
-" Plug 'jiangmiao/auto-pairs'                          " For better auto pairinp brackets
-Plug 'tpope/vim-surround'                            " Surround your stuff easier with brackets or quotes
-" Tab display
-Plug 'kyazdani42/nvim-web-devicons'                  " Icons like the name implies
-Plug 'romgrk/barbar.nvim'                            " For better Tab display
+Plug 'dylanaraps/wal.vim'                                   " Wal theme
+Plug 'joshdick/onedark.vim'                                 " Onedark
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }        " Material
+Plug 'glepnir/dashboard-nvim'                               " Dashboard when opening neovim
+Plug 'vim-airline/vim-airline'                              " For nicer bar at the bottom
+Plug 'vim-airline/vim-airline-themes'                       " Themes for the bar
+Plug 'bling/vim-bufferline'                                 " To see buffers/tabs in bottom airline bar
+Plug 'windwp/nvim-autopairs'                                " Auto pairinp brackets
+Plug 'tpope/vim-surround'                                   " Surround your stuff easier with brackets or quotes
+Plug 'kyazdani42/nvim-web-devicons'                         " Icons like the name implies
+Plug 'romgrk/barbar.nvim'                                   " Tab display
+Plug 'ryanoasis/vim-devicons'                               " Nice Icons
+Plug 'junegunn/goyo.vim'                                    " Distraction free writing
+Plug 'neovide/neovide'                                      " Neovide support
 
 
 
-" I have to learn those things onece, I think they're great when you can use
-" them propperly
-" Fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" Telescope plugin
-Plug 'nvim-lua/plenary.nvim'         " Some helpful lua functions other plugins need
-Plug 'BurntSushi/ripgrep'            " Line-oriented search tool
-Plug 'nvim-telescope/telescope.nvim' " Telescope search etc.
-" Clap
-Plug 'liuchengxu/vim-clap'
+" FZF Like Plugins
+Plug 'nvim-lua/plenary.nvim'                                " Some helpful lua functions other plugins (telecope) need
+Plug 'BurntSushi/ripgrep'                                   " Line-oriented search tool
+Plug 'nvim-telescope/telescope.nvim'                        " Telescope search etc.
+Plug 'liuchengxu/vim-clap'                                  " Clap (can do some stuff I haven't had the time to configure with Telescope)
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
 Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
-
-
-" Better Motions and other stuff
-Plug 'easymotion/vim-easymotion' " Easymotion to make navigating in the code easier
-Plug 'justinmk/vim-sneak'        " Try to get rid of s and use it for vim-sneak
-Plug 'mg979/vim-visual-multi'    " Multiple cursors
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }         " Fzf (same reason as Clap)
+Plug 'junegunn/fzf.vim'
 
 
 
-" Other useful stuff
-Plug 'junegunn/vim-easy-align'   " Algin stuff
-Plug 'tpope/vim-repeat'          " Repeat commands
-Plug 'tpope/vim-commentary'      " Comments
+Plug 'christoomey/vim-tmux-navigator'                       " Integration with Tmux
+Plug 'vim-scripts/ZoomWin'                                  " Zoom in on windows
+
+
+" New 'Verbs'
+Plug 'tpope/vim-commentary'                                 " Comments gc
+Plug 'junegunn/vim-easy-align'                              " Algin stuff ga
+Plug 'vim-scripts/ReplaceWithRegister'                      " Replace without going into visual mode gr
+Plug 'christoomey/vim-sort-motion'                          " Sort with gs
+
+
+
+" New 'Nouns'
+Plug 'easymotion/vim-easymotion'                            " Easymotion to make navigating in the code easier
+Plug 'justinmk/vim-sneak'                                   " Try to get rid of s and use it for vim-sneak
+Plug 'michaeljsmith/vim-indent-object'                      " Indent object with ii, ai, aI, and iI etc.
+
+
+
+" Other stuff
+Plug 'tpope/vim-repeat'                                     " Repeat commands
+Plug 'mg979/vim-visual-multi'                               " Multiple cursors
+Plug 'andweeb/presence.nvim'                                " Discord precense
+Plug 'wakatime/vim-wakatime'                                " Time counting and stuff
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter for syntax highlighting and code `understanding`
+Plug 'nvim-treesitter/playground'                           " TreeSitter playground :TSPlaygroundToggle
+Plug 'vimwiki/vimwiki'                                      " Vimwiki notes
+Plug 'dhruvasagar/vim-table-mode'                           " Awesome automatic tables
+Plug 'voldikss/vim-floaterm'                                " Floating terminal
 
 
 
 " Autocompletion stuff
-Plug 'onsails/lspkind-nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'neovim/nvim-lspconfig'                                " Nvim lsp support
+Plug 'williamboman/nvim-lsp-installer'                      " Easy installation for lsp's
+Plug 'p00f/clangd_extensions.nvim'                          " Clang extension for nvim-lsp
+Plug 'hrsh7th/nvim-cmp'                                     " Autocompletion engine
+Plug 'hrsh7th/cmp-nvim-lsp'                                 " Nvim-cmp source for neovim's built-in ls client
+Plug 'hrsh7th/cmp-buffer'                                   " Nvim-cmp source for buffer words
+Plug 'hrsh7th/cmp-path'                                     " Nvim-cmp source for filesystem paths
+Plug 'hrsh7th/cmp-cmdline'                                  " Nvim-cmp source for vim's commandline
+Plug 'onsails/lspkind-nvim'                                 " Nice Icons in lsp-comp
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'                  " Nvim-cmp ultisnips support
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }        " Nvim-cmp tabnine support
 
 
 
-Plug 'p00f/clangd_extensions.nvim'
+Plug 'python-rope/ropevim'                                  " For some Code-actions
+Plug 'sheerun/vim-polyglot'                                 " Collection of language packs
 
-Plug 'python-rope/ropevim'                      " For code-actions
-Plug 'sheerun/vim-polyglot'                     " Collection of language packs
+
+" Language specific stuff
+Plug 'hdiniz/vim-gradle'                                    " Java Gradle
+Plug 'ap/vim-css-color'                                     " CSS
+Plug 'mattn/emmet-vim'                                      " HTML
+Plug 'rstacruz/sparkup'                                     " Even better HTML
+Plug 'neoclide/vim-jsx-improve'                             " For JSX
+Plug 'lervag/vimtex'                                        " LaTeX
+Plug 'engeljh/vim-latexfmt'                                 " LaTex Formatter
+Plug 'iamcco/markdown-preview.nvim'                         " Markdown
+Plug 'OmniSharp/omnisharp-vim'                              " C#
+
+
 " Debugger
 " Plug 'idanarye/vim-vebugger'
-Plug 'cpiger/NeoDebug'
+Plug 'cpiger/NeoDebug'                                      " Debugging stuff
 " Plug 'puremourning/vimspector'
-Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}           " Gdb implementation in neovim
 " Plug 'Pocco81/DAPInstall.nvim'
 " Plug 'mfussenegger/nvim-dap'
 " Plug 'rcarriga/nvim-dap-ui'
 
 
-" Formatter
-Plug 'sbdchd/neoformat' " Prettier
-
-
-
-" Language specific stuff
-" Java Gradle
-Plug 'hdiniz/vim-gradle'
-" Webdev
-Plug 'ap/vim-css-color'         " For CSS
-Plug 'mattn/emmet-vim'          " For HTML
-Plug 'rstacruz/sparkup'         " Even better HTML
-Plug 'neoclide/vim-jsx-improve' " For JSX
-" LaTeX
-Plug 'lervag/vimtex'
-Plug 'engeljh/vim-latexfmt'
-" Markdown
-Plug 'iamcco/markdown-preview.nvim'
-" SQL
-Plug 'exu/pgsql.vim'
-" C#
-Plug 'OmniSharp/omnisharp-vim' " For C# coding
-" Plug 'dense-analysis/ale'      " For C# code highlighting
-
-
-
-" Neovide support
-Plug 'neovide/neovide'
-
-
-
-" Trees
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}            " UndoTree for undo representation
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " TreeSitter for syntax highlighting and code `understanding`
-Plug 'nvim-treesitter/playground'
-
-
 
 " Git
-Plug 'tpope/vim-fugitive'             " The best Git integration
-Plug 'airblade/vim-gitgutter'         " See changes etc. at the left of the buffer
-
-
-
-" Other stuff
-Plug 'andweeb/presence.nvim'          " Discord precense
-Plug 'wakatime/vim-wakatime'          " Time counting and stuff
-Plug 'christoomey/vim-tmux-navigator' " Integration with Tmux
-Plug 'ryanoasis/vim-devicons'         " Nice Icons
-Plug 'voldikss/vim-floaterm'          " Floating terminal
-Plug 'junegunn/goyo.vim'              " Distraction free writing
-Plug 'dhruvasagar/vim-table-mode'     " Awesome automatic tables
-Plug 'vimwiki/vimwiki'                " Vimwiki notes
-Plug 'vim-scripts/ZoomWin'            " Zoom in on windows
+Plug 'tpope/vim-fugitive'                                   " The best Git integration
+Plug 'airblade/vim-gitgutter'                               " See changes etc. at the left of the buffer
 
 
 
 " Snippets
-Plug 'honza/vim-snippets'             " Requirement of ultisnips
-Plug 'SirVer/ultisnips'               " The best ones
+Plug 'honza/vim-snippets'                                   " Requirement of ultisnips
+Plug 'SirVer/ultisnips'                                     " The best ones
 
 
 
 " Own plugins
-Plug 'MrSpoony/soicode.vim'           " For soi stuff with the .stoml support
+Plug 'MrSpoony/soicode.vim'                                 " For soi stuff with the .stoml support
 
 
 
@@ -333,9 +313,11 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
+nnoremap ; :
+nnoremap : ;
 " File searching
 map <leader>z :Files<CR>
-map <leader>ex :Ex<CR>
+map <leader>b :Ex<CR>
 
 " Trims all lines at end of files on save
 function TrimEndLines()
