@@ -1,3 +1,5 @@
 require("kimil.treesitter")
 require("kimil.lsp")
 require("kimil.autopairs")
+require("kimil.hop")
+require("kimil.iswap")
