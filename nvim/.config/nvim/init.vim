@@ -48,25 +48,6 @@ Plug 'junegunn/fzf.vim'
 
 
 
-Plug 'christoomey/vim-tmux-navigator'                       " Integration with Tmux
-Plug 'vim-scripts/ZoomWin'                                  " Zoom in on windows
-
-
-" New 'Verbs'
-Plug 'tpope/vim-commentary'                                 " Comments gc
-Plug 'junegunn/vim-easy-align'                              " Algin stuff ga
-Plug 'vim-scripts/ReplaceWithRegister'                      " Replace without going into visual mode gr
-Plug 'christoomey/vim-sort-motion'                          " Sort with gs
-
-
-
-" New 'Nouns'
-Plug 'easymotion/vim-easymotion'                            " Easymotion to make navigating in the code easier
-Plug 'justinmk/vim-sneak'                                   " Try to get rid of s and use it for vim-sneak
-Plug 'michaeljsmith/vim-indent-object'                      " Indent object with ii, ai, aI, and iI etc.
-
-
-
 " Other stuff
 Plug 'tpope/vim-repeat'                                     " Repeat commands
 Plug 'mg979/vim-visual-multi'                               " Multiple cursors
@@ -78,7 +59,27 @@ Plug 'nvim-treesitter/playground'                           " TreeSitter playgro
 Plug 'vimwiki/vimwiki'                                      " Vimwiki notes
 Plug 'dhruvasagar/vim-table-mode'                           " Awesome automatic tables
 Plug 'voldikss/vim-floaterm'                                " Floating terminal
+Plug 'christoomey/vim-tmux-navigator'                       " Integration with Tmux
+Plug 'vim-scripts/ZoomWin'                                  " Zoom in on windows
+Plug 'kana/vim-textobj-user'                                " For own 'Nouns'
+Plug 'mizlan/iswap.nvim/'                                   " Swap function arguments etc.
 
+
+" New 'Verbs'
+Plug 'tpope/vim-commentary'                                 " Comments gc
+Plug 'junegunn/vim-easy-align'                              " Algin stuff ga
+Plug 'vim-scripts/ReplaceWithRegister'                      " Replace without going into visual mode gr
+Plug 'christoomey/vim-sort-motion'                          " Sort with gs
+
+
+
+" New 'Nouns'
+Plug 'phaazon/hop.nvim'                                     " Easymotion but in lua
+Plug 'justinmk/vim-sneak'                                   " Try to get rid of s and use it for vim-sneak
+Plug 'michaeljsmith/vim-indent-object'                      " Indent object with ii, ai, aI, and iI etc.
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'          " Treesitter textobjects f (functions), etc
+Plug 'RRethy/nvim-treesitter-textsubjects'                  " Smart textsubjects from treesitter
+Plug 'kana/vim-textobj-entire'                              " Whole document ae, ie
 
 
 " Autocompletion stuff
@@ -291,7 +292,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 " Reset highlighting of search
-map <f3> :noh<CR>
+map <f3> ;noh<CR>
 " Add lines above and below without going into insert mode
 nmap oo o<Esc>
 nmap OO O<Esc>
@@ -315,9 +316,14 @@ nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 " File searching
 map <leader>z :Files<CR>
 map <leader>b :Ex<CR>
+
+command Pi PlugInstall
+command Pu PlugUpdate
 
 " Trims all lines at end of files on save
 function TrimEndLines()
