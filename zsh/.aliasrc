@@ -127,8 +127,8 @@ alias shutdown="sudo shutdown"
 
 
 # set layouts (s for setxkbmap)
-alias sus="setxkbmap us"
-alias scol="setxkbmap us -variant colemak"
+alias arst="setxkbmap us"
+alias asdf="setxkbmap us -variant colemak; xset r 66; xset r rate 180 85"
 
 # misstypes to sl
 # Currently deactiaveted
