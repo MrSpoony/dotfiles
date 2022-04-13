@@ -134,7 +134,7 @@ super + alt + q
     bspc quit 1 && pkill polybar && pkill picom
 # Restart bspwm
 super + alt + r
-    bspc wm -r && ~/.config/bspwm/bspwmrc
+    bspc wm -r
 
 
 #
