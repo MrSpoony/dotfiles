@@ -24,7 +24,8 @@ Plug 'vim-airline/vim-airline'                       " For nicer bar at the bott
 Plug 'vim-airline/vim-airline-themes'                " Themes for the bar
 Plug 'bling/vim-bufferline'                          " To see buffers/tabs in bottom airline bar
 " Brackets
-Plug 'jiangmiao/auto-pairs'                          " For better auto pairinp brackets
+Plug 'windwp/nvim-autopairs'
+" Plug 'jiangmiao/auto-pairs'                          " For better auto pairinp brackets
 Plug 'tpope/vim-surround'                            " Surround your stuff easier with brackets or quotes
 " Tab display
 Plug 'kyazdani42/nvim-web-devicons'                  " Icons like the name implies
@@ -64,6 +65,7 @@ Plug 'tpope/vim-commentary'      " Comments
 
 
 " Autocompletion stuff
+Plug 'onsails/lspkind-nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/cmp-nvim-lsp'

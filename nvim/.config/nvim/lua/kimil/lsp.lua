@@ -2,12 +2,16 @@ local lsp_installer = require('nvim-lsp-installer')
 local clangd_extensions = require('clangd_extensions')
 local cmp = require("cmp")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local tabnine = require('cmp_tabnine')
-
+local lspkind = require('lspkind')
+local cmp_ultisnips = require('cmp_nvim_ultisnips')
+local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
+cmp_ultisnips.setup({})
 
 tabnine:setup({
     max_lines = 1000,
-    max_num_results = 20,
+    max_num_results = 10,
     sort = true,
     run_on_every_keystroke = true,
     snippet_placeholder = '..';
@@ -60,6 +64,8 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 lsp_installer.on_server_ready(function(server)
     local options = {
         on_attach = on_attach,
+        highlight_hovered_item = true,
+        show_guides = true,
         flags = {
             -- This will be the default in neovim 0.7+
             debounce_text_changes = 150,
@@ -94,6 +100,15 @@ end)
 -- vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
 -- vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
+local compare = cmp.config.compare
+
+local source_mapping = {
+    buffer = "[Buffer]",
+    nvim_lsp = "[LSP]",
+    nvim_lua = "[Lua]",
+    cmp_tabnine = "[TN]",
+    path = "[Path]",
+}
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -111,70 +126,77 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = {
-        ["<Tab>"] = cmp.mapping({
-            c = function()
-                if cmp.visible() then
-                    cmp.select_next_item({
-                        behavior = cmp.SelectBehavior.Insert
-                    })
-                else
-                    cmp.complete()
-                end
+
+        ["<Tab>"] = cmp.mapping(
+            function(fallback)
+                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
             end,
-            i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item({
-                        behavior = cmp.SelectBehavior.Insert
-                    })
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
-                end
+            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+        ),
+        -- ["<Tab>"] = cmp.mapping({
+        --     c = function()
+        --         if cmp.visible() then
+        --             cmp.select_next_item({
+        --                 behavior = cmp.SelectBehavior.Insert
+        --             })
+        --         else
+        --             cmp.complete()
+        --         end
+        --     end,
+        --     i = function(fallback)
+        --         if cmp.visible() then
+        --             cmp.select_next_item({
+        --                 behavior = cmp.SelectBehavior.Insert
+        --             })
+        --         elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+        --             vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+        --         else
+        --             fallback()
+        --         end
+        --     end,
+        --     s = function(fallback)
+        --         if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+        --             vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+        --         else
+        --             fallback()
+        --         end
+        --     end
+        -- }),
+        ["<S-Tab>"] = cmp.mapping(
+            function(fallback)
+                cmp_ultisnips_mappings.jump_backwards(fallback)
             end,
-            s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end
-        }),
-        ["<S-Tab>"] = cmp.mapping({
-            c = function()
-                if cmp.visible() then
-                    cmp.select_prev_item({
-                        behavior = cmp.SelectBehavior.Insert
-                    })
-                else
-                    cmp.complete()
-                end
-            end,
-            i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item({
-                        behavior = cmp.SelectBehavior.Insert
-                    })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end,
-            s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end
-        }),
-        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({
-            behavior = cmp.SelectBehavior.Select
-        }), { 'i' }),
-        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({
-            behavior = cmp.SelectBehavior.Select
-        }), { 'i' }),
+            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+        ),
+        -- ["<S-Tab>"] = cmp.mapping({
+        --     c = function()
+        --         if cmp.visible() then
+        --             cmp.select_prev_item({
+        --                 behavior = cmp.SelectBehavior.Insert
+        --             })
+        --         else
+        --             cmp.complete()
+        --         end
+        --     end,
+        --     i = function(fallback)
+        --         if cmp.visible() then
+        --             cmp.select_prev_item({
+        --                 behavior = cmp.SelectBehavior.Insert
+        --             })
+        --         elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        --             return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+        --         else
+        --             fallback()
+        --         end
+        --     end,
+        --     s = function(fallback)
+        --         if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        --             return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+        --         else
+        --             fallback()
+        --         end
+        --     end
+        -- }),
         ['<C-n>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
@@ -237,6 +259,20 @@ cmp.setup({
             -- end
         }),
     },
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.kind = lspkind.presets.default[vim_item.kind]
+            local menu = source_mapping[entry.source.name]
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    menu = entry.completion_item.data.detail .. " " .. menu
+                end
+                vim_item.kind = ""
+            end
+            vim_item.menu = menu
+            return vim_item
+        end,
+    },
     sources = {
         { name = "cmp_tabnine" },
         { name = "nvim_lsp" },
@@ -245,17 +281,27 @@ cmp.setup({
     },
     sorting = {
         comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
+            compare.offset,
+            compare.exact,
+            compare.recently_used,
             clangd_extensions.cmp_scores,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
+            tabnine.compare,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
         },
     }
 })
+
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({
+    map_char = { tex = '' }
+}))
+
+
+-- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
+cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = "racket"
 
 
 
