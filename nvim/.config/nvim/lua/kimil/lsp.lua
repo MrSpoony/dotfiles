@@ -7,7 +7,41 @@ local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
 local cmp_ultisnips = require('cmp_nvim_ultisnips')
 local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
+
+lspkind.init({
+    mode = 'symbol_text',
+    preset = 'codicons',
+    symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+    },
+})
+
 cmp_ultisnips.setup({})
+
 
 tabnine:setup({
     max_lines = 1000,
@@ -43,8 +77,8 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-m>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -104,6 +138,7 @@ local compare = cmp.config.compare
 
 local source_mapping = {
     buffer = "[Buffer]",
+    ultisnips = "[UltiSnips]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
@@ -260,18 +295,23 @@ cmp.setup({
         }),
     },
     formatting = {
-        format = function(entry, vim_item)
-            vim_item.kind = lspkind.presets.default[vim_item.kind]
-            local menu = source_mapping[entry.source.name]
-            if entry.source.name == "cmp_tabnine" then
-                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-                    menu = entry.completion_item.data.detail .. " " .. menu
+        format = lspkind.cmp_format({
+            mode = 'symbol',
+            maxwidth = 50,
+
+            before = function(entry, vim_item)
+                vim_item.kind = lspkind.presets.default[vim_item.kind]
+                local menu = source_mapping[entry.source.name]
+                if entry.source.name == "cmp_tabnine" then
+                    if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                        menu = entry.completion_item.data.detail .. " " .. menu
+                    end
+                    vim_item.kind = ""
                 end
-                vim_item.kind = ""
+                vim_item.menu = menu
+                return vim_item
             end
-            vim_item.menu = menu
-            return vim_item
-        end,
+        })
     },
     sources = {
         { name = "cmp_tabnine" },
