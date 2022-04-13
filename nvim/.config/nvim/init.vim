@@ -69,10 +69,12 @@ Plug 'python-rope/ropevim'                      " For code-actions
 Plug 'sheerun/vim-polyglot'                     " Collection of language packs
 " Debugger
 " Plug 'idanarye/vim-vebugger'
-" Plug 'cpiger/NeoDebug'
+Plug 'cpiger/NeoDebug'
 " Plug 'puremourning/vimspector'
-" Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
-
+Plug 'sakhnik/nvim-gdb', { 'do': ':!.install.sh'}
+" Plug 'Pocco81/DAPInstall.nvim'
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'rcarriga/nvim-dap-ui'
 
 
 " Formatter
@@ -126,6 +128,9 @@ Plug 'ryanoasis/vim-devicons'         " Nice Icons
 Plug 'voldikss/vim-floaterm'          " Floating terminal
 Plug 'junegunn/goyo.vim'              " Distraction free writing
 Plug 'dhruvasagar/vim-table-mode'     " Awesome automatic tables
+Plug 'ThePrimeagen/vim-be-good'       " Like it says 'vim-be-good'
+Plug 'vimwiki/vimwiki'                " Vimwiki notes
+Plug 'vim-scripts/ZoomWin'            " Zoom in on windows
 
 
 
@@ -169,7 +174,8 @@ set number                        " View line numbers at the left side
 set relativenumber                " Set relative line numbers
 set signcolumn=yes                " For gitgutter and errors in the left sidebar
 
-set colorcolumn=80                " Column at line 80 so I know where to make a carriage return
+set textwidth=80                  " Don't insert EOLs at linebreak
+set colorcolumn=+40               " Column at line 80 so I know where to make a carriage return
 set wrap                          " Wrap to long lines around
 set linebreak                     " Wrap lines at the breakat parameter (which is currently not set)
 
@@ -194,7 +200,6 @@ set hidden                        " Edit another buffer whine another one is uns
 set ofu=syntaxcomplete#Complete   " Autocompletion so that menu will always appear
 set showmatch                     " highlight matching braces
 
-set textwidth=0                   " Don't insert EOLs at linebreak
 set autoread                      " Automatically read a file that has changed on the disk
 set noswapfile                    " Don't use a swapfile
 set updatetime=100                " Doesn't matter since I disabled writing to the swapfile
