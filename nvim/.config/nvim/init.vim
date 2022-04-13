@@ -64,7 +64,20 @@ Plug 'tpope/vim-commentary'      " Comments
 
 
 " Autocompletion stuff
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Best Autocompletion
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
+
+
+Plug 'p00f/clangd_extensions.nvim'
+
 Plug 'python-rope/ropevim'                      " For code-actions
 Plug 'sheerun/vim-polyglot'                     " Collection of language packs
 " Debugger
@@ -88,6 +101,7 @@ Plug 'hdiniz/vim-gradle'
 " Webdev
 Plug 'ap/vim-css-color'         " For CSS
 Plug 'mattn/emmet-vim'          " For HTML
+Plug 'rstacruz/sparkup'         " Even better HTML
 Plug 'neoclide/vim-jsx-improve' " For JSX
 " LaTeX
 Plug 'lervag/vimtex'
@@ -98,7 +112,7 @@ Plug 'iamcco/markdown-preview.nvim'
 Plug 'exu/pgsql.vim'
 " C#
 Plug 'OmniSharp/omnisharp-vim' " For C# coding
-Plug 'dense-analysis/ale'      " For C# code highlighting
+" Plug 'dense-analysis/ale'      " For C# code highlighting
 
 
 
@@ -128,15 +142,14 @@ Plug 'ryanoasis/vim-devicons'         " Nice Icons
 Plug 'voldikss/vim-floaterm'          " Floating terminal
 Plug 'junegunn/goyo.vim'              " Distraction free writing
 Plug 'dhruvasagar/vim-table-mode'     " Awesome automatic tables
-Plug 'ThePrimeagen/vim-be-good'       " Like it says 'vim-be-good'
 Plug 'vimwiki/vimwiki'                " Vimwiki notes
 Plug 'vim-scripts/ZoomWin'            " Zoom in on windows
 
 
 
 " Snippets
+Plug 'honza/vim-snippets'             " Requirement of ultisnips
 Plug 'SirVer/ultisnips'               " The best ones
-Plug 'honza/vim-snippets'             " Also good
 
 
 
@@ -174,8 +187,8 @@ set number                        " View line numbers at the left side
 set relativenumber                " Set relative line numbers
 set signcolumn=yes                " For gitgutter and errors in the left sidebar
 
-set textwidth=80                  " Don't insert EOLs at linebreak
-set colorcolumn=+40               " Column at line 80 so I know where to make a carriage return
+set textwidth=0                   " Don't insert EOLs at linebreak
+set colorcolumn=80                " Column at line 80 so I know where to make a carriage return
 set wrap                          " Wrap to long lines around
 set linebreak                     " Wrap lines at the breakat parameter (which is currently not set)
 
@@ -222,6 +235,8 @@ set modifiable                    " Buffer can be edited
 let mapleader =" "
 
 
+" Load lua configurations
+lua require("kimil")
 
 " Capital case does the same
 command WQ wq
