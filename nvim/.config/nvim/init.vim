@@ -63,6 +63,8 @@ Plug 'christoomey/vim-tmux-navigator'                       " Integration with T
 Plug 'vim-scripts/ZoomWin'                                  " Zoom in on windows
 Plug 'kana/vim-textobj-user'                                " For own 'Nouns'
 Plug 'mizlan/iswap.nvim/'                                   " Swap function arguments etc.
+Plug 'ckarnell/Antonys-macro-repeater'                      " Repeat macros with `.`
+Plug 'tpope/vim-eunuch'                                     " Useful UNIX commands
 
 
 " New 'Verbs'
