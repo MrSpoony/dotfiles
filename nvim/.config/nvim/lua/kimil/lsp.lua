@@ -86,6 +86,8 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
