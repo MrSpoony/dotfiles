@@ -38,6 +38,7 @@ Plug 'neovide/neovide'                                      " Neovide support
 Plug 'nvim-lua/plenary.nvim'                                " Some helpful lua functions other plugins (telecope) need
 Plug 'BurntSushi/ripgrep'                                   " Line-oriented search tool
 Plug 'nvim-telescope/telescope.nvim'                        " Telescope search etc.
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'liuchengxu/vim-clap'                                  " Clap (can do some stuff I haven't had the time to configure with Telescope)
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
