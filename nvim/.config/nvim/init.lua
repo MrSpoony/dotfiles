@@ -17,14 +17,14 @@ o.relativenumber = true
 o.signcolumn = 'yes'
 
 o.textwidth = 0
-o.colorcolumn ='80'
+o.colorcolumn = '80'
 o.wrap = true
 o.linebreak = true
 
-o.cmdheight=2
+o.cmdheight = 2
 o.modifiable = true
 o.wildmenu = true
-o.wildmode= { 'longest:full','full' }
+o.wildmode = { 'longest:full', 'full' }
 
 o.showmode = false
 o.ruler = true
@@ -98,64 +98,57 @@ filetype plugin on
 syntax on
 ]])
 
+
+local function setBGTransparent() vim.cmd([[autocmd ColorScheme * highlight Normal ctermbg=none guibg=none]]) end
+
+local function setOnedark() vim.cmd([[colorscheme onedark]]) end
+local function setMaterial() vim.cmd([[colorscheme material]]) end
+
+setMaterial() -- So the `unused function` message is gone
+setBGTransparent()
+setOnedark()
+
+vim.g.netrw_liststyle = 3
+
+Nnoremap("n", "nzzzv")
+Nnoremap("N", "Nzzzv")
+
+
+Nnoremap("J", "mzJ`z")
+
+
+Nnoremap("<Esc>", "<cmd>noh<CR>")
+
+Nnoremap("oo", "o<Esc>")
+Nnoremap("OO", "O<Esc>")
+
+Vnoremap("<A-j>", ";m '>+1<CR>gv=gv")
+Vnoremap("<A-k>", ";m '<-2<CR>gv=gv")
+
+Inoremap("<A-k>", "<cmd>m .-2<CR><Esc>==a")
+Inoremap("<A-j>", "<cmd>m .+1<CR><Esc>==a")
+
+Nnoremap("<A-j>", "<cmd>m .+1<CR>==")
+Nnoremap("<A-k>", "<cmd>m .-2<CR>==")
+
+Nnoremap("<leader>sp", LuaFn(function() vim.wo.spell = not vim.wo.spell end))
+
+Nnoremap("<leader>l", "<cmd>bnext<CR>")
+Nnoremap("<leader>h", "<cmd>bprev<CR>")
+Nnoremap("<leader>+", "<cmd>vertical resize +5<CR>")
+Nnoremap("<leader>-", "<cmd>vertical resize -5<CR>")
+
+Nnoremap(":", ";")
+Nnoremap(";", ":")
+Vnoremap(":", ";")
+Vnoremap(";", ":")
+
+Nnoremap("<leader>n", "<cmd>Ex<CR>")
+
+Command("Pi", "PackerInstall")
+Command("Pu", "PackerUpadte")
+
 vim.cmd([[
-autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
-]])
-
-
-vim.cmd([[
-colorscheme onedark
-autocmd ColorScheme * highlight Comment cterm=italic
-]])
-vim.cmd([[
-let g:netrw_liststyle = 3
-
-" Shortcuts
-
-" C-P to C-E for cycling back the code-completion list
-inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" It just makes sense to yank till the end of the line like `C` or `D`
-nnoremap Y y$
-" Search results always in the middle
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ`z
-" Reset highlighting of search
-map <f3> ;noh<CR>
-" Add lines above and below without going into insert mode
-nmap oo o<Esc>
-nmap OO O<Esc>
-" Move lines around
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <A-j> <esc>:m .+1<CR>==
-inoremap <A-k> <esc>:m .-2<CR>==
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-" auto indentation
-map <F7> gg=G<C-o><C-o>
-" Reselect block after indenting
-vmap < <gv
-vmap > >gv
-" Toggle spellchecker
-map <leader>sp :setlocal spell!<CR>
-nnoremap <leader>l :bnext<CR>
-nnoremap <leader>h :bprev<CR>
-nnoremap <leader>+ :vertical resize +5<CR>
-nnoremap <leader>- :vertical resize -5<CR>
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-" File searching
-map <leader>z :Files<CR>
-map <leader>b :Ex<CR>
-
-command! Pi PlugInstall
-command! Pu PlugUpdate
-
-" Trims all lines at end of files on save
 function! TrimEndLines()
     let save_cursor = getpos(".")
     silent! %s#\($\n\s*\)\+\%$##
