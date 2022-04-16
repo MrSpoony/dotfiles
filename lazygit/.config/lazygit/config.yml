@@ -3,6 +3,7 @@ os:
 keybinding:
   universal:
     return: '<c-\>'
+    return: '<Esc>'
 
 gui:
   theme:
