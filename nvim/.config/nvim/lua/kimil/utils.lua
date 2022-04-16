@@ -31,7 +31,7 @@ end
 
 local function createNoremap(mode)
     return function(lhs, rhs, options)
-        if not options then options = {} end
+        options = options or {}
         options.noremap = true
         vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
@@ -39,7 +39,7 @@ end
 
 local function createMap(mode)
     return function(lhs, rhs, options)
-        if not options then options = {} end
+        options = options or {}
         options.noremap = false
         vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
@@ -64,10 +64,14 @@ M.omap = createMap("o")
 M.lmap = createMap("l")
 M.cmap = createMap("c")
 
-
 function M.fn(callback, ...)
     local args = {...}
     return function() callback(args) end
+end
+
+function M.command(name, command, options)
+    options = options or {}
+    vim.api.nvim_create_user_command(name, command, options)
 end
 
 return M

@@ -7,6 +7,8 @@ end
 
 Fn = utils.fn
 
+Command = utils.command
+
 
 LuaFn = utils.luaFn
 LuaExpr = utils.luaExpr
@@ -36,3 +38,4 @@ require("kimil.autopairs")
 require("kimil.hop")
 require("kimil.iswap")
 require("kimil.telescope")
+require("kimil.comment")
