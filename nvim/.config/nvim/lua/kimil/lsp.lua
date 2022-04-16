@@ -119,6 +119,16 @@ lsp_installer.on_server_ready(function(server)
         }
         options.flags = {
         }
+    elseif server.name == "sumneko_lua" then
+        options.settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {
+                        'vim'
+                    }
+                }
+            }
+        }
     end
 
     if server.name == "clangd" then
@@ -126,7 +136,7 @@ lsp_installer.on_server_ready(function(server)
             server = options
         })
     else
-        server.setup(server, options)
+        server:setup(options)
     end
 end)
 
@@ -277,7 +287,7 @@ cmp.setup({
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
+        ['<C-o>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         ['<CR>'] = cmp.mapping({
             i = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace, select = false
