@@ -24,6 +24,9 @@ the time to read the documentation.
 * ly (Login manager)
 * powerline-fonts (Yeah fonts go brrr)
 * ttf-material-design-icons (Icons go brrr)
+* exa (better ls)
+* trash (better rm)
+* zoxide (better cd)
 * nerd-fonts-jetbrains-mono (Again fonts for Unicode etc.)
   * Hack (The best of them all)
 * zsh
@@ -41,7 +44,6 @@ the time to read the documentation.
       * colored-man-pages
       * zsh-autosuggestions
       * zsh-syntax-highlighting
-      * zsh-z
       * wakatime
 * NeoVim
   * vim-plug (Plugin Manager ``sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
