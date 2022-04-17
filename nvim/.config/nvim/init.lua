@@ -99,15 +99,6 @@ syntax on
 ]])
 
 
-local function setBGTransparent() vim.cmd([[autocmd ColorScheme * highlight Normal ctermbg=none guibg=none]]) end
-
-local function setOnedark() vim.cmd([[colorscheme onedark]]) end
-local function setMaterial() vim.cmd([[colorscheme material]]) end
-
-setMaterial() -- So the `unused function` message is gone
-setBGTransparent()
-setOnedark()
-
 vim.g.netrw_liststyle = 3
 
 Nnoremap("n", "nzzzv")
@@ -124,10 +115,8 @@ Nnoremap("OO", "O<Esc>")
 
 Vnoremap("<A-j>", ";m '>+1<CR>gv=gv")
 Vnoremap("<A-k>", ";m '<-2<CR>gv=gv")
-
 Inoremap("<A-k>", "<cmd>m .-2<CR><Esc>==a")
 Inoremap("<A-j>", "<cmd>m .+1<CR><Esc>==a")
-
 Nnoremap("<A-j>", "<cmd>m .+1<CR>==")
 Nnoremap("<A-k>", "<cmd>m .-2<CR>==")
 
