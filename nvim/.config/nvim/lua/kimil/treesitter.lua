@@ -1,5 +1,40 @@
+local toInstall = {
+    "bash",
+    "c",
+    "c_sharp",
+    "cmake",
+    "cpp",
+    "css",
+    "dart",
+    "dot",
+    "fish",
+    "go",
+    "gomod",
+    "haskell",
+    "html",
+    "http",
+    "java",
+    "javascript",
+    "latex",
+    "llvm",
+    "lua",
+    "make",
+    "markdown",
+    "nix",
+    "norg",
+    "python",
+    "rust",
+    "ruby",
+    "json",
+    "toml",
+    "typescript",
+    "vim",
+    "yaml",
+    "vue"
+}
+
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "bash", "c", "c_sharp", "cmake", "cpp", "css", "dart", "dot", "fish", "go", "gomod", "haskell", "html", "http", "java", "javascript", "latex", "llvm", "lua", "make", "markdown", "nix", "python", "rust", "ruby", "json", "toml", "typescript", "vim", "yaml", "vue" },
+    ensure_installed = toInstall,
     sync_install = true,
     incremental_selection = {
         enable = true,
@@ -98,4 +133,9 @@ require 'nvim-treesitter.configs'.setup {
             },
         },
     },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil
+    }
 }
