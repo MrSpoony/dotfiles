@@ -8,38 +8,6 @@ local lspkind = require('lspkind')
 local cmp_ultisnips = require('cmp_nvim_ultisnips')
 local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
 
-lspkind.init({
-    mode = 'symbol_text',
-    preset = 'codicons',
-    symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = ""
-    },
-})
-
 cmp_ultisnips.setup({})
 
 
@@ -84,11 +52,12 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
@@ -119,16 +88,6 @@ lsp_installer.on_server_ready(function(server)
         }
         options.flags = {
         }
-    elseif server.name == "sumneko_lua" then
-        options.settings = {
-            Lua = {
-                diagnostics = {
-                    globals = {
-                        'vim'
-                    }
-                }
-            }
-        }
     end
 
     if server.name == "clangd" then
@@ -140,11 +99,37 @@ lsp_installer.on_server_ready(function(server)
     end
 end)
 
--- vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
--- vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
--- vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
--- vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
--- vim.g.UltiSnipsRemoveSelectModeMappings = 0
+lspkind.init({
+    mode = 'symbol_text',
+    preset = 'codicons',
+    symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+    },
+})
 
 local compare = cmp.config.compare
 

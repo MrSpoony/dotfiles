@@ -9,10 +9,6 @@ Fn = utils.fn
 
 Command = utils.command
 
-
-LuaFn = utils.luaFn
-LuaExpr = utils.luaExpr
-
 Nmap = utils.nmap
 Imap = utils.imap
 Vmap = utils.vmap

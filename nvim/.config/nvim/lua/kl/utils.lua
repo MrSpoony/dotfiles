@@ -33,12 +33,15 @@ local function createNoremap(mode)
     return function(lhs, rhs, options)
         options = options or {}
         options.noremap = true
-        vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+        vim.keymap.set(mode, lhs, rhs, options)
     end
 end
 
 local function createMap(mode)
     return function(lhs, rhs, options)
+        if type(lhs) == type(function() end) then
+            lhs = M.luaFn(lhs)
+        end
         options = options or {}
         options.noremap = false
         vim.api.nvim_set_keymap(mode, lhs, rhs, options)

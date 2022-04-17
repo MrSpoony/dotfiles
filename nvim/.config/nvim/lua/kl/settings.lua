@@ -61,7 +61,7 @@ Command("Wq", "wq")
 Command("W", "w")
 Command("Q", "q")
 
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 
 vim.cmd([[
 filetype plugin on

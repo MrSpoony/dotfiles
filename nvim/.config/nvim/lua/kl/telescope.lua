@@ -1,6 +1,6 @@
 local ts = require('telescope')
 local builtin = require('telescope.builtin')
-
+local themes = require("telescope.themes")
 ts.setup {
     defaults = {
         sorting_strategy = "ascending",
@@ -8,33 +8,44 @@ ts.setup {
             prompt_position = "top",
         },
         mappings = {
+        },
+        history = {
+            path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+            limit = 10000,
         }
     },
     pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        -- }
     },
     extensions = {
         fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        },
+        ["ui-select"] = {
+            themes.get_dropdown({})
         },
     }
 }
 
+local le = ts.load_extension
+le('file_browser')
+le('fzf')
+le('zoxide')
+le('packer')
+le('ui-select')
+le('smart_history')
+le('frecency')
+le('cheat')
 
-ts.load_extension('fzf')
-ts.load_extension('zoxide')
-
-
-
-Nnoremap("<leader>ff", LuaFn(builtin.find_files))
-Nnoremap("<C-p>",      LuaFn(builtin.git_files))
-Nnoremap("<leader>pw", LuaFn(Fn(builtin.grep_string, {search = vim.fn.expand("<cword>")})))
-Nnoremap("<leader>fg", LuaFn(builtin.live_grep))
-Nnoremap("<leader>fb", LuaFn(builtin.buffers))
-Nnoremap("<leader>fh", LuaFn(builtin.help_tags))
+local ex = ts.extensions
+Nnoremap("<leader>cd", ex.zoxide.list)
+Nnoremap("<leader>ff", builtin.find_files)
+Nnoremap("<leader>fr", ex.frecency.frecency)
+Nnoremap("<leader>fb", "<cmd>Telescope file_browser")
+Nnoremap("<C-p>", builtin.git_files)
+Nnoremap("<leader>fs", Fn(builtin.grep_string, { search = vim.fn.expand("<cword>") }))
+Nnoremap("<leader>fm", builtin.keymaps)
+Nnoremap("<leader>fg", builtin.live_grep)
+Nnoremap("<leader>fh", builtin.help_tags)
