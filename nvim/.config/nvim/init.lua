@@ -1,4 +1,5 @@
-require('plugins')
+require('kimil.globals')
+require('kimil.plugins')
 
 local o = vim.opt
 
@@ -21,7 +22,6 @@ o.colorcolumn = '80'
 o.wrap = true
 o.linebreak = true
 
-o.cmdheight = 2
 o.modifiable = true
 o.wildmenu = true
 o.wildmode = { 'longest:full', 'full' }
@@ -31,7 +31,7 @@ o.ruler = true
 o.showcmd = true
 o.laststatus = 2
 
-o.cmdheight = 2
+o.cmdheight = 1
 o.incsearch = true
 o.hlsearch = true
 o.ignorecase = false

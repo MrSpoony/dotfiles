@@ -2,14 +2,14 @@ let g:dashbord_default_executive = 'telescope'
 
 autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
 
-nmap <Leader>ss :<C-u>SessionSave<CR>
-nmap <Leader>sl :<C-u>SessionLoad<CR>
-nnoremap <silent> <Leader>th :DashboardFindHistory<CR>
-nnoremap <silent> <Leader>tt :DashboardFindFile<CR>
-nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
-nnoremap <silent> <Leader>ta :DashboardFindWord<CR>
-nnoremap <silent> <Leader>tb :DashboardJumpMark<CR>
-nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+nmap <Leader>ss <cmd><C-u>SessionSave<CR>
+nmap <Leader>sl <cmd><C-u>SessionLoad<CR>
+nnoremap <silent> <Leader>th <cmd>DashboardFindHistory<CR>
+nnoremap <silent> <Leader>tt <cmd>DashboardFindFile<CR>
+nnoremap <silent> <Leader>tc <cmd>DashboardChangeColorscheme<CR>
+nnoremap <silent> <Leader>ta <cmd>DashboardFindWord<CR>
+nnoremap <silent> <Leader>tb <cmd>DashboardJumpMark<CR>
+nnoremap <silent> <Leader>cn <cmd>DashboardNewFile<CR>
 
 
 let g:dashboard_default_executive ='telescope'
