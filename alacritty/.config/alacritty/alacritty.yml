@@ -113,7 +113,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     # family: Menlo for Powerline 
-    family: Hack
+    family: Hack Nerd Font Mono
     # family: JetBrains Mono
     # family: Inconsolata
     # family: Terminess Powerline 
