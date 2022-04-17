@@ -1,5 +1,5 @@
 local M = {}
-local moduleName = "kimil.utils"
+local moduleName = "kl.utils"
 local fnStore = {}
 
 local function registerFn(fn)

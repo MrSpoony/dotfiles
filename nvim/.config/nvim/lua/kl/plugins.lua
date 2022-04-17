@@ -48,7 +48,6 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope.nvim" } -- Telescope search etc.
     use { "jvgrootveld/telescope-zoxide" } -- Like z command
     use { "nvim-telescope/telescope-rs.nvim" }
-    use { "nvim-telescope/telescope-rs.nvim" }
     use { "nvim-telescope/telescope-fzf-writer.nvim" }
     use { "nvim-telescope/telescope-packer.nvim" }
     use { "nvim-telescope/telescope-symbols.nvim" }

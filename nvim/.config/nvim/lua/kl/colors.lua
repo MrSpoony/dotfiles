@@ -4,16 +4,21 @@ local mat = require("material")
 local ll = require("lualine")
 local gps = require("nvim-gps")
 
+-- od.setup({
+--     theme = "deep"
+-- })
 -- od.load()
+
 mat.setup({
     lualine_style = "stealth",
     italics = {
         comments = true,
     },
 })
+
 vim.g.material_style = "deep ocean"
 vim.cmd([[colorscheme material]])
-
+-- vim.cmd([[colorscheme onedark]])
 
 gps.setup({
     separator = "  ",

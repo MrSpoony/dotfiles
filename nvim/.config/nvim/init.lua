@@ -1,5 +1,5 @@
-require('kimil.globals')
-require('kimil.plugins')
+require('kl.globals')
+require('kl.plugins')
 
 local o = vim.opt
 
@@ -62,7 +62,7 @@ o.termguicolors = true
 
 vim.g.mapleader = " "
 
-require("kimil")
+require("kl")
 
 Command("WQ", "wq")
 Command("Wq", "wq")

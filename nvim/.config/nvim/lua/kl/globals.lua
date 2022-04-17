@@ -1,4 +1,4 @@
-local utils = require("kimil.utils")
+local utils = require("kl.utils")
 
 P = function(v)
     print(vim.inspect(v))
