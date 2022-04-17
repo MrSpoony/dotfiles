@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/kimil/pictures/wallpapers/0059.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#051E31",
+        "foreground": "#dee1e3",
+        "cursor": "#dee1e3"
+    },
+    "colors": {
+        "color0": "#051E31",
+        "color1": "#28856A",
+        "color2": "#396F8E",
+        "color3": "#3E91A4",
+        "color4": "#369FD5",
+        "color5": "#38A2DF",
+        "color6": "#97A4AC",
+        "color7": "#dee1e3",
+        "color8": "#9b9d9e",
+        "color9": "#28856A",
+        "color10": "#396F8E",
+        "color11": "#3E91A4",
+        "color12": "#369FD5",
+        "color13": "#38A2DF",
+        "color14": "#97A4AC",
+        "color15": "#dee1e3"
+    }
+}
