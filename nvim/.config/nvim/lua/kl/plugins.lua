@@ -111,7 +111,8 @@ return require("packer").startup(function(use)
     use { "hrsh7th/cmp-path" }                          -- Nvim-cmp source for filesystem paths
     use { "hrsh7th/cmp-cmdline" }                       -- Nvim-cmp source for vim"s commandline
     use { "onsails/lspkind-nvim" }                      -- Nice Icons in lsp-comp
-    use { "quangnguyen30192/cmp-nvim-ultisnips" }       -- Nvim-cmp ultisnips support
+    -- use { "quangnguyen30192/cmp-nvim-ultisnips" }       -- Nvim-cmp ultisnips support
+    use { "saadparwaiz1/cmp_luasnip" }                  -- luasnip support
     use { "tzachar/cmp-tabnine", run = "./install.sh" } -- Nvim-cmp tabnine support
 
 
@@ -144,8 +145,9 @@ return require("packer").startup(function(use)
     }                                                       -- Git signs (gitgutter, Line blame etc.)
 
     -- Snippets
-    use { "honza/vim-snippets" }      -- Requirement of ultisnips
-    use { "SirVer/ultisnips" }        -- The best ones
+    -- use { "honza/vim-snippets" }      -- Requirement of ultisnips
+    -- use { "SirVer/ultisnips" }        -- The best ones
+    use { "L3MON4D3/LuaSnip" }
 
     -- Own plugins
     use { "MrSpoony/soicode.vim" }    -- For soi stuff with the .stoml support

@@ -5,11 +5,10 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
-local cmp_ultisnips = require('cmp_nvim_ultisnips')
-local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
-
-cmp_ultisnips.setup({})
-
+-- local cmp_ultisnips = require('cmp_nvim_ultisnips')
+-- local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
+local luasnip = require('luasnip')
+-- cmp_ultisnips.setup({})
 
 tabnine:setup({
     max_lines = 1000,
@@ -40,7 +39,6 @@ local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    -- Mappings
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -54,17 +52,14 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-
--- Setup lspconfig.
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 
 lsp_installer.on_server_ready(function(server)
     local options = {
@@ -99,43 +94,12 @@ lsp_installer.on_server_ready(function(server)
     end
 end)
 
-lspkind.init({
-    mode = 'symbol_text',
-    preset = 'codicons',
-    symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = ""
-    },
-})
-
 local compare = cmp.config.compare
 
 local source_mapping = {
     buffer = "[Buffer]",
-    ultisnips = "[UltiSnips]",
+    luasnip = "[snip]",
+    ultisnips = "[snip]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
     cmp_tabnine = "[TN]",
@@ -150,7 +114,8 @@ end
 cmp.setup({
     snippet = {
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
+            luasnip.lsp_expand(args.body)
+            -- vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
     window = {
@@ -158,77 +123,48 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = {
-
-        ["<Tab>"] = cmp.mapping(
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-q>"] = cmp.mapping.close();
+        ["<C-i>"] = cmp.mapping(
             function(fallback)
-                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-            end,
-            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+                luasnip.expand_or_jump()
+            end
         ),
-        -- ["<Tab>"] = cmp.mapping({
-        --     c = function()
-        --         if cmp.visible() then
-        --             cmp.select_next_item({
-        --                 behavior = cmp.SelectBehavior.Insert
-        --             })
-        --         else
-        --             cmp.complete()
-        --         end
-        --     end,
-        --     i = function(fallback)
-        --         if cmp.visible() then
-        --             cmp.select_next_item({
-        --                 behavior = cmp.SelectBehavior.Insert
-        --             })
-        --         elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        --             vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-        --         else
-        --             fallback()
-        --         end
-        --     end,
-        --     s = function(fallback)
-        --         if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        --             vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-        --         else
-        --             fallback()
-        --         end
-        --     end
-        -- }),
-        ["<S-Tab>"] = cmp.mapping(
-            function(fallback)
-                cmp_ultisnips_mappings.jump_backwards(fallback)
-            end,
-            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+        ["<c-y>"] = cmp.mapping(
+            cmp.mapping.confirm {
+                behavior = cmp.ConfirmBehavior.Insert,
+                select = true,
+            }, { "i", "c" }
         ),
-        -- ["<S-Tab>"] = cmp.mapping({
-        --     c = function()
-        --         if cmp.visible() then
-        --             cmp.select_prev_item({
-        --                 behavior = cmp.SelectBehavior.Insert
-        --             })
-        --         else
-        --             cmp.complete()
-        --         end
-        --     end,
-        --     i = function(fallback)
-        --         if cmp.visible() then
-        --             cmp.select_prev_item({
-        --                 behavior = cmp.SelectBehavior.Insert
-        --             })
-        --         elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        --             return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-        --         else
-        --             fallback()
-        --         end
-        --     end,
-        --     s = function(fallback)
-        --         if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        --             return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-        --         else
-        --             fallback()
-        --         end
-        --     end
-        -- }),
+        ["<c-f>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<CR>'] = cmp.mapping({
+            i = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Replace, select = false
+            }),
+            c = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Replace, select = false
+            })
+        }),
+        ["<c-space>"] = cmp.mapping {
+            i = cmp.mapping.complete(),
+            c = function(
+            )
+                if cmp.visible() then
+                    if not cmp.confirm { select = true } then
+                        return
+                    end
+                else
+                    cmp.complete()
+                end
+            end,
+        },
+        -- Yes no tab completion here...
+        ["<Tab>"] = cmp.config.disable,
+        ["<S-Tab>"] = cmp.config.disable,
         ['<C-n>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
@@ -269,32 +205,13 @@ cmp.setup({
                 end
             end
         }),
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-o>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-        ['<CR>'] = cmp.mapping({
-            i = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Replace, select = false
-            }),
-            c = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Replace, select = false
-            })
-            -- c = function(fallback)
-            --     if cmp.visible() then
-            --         cmp.confirm({
-            --             behavior = cmp.ConfirmBehavior.Replace, select = false
-            --         })
-            --     else
-            --         fallback()
-            --     end
-            -- end
-        }),
+
     },
     formatting = {
         format = lspkind.cmp_format({
             mode = 'symbol',
             maxwidth = 50,
+            menu = source_mapping,
 
             before = function(entry, vim_item)
                 vim_item.kind = lspkind.presets.default[vim_item.kind]
@@ -311,9 +228,10 @@ cmp.setup({
         })
     },
     sources = {
+        { name = "luasnip" },
         { name = "cmp_tabnine" },
         { name = "nvim_lsp" },
-        { name = "ultisnips" },
+        -- { name = "ultisnips" },
         { name = "buffer" },
     },
     sorting = {
