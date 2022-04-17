@@ -87,7 +87,6 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	zsh-z
     wakatime
 )
 
@@ -130,6 +129,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # . "~/.cache/wal/colors.sh"
 
+eval "$(zoxide init zsh)"
 
 source ~/.aliasrc
 fastfetch
