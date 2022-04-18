@@ -113,7 +113,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     # family: Menlo for Powerline 
-    family: Hack Nerd Font Mono
+    family: Hack
     # family: JetBrains Mono
     # family: Inconsolata
     # family: Terminess Powerline 
@@ -736,8 +736,8 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
-  - { key: Space,  mods: Control,       mode: ~Search,    action: ToggleViMode            }
-  - { key: Space,  mods: Control,       mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: Space,  mods: Control|Alt,       mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Control|Alt,       mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
   - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
