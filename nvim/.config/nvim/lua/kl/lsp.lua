@@ -114,7 +114,12 @@ end
 cmp.setup({
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+			if lspsnips[args.body] then
+				-- use `snip_expand` to expand the snippet at the cursor position.
+				require("luasnip").snip_expand(lspsnips[args.body])
+			else
+				require("luasnip").lsp_expand(args.body)
+			end
             -- vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
