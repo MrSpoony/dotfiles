@@ -1,3 +1,21 @@
+local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_configs.norg_meta = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+        files = { "src/parser.c" },
+        branch = "main"
+    },
+}
+
+parser_configs.norg_table = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+        files = { "src/parser.c" },
+        branch = "main"
+    },
+}
+
 local toInstall = {
     "bash",
     "c",
@@ -15,6 +33,7 @@ local toInstall = {
     "http",
     "java",
     "javascript",
+    "json",
     "latex",
     "llvm",
     "lua",
@@ -22,15 +41,16 @@ local toInstall = {
     "markdown",
     "nix",
     "norg",
+    "norg_meta",
+    "norg_table",
     "python",
-    "rust",
     "ruby",
-    "json",
+    "rust",
     "toml",
     "typescript",
     "vim",
+    "vue",
     "yaml",
-    "vue"
 }
 
 require 'nvim-treesitter.configs'.setup {
@@ -47,6 +67,9 @@ require 'nvim-treesitter.configs'.setup {
     },
     indent = {
         enable = true,
+    },
+    highlight = {
+        enable = true
     },
     playground = {
         enable = true,
