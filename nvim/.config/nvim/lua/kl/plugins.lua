@@ -36,7 +36,6 @@ return require("packer").startup(function(use)
     use { "nanotee/luv-vimdocs" }
 
 
-    -- TODO: Comment plugins
     use { "BurntSushi/ripgrep" }                          -- Line-oriented search tool
     use { "nvim-telescope/telescope.nvim" }               -- Telescope search etc.
     use { "jvgrootveld/telescope-zoxide" }                -- Like z command
@@ -101,7 +100,7 @@ return require("packer").startup(function(use)
 
     -- LSP stuff
     -- TODO: Configure null-ls
-    use { "jose-elias-alvarez/null-ls.nvim" }           -- Inject stuff into LSP communication
+    -- use { "jose-elias-alvarez/null-ls.nvim" }           -- Inject stuff into LSP communication
     use { "neovim/nvim-lspconfig" }                     -- Nvim lsp support
     use { "williamboman/nvim-lsp-installer" }           -- Easy installation for lsp" s
     use { "p00f/clangd_extensions.nvim" }               -- Clang extension for nvim-lsp
