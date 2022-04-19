@@ -69,7 +69,8 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
     },
     highlight = {
-        enable = true
+        enable = true,
+        disable = { "latex" }
     },
     playground = {
         enable = true,
@@ -93,6 +94,19 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
+    },
+    refactor = {
+        highlight_definitions = true,
+        highlight_current_scope = {
+            enable = false,
+        },
+        clear_on_cursor_move = false,
+        smart_rename = {
+            enable = true,
+            keymaps = {
+                smart_rename = "grr"
+            }
+        }
     },
     textsubjects = {
         enable = true,
