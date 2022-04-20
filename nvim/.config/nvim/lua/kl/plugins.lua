@@ -154,13 +154,8 @@ return require("packer").startup(function(use)
 
     -- Git
     use { "tpope/vim-fugitive" } -- Git integration
-    -- TODO: Configure neogit and gitsigns
-    use { "TimUntersberger/neogit" } -- Magit in Vim
     use { "rhysd/committia.vim" } -- Better commit buffers
-    use {
-        "lewis6991/gitsigns.nvim",
-        config = function() require("gitsigns").setup() end
-    } -- Git signs (gitgutter, Line blame etc.)
+    use { "lewis6991/gitsigns.nvim" } -- Git signs (gitgutter, Line blame etc.)
 
     -- Snippets
     -- use { "honza/vim-snippets" }      -- Requirement of ultisnips
