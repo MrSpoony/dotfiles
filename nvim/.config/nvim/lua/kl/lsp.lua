@@ -5,10 +5,12 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
--- local cmp_ultisnips = require('cmp_nvim_ultisnips')
--- local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
-local luasnip = require('luasnip')
--- cmp_ultisnips.setup({})
+local ls = require("luasnip")
+local s = ls.snippet
+local r = ls.restore_node
+local i = ls.insert_node
+local t = ls.text_node
+local c = ls.choice_node
 
 tabnine:setup({
     max_lines = 1000,
@@ -17,81 +19,110 @@ tabnine:setup({
     run_on_every_keystroke = true,
     snippet_placeholder = '..';
     ignored_file_types = {
-
     },
     show_prediction_strength = true,
 })
 
 
--- Diagnostics mappings
-local opts = { noremap = true, silent = true }
--- Diagnostics in floating window
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
--- Move to the previous diagnostic in the current buffer
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
--- Move to the next diagnostic in the current buffer
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
--- Add buffer diagnostics to the location list
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
--- Only map keys after the language server attaches to the current buffer
+
+local opts = { noremap = true, silent = true }
+-- Diagnostics mappings
+Nnoremap('<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+Nnoremap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+Nnoremap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+Nnoremap('<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-m>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    Nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    Nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    Nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    Nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    Nnoremap('<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    Nnoremap('<C-m>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    Nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    Nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    Nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    Nnoremap('<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    Nnoremap('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    Nnoremap('<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    Vnoremap('<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
+    Nnoremap('<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    Nnoremap('<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    Nnoremap('<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
+
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-lsp_installer.on_server_ready(function(server)
-    local options = {
-        on_attach = on_attach,
-        highlight_hovered_item = true,
-        show_guides = true,
-        flags = {
-            -- This will be the default in neovim 0.7+
-            debounce_text_changes = 150,
-        },
-        capabilities = capabilities
-    }
+local options = {
+    on_attach = on_attach,
+    highlight_hovered_item = true,
+    show_guides = true,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    capabilities = capabilities
+}
 
-    if server.name == "eslint" then
-        options.on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = true
-            on_attach(client, bufnr)
+local lspsnips = {}
+
+local clang_options = vim.deepcopy(options)
+clang_options.on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    local orig_rpc_request = client.rpc.request
+    function client.rpc.request(method, params, handler, ...)
+        local orig_handler = handler
+        if method == 'textDocument/completion' then
+            handler = function(...)
+                local err, result = ...
+                if not err and result then
+                    local items = result.items or result
+                    for _, item in ipairs(items) do
+                        if item.kind == vim.lsp.protocol.CompletionItemKind.Field and
+                            item.textEdit.newText:match("^[%w_]+%(${%d+:[%w_]+}%)$") then
+                            local snip_text = item.textEdit.newText
+                            local name = snip_text:match("^[%w_]+")
+                            local type = snip_text:match("%{%d+:([%w_]+)%}")
+                            lspsnips[snip_text] = s("", {
+                                t(name),
+                                c(1, {
+                                    -- use a restoreNode to remember the text typed here.
+                                    { t "(", r(1, "type", i(1, type)), t ")" },
+                                    { t "{", r(1, "type"), t "}" },
+                                }, { restore_cursor = true })
+                            })
+                        end
+                    end
+                end
+                return orig_handler(...)
+            end
         end
-        options.settings = {
-            format = { enable = true },
-        }
-        options.flags = {
-        }
+        return orig_rpc_request(method, params, handler, ...)
     end
+end
 
-    if server.name == "clangd" then
-        clangd_extensions.setup({
-            server = options
-        })
-    else
-        server:setup(options)
-    end
+clangd_extensions.setup({
+    server = clang_options
+})
+
+
+lsp_installer.on_server_ready(function(server)
+    -- if server.name == "eslint" then
+    --     options.on_attach = function(client, bufnr)
+    --         on_attach(client, bufnr)
+    --         client.resolved_capabilities.document_formatting = true
+    --     end
+    --     options.settings = {
+    --         format = { enable = true },
+    --     }
+    -- end
+
+    server:setup(options)
 end)
 
 local compare = cmp.config.compare
@@ -106,7 +137,7 @@ local source_mapping = {
     path = "[Path]",
 }
 
-local t = function(str)
+local tcode = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
@@ -114,13 +145,11 @@ end
 cmp.setup({
     snippet = {
         expand = function(args)
-			if lspsnips[args.body] then
-				-- use `snip_expand` to expand the snippet at the cursor position.
-				require("luasnip").snip_expand(lspsnips[args.body])
-			else
-				require("luasnip").lsp_expand(args.body)
-			end
-            -- vim.fn["UltiSnips#Anon"](args.body)
+            if lspsnips[args.body] then
+                ls.snip_expand(lspsnips[args.body])
+            else
+                ls.lsp_expand(args.body)
+            end
         end,
     },
     window = {
@@ -132,8 +161,8 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
         ["<C-q>"] = cmp.mapping.close();
         ["<C-i>"] = cmp.mapping(
-            function(fallback)
-                luasnip.expand_or_jump()
+            function()
+                ls.expand_or_jump()
             end
         ),
         ["<c-y>"] = cmp.mapping(
@@ -177,7 +206,7 @@ cmp.setup({
                         behavior = cmp.SelectBehavior.Select
                     })
                 else
-                    vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
+                    vim.api.nvim_feedkeys(tcode('<Down>'), 'n', true)
                 end
             end,
             i = function(fallback)
@@ -197,7 +226,7 @@ cmp.setup({
                         behavior = cmp.SelectBehavior.Select
                     })
                 else
-                    vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
+                    vim.api.nvim_feedkeys(tcode('<Up>'), 'n', true)
                 end
             end,
             i = function(fallback)
