@@ -1,5 +1,4 @@
 local gs = require('gitsigns');
-local neogit = require("neogit")
 
 
 gs.setup({
