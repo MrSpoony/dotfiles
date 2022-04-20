@@ -53,7 +53,5 @@ Nnoremap(";", ":")
 Vnoremap(":", ";")
 Vnoremap(";", ":")
 
-Nnoremap("<leader>n", "<cmd>Ex<CR>")
-
 Command("Pi", "PackerInstall")
 Command("Pu", "PackerUpadte")
