@@ -1,22 +1,8 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-end
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
 vim.cmd([[packadd packer.nvim]])
 
 
 return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
-
 
     -- Dependencies for others
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- TreeSitter for syntax highlighting and code `understanding`
@@ -39,10 +25,8 @@ return require("packer").startup(function(use)
     use { "tpope/vim-obsession" } -- Session management
     use { "windwp/nvim-autopairs" } -- Auto pairinp brackets
     use { "tpope/vim-surround" } -- Surround your stuff easier with brackets or quotes
-    use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
-    use { "yamatsum/nvim-nonicons" } -- Icons
     use { "romgrk/barbar.nvim" } -- Tab display
-    use { "ryanoasis/vim-devicons" } -- Nice Icons
+    use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
     use { "junegunn/goyo.vim" } -- Distraction free writing
     use { "neovide/neovide" } -- Neovide support
 
@@ -129,7 +113,6 @@ return require("packer").startup(function(use)
     use { "hrsh7th/cmp-path" } -- Nvim-cmp source for filesystem paths
     use { "hrsh7th/cmp-cmdline" } -- Nvim-cmp source for vim"s commandline
     use { "onsails/lspkind-nvim" } -- Nice Icons in lsp-comp
-    -- use { "quangnguyen30192/cmp-nvim-ultisnips" }       -- Nvim-cmp ultisnips support
     use { "saadparwaiz1/cmp_luasnip" } -- luasnip support
     use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
     use { "tzachar/cmp-tabnine", run = "./install.sh" } -- Nvim-cmp tabnine support
@@ -169,9 +152,4 @@ return require("packer").startup(function(use)
 
     -- Some would say it"s useless...
     use { "alec-gibson/nvim-tetris" } -- Tetris in Neovim
-
-    if packer_bootstrap then
-        require("packer").sync()
-    end
-
 end)
