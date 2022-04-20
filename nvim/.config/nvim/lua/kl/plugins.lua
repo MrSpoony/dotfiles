@@ -105,13 +105,14 @@ return require("packer").startup(function(use)
     -- TODO: Configure null-ls
     -- use { "jose-elias-alvarez/null-ls.nvim" }           -- Inject stuff into LSP communication
     use { "neovim/nvim-lspconfig" } -- Nvim lsp support
-    use { "williamboman/nvim-lsp-installer" } -- Easy installation for lsp" s
+    use { "williamboman/nvim-lsp-installer" } -- Easy installation for lsp`s
+    use { "ThePrimeagen/refactoring.nvim" } -- Some refactoring tools
     use { "p00f/clangd_extensions.nvim" } -- Clang extension for nvim-lsp
     use { "hrsh7th/nvim-cmp" } -- Autocompletion engine
     use { "hrsh7th/cmp-nvim-lsp" } -- Nvim-cmp source for neovim"s built-in ls client
     use { "hrsh7th/cmp-buffer" } -- Nvim-cmp source for buffer words
     use { "hrsh7th/cmp-path" } -- Nvim-cmp source for filesystem paths
-    use { "hrsh7th/cmp-cmdline" } -- Nvim-cmp source for vim"s commandline
+    use { "hrsh7th/cmp-cmdline" } -- Nvim-cmp source for vim`s commandline
     use { "onsails/lspkind-nvim" } -- Nice Icons in lsp-comp
     use { "saadparwaiz1/cmp_luasnip" } -- luasnip support
     use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
