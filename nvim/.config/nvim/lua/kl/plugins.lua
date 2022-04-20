@@ -131,6 +131,7 @@ return require("packer").startup(function(use)
     use { "onsails/lspkind-nvim" } -- Nice Icons in lsp-comp
     -- use { "quangnguyen30192/cmp-nvim-ultisnips" }       -- Nvim-cmp ultisnips support
     use { "saadparwaiz1/cmp_luasnip" } -- luasnip support
+    use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
     use { "tzachar/cmp-tabnine", run = "./install.sh" } -- Nvim-cmp tabnine support
 
 

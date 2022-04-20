@@ -15,8 +15,6 @@ local m = require("luasnip.extras").m
 local rep = require("luasnip.extras").rep
 local lambda = require("luasnip.extras").l
 
-ls.cleanup()
-
 local same = function(index)
     return f(function(arg)
         return arg[1]

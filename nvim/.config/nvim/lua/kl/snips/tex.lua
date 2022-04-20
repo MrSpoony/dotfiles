@@ -13,7 +13,6 @@ local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
 
-ls.cleanup()
 
 local tex = {}
 

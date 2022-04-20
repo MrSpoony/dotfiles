@@ -65,6 +65,8 @@ ls.config.set_config {
     },
 }
 
+-- Load friendly snippets
+require("luasnip.loaders.from_vscode").load({ paths = vim.fn.stdpath("data") .. "/site/pack/packer/start/friendly-snippets/"})
 
 
 -- <c-e> is my expansion key
