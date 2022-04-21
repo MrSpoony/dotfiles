@@ -108,15 +108,15 @@ require 'nvim-treesitter.configs'.setup {
             }
         }
     },
-    textsubjects = {
-        enable = true,
-        prev_selection = ':', -- (Optional) keymap to select the previous selection
-        keymaps = {
-            ['.'] = 'textsubjects-smart',
-            [','] = 'textsubjects-container-outer',
-            ['i,'] = 'textsubjects-container-inner',
-        },
-    },
+    -- textsubjects = {
+    --     enable = true,
+    --     prev_selection = ':', -- (Optional) keymap to select the previous selection
+    --     keymaps = {
+    --         ['.'] = 'textsubjects-smart',
+    --         [','] = 'textsubjects-container-outer',
+    --         ['i,'] = 'textsubjects-container-inner',
+    --     },
+    -- },
     textobjects = {
         select = {
             enable = true,
@@ -135,10 +135,10 @@ require 'nvim-treesitter.configs'.setup {
         swap = {
             enable = true,
             swap_next = {
-                ["<leader>a"] = "@parameter.inner",
+                ["<leader>si"] = "@parameter.inner",
             },
             swap_previous = {
-                ["<leader>A"] = "@parameter.inner",
+                ["<leader>sA"] = "@parameter.inner",
             },
         },
         move = {
