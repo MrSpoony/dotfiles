@@ -1,6 +1,7 @@
 require("kl.autopairs")
 require("kl.colors")
 require("kl.comment")
+require("kl.harpoon")
 require("kl.hop")
 require("kl.iswap")
 require("kl.lsp")

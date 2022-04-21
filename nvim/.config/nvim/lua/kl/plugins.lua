@@ -87,6 +87,7 @@ return require("packer").startup(function(use)
     use { "christoomey/vim-sort-motion" } -- Sort with `gs`
     use { "nvim-treesitter/playground" } -- TreeSitter playground :TSPlaygroundToggle
     use { "nvim-treesitter/nvim-treesitter-refactor" } -- Refactoring tools
+    use { "ThePrimeagen/harpoon" } -- Better file navigation I hope
 
 
 
