@@ -17,12 +17,12 @@ nnoremap <silent>    <A-6> <cmd>BufferGoto 6<CR>
 nnoremap <silent>    <A-7> <cmd>BufferGoto 7<CR>
 nnoremap <silent>    <A-8> <cmd>BufferGoto 8<CR>
 nnoremap <silent>    <A-9> <cmd>BufferLast<CR>
-nnoremap <silent>    <C-1> <cmd>BufferGoto 1<CR>
-nnoremap <silent>    <C-2> <cmd>BufferGoto 2<CR>
-nnoremap <silent>    <C-3> <cmd>BufferGoto 3<CR>
-nnoremap <silent>    <C-4> <cmd>BufferGoto 4<CR>
-nnoremap <silent>    <C-5> <cmd>BufferGoto 5<CR>
-nnoremap <silent>    <C-6> <cmd>BufferGoto 6<CR>
-nnoremap <silent>    <C-7> <cmd>BufferGoto 7<CR>
-nnoremap <silent>    <C-8> <cmd>BufferGoto 8<CR>
-nnoremap <silent>    <C-9> <cmd>BufferLast<CR>
+" nnoremap <silent>    <C-1> <cmd>BufferGoto 1<CR>
+" nnoremap <silent>    <C-2> <cmd>BufferGoto 2<CR>
+" nnoremap <silent>    <C-3> <cmd>BufferGoto 3<CR>
+" nnoremap <silent>    <C-4> <cmd>BufferGoto 4<CR>
+" nnoremap <silent>    <C-5> <cmd>BufferGoto 5<CR>
+" nnoremap <silent>    <C-6> <cmd>BufferGoto 6<CR>
+" nnoremap <silent>    <C-7> <cmd>BufferGoto 7<CR>
+" nnoremap <silent>    <C-8> <cmd>BufferGoto 8<CR>
+" nnoremap <silent>    <C-9> <cmd>BufferLast<CR>
