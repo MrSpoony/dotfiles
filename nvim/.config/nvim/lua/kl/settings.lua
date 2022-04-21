@@ -43,7 +43,7 @@ o.backup = false
 o.history = 10000
 o.undofile = true
 
-o.scrolloff = 4
+o.scrolloff = 5
 o.mouse = "nvc"
 
 o.visualbell = true
