@@ -28,7 +28,7 @@ tabnine:setup({
 
 local opts = { noremap = true, silent = true }
 -- Diagnostics mappings
-Nnoremap('<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+Nnoremap('<space>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 Nnoremap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 Nnoremap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 Nnoremap('<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
