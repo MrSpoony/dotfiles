@@ -28,6 +28,7 @@ return require("packer").startup(function(use)
     use { "romgrk/barbar.nvim" } -- Tab display
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
     use { "junegunn/goyo.vim" } -- Distraction free writing
+    use { "junegunn/limelight.vim" } -- Beautify goyo
     use { "neovide/neovide" } -- Neovide support
 
     -- TODO: Comment plugins
@@ -91,7 +92,7 @@ return require("packer").startup(function(use)
 
     -- New "Nouns"
     use { "phaazon/hop.nvim" } -- Easymotion but in lua
-    use { "justinmk/vim-sneak" } -- Try to get rid of s and use it for vim-sneak
+    -- use { "justinmk/vim-sneak" } -- Try to get rid of s and use it for vim-sneak
     use { "michaeljsmith/vim-indent-object" } -- Indent object with ii, ai, aI, and iI etc.
     use { "kana/vim-textobj-entire" } -- Whole document ae, ie
 
