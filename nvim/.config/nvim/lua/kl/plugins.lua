@@ -25,8 +25,8 @@ return require("packer").startup(function(use)
     use { "tpope/vim-obsession" } -- Session management
     use { "windwp/nvim-autopairs" } -- Auto pairinp brackets
     use { "tpope/vim-surround" } -- Surround your stuff easier with brackets or quotes
-    use { "romgrk/barbar.nvim" } -- Tab display
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
+    use { "akinsho/bufferline.nvim" } -- Tab display
     use { "junegunn/goyo.vim" } -- Distraction free writing
     use { "junegunn/limelight.vim" } -- Beautify goyo
     use { "neovide/neovide" } -- Neovide support

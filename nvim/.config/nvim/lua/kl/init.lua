@@ -1,4 +1,5 @@
 require("kl.autopairs")
+require("kl.bufferline")
 require("kl.colors")
 require("kl.comment")
 require("kl.harpoon")
