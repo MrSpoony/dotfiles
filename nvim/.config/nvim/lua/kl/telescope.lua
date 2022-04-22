@@ -39,9 +39,11 @@ le('smart_history')
 le('frecency')
 le('cheat')
 le('refactoring')
+le('harpoon')
 
 local ex = ts.extensions
 Vnoremap("<leader>rr", ex.refactoring.refactors)
+Nnoremap("<leader>h", "<cmd>Telescope harpoon marks<cr>")
 Nnoremap("<leader>cd", ex.zoxide.list)
 Nnoremap("<leader>ff", builtin.find_files)
 Nnoremap("<leader>fr", ex.frecency.frecency)
