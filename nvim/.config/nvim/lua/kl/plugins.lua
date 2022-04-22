@@ -77,7 +77,8 @@ return require("packer").startup(function(use)
     use { "tpope/vim-abolish" } -- Abbreviations, Substitutions `:S` and Coercion `cr{s,m,_,u,U}`
     use { "AndrewRadev/splitjoin.vim" } -- Split up oneliners `gS` or oneline multiliners `gJ`
     -- TODO: Configure neorg
-    use { "nvim-neorg/neorg" }
+    use { "nvim-neorg/neorg" } -- Neovim orgmode
+    use { "mattn/webapi-vim" } -- Webapi for backend development
 
     -- New "Verbs"
     use { "numToStr/Comment.nvim" } -- Comments from treesitter `gc`
@@ -129,7 +130,6 @@ return require("packer").startup(function(use)
     use { "hdiniz/vim-gradle" } -- Java Gradle
     use { "ap/vim-css-color" } -- CSS
     use { "mattn/emmet-vim" } -- HTML
-    use { "rstacruz/sparkup" } -- Even better HTML
     use { "neoclide/vim-jsx-improve" } -- For JSX
     use { "lervag/vimtex" } -- LaTeX
     use { "engeljh/vim-latexfmt" } -- LaTex Formatter
