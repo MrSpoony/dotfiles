@@ -130,6 +130,7 @@ return require("packer").startup(function(use)
     use { "hdiniz/vim-gradle" } -- Java Gradle
     use { "ap/vim-css-color" } -- CSS
     use { "mattn/emmet-vim" } -- HTML
+    use { "alvan/vim-closetag" } -- Immediately close html tags
     use { "neoclide/vim-jsx-improve" } -- For JSX
     use { "lervag/vimtex" } -- LaTeX
     use { "engeljh/vim-latexfmt" } -- LaTex Formatter
