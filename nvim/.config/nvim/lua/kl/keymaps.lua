@@ -1,7 +1,3 @@
-Inoremap(":w<CR>", "<Esc>:w<CR>")
-Inoremap(":wq<CR>", "<Esc>:wq<CR>")
-Inoremap(":q!<CR>", "<Esc>:q!<CR>")
-
 Nnoremap("j", "gj")
 Nnoremap("k", "gk")
 Nnoremap("gj", "j")
