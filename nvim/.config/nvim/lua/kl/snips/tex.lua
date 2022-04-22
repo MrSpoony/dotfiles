@@ -12,8 +12,7 @@ local events = require("luasnip.util.events")
 local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
-
-
+local utils = require("kl.snips.utils")
 local tex = {}
 
 tex.math = function()
@@ -25,40 +24,11 @@ tex.text = function()
 end
 
 tex.beginMath = function(line_to_cursor, matched_trigger)
-    return tex.math() and tex.onBegin(line_to_cursor, matched_trigger)
+    return tex.math() and utils.onBegin(line_to_cursor, matched_trigger)
 end
 
 tex.beginText = function(line_to_cursor, matched_trigger)
-    return tex.text() and tex.onBegin(line_to_cursor, matched_trigger)
-end
-
-tex.onBegin = function(line_to_cursor, matched_trigger)
-    line_to_cursor = line_to_cursor:gsub("%s+", "")
-    if (line_to_cursor == matched_trigger) then
-        return true
-    end
-    return false
-end
-
-tex.inWord = function(line, trigger)
-    line = line:gsub("^%s*", "")
-    line = line:gsub("%s*$", "")
-    if (line == trigger) then
-        return true
-    else
-        local start, ending = string.find(line, trigger)
-        while start do
-            local x = string.sub(line, start - 1, start - 1)
-            local y = string.sub(line, ending + 1, ending + 1)
-            if (x == " " or x == "\t" or x == "\n" or x == "\r") and
-                (y == " " or y == "\t" or y == "\n" or y == "\r") then
-                return true
-            end
-            start, ending = string.find(line, trigger, start + 1)
-        end
-        return true
-    end
-    return false
+    return tex.text() and utils.onBegin(line_to_cursor, matched_trigger)
 end
 
 tex.frac = function(line, trigger)
@@ -81,22 +51,13 @@ tex.frac = function(line, trigger)
     return changed and openCount == 0 and string.sub(line, currPos[2] - 1, currPos[2] - 1) == ")"
 end
 
-local b = function(name, snippet, opts)
-    opts = opts or {}
-    opts.condition = tex.onBegin
-    return s({ trig = name }, snippet, opts)
-end
+local b = utils.b
+local w = utils.w
 
 local ixt = function(name, snippet, opts)
     opts = opts or {}
     opts.condition = tex.text
     return s({ trig = name, wordTrig = false }, snippet, opts)
-end
-
-local w = function(name, snippet, opts)
-    opts = opts or {}
-    opts.condition = tex.inWord
-    return s({ trig = name }, snippet, opts)
 end
 
 local imt = function(name, snippet, opts)
@@ -111,20 +72,8 @@ local m = function(name, snippet, opts)
     return s(name, snippet, opts)
 end
 
-
-local rep = function(index)
-    return f(function(arg)
-        return arg[1]
-    end, { index })
-end
-
-local same = function(index, mirrorindex)
-    return d(index, function(args)
-        return sn(nil, {
-            i(1, args[1])
-        })
-    end, { mirrorindex })
-end
+local same = utils.same
+local rep = utils.rep
 
 local rep_it
 rep_it = function()
