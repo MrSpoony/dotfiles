@@ -36,13 +36,11 @@ Vnoremap("<A-j>", "<cmd>'<,'>m '>+1<CR>gv=gv")
 Vnoremap("<A-k>", "<cmd>'<,'>m '<-2<CR>gv=gv")
 Inoremap("<A-j>", "<cmd>m .+1<CR><Esc>==a")
 Inoremap("<A-k>", "<cmd>m .-2<CR><Esc>==a")
+Nnoremap("<A-j>", "<cmd>m .+1<CR>==")
 Nnoremap("<A-k>", "<cmd>m .-2<CR>==")
 
 Nnoremap("<leader>sp", function() vim.wo.spell = not vim.wo.spell end)
 
-Nnoremap("<A-j>", "<cmd>m .+1<CR>==")
-Nnoremap("<leader>l", "<cmd>bnext<CR>")
-Nnoremap("<leader>h", "<cmd>bprev<CR>")
 Nnoremap("<leader>+", "<cmd>vertical resize +5<CR>")
 Nnoremap("<leader>-", "<cmd>vertical resize -5<CR>")
 
