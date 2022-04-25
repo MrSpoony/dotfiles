@@ -112,15 +112,15 @@ clangd_extensions.setup({
 
 
 lsp_installer.on_server_ready(function(server)
-    -- if server.name == "eslint" then
-    --     options.on_attach = function(client, bufnr)
-    --         on_attach(client, bufnr)
-    --         client.resolved_capabilities.document_formatting = true
-    --     end
-    --     options.settings = {
-    --         format = { enable = true },
-    --     }
-    -- end
+    if server.name == "eslint" then
+        options.on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+            client.resolved_capabilities.document_formatting = true
+        end
+        options.settings = {
+            format = { enable = true },
+        }
+    end
 
     server:setup(options)
 end)
