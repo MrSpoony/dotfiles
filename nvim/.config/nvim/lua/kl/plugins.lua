@@ -97,6 +97,7 @@ return require("packer").startup(function(use)
     -- use { "justinmk/vim-sneak" } -- Try to get rid of s and use it for vim-sneak
     use { "michaeljsmith/vim-indent-object" } -- Indent object with ii, ai, aI, and iI etc.
     use { "kana/vim-textobj-entire" } -- Whole document ae, ie
+    use { "wellle/targets.vim" } -- Many helpful targets
 
 
     use { "nvim-treesitter/nvim-treesitter-textobjects" } -- Treesitter textobjects f (functions), etc
@@ -151,7 +152,14 @@ return require("packer").startup(function(use)
     use { "L3MON4D3/LuaSnip" }
 
     -- Own plugins
-    use { "MrSpoony/soicode.vim" } -- For soi stuff with the .stoml support
+    use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
+    -- use { "~/code/lua/nvim/plugins/soicode.nvim",
+    --     rocks = { "lua-toml" },
+    --     config = function()
+    --         vim.opt.rtp:append(",~/code/lua/nvim/plugins/soicode.nvim")
+    --         require("soicode").setup();
+    --     end
+    -- }
 
 
     -- Some would say it"s useless...
