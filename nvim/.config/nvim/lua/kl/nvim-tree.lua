@@ -111,4 +111,4 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 }
 
 
-Nnoremap("<C-p>", "<cmd>NvimTreeToggle<cr>")
+Nnoremap("<C-f>", "<cmd>NvimTreeToggle<cr>")

@@ -40,7 +40,21 @@ Nnoremap("<leader>sp", function() vim.wo.spell = not vim.wo.spell end)
 Nnoremap("<leader>+", "<cmd>vertical resize +5<CR>")
 Nnoremap("<leader>-", "<cmd>vertical resize -5<CR>")
 
-Nnoremap("<leader>so", "<cmd>w<CR><cmd>so %<CR>")
+local source = function()
+    Nnoremap("<leader>so", "<cmd>w<CR><cmd>so %<CR>")
+end
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.lua", "*.vim"},
+    callback = source
+})
+
+
+Nnoremap("<leader>b", "<cmd>bdelete<CR>")
+Nnoremap("<leader>qq", "<cmd>quit!<CR>")
+Nnoremap("<leader>qw", "<cmd>wq<CR>")
+Nnoremap("<leader>qaw", "<cmd>quitall!<CR>")
+Nnoremap("<leader>qaa", "<cmd>wqall<CR>")
 
 Nnoremap(":", ";")
 Nnoremap(";", ":")
