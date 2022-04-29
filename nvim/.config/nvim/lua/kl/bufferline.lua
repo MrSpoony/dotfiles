@@ -14,6 +14,7 @@ require("bufferline").setup({
     }
 })
 
+Nnoremap("<leader>p", "<Cmd>BufferLineTogglePin<CR>",    { silent = true })
 Nnoremap("<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { silent = true })
 Nnoremap("<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { silent = true })
 Nnoremap("<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { silent = true })

@@ -1,9 +1,6 @@
 local utils = require("kl.utils")
 
-P = function(v)
-    print(vim.inspect(v))
-    return v
-end
+P = vim.pretty_print
 
 Fn = utils.fn
 

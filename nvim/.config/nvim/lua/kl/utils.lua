@@ -1,33 +1,4 @@
 local M = {}
-local moduleName = "kl.utils"
-local fnStore = {}
-
-local function registerFn(fn)
-    table.insert(fnStore, fn)
-    return #fnStore
-end
-
-function M.applyFunction(id)
-    fnStore[id]()
-end
-
-function M.applyExpr(id)
-    return vim.api.nvim_replace_termcodes(fnStore[id](), true, true, true)
-end
-
-function M.luaFn(fn)
-    return string.format(
-        "<cmd>lua require('%s').applyFunction(%s)<CR>", moduleName, registerFn(fn)
-    )
-end
-
-function M.luaExpr(fn)
-    return string.format(
-        "v:lua.require'%s'.applyExpr(%s)",
-        moduleName,
-        registerFn(fn)
-    )
-end
 
 local function createNoremap(mode)
     return function(lhs, rhs, options)
