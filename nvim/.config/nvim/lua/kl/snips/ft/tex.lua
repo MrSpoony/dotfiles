@@ -12,7 +12,7 @@ local events = require("luasnip.util.events")
 local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
-local utils = require("kl.snips.utils")
+local utils = require("kl.snips")
 local tex = {}
 
 tex.math = function()

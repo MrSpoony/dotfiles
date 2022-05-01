@@ -18,6 +18,11 @@ ls.config.set_config {
 require("luasnip.loaders.from_vscode").load({ paths = vim.fn.stdpath("data") .. "/site/pack/packer/start/friendly-snippets/"})
 
 
+for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/kl/snips/ft/*.lua", true)) do
+    loadfile(ft_path)()
+end
+
+
 -- <c-e> is my expansion key
 vim.keymap.set({ "i", "s" }, "<C-e>", function()
     if ls.expand_or_jumpable() then

@@ -1,3 +1,4 @@
+-- Luasnip stuff
 local ls = require "luasnip"
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -12,10 +13,26 @@ local events = require("luasnip.util.events")
 local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
-local utils = require("kl.snips.utils")
+local utils = require("kl.snips")
+
+
+-- TS stuff
 
 local b = utils.b
 local rep = utils.rep;
+
+-- local existsLInt = function()
+--     local parser = vim.treesitter.get_parser(0);
+--     P(parser)
+--     local tstree = parser:parse()
+--     P(vim.inspect(getmetatable(tstree)))
+--     -- local tsroot = tstree:root()
+--     -- P(tsroot:iter_children())
+--     return true;
+-- end
+--
+-- existsLInt();
+
 
 ls.add_snippets("cpp", {
     b("icin", {
