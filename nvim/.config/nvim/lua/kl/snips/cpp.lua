@@ -21,6 +21,9 @@ ls.add_snippets("cpp", {
     b("icin", {
         t"lint ", i(1, "name"), t" = 0; cin >> ", rep(1), t{";", ""},
     }),
+    b("scin", {
+        t"string ", i(1, "name"), t" = \"\"; cin >> ", rep(1), t{";", ""},
+    }),
     b("vicin", {
         t"VI ", i(1, "name"), t"(", i(2, "n"), t{");", ""},
         t"REP (", i(3, "i"), t", ", rep(2), t" ) cin >> ",
