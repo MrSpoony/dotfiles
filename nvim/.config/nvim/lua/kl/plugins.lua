@@ -15,6 +15,7 @@ return require("packer").startup(function(use)
     -- Themes:
     use { "dylanaraps/wal.vim" } -- Wal
     use { "Mofiqul/dracula.nvim" } -- Dracula
+    use { "folke/tokyonight.nvim" } -- Tokyo night
     use { "marko-cerovac/material.nvim" } -- Material
     use { "navarasu/onedark.nvim" } -- Onedark
     use { "ChristianChiarulli/nvcode-color-schemes.vim" } -- Multiple themes

@@ -18,11 +18,10 @@ local b = utils.b
 local rep = utils.rep
 
 
-ls.add_snippets("javascript", {
-    b("cl", {
-        t"console.log(", c(1, {
-            { t"\"", i(1, "variable"), t":\", ", rep(1) },
-            { t"\"", i(1, "text"), t"\"" },
-        }), t");"
+ls.add_snippets("javascriptreact", {
+    b("edf", {
+        t"export default function ", i(1, "functionName"), t"(", i(2, "arguments"), t{") {", ""},
+        t{"    return (", "        "}, i(3), t{"", "    );", "}"}
+
     }),
 }, { type = "autosnippets" })

@@ -8,6 +8,8 @@ local gps = require("nvim-gps")
 --     theme = "deep"
 -- })
 -- od.load()
+--
+vim.g.tokyonight_style = "night"
 
 mat.setup({
     lualine_style = "stealth",
