@@ -80,6 +80,8 @@ return require("packer").startup(function(use)
     -- TODO: Configure neorg
     use { "nvim-neorg/neorg" } -- Neovim orgmode
     use { "mattn/webapi-vim" } -- Webapi for backend development
+    use { "stevearc/dressing.nvim" } -- Better standard vim ui's
+    use { "folke/todo-comments.nvim" } -- Highlight comments
 
     -- New "Verbs"
     use { "numToStr/Comment.nvim" } -- Comments from treesitter `gc`
@@ -101,14 +103,14 @@ return require("packer").startup(function(use)
     use { "wellle/targets.vim" } -- Many helpful targets
 
 
+    -- Treesitter
     use { "nvim-treesitter/nvim-treesitter-textobjects" } -- Treesitter textobjects f (functions), etc
     use { "RRethy/nvim-treesitter-textsubjects" } -- Smart textsubjects from treesitter
     use { "p00f/nvim-ts-rainbow" } -- Rainbow brackets from treesitter
+    use { "windwp/nvim-ts-autotag" } -- Close tags
 
 
     -- LSP stuff
-    -- TODO: Configure null-ls
-    -- use { "jose-elias-alvarez/null-ls.nvim" }           -- Inject stuff into LSP communication
     use { "neovim/nvim-lspconfig" } -- Nvim lsp support
     use { "williamboman/nvim-lsp-installer" } -- Easy installation for lsp`s
     use { "ThePrimeagen/refactoring.nvim" } -- Some refactoring tools
@@ -132,7 +134,6 @@ return require("packer").startup(function(use)
     use { "hdiniz/vim-gradle" } -- Java Gradle
     use { "ap/vim-css-color" } -- CSS
     use { "mattn/emmet-vim" } -- HTML
-    use { "alvan/vim-closetag" } -- Immediately close html tags
     use { "neoclide/vim-jsx-improve" } -- For JSX
     use { "lervag/vimtex" } -- LaTeX
     use { "engeljh/vim-latexfmt" } -- LaTex Formatter
@@ -144,8 +145,8 @@ return require("packer").startup(function(use)
 
     -- Git
     use { "tpope/vim-fugitive" } -- Git integration
-    use { "rhysd/committia.vim" } -- Better commit buffers
     use { "lewis6991/gitsigns.nvim" } -- Git signs (gitgutter, Line blame etc.)
+    use { "rhysd/committia.vim" } -- Better commit buffers
 
     -- Snippets
     -- use { "honza/vim-snippets" }      -- Requirement of ultisnips
