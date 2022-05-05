@@ -83,9 +83,6 @@ return require("packer").startup(function(use)
     use { "mizlan/iswap.nvim" } -- Swap function arguments etc.
     use { "ckarnell/Antonys-macro-repeater" } -- Repeat macros with `.`
     use { "tpope/vim-eunuch" } -- Useful UNIX commands
-    use {
-        "danymat/neogen", config = function() require("neogen").setup({}) end
-    } -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
     use { "chrisbra/NrrwRgn", cmd = "NR" } -- Open text in other window
     use { "gyim/vim-boxdraw" } -- Draw boxes `+o`
     use { "tpope/vim-abolish" } -- Abbreviations, Substitutions `:S` and Coercion `cr{s,m,_,u,U}`
@@ -96,6 +93,11 @@ return require("packer").startup(function(use)
     use { "stevearc/dressing.nvim" } -- Better standard vim ui's
     use { "folke/todo-comments.nvim" } -- Highlight comments
     use { "AckslD/nvim-neoclip.lua" } -- Clipboard management inside vim
+    use {
+        "danymat/neogen", config = function() require("neogen").setup({}) end
+    } -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
+    use { "tpope/vim-dadbod" } -- Database integration
+    use { "kristijanhusak/vim-dadbod-ui" } -- Pretty database integration
 
 
     -- New "Verbs"
