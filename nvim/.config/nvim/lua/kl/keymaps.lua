@@ -62,4 +62,4 @@ Vnoremap(":", ";")
 Vnoremap(";", ":")
 
 Command("Pi", "PackerInstall")
-Command("Pu", "PackerUpadte")
+Command("Pu", "PackerUpdate")

@@ -40,8 +40,11 @@ le('frecency')
 le('cheat')
 le('refactoring')
 le('harpoon')
+le('neoclip')
 
 local ex = ts.extensions
+Nnoremap("<leader>fp", "<cmd>Telescope neoclip<cr>")
+Vnoremap("<leader>fp", "<cmd>Telescope neoclip<cr>")
 Vnoremap("<leader>rr", ex.refactoring.refactors)
 Nnoremap("<leader>h", "<cmd>Telescope harpoon marks<cr>")
 Nnoremap("<leader>cd", ex.zoxide.list)

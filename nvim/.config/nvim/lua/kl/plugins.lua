@@ -5,11 +5,12 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
 
     -- Dependencies for others
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- TreeSitter for syntax highlighting and code `understanding`
     use { "nvim-lua/popup.nvim" } -- Popups in Neovim
     use { "nvim-lua/plenary.nvim" } -- Some helpful lua functions other plugins (telecope) need
     use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more spee;d
-
+    use { "BurntSushi/ripgrep" } -- Line-oriented search tool
+    use { "junegunn/fzf", run = "./install -- all" } -- FZF
+    use { "junegunn/fzf.vim" } -- FZF in vim
 
     -- UI
     -- Themes:
@@ -19,6 +20,7 @@ return require("packer").startup(function(use)
     use { "marko-cerovac/material.nvim" } -- Material
     use { "navarasu/onedark.nvim" } -- Onedark
     use { "ChristianChiarulli/nvcode-color-schemes.vim" } -- Multiple themes
+    use { "anuvyklack/pretty-fold.nvim" } -- Prettier folds
     use { "SmiteshP/nvim-gps" } -- Location widget in lualine
     use { "nvim-lualine/lualine.nvim" } -- Line at the bottom
     use { "justinmk/vim-syntax-extra" } -- Extra syntax
@@ -32,12 +34,24 @@ return require("packer").startup(function(use)
     use { "junegunn/limelight.vim" } -- Beautify goyo
     use { "neovide/neovide" } -- Neovide support
 
+
+    -- Treesitter
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- TreeSitter for syntax highlighting and code `understanding`
+    use { "nvim-treesitter/playground" } -- TreeSitter playground :TSPlaygroundToggle
+    use { "nvim-treesitter/nvim-treesitter-refactor" } -- Refactoring tools
+    use { "nvim-treesitter/nvim-treesitter-textobjects" } -- Treesitter textobjects f (functions), etc
+    use { "RRethy/nvim-treesitter-textsubjects" } -- Smart textsubjects from treesitter
+    use { "p00f/nvim-ts-rainbow" } -- Rainbow brackets from treesitter
+    use { "simrat39/symbols-outline.nvim" } -- Symbols outline
+    use { "windwp/nvim-ts-autotag" } -- Close tags
+
+
     -- TODO: Comment plugins
     use { "milisims/nvim-luaref" }
     use { "nanotee/luv-vimdocs" }
 
 
-    use { "BurntSushi/ripgrep" } -- Line-oriented search tool
+    -- Telescope
     use { "nvim-telescope/telescope.nvim" } -- Telescope search etc.
     use { "jvgrootveld/telescope-zoxide" } -- Like z command
     use { "nvim-telescope/telescope-packer.nvim" } -- Packer plugins
@@ -50,11 +64,10 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope-smart-history.nvim" } -- Store search history in sqlite database
     use { "nvim-telescope/telescope-frecency.nvim" } -- Frequently visited files
     use { "nvim-telescope/telescope-cheat.nvim" } -- Cheat.sh
-    use { "junegunn/fzf", run = "./install -- all" } -- FZF
-    use { "junegunn/fzf.vim" } -- FZF in vim
 
 
     -- Other stuff
+    use { "anuvyklack/nvim-keymap-amend" } -- Amend to existing keymaps
     use { "tpope/vim-repeat" } -- Repeat commands
     use { "mg979/vim-visual-multi" } -- Multiple cursors
     use { "andweeb/presence.nvim" } -- Discord precense
@@ -82,6 +95,8 @@ return require("packer").startup(function(use)
     use { "mattn/webapi-vim" } -- Webapi for backend development
     use { "stevearc/dressing.nvim" } -- Better standard vim ui's
     use { "folke/todo-comments.nvim" } -- Highlight comments
+    use { "AckslD/nvim-neoclip.lua" } -- Clipboard management inside vim
+
 
     -- New "Verbs"
     use { "numToStr/Comment.nvim" } -- Comments from treesitter `gc`
@@ -89,8 +104,6 @@ return require("packer").startup(function(use)
     use { "godlygeek/tabular" } -- Tabularize
     use { "vim-scripts/ReplaceWithRegister" } -- Replace without going into visual mode `gr`
     use { "christoomey/vim-sort-motion" } -- Sort with `gs`
-    use { "nvim-treesitter/playground" } -- TreeSitter playground :TSPlaygroundToggle
-    use { "nvim-treesitter/nvim-treesitter-refactor" } -- Refactoring tools
     use { "ThePrimeagen/harpoon" } -- Better file navigation I hope
 
 
@@ -103,13 +116,6 @@ return require("packer").startup(function(use)
     use { "wellle/targets.vim" } -- Many helpful targets
 
 
-    -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter-textobjects" } -- Treesitter textobjects f (functions), etc
-    use { "RRethy/nvim-treesitter-textsubjects" } -- Smart textsubjects from treesitter
-    use { "p00f/nvim-ts-rainbow" } -- Rainbow brackets from treesitter
-    use { "windwp/nvim-ts-autotag" } -- Close tags
-
-
     -- LSP stuff
     use { "neovim/nvim-lspconfig" } -- Nvim lsp support
     use { "williamboman/nvim-lsp-installer" } -- Easy installation for lsp`s
@@ -120,6 +126,7 @@ return require("packer").startup(function(use)
     use { "hrsh7th/cmp-buffer" } -- Nvim-cmp source for buffer words
     use { "hrsh7th/cmp-path" } -- Nvim-cmp source for filesystem paths
     use { "hrsh7th/cmp-cmdline" } -- Nvim-cmp source for vim`s commandline
+    use { "hrsh7th/cmp-nvim-lua" } -- Nvim lua completion
     use { "onsails/lspkind-nvim" } -- Nice Icons in lsp-comp
     use { "saadparwaiz1/cmp_luasnip" } -- luasnip support
     use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
@@ -134,7 +141,7 @@ return require("packer").startup(function(use)
     use { "hdiniz/vim-gradle" } -- Java Gradle
     use { "ap/vim-css-color" } -- CSS
     use { "mattn/emmet-vim" } -- HTML
-    use { "neoclide/vim-jsx-improve" } -- For JSX
+    use { "neoclide/vim-jsx-improve" } -- JSX
     use { "lervag/vimtex" } -- LaTeX
     use { "engeljh/vim-latexfmt" } -- LaTex Formatter
     use { "iamcco/markdown-preview.nvim" } -- Markdown

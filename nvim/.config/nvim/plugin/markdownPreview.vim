@@ -1,7 +1,7 @@
 " Shortcuts
 
 nmap <C-s> <Plug>MarkdownPreview
-nmap <leader>mp <Plug>MarkdownPreviewToggle
+nmap <leader>dp <Plug>MarkdownPreviewToggle
 nmap <M-s> <Plug>MarkdownPreviewStop
 nmap <C-p> <Plug>MarkdownPreviewToggle 
 

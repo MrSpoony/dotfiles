@@ -49,10 +49,14 @@ local on_attach = function(client, bufnr)
     Nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     Nnoremap('<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     Nnoremap('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    Nnoremap('<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    Vnoremap('<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
-    Nnoremap('<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    Nnoremap('<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    -- Nnoremap('<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    -- Vnoremap('<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
+    Nnoremap('<leader>ca', vim.lsp.buf.code_action, opts)
+    Vnoremap('<leader>ca', vim.lsp.buf.range_code_action, opts)
+    -- Nnoremap('<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    -- Nnoremap('<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
+    Nnoremap('<m-cr>', vim.lsp.buf.code_action, opts)
+    Nnoremap('<a-cr>', vim.lsp.buf.code_action, opts)
     Nnoremap('<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
@@ -263,8 +267,9 @@ cmp.setup({
     },
     sources = {
         { name = "luasnip" },
-        { name = "cmp_tabnine" },
         { name = "nvim_lsp" },
+        { name= "nvim_lua" },
+        { name = "cmp_tabnine" },
         -- { name = "ultisnips" },
         { name = "buffer" },
     },
