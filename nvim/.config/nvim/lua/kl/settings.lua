@@ -76,10 +76,3 @@ function! TrimEndLines()
 endfunction
 autocmd BufWritePre * call TrimEndLines()
 ]])
-
-vim.cmd[[
-augroup filetype_jsx
-    autocmd!
-    autocmd FileType javascript set filetype=javascriptreact
-augroup END
-]]
