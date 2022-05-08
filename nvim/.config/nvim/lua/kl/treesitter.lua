@@ -60,13 +60,13 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         keymaps = {
             init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+            node_incremental = "gni",
+            scope_incremental = "gns",
+            node_decremental = "gnd",
         },
     },
     indent = {
-        enable = true,
+        enable = false,
     },
     highlight = {
         enable = true,
@@ -118,19 +118,42 @@ require 'nvim-treesitter.configs'.setup {
     --     },
     -- },
     textobjects = {
+        enable = true,
+        keymaps = {
+            ["iL"] = {
+                go = "(function_definition) @function",
+            },
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["aC"] = "@class.outer",
+            ["iC"] = "@class.inner",
+            ["ac"] = "@conditional.outer",
+            ["ic"] = "@conditional.inner",
+            ["ae"] = "@block.outer",
+            ["ie"] = "@block.inner",
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+            ["is"] = "@statement.inner",
+            ["as"] = "@statement.outer",
+            ["ad"] = "@comment.outer",
+            ["am"] = "@call.outer",
+            ["im"] = "@call.inner"
+        },
         select = {
             enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-
             keymaps = {
-                -- You can use the capture groups defined in textobjects.scm
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
-            },
+                -- ["iF"] = {
+                --     python = "(function_definition) @function",
+                --     cpp = "(function_definition) @function",
+                --     c = "(function_definition) @function",
+                --     java = "(method_declaration) @function",
+                --     go = "(method_declaration) @function"
+                -- }
+            }
         },
         swap = {
             enable = true,
@@ -143,7 +166,7 @@ require 'nvim-treesitter.configs'.setup {
         },
         move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true,
             goto_next_start = {
                 ["]m"] = "@function.outer",
                 ["]]"] = "@class.outer",
@@ -163,10 +186,9 @@ require 'nvim-treesitter.configs'.setup {
         },
         lsp_interop = {
             enable = true,
-            border = 'none',
             peek_definition_code = {
-                ["<leader>df"] = "@function.outer",
-                ["<leader>dF"] = "@class.outer",
+                ["<leader>Df"] = "@function.outer",
+                ["<leader>DF"] = "@class.outer",
             },
         },
     },

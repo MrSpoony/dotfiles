@@ -7,7 +7,8 @@ return require("packer").startup(function(use)
     -- Dependencies for others
     use { "nvim-lua/popup.nvim" } -- Popups in Neovim
     use { "nvim-lua/plenary.nvim" } -- Some helpful lua functions other plugins (telecope) need
-    use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more spee;d
+    use { "ray-x/guihua.lua", run = 'cd lua/fzy && make' } -- UI for lua plugins
+    use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more speed
     use { "BurntSushi/ripgrep" } -- Line-oriented search tool
     use { "junegunn/fzf", run = "./install -- all" } -- FZF
     use { "junegunn/fzf.vim" } -- FZF in vim
@@ -26,7 +27,7 @@ return require("packer").startup(function(use)
     use { "justinmk/vim-syntax-extra" } -- Extra syntax
     use { "mhinz/vim-startify" } -- Fancy startup screen `:h startify` `:h startify-faq`
     use { "tpope/vim-obsession" } -- Session management
-    use { "windwp/nvim-autopairs" } -- Auto pairinp brackets
+    use { "windwp/nvim-autopairs" } -- Auto pairing brackets
     use { "tpope/vim-surround" } -- Surround your stuff easier with brackets or quotes
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
     use { "akinsho/bufferline.nvim" } -- Tab display
@@ -104,7 +105,7 @@ return require("packer").startup(function(use)
     use { "numToStr/Comment.nvim" } -- Comments from treesitter `gc`
     use { "junegunn/vim-easy-align" } -- Algin `ga`
     use { "godlygeek/tabular" } -- Tabularize
-    use { "vim-scripts/ReplaceWithRegister" } -- Replace without going into visual mode `gr`
+    use { "vim-scripts/ReplaceWithRegister" } -- Replace without goin into visual mode `gr`
     use { "christoomey/vim-sort-motion" } -- Sort with `gs`
     use { "ThePrimeagen/harpoon" } -- Better file navigation I hope
 
@@ -134,12 +135,12 @@ return require("packer").startup(function(use)
     use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
     use { "tzachar/cmp-tabnine", run = "./install.sh" } -- Nvim-cmp tabnine support
 
-
     use { "python-rope/ropevim" } -- For some Code-actions
     use { "sheerun/vim-polyglot" } -- Collection of language packs
 
 
     -- Language specific stuff
+    use { "ray-x/go.nvim" } -- Go
     use { "hdiniz/vim-gradle" } -- Java Gradle
     use { "ap/vim-css-color" } -- CSS
     use { "mattn/emmet-vim" } -- HTML
@@ -149,7 +150,10 @@ return require("packer").startup(function(use)
     use { "iamcco/markdown-preview.nvim" } -- Markdown
     use { "OmniSharp/omnisharp-vim" } -- C#
 
-    -- TODO: Debugger
+    use { "mfussenegger/nvim-dap" } -- Debugger Adapter Protocol
+    use { "rcarriga/nvim-dap-ui" } -- UI for DAP
+    use { "theHamsta/nvim-dap-virtual-text" } -- Virtual Text support for DAP
+    use { "leoluz/nvim-dap-go" } -- Go debugging
 
 
     -- Git

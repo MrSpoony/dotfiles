@@ -1,10 +1,11 @@
 local lsp_installer = require('nvim-lsp-installer')
 local clangd_extensions = require('clangd_extensions')
 local cmp = require("cmp")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
+local lspconfigs = require("kl.lspconfigs")
+local golsp = require("go.lsp")
 local ls = require("luasnip")
 local s = ls.snippet
 local r = ls.restore_node
@@ -23,55 +24,8 @@ tabnine:setup({
     show_prediction_strength = true,
 })
 
-
-
-
-local opts = { noremap = true, silent = true }
--- Diagnostics mappings
-Nnoremap('<space>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-Nnoremap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-Nnoremap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-Nnoremap('<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
-
-local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    Nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    Nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    Nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    Nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    Nnoremap('<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    Nnoremap('<C-m>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    Nnoremap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    Nnoremap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    Nnoremap('<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    Nnoremap('<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    Nnoremap('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    -- Nnoremap('<leader>ca', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    -- Vnoremap('<leader>ca', '<cmd>Telescope lsp_range_code_actions<CR>', opts)
-    Nnoremap('<leader>ca', vim.lsp.buf.code_action, opts)
-    Vnoremap('<leader>ca', vim.lsp.buf.range_code_action, opts)
-    -- Nnoremap('<m-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    -- Nnoremap('<a-cr>', '<cmd>Telescope lsp_code_actions<CR>', opts)
-    Nnoremap('<m-cr>', vim.lsp.buf.code_action, opts)
-    Nnoremap('<a-cr>', vim.lsp.buf.code_action, opts)
-    Nnoremap('<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
-
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local options = {
-    on_attach = on_attach,
-    highlight_hovered_item = true,
-    show_guides = true,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    capabilities = capabilities
-}
+local options = lspconfigs.options
+local on_attach = lspconfigs.on_attach
 
 local lspsnips = {}
 
@@ -114,19 +68,22 @@ clangd_extensions.setup({
     server = clang_options
 })
 
-
 lsp_installer.on_server_ready(function(server)
+    local opts = options
+    if server.name == "gopls" then
+        opts = golsp.config()
+        server:setup(opts)
+    end
     if server.name == "eslint" then
-        options.on_attach = function(client, bufnr)
+        opts.on_attach = function(client, bufnr)
             on_attach(client, bufnr)
             client.resolved_capabilities.document_formatting = true
         end
-        options.settings = {
+        opts.settings = {
             format = { enable = true },
         }
     end
-
-    server:setup(options)
+    server:setup(opts)
 end)
 
 local compare = cmp.config.compare
@@ -166,8 +123,8 @@ cmp.setup({
         ["<C-q>"] = cmp.mapping.close();
         ["<C-i>"] = cmp.mapping(
             function()
-                ls.expand_or_jump()
-            end
+            ls.expand_or_jump()
+        end
         ),
         ["<c-y>"] = cmp.mapping(
             cmp.mapping.confirm {
@@ -268,7 +225,7 @@ cmp.setup({
     sources = {
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        { name= "nvim_lua" },
+        { name = "nvim_lua" },
         { name = "cmp_tabnine" },
         -- { name = "ultisnips" },
         { name = "buffer" },

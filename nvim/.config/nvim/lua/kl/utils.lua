@@ -48,4 +48,12 @@ function M.command(name, command, options)
     vim.api.nvim_create_user_command(name, command, options)
 end
 
+function M.set_contains(set, val)
+    for _, value in pairs(set) do
+        if value == val then return true end
+    end
+    return false
+end
+
+
 return M
