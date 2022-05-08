@@ -80,7 +80,6 @@ return require("packer").startup(function(use)
     use { "voldikss/vim-floaterm" } -- Floating terminal
     use { "christoomey/vim-tmux-navigator" } -- Integration with Tmux
     use { "vim-scripts/ZoomWin" } -- Zoom in on windows
-    use { "kana/vim-textobj-user" } -- For own "Nouns"
     use { "mizlan/iswap.nvim" } -- Swap function arguments etc.
     use { "ckarnell/Antonys-macro-repeater" } -- Repeat macros with `.`
     use { "tpope/vim-eunuch" } -- Useful UNIX commands
@@ -112,6 +111,8 @@ return require("packer").startup(function(use)
 
 
     -- New "Nouns"
+    use { "kana/vim-textobj-user" } -- For own "Nouns"
+    use { "justinmk/vim-sneak" } -- Sneak motion `s`
     use { "phaazon/hop.nvim" } -- Easymotion but in lua
     -- use { "justinmk/vim-sneak" } -- Try to get rid of s and use it for vim-sneak
     use { "michaeljsmith/vim-indent-object" } -- Indent object with ii, ai, aI, and iI etc.

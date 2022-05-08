@@ -23,7 +23,7 @@ Nnoremap("N", "Nzzzv")
 
 Nnoremap("J", "mzJ`z")
 
-Nnoremap("<Esc>", "<cmd>noh<CR>")
+Nnoremap("<Esc>", "<cmd>noh<CR><cmd>call sneak#cancel()<CR>")
 
 Nnoremap("oo", "o<Esc>")
 Nnoremap("OO", "O<Esc>")
@@ -50,11 +50,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 
-Nnoremap("<leader>b", "<cmd>bdelete<CR>")
-Nnoremap("<leader>qq", "<cmd>quit!<CR>")
-Nnoremap("<leader>qw", "<cmd>wq<CR>")
-Nnoremap("<leader>qaw", "<cmd>quitall!<CR>")
-Nnoremap("<leader>qaa", "<cmd>wqall<CR>")
+Nnoremap("<leader>q", "<cmd>q<CR>")
+Nnoremap("<leader>bq", "<cmd>quit!<CR>")
+Nnoremap("<leader>bd", "<cmd>bdelete<CR>")
+Nnoremap("<leader>ba", "<cmd>quitall!<CR>")
 
 Nnoremap(":", ";")
 Nnoremap(";", ":")
