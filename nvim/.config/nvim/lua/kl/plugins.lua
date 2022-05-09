@@ -15,163 +15,162 @@ return require("packer").startup(function(use)
 
     -- UI
     -- Themes:
-    use { "dylanaraps/wal.vim" } -- Wal
-    use { "Mofiqul/dracula.nvim" } -- Dracula
-    use { "folke/tokyonight.nvim" } -- Tokyo night
-    use { "marko-cerovac/material.nvim" } -- Material
-    use { "navarasu/onedark.nvim" } -- Onedark
+    use { "dylanaraps/wal.vim" }                          -- Wal
+    use { "Mofiqul/dracula.nvim" }                        -- Dracula
+    use { "folke/tokyonight.nvim" }                       -- Tokyo night
+    use { "marko-cerovac/material.nvim" }                 -- Material
+    use { "navarasu/onedark.nvim" }                       -- Onedark
     use { "ChristianChiarulli/nvcode-color-schemes.vim" } -- Multiple themes
-    use { "sainnhe/gruvbox-material" } -- Gruvbox
-    use { "luisiacc/gruvbox-baby" } -- Gruvbox
-    use { "tanvirtin/monokai.nvim" } -- Monokai
-    use { "shaunsingh/nord.nvim" } -- Nord
-    use { "rafamadriz/neon" } -- Neon
+    use { "sainnhe/gruvbox-material" }                    -- Gruvbox
+    use { "luisiacc/gruvbox-baby" }                       -- Gruvbox
+    use { "tanvirtin/monokai.nvim" }                      -- Monokai
+    use { "shaunsingh/nord.nvim" }                        -- Nord
+    use { "rafamadriz/neon" }                             -- Neon
 
-    use { "anuvyklack/pretty-fold.nvim" } -- Prettier folds
-    use { "SmiteshP/nvim-gps" } -- Location widget in lualine
-    use { "nvim-lualine/lualine.nvim" } -- Line at the bottom
-    use { "justinmk/vim-syntax-extra" } -- Extra syntax
-    use { "mhinz/vim-startify" } -- Fancy startup screen `:h startify` `:h startify-faq`
-    use { "tpope/vim-obsession" } -- Session management
-    use { "windwp/nvim-autopairs" } -- Auto pairing brackets
-    use { "tpope/vim-surround" } -- Surround your stuff easier with brackets or quotes
+    use { "anuvyklack/pretty-fold.nvim" }  -- Prettier folds
+    use { "SmiteshP/nvim-gps" }            -- Location widget in lualine
+    use { "nvim-lualine/lualine.nvim" }    -- Line at the bottom
+    use { "justinmk/vim-syntax-extra" }    -- Extra syntax
+    use { "mhinz/vim-startify" }           -- Fancy startup screen `:h startify` `:h startify-faq`
+    use { "tpope/vim-obsession" }          -- Session management
+    use { "windwp/nvim-autopairs" }        -- Auto pairing brackets
+    use { "tpope/vim-surround" }           -- Surround your stuff easier with brackets or quotes
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
-    use { "akinsho/bufferline.nvim" } -- Tab display
-    use { "junegunn/goyo.vim" } -- Distraction free writing
-    use { "junegunn/limelight.vim" } -- Beautify goyo
-    use { "neovide/neovide" } -- Neovide support
+    use { "akinsho/bufferline.nvim" }      -- Tab display
+    use { "junegunn/goyo.vim" }            -- Distraction free writing
+    use { "junegunn/limelight.vim" }       -- Beautify goyo
+    use { "neovide/neovide" }              -- Neovide support
 
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- TreeSitter for syntax highlighting and code `understanding`
-    use { "nvim-treesitter/playground" } -- TreeSitter playground :TSPlaygroundToggle
-    use { "nvim-treesitter/nvim-treesitter-refactor" } -- Refactoring tools
-    use { "nvim-treesitter/nvim-treesitter-textobjects" } -- Treesitter textobjects f (functions), etc
-    use { "RRethy/nvim-treesitter-textsubjects" } -- Smart textsubjects from treesitter
-    use { "p00f/nvim-ts-rainbow" } -- Rainbow brackets from treesitter
-    use { "simrat39/symbols-outline.nvim" } -- Symbols outline
-    use { "windwp/nvim-ts-autotag" } -- Close tags
+    use { "nvim-treesitter/playground" }                         -- TreeSitter playground :TSPlaygroundToggle
+    use { "nvim-treesitter/nvim-treesitter-refactor" }           -- Refactoring tools
+    use { "nvim-treesitter/nvim-treesitter-textobjects" }        -- Treesitter textobjects f (functions), etc
+    use { "RRethy/nvim-treesitter-textsubjects" }                -- Smart textsubjects from treesitter
+    use { "p00f/nvim-ts-rainbow" }                               -- Rainbow brackets from treesitter
+    use { "simrat39/symbols-outline.nvim" }                      -- Symbols outline
+    use { "windwp/nvim-ts-autotag" }                             -- Close tags
 
 
-    -- TODO: Comment plugins
-    use { "milisims/nvim-luaref" }
-    use { "nanotee/luv-vimdocs" }
+    use { "milisims/nvim-luaref" } -- Reference for builtin lua functions
+    use { "nanotee/luv-vimdocs" }  -- Luv docs as a vim plugin
 
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim" } -- Telescope search etc.
-    use { "jvgrootveld/telescope-zoxide" } -- Like z command
-    use { "nvim-telescope/telescope-packer.nvim" } -- Packer plugins
-    use { "nvim-telescope/telescope-symbols.nvim" } -- Symbols
+    use { "nvim-telescope/telescope.nvim" }                      -- Telescope search etc.
+    use { "jvgrootveld/telescope-zoxide" }                       -- Like z command
+    use { "nvim-telescope/telescope-packer.nvim" }               -- Packer plugins
+    use { "nvim-telescope/telescope-symbols.nvim" }              -- Symbols
     use {
         "nvim-telescope/telescope-fzf-native.nvim", run = "make"
-    } -- FZF Performance and syntax
-    use { "nvim-telescope/telescope-file-browser.nvim" } -- File browser
-    use { "nvim-telescope/telescope-ui-select.nvim" } -- Use floating ui for codeactions
-    use { "nvim-telescope/telescope-smart-history.nvim" } -- Store search history in sqlite database
-    use { "nvim-telescope/telescope-frecency.nvim" } -- Frequently visited files
-    use { "nvim-telescope/telescope-cheat.nvim" } -- Cheat.sh
+    }                                                            -- FZF Performance and syntax
+    use { "nvim-telescope/telescope-file-browser.nvim" }         -- File browser
+    use { "nvim-telescope/telescope-ui-select.nvim" }            -- Use floating ui for codeactions
+    use { "nvim-telescope/telescope-smart-history.nvim" }        -- Store search history in sqlite database
+    use { "nvim-telescope/telescope-frecency.nvim" }             -- Frequently visited files
+    use { "nvim-telescope/telescope-cheat.nvim" }                -- Cheat.sh
 
 
     -- Other stuff
-    use { "anuvyklack/nvim-keymap-amend" } -- Amend to existing keymaps
-    use { "tpope/vim-repeat" } -- Repeat commands
-    use { "mg979/vim-visual-multi" } -- Multiple cursors
-    use { "andweeb/presence.nvim" } -- Discord precense
-    use { "wakatime/vim-wakatime" } -- Time counting and stuff
-    use { "mbbill/undotree" } -- Undo representation
-    use { "kyazdani42/nvim-tree.lua" } -- File structure
-    use { "vimwiki/vimwiki" } -- Vimwiki notes
-    use { "dhruvasagar/vim-table-mode" } -- Awesome automatic tables
-    use { "voldikss/vim-floaterm" } -- Floating terminal
-    use { "christoomey/vim-tmux-navigator" } -- Integration with Tmux
-    use { "vim-scripts/ZoomWin" } -- Zoom in on windows
-    use { "mizlan/iswap.nvim" } -- Swap function arguments etc.
-    use { "ckarnell/Antonys-macro-repeater" } -- Repeat macros with `.`
-    use { "tpope/vim-eunuch" } -- Useful UNIX commands
-    use { "chrisbra/NrrwRgn", cmd = "NR" } -- Open text in other window
-    use { "gyim/vim-boxdraw" } -- Draw boxes `+o`
-    use { "tpope/vim-abolish" } -- Abbreviations, Substitutions `:S` and Coercion `cr{s,m,_,u,U}`
-    use { "AndrewRadev/splitjoin.vim" } -- Split up oneliners `gS` or oneline multiliners `gJ`
+    use { "anuvyklack/nvim-keymap-amend" }                  -- Amend to existing keymaps
+    use { "tpope/vim-repeat" }                              -- Repeat commands
+    use { "mg979/vim-visual-multi" }                        -- Multiple cursors
+    use { "andweeb/presence.nvim" }                         -- Discord precense
+    use { "wakatime/vim-wakatime" }                         -- Time counting and stuff
+    use { "mbbill/undotree" }                               -- Undo representation
+    use { "kyazdani42/nvim-tree.lua" }                      -- File structure
+    use { "vimwiki/vimwiki" }                               -- Vimwiki notes
+    use { "dhruvasagar/vim-table-mode" }                    -- Awesome automatic tables
+    use { "voldikss/vim-floaterm" }                         -- Floating terminal
+    use { "christoomey/vim-tmux-navigator" }                -- Integration with Tmux
+    use { "vim-scripts/ZoomWin" }                           -- Zoom in on windows
+    use { "mizlan/iswap.nvim" }                             -- Swap function arguments etc.
+    use { "ckarnell/Antonys-macro-repeater" }               -- Repeat macros with `.`
+    use { "tpope/vim-eunuch" }                              -- Useful UNIX commands
+    use { "chrisbra/NrrwRgn", cmd = "NR" }                  -- Open text in other window
+    use { "gyim/vim-boxdraw" }                              -- Draw boxes `+o`
+    use { "tpope/vim-abolish" }                             -- Abbreviations, Substitutions `:S` and Coercion `cr{s,m,_,u,U}`
+    use { "AndrewRadev/splitjoin.vim" }                     -- Split up oneliners `gS` or oneline multiliners `gJ`
     -- TODO: Configure neorg
-    use { "nvim-neorg/neorg" } -- Neovim orgmode
-    use { "mattn/webapi-vim" } -- Webapi for backend development
-    use { "stevearc/dressing.nvim" } -- Better standard vim ui's
-    use { "folke/todo-comments.nvim" } -- Highlight comments
-    use { "AckslD/nvim-neoclip.lua" } -- Clipboard management inside vim
+    use { "nvim-neorg/neorg" }                              -- Neovim orgmode
+    use { "mattn/webapi-vim" }                              -- Webapi for backend development
+    use { "stevearc/dressing.nvim" }                        -- Better standard vim ui's
+    use { "folke/todo-comments.nvim" }                      -- Highlight comments
+    use { "AckslD/nvim-neoclip.lua" }                       -- Clipboard management inside vim
     use {
-        "danymat/neogen", config = function() require("neogen").setup({}) end
-    } -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
-    use { "tpope/vim-dadbod" } -- Database integration
-    use { "kristijanhusak/vim-dadbod-ui" } -- Pretty database integration
+        "danymat/neogen",
+        config = function() require("neogen").setup({}) end
+    }                                                       -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
+    use { "tpope/vim-dadbod" }                              -- Database integration
+    use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
 
 
     -- New "Verbs"
-    use { "numToStr/Comment.nvim" } -- Comments from treesitter `gc`
-    use { "junegunn/vim-easy-align" } -- Algin `ga`
-    use { "godlygeek/tabular" } -- Tabularize
+    use { "numToStr/Comment.nvim" }           -- Comments from treesitter `gc`
+    use { "junegunn/vim-easy-align" }         -- Algin `ga`
+    use { "godlygeek/tabular" }               -- Tabularize
     use { "vim-scripts/ReplaceWithRegister" } -- Replace without goin into visual mode `gr`
-    use { "christoomey/vim-sort-motion" } -- Sort with `gs`
-    use { "ThePrimeagen/harpoon" } -- Better file navigation I hope
+    use { "christoomey/vim-sort-motion" }     -- Sort with `gs`
+    use { "ThePrimeagen/harpoon" }            -- Better file navigation I hope
 
 
 
     -- New "Nouns"
-    use { "kana/vim-textobj-user" } -- For own "Nouns"
-    use { "justinmk/vim-sneak" } -- Sneak motion `s`
-    use { "phaazon/hop.nvim" } -- Easymotion but in lua
-    -- use { "justinmk/vim-sneak" } -- Try to get rid of s and use it for vim-sneak
+    use { "kana/vim-textobj-user" }           -- For own "Nouns"
+    use { "justinmk/vim-sneak" }              -- Sneak motion `s`
+    use { "phaazon/hop.nvim" }                -- Easymotion but in lua
+    -- use { "justinmk/vim-sneak" }              -- Try to get rid of s and use it for vim-sneak
     use { "michaeljsmith/vim-indent-object" } -- Indent object with ii, ai, aI, and iI etc.
-    use { "kana/vim-textobj-entire" } -- Whole document ae, ie
-    use { "wellle/targets.vim" } -- Many helpful targets
+    use { "kana/vim-textobj-entire" }         -- Whole document ae, ie
+    use { "wellle/targets.vim" }              -- Many helpful targets
 
 
     -- LSP stuff
-    use { "neovim/nvim-lspconfig" } -- Nvim lsp support
-    use { "williamboman/nvim-lsp-installer" } -- Easy installation for lsp`s
-    use { "ThePrimeagen/refactoring.nvim" } -- Some refactoring tools
-    use { "p00f/clangd_extensions.nvim" } -- Clang extension for nvim-lsp
-    use { "hrsh7th/nvim-cmp" } -- Autocompletion engine
-    use { "hrsh7th/cmp-nvim-lsp" } -- Nvim-cmp source for neovim"s built-in ls client
-    use { "hrsh7th/cmp-buffer" } -- Nvim-cmp source for buffer words
-    use { "hrsh7th/cmp-path" } -- Nvim-cmp source for filesystem paths
-    use { "hrsh7th/cmp-cmdline" } -- Nvim-cmp source for vim`s commandline
-    use { "hrsh7th/cmp-nvim-lua" } -- Nvim lua completion
-    use { "onsails/lspkind-nvim" } -- Nice Icons in lsp-comp
-    use { "saadparwaiz1/cmp_luasnip" } -- luasnip support
-    use { "rafamadriz/friendly-snippets" } -- Helpful snippets for popular languages
+    use { "neovim/nvim-lspconfig" }                     -- Nvim lsp support
+    use { "williamboman/nvim-lsp-installer" }           -- Easy installation for lsp`s
+    use { "ThePrimeagen/refactoring.nvim" }             -- Some refactoring tools
+    use { "p00f/clangd_extensions.nvim" }               -- Clang extension for nvim-lsp
+    use { "hrsh7th/nvim-cmp" }                          -- Autocompletion engine
+    use { "hrsh7th/cmp-nvim-lsp" }                      -- Nvim-cmp source for neovim"s built-in ls client
+    use { "hrsh7th/cmp-buffer" }                        -- Nvim-cmp source for buffer words
+    use { "hrsh7th/cmp-path" }                          -- Nvim-cmp source for filesystem paths
+    use { "hrsh7th/cmp-cmdline" }                       -- Nvim-cmp source for vim`s commandline
+    use { "hrsh7th/cmp-nvim-lua" }                      -- Nvim lua completion
+    use { "onsails/lspkind-nvim" }                      -- Nice Icons in lsp-comp
+    use { "saadparwaiz1/cmp_luasnip" }                  -- luasnip support
+    use { "rafamadriz/friendly-snippets" }              -- Helpful snippets for popular languages
     use { "tzachar/cmp-tabnine", run = "./install.sh" } -- Nvim-cmp tabnine support
 
-    use { "python-rope/ropevim" } -- For some Code-actions
+    use { "python-rope/ropevim" }  -- For some Code-actions
     use { "sheerun/vim-polyglot" } -- Collection of language packs
 
 
     -- Language specific stuff
-    use { "ray-x/go.nvim" } -- Go
-    use { "hdiniz/vim-gradle" } -- Java Gradle
-    use { "ap/vim-css-color" } -- CSS
-    use { "mattn/emmet-vim" } -- HTML
-    use { "neoclide/vim-jsx-improve" } -- JSX
-    use { "lervag/vimtex" } -- LaTeX
-    use { "engeljh/vim-latexfmt" } -- LaTex Formatter
+    use { "ray-x/go.nvim" }                -- Go
+    use { "hdiniz/vim-gradle" }            -- Java Gradle
+    use { "ap/vim-css-color" }             -- CSS
+    use { "mattn/emmet-vim" }              -- HTML
+    use { "neoclide/vim-jsx-improve" }     -- JSX
+    use { "lervag/vimtex" }                -- LaTeX
+    use { "engeljh/vim-latexfmt" }         -- LaTex Formatter
     use { "iamcco/markdown-preview.nvim" } -- Markdown
-    use { "OmniSharp/omnisharp-vim" } -- C#
+    use { "OmniSharp/omnisharp-vim" }      -- C#
 
-    use { "mfussenegger/nvim-dap" } -- Debugger Adapter Protocol
-    use { "rcarriga/nvim-dap-ui" } -- UI for DAP
+    -- Debugging
+    use { "mfussenegger/nvim-dap" }           -- Debugger Adapter Protocol
+    use { "rcarriga/nvim-dap-ui" }            -- UI for DAP
     use { "theHamsta/nvim-dap-virtual-text" } -- Virtual Text support for DAP
-    use { "leoluz/nvim-dap-go" } -- Go debugging
+    use { "leoluz/nvim-dap-go" }              -- Go debugging
 
 
     -- Git
-    use { "tpope/vim-fugitive" } -- Git integration
+    use { "tpope/vim-fugitive" }      -- Git integration
     use { "lewis6991/gitsigns.nvim" } -- Git signs (gitgutter, Line blame etc.)
-    use { "rhysd/committia.vim" } -- Better commit buffers
+    use { "rhysd/committia.vim" }     -- Better commit buffers
 
     -- Snippets
-    -- use { "honza/vim-snippets" }      -- Requirement of ultisnips
-    -- use { "SirVer/ultisnips" }        -- The best ones
-    use { "L3MON4D3/LuaSnip" }
+    use { "L3MON4D3/LuaSnip" } -- Snippet engine with really nice functionalities
 
     -- Own plugins
     use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
