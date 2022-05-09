@@ -6,6 +6,7 @@ local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
 local lspconfigs = require("kl.lspconfigs")
 local golsp = require("go.lsp")
+local fidget = require("fidget")
 local ls = require("luasnip")
 local s = ls.snippet
 local r = ls.restore_node
@@ -23,6 +24,8 @@ tabnine:setup({
     },
     show_prediction_strength = true,
 })
+
+fidget.setup({})
 
 local options = lspconfigs.options
 local on_attach = lspconfigs.on_attach

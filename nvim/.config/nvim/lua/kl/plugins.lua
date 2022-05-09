@@ -5,7 +5,8 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
 
     -- Dependencies for others
-    use { "nvim-lua/popup.nvim" } -- Popups in Neovim
+    use { "nvim-lua/popup.nvim" } -- Popups
+    use { "rcarriga/nvim-notify" } -- Notifcations
     use { "nvim-lua/plenary.nvim" } -- Some helpful lua functions other plugins (telecope) need
     use { "ray-x/guihua.lua", run = 'cd lua/fzy && make' } -- UI for lua plugins
     use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more speed
@@ -30,9 +31,11 @@ return require("packer").startup(function(use)
     use { "anuvyklack/pretty-fold.nvim" }  -- Prettier folds
     use { "SmiteshP/nvim-gps" }            -- Location widget in lualine
     use { "nvim-lualine/lualine.nvim" }    -- Line at the bottom
+    use { "j-hui/fidget.nvim" }            -- Loading bar for lsp
     use { "justinmk/vim-syntax-extra" }    -- Extra syntax
     use { "mhinz/vim-startify" }           -- Fancy startup screen `:h startify` `:h startify-faq`
     use { "tpope/vim-obsession" }          -- Session management
+    use { "karb94/neoscroll.nvim" }        -- Smooth scroll
     use { "windwp/nvim-autopairs" }        -- Auto pairing brackets
     use { "tpope/vim-surround" }           -- Surround your stuff easier with brackets or quotes
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
@@ -83,7 +86,7 @@ return require("packer").startup(function(use)
     use { "vimwiki/vimwiki" }                               -- Vimwiki notes
     use { "dhruvasagar/vim-table-mode" }                    -- Awesome automatic tables
     use { "voldikss/vim-floaterm" }                         -- Floating terminal
-    use { "christoomey/vim-tmux-navigator" }                -- Integration with Tmux
+    use { "aserowy/tmux.nvim" }                             -- Tmux Integration
     use { "vim-scripts/ZoomWin" }                           -- Zoom in on windows
     use { "mizlan/iswap.nvim" }                             -- Swap function arguments etc.
     use { "ckarnell/Antonys-macro-repeater" }               -- Repeat macros with `.`
@@ -102,9 +105,15 @@ return require("packer").startup(function(use)
         "danymat/neogen",
         config = function() require("neogen").setup({}) end
     }                                                       -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
+    use {
+        "michaelb/sniprun",
+        run = "bash ./install.sh"
+    }                                                       -- Run code snippets from within vim
+    use { "ThePrimeagen/vim-apm" }                          -- Actions per minute
     use { "tpope/vim-dadbod" }                              -- Database integration
     use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
     use { "NTBBloodbath/rest.nvim" }                        -- Make HTTP rest requests
+    -- use { "aquach/vim-http-client" }
 
 
     -- New "Verbs"
@@ -185,5 +194,6 @@ return require("packer").startup(function(use)
 
 
     -- Some would say it"s useless...
-    use { "alec-gibson/nvim-tetris" } -- Tetris in Neovim
+    use { "alec-gibson/nvim-tetris" } -- Tetris
+    use { "seandewar/nvimesweeper" } -- Minesweeper
 end)

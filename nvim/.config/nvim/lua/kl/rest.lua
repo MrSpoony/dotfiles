@@ -23,5 +23,5 @@ rest.setup({
     yank_dry_run = true,
 })
 
-Nnoremap("<leader>tp", "<Plug>RestNvim")
-Nnoremap("<leader>tr", "<Plug>RestNvimLast")
+Nnoremap("<leader>tp", rest.run)
+Nnoremap("<leader>tr", rest.last)
