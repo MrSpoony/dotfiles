@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 
-Nnoremap("<leader>q", "<cmd>q<CR>")
+Nnoremap("<leader>q", "<cmd>bdelete!<CR>")
 Nnoremap("<leader>bq", "<cmd>quit!<CR>")
 Nnoremap("<leader>bd", "<cmd>bdelete<CR>")
 Nnoremap("<leader>ba", "<cmd>quitall!<CR>")

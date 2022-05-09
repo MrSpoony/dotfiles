@@ -21,6 +21,12 @@ return require("packer").startup(function(use)
     use { "marko-cerovac/material.nvim" } -- Material
     use { "navarasu/onedark.nvim" } -- Onedark
     use { "ChristianChiarulli/nvcode-color-schemes.vim" } -- Multiple themes
+    use { "sainnhe/gruvbox-material" } -- Gruvbox
+    use { "luisiacc/gruvbox-baby" } -- Gruvbox
+    use { "tanvirtin/monokai.nvim" } -- Monokai
+    use { "shaunsingh/nord.nvim" } -- Nord
+    use { "rafamadriz/neon" } -- Neon
+
     use { "anuvyklack/pretty-fold.nvim" } -- Prettier folds
     use { "SmiteshP/nvim-gps" } -- Location widget in lualine
     use { "nvim-lualine/lualine.nvim" } -- Line at the bottom
