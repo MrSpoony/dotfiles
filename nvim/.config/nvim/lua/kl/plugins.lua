@@ -5,14 +5,14 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
 
     -- Dependencies for others
-    use { "nvim-lua/popup.nvim" } -- Popups
-    use { "rcarriga/nvim-notify" } -- Notifcations
-    use { "nvim-lua/plenary.nvim" } -- Some helpful lua functions other plugins (telecope) need
-    use { "ray-x/guihua.lua", run = 'cd lua/fzy && make' } -- UI for lua plugins
+    use { "nvim-lua/popup.nvim" }                           -- Popups
+    use { "rcarriga/nvim-notify" }                          -- Notifcations
+    use { "nvim-lua/plenary.nvim" }                         -- Some helpful lua functions other plugins (telecope) need
+    use { "ray-x/guihua.lua", run = 'cd lua/fzy && make' }  -- UI for lua plugins
     use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more speed
-    use { "BurntSushi/ripgrep" } -- Line-oriented search tool
-    use { "junegunn/fzf", run = "./install -- all" } -- FZF
-    use { "junegunn/fzf.vim" } -- FZF in vim
+    use { "BurntSushi/ripgrep" }                            -- Line-oriented search tool
+    use { "junegunn/fzf", run = "./install -- all" }        -- FZF
+    use { "junegunn/fzf.vim" }                              -- FZF in vim
 
     -- UI
     -- Themes:
@@ -163,7 +163,8 @@ return require("packer").startup(function(use)
     use { "neoclide/vim-jsx-improve" }     -- JSX
     use { "lervag/vimtex" }                -- LaTeX
     use { "engeljh/vim-latexfmt" }         -- LaTex Formatter
-    use { "iamcco/markdown-preview.nvim" } -- Markdown
+    -- use { "iamcco/markdown-preview.nvim" } -- Markdown
+    use { "davidgranstrom/nvim-markdown-preview" } -- Markdown
     use { "OmniSharp/omnisharp-vim" }      -- C#
 
     -- Debugging
@@ -194,5 +195,5 @@ return require("packer").startup(function(use)
 
     -- Some would say it"s useless...
     use { "alec-gibson/nvim-tetris" } -- Tetris
-    use { "seandewar/nvimesweeper" } -- Minesweeper
+    use { "seandewar/nvimesweeper" }  -- Minesweeper
 end)
