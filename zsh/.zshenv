@@ -1,7 +1,10 @@
 # Path variable and stuff
-export PATH=$PATH:"/usr/local/bin:/usr/local/go/bin"
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin/
 export PATH=$PATH:~/apps/rofi-translate
+export PATH=$PATH:~/code/python/rofi_spotify/bin
+export PYTHONPATH=$PYTHONPATH:~/code/python/rofi_spotify
 
 # clipboard things
 export CM_SELECTIONS="clipboard"
@@ -73,6 +76,3 @@ if [ -n "$DESKTOP_SESSION" ]; then
     eval $(gnome-keyring-daemon --start --start)
     export SSH_AUTH_SOCK
 fi
-
-# Bitwarden stuff
-export BW_SESSION="aZ9GkDl4l3DzfTPgWDnntOUCRb219+hh8d/kEd4AtsefZD9lLOEaHq5gD02SsXrFNS+2T14sjg5JsWCzZO15lQ=="

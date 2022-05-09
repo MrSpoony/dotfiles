@@ -109,8 +109,8 @@ alias please="sudo "
 alias fucking="sudo $(history -p !!)"
 
 # shorted commands
-alias :wq="exit"
-alias :q="exit"
+alias wq="exit"
+alias q="exit"
 alias c="dbus-launch codium .;exit"
 alias t="thunar . &"
 alias cm="clipmenu"
