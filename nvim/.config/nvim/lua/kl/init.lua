@@ -6,7 +6,6 @@ require("kl.dap")
 require("kl.db")
 require("kl.git")
 require("kl.go") -- Needs to be before lsp
-require("kl.harpoon")
 require("kl.hop")
 require("kl.iswap")
 require("kl.lsp")

@@ -122,7 +122,6 @@ return require("packer").startup(function(use)
     use { "godlygeek/tabular" }               -- Tabularize
     use { "vim-scripts/ReplaceWithRegister" } -- Replace without goin into visual mode `gr`
     use { "christoomey/vim-sort-motion" }     -- Sort with `gs`
-    use { "ThePrimeagen/harpoon" }            -- Better file navigation I hope
 
 
 

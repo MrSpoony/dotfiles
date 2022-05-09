@@ -20,6 +20,7 @@ local function createMap(mode)
 end
 
 M.nnoremap = createNoremap("n")
+M.xnoremap = createNoremap("x")
 M.inoremap = createNoremap("i")
 M.vnoremap = createNoremap("v")
 M.tnoremap = createNoremap("t")
@@ -30,6 +31,7 @@ M.cnoremap = createNoremap("c")
 
 
 M.nmap = createMap("n")
+M.xmap = createMap("x")
 M.imap = createMap("i")
 M.vmap = createMap("v")
 M.tmap = createMap("t")

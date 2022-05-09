@@ -7,6 +7,7 @@ Fn = utils.fn
 Command = utils.command
 
 Nmap = utils.nmap
+Xmap = utils.xmap
 Imap = utils.imap
 Vmap = utils.vmap
 Tmap = utils.tmap
@@ -16,6 +17,7 @@ Lmap = utils.lmap
 Cmap = utils.cmap
 
 Nnoremap = utils.nnoremap
+Xnoremap = utils.xnoremap
 Inoremap = utils.inoremap
 Vnoremap = utils.vnoremap
 Tnoremap = utils.tnoremap

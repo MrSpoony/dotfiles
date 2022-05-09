@@ -24,6 +24,7 @@ Nnoremap("N", "Nzzzv")
 Nnoremap("J", "mzJ`z")
 
 Nnoremap("<Esc>", "<cmd>noh<CR><cmd>call sneak#cancel()<CR>")
+vim.keymap.set("", "<C-e>", "<Plug>Sneak_;")
 
 Nnoremap("oo", "o<Esc>")
 Nnoremap("OO", "O<Esc>")
