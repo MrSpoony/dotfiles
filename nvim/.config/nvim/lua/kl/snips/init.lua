@@ -15,6 +15,21 @@ local lambda = require("luasnip.extras").l
 
 local utils = {}
 
+utils.snippet = function(name, snippet, opts)
+    if (type(snippet) == type("stringtype")) then
+        return s(name, t(snippet), opts)
+    end
+    local realSnip = {}
+    for _, v in ipairs(snippet) do
+        local currSnip = v
+        if type(v) == type("stringtype") then
+            currSnip = t(v)
+        end
+        table.insert(realSnip, currSnip)
+    end
+    return s(name, realSnip, opts)
+end
+
 utils.onBegin = function(line_to_cursor, matched_trigger)
     line_to_cursor = line_to_cursor:gsub("%s+", "")
     if (line_to_cursor == matched_trigger) then
@@ -47,22 +62,21 @@ end
 utils.b = function(name, snippet, opts)
     opts = opts or {}
     opts.condition = utils.onBegin
-    return s({ trig = name }, snippet, opts)
+    return utils.snippet({ trig = name }, snippet, opts)
 end
 
 utils.w = function(name, snippet, opts)
     opts = opts or {}
     opts.condition = utils.inWord
-    return s({ trig = name }, snippet, opts)
+    return utils.snippet({ trig = name }, snippet, opts)
 end
 
-utils.rep = function(index)
-    return f(function(arg)
-        return arg[1]
-    end, { index })
-end
-
-utils.same = function(index, mirrorindex)
+utils.rep = function(index, mirrorindex)
+    if mirrorindex == nil then
+        return f(function(arg)
+            return arg[1]
+        end, { index })
+    end
     return d(index, function(args)
         return sn(nil, {
             i(1, args[1])

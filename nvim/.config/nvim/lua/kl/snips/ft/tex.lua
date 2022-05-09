@@ -1,5 +1,6 @@
-local ls = require "luasnip"
-local s = ls.snippet
+local ls = require("luasnip")
+local utils = require("kl.snips")
+local s = utils.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
 local t = ls.text_node
@@ -12,7 +13,6 @@ local events = require("luasnip.util.events")
 local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
-local utils = require("kl.snips")
 local tex = {}
 
 tex.math = function()
@@ -72,7 +72,6 @@ local m = function(name, snippet, opts)
     return s(name, snippet, opts)
 end
 
-local same = utils.same
 local rep = utils.rep
 
 local rep_it
@@ -135,19 +134,19 @@ ls.add_snippets("tex", {
             "\\end{document}", }
     }),
     b("beg", {
-        t "\\begin{", i(1, "name"), t { "}", "" },
+        "\\begin{", i(1, "name"), t { "}", "" },
         i(0), t { "",
-            "\\end{" }, rep(1), t "}"
+            "\\end{" }, rep(1), "}"
     }),
-    ixt("->", t "$\\rightarrow$"),
-    ixt("<-", t "$\\leftarrow$"),
-    ixt("...", t "\\ldots"),
+    ixt("->", "$\\rightarrow$"),
+    ixt("<-", "$\\leftarrow$"),
+    ixt("...", "\\ldots"),
     b("fig", {
-        t "\\begin{figure}[", i(1, "htpb"), t { "]",
+        "\\begin{figure}[", i(1, "htpb"), t { "]",
             "    \\centering", "    " },
-        i(2, "\\includegraphics[width=0.8\textwidth]"), t "{", i(3), t { "}", "" },
-        t "    \\caption{", same(4, 3), t { "}", "" },
-        t "    \\label{fig:", same(5, 3), t { "}",
+        i(2, "\\includegraphics[width=0.8\textwidth]"), "{", i(3), t { "}", "" },
+        "    \\caption{", rep(4, 3), t { "}", "" },
+        "    \\label{fig:", rep(5, 3), t { "}",
             "\\end{figure}"
         }
     }),
@@ -163,11 +162,11 @@ ls.add_snippets("tex", {
     }),
     b("desc", {
         t { "\\begin{description}",
-            "    \\item[" }, i(1, "name"), t "] ", i(2, "description"), d(3, rep_desc, {}),
+            "    \\item[" }, i(1, "name"), "] ", i(2, "description"), d(3, rep_desc, {}),
         t { "", "\\end{description}" }, i(0)
     }),
     w("mk", {
-        t "$", i(1), t "$"
+        "$", i(1), "$"
     }),
     w("dm", {
         t { "\\[", "" },
@@ -175,7 +174,7 @@ ls.add_snippets("tex", {
         t { "", ".\\] " }, i(0)
     }),
     imt("//", {
-        t"\\frac{", i(1), t"}{", i(2), t"}", i(0)
+        "\\frac{", i(1), "}{", i(2), "}", i(0)
     }),
     m({ trig = "^.*%(.*%)/", regTrig = true }, {
         fracBrac(1)

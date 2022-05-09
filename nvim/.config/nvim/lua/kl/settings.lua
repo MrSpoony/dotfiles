@@ -19,7 +19,6 @@ o.colorcolumn = '80'
 o.wrap = true
 o.linebreak = true
 o.formatoptions:remove("cro")
--- tcqj
 
 o.modifiable = true
 o.wildmenu = true

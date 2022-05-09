@@ -71,8 +71,9 @@ clangd_extensions.setup({
 lsp_installer.on_server_ready(function(server)
     local opts = options
     if server.name == "gopls" then
-        opts = golsp.config()
-        server:setup(opts)
+        return
+        -- opts = golsp.config()
+        -- server:setup(opts)
     end
     if server.name == "eslint" then
         opts.on_attach = function(client, bufnr)

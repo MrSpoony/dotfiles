@@ -1,5 +1,5 @@
-local ls = require("luasnip")
 local utils = require("kl.snips")
+local ls = require("luasnip")
 local s = utils.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -17,12 +17,19 @@ local lambda = require("luasnip.extras").l
 local b = utils.b
 local rep = utils.rep
 
-
-ls.add_snippets("javascript", {
-    b("cl", {
-        "console.log(", c(1, {
-            { t"\"", i(1, "variable"), t":\", ", rep(1) },
-            { t"\"", i(1, "text"), t"\"" },
-        }), t");"
+ls.add_snippets("go", {
+    b("fm", {
+        t { "func main() {", "\t" },
+        i(0),
+        t { "", "}" },
+    }),
+    b("ef", {
+        i(1, "val"), ", err := ", i(2, "f"), "(", i(3), t { ")", "" },
+        i(0),
+    }),
+    b("ife", {
+        i(1, "val"), ", ", i(2, "err"), " := ", i(3, "f"), "(", i(4), t { ")", "" },
+        "if ", rep(2), t { " != nil {", "\treturn " }, rep(2),
+        t { "", "}" },
     }),
 }, { type = "autosnippets" })
