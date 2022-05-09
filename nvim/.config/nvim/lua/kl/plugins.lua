@@ -104,6 +104,7 @@ return require("packer").startup(function(use)
     }                                                       -- Generate Function/Class etc. annotations -> `:lua require("neogen").generate()`
     use { "tpope/vim-dadbod" }                              -- Database integration
     use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
+    use { "NTBBloodbath/rest.nvim" }                        -- Make HTTP rest requests
 
 
     -- New "Verbs"
