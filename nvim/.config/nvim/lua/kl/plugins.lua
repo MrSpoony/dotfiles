@@ -13,6 +13,9 @@ return require("packer").startup(function(use)
     use { "BurntSushi/ripgrep" }                            -- Line-oriented search tool
     use { "junegunn/fzf", run = "./install -- all" }        -- FZF
     use { "junegunn/fzf.vim" }                              -- FZF in vim
+    use { "anuvyklack/nvim-keymap-amend" }                  -- Amend to existing keymaps
+    use { "mbbill/undotree" }                               -- Undo representation
+    use { "kyazdani42/nvim-tree.lua" }                      -- File structure
 
     -- UI
     -- Themes:
@@ -35,9 +38,8 @@ return require("packer").startup(function(use)
     use { "justinmk/vim-syntax-extra" }    -- Extra syntax
     use { "mhinz/vim-startify" }           -- Fancy startup screen `:h startify` `:h startify-faq`
     use { "tpope/vim-obsession" }          -- Session management
+    use { "stevearc/dressing.nvim" }       -- Better standard vim ui's
     use { "karb94/neoscroll.nvim" }        -- Smooth scroll
-    use { "windwp/nvim-autopairs" }        -- Auto pairing brackets
-    use { "tpope/vim-surround" }           -- Surround your stuff easier with brackets or quotes
     use { "kyazdani42/nvim-web-devicons" } -- Icons like the name implies
     use { "akinsho/bufferline.nvim" }      -- Tab display
     use { "junegunn/goyo.vim" }            -- Distraction free writing
@@ -76,29 +78,24 @@ return require("packer").startup(function(use)
 
 
     -- Other stuff
-    use { "anuvyklack/nvim-keymap-amend" }                  -- Amend to existing keymaps
     use { "tpope/vim-repeat" }                              -- Repeat commands
     use { "mg979/vim-visual-multi" }                        -- Multiple cursors
+    use { "windwp/nvim-autopairs" }                         -- Auto pairing brackets
+    use { "tpope/vim-surround" }                            -- Surround your stuff easier with brackets or quotes
     use { "andweeb/presence.nvim" }                         -- Discord precense
     use { "wakatime/vim-wakatime" }                         -- Time counting and stuff
-    use { "mbbill/undotree" }                               -- Undo representation
-    use { "kyazdani42/nvim-tree.lua" }                      -- File structure
     use { "vimwiki/vimwiki" }                               -- Vimwiki notes
     use { "dhruvasagar/vim-table-mode" }                    -- Awesome automatic tables
     use { "voldikss/vim-floaterm" }                         -- Floating terminal
     use { "aserowy/tmux.nvim" }                             -- Tmux Integration
-    use { "vim-scripts/ZoomWin" }                           -- Zoom in on windows
     use { "mizlan/iswap.nvim" }                             -- Swap function arguments etc.
     use { "ckarnell/Antonys-macro-repeater" }               -- Repeat macros with `.`
-    use { "tpope/vim-eunuch" }                              -- Useful UNIX commands
     use { "chrisbra/NrrwRgn", cmd = "NR" }                  -- Open text in other window
     use { "gyim/vim-boxdraw" }                              -- Draw boxes `+o`
-    use { "tpope/vim-abolish" }                             -- Abbreviations, Substitutions `:S` and Coercion `cr{s,m,_,u,U}`
     use { "AndrewRadev/splitjoin.vim" }                     -- Split up oneliners `gS` or oneline multiliners `gJ`
     -- TODO: Configure neorg
     use { "nvim-neorg/neorg" }                              -- Neovim orgmode
     use { "mattn/webapi-vim" }                              -- Webapi for backend development
-    use { "stevearc/dressing.nvim" }                        -- Better standard vim ui's
     use { "folke/todo-comments.nvim" }                      -- Highlight comments
     use { "AckslD/nvim-neoclip.lua" }                       -- Clipboard management inside vim
     use {
@@ -109,7 +106,6 @@ return require("packer").startup(function(use)
         "michaelb/sniprun",
         run = "bash ./install.sh"
     }                                                       -- Run code snippets from within vim
-    use { "ThePrimeagen/vim-apm" }                          -- Actions per minute
     use { "tpope/vim-dadbod" }                              -- Database integration
     use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
     use { "NTBBloodbath/rest.nvim" }                        -- Make HTTP rest requests
