@@ -79,6 +79,9 @@ super + y
 # Launch stuff
 #
 
+super + ctrl + space
+    xmouseless
+
 # Next background
 super + n
     wpg -s ~/pictures/wallpapers
