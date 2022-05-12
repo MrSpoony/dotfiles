@@ -81,7 +81,7 @@ lsp_installer.on_server_ready(function(server)
     if server.name == "eslint" then
         opts.on_attach = function(client, bufnr)
             on_attach(client, bufnr)
-            client.resolved_capabilities.document_formatting = true
+            client.server_capabilities.document_formatting = true
         end
         opts.settings = {
             format = { enable = true },
@@ -110,6 +110,7 @@ end
 cmp.setup({
     snippet = {
         expand = function(args)
+            ls.lsp_expand(args.body) -- For `luasnip` users.
             if lspsnips[args.body] then
                 ls.snip_expand(lspsnips[args.body])
             else
@@ -120,6 +121,13 @@ cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
+    },
+    completion = {
+        get_trigger_characters = function(trigger_characters)
+            return vim.tbl_filter(function(char)
+                return char ~= ' '
+            end, trigger_characters)
+        end
     },
     mapping = {
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -142,7 +150,7 @@ cmp.setup({
         },
         ['<CR>'] = cmp.mapping({
             i = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Replace, select = false
+                behavior = cmp.ConfirmBehavior.Replace, select = true
             }),
             c = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace, select = false
@@ -204,7 +212,6 @@ cmp.setup({
                 end
             end
         }),
-
     },
     formatting = {
         format = lspkind.cmp_format({

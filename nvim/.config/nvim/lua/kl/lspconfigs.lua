@@ -16,8 +16,8 @@ local function set_default_formatter_for_filetypes(language_server_name, filetyp
 
     vim.lsp.for_each_buffer_client(0, function(client)
         if client.name ~= language_server_name then
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
+            client.server_capabilities.document_formatting = false
+            client.server_capabilities.document_range_formatting = false
         end
     end)
 end
