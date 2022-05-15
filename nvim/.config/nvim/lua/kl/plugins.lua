@@ -159,8 +159,11 @@ return require("packer").startup(function(use)
     use { "neoclide/vim-jsx-improve" }     -- JSX
     use { "lervag/vimtex" }                -- LaTeX
     use { "engeljh/vim-latexfmt" }         -- LaTex Formatter
-    -- use { "iamcco/markdown-preview.nvim" } -- Markdown
-    use { "davidgranstrom/nvim-markdown-preview" } -- Markdown
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    }                                      -- Markdown
+    -- use { "davidgranstrom/nvim-markdown-preview" } -- Markdown
     use { "OmniSharp/omnisharp-vim" }      -- C#
 
     -- Debugging
