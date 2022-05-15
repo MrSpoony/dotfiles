@@ -5,6 +5,9 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
+# Wait until the processes have been shutdown
+while pgrep -u $UID -x polybar >/dev/null; do sleep 0.5; done
+
 # Launch Polybar, using default config location ~/.config/polybar/config
 polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
 

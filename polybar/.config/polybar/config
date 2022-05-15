@@ -41,7 +41,9 @@ dark-light = #B3272A2B
 active-light = #B3313435
 
 [bar/mybar]
+enable-ipc = true
 wm-restack=bspwm
+override-redirect = true
 tray-position = right
 tray-padding =5
 monitor = eDP-1
@@ -50,10 +52,8 @@ width =  100%;98.7%
 height = 30
 padding-left =0
 padding-right =2
-background = #B3000000
-;background = $colors.background}
-foreground = #B3adb1b9
-;foreground = ${colors.foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
 bottom = false
 border-top-size = 5
 border-bottom-size = 5
