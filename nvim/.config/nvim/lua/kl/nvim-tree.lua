@@ -1,3 +1,6 @@
+local nvim_tree = require("nvim-tree")
+
+
 vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
@@ -18,10 +21,6 @@ vim.g.nvim_tree_icons = {
 		symlink = "",
 	},
 }
-
-local nvim_tree = require("nvim-tree")
-local nvim_tree_config = require("nvim-tree.config")
-local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
 	disable_netrw = true,
@@ -59,19 +58,20 @@ nvim_tree.setup({
 		height = 30,
 		hide_root_folder = false,
 		side = "left",
-		-- auto_resize = true,
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
-				{ key = "v", cb = tree_cb("vsplit") },
-				{ key = "s", cb = tree_cb("split") },
-			},
-		},
+		auto_resize = true,
 		number = false,
 		relativenumber = false,
 	},
 })
+
+vim.g.nvim_tree_group_empty = 1
+vim.g.nvim_tree_highlight_opened_files = 1
+
+vim.g.nvim_tree_special_files = {
+	['README.md'] = 1,
+	['Makefile']  = 1,
+	['MAKEFILE']  = 1
+}
+vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
 
 Nnoremap("<C-f>", "<cmd>NvimTreeToggle<cr>")
