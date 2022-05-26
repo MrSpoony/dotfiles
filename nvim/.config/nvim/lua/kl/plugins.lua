@@ -84,6 +84,7 @@ return require("packer").startup(function(use)
     use { "tpope/vim-surround" }                            -- Surround your stuff easier with brackets or quotes
     use { "andweeb/presence.nvim" }                         -- Discord precense
     use { "wakatime/vim-wakatime" }                         -- Time counting and stuff
+    use { "ThePrimeagen/git-worktree.nvim" }                -- Worktrees with vim
     use { "vimwiki/vimwiki" }                               -- Vimwiki notes
     use { "dhruvasagar/vim-table-mode" }                    -- Awesome automatic tables
     use { "voldikss/vim-floaterm" }                         -- Floating terminal
