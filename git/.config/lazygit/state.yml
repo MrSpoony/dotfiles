@@ -1,0 +1,26 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/kimil/dotfiles
+- /home/kimil/code/python/rofi-spotify
+- /home/kimil/code/python/rofi_spotify
+- /home/kimil/code/soi
+- /home/kimil/code/vim/plugins/soicode.vim
+- /home/kimil/code/github/bbc-projects
+- /home/kimil/dotfiles/personal
+- /home/kimil/.local/share/nvim/site/pack/packer/start/splitjoin.vim
+- /home/kimil/code/java/cube-statistics
+- /home/kimil/.local/share/nvim/site/pack/packer/start/refactoring.nvim
+- /home/kimil/code/latex/am_auftrag_kurven
+- /home/kimil/code/asm/assemblyAdventure
+- /home/kimil/.tmux/plugins/tmux-powerline
+- /home/kimil/code/nodejs/grader
+- /home/kimil/code/nodejs/discord/dadjoke-dcBot
+- /home/kimil/code/nodejs/frontend/fallstudie-blog
+- /home/kimil/code/github/MrSpoony
+- /home/kimil/.config
+startuppopupversion: 5
+customcommandshistory:
+- q
+- ""
+- git commit --amend
+hidecommandlog: false

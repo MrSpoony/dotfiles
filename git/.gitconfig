@@ -1,0 +1,46 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = kimi.loeffel@hispeed.ch
+	name = MrSpoony
+
+[alias]
+	ci = commit
+	b = branch
+	br = branch
+	bc = branch-cleanup
+	r = remote
+	s = status
+	f = fetch
+	co = checkout
+	cp = cherry-pick
+	com = checkout master
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lg2 = log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph
+	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+	branch-cleanup = !git fetch origin --prune && git branch --merged master | grep -v 'master$' | xargs git branch -d
+	whatadded = log --diff-filter=A
+	undo = reset HEAD^
+	ignored = ls-files --other --ignored --exclude-standard
+
+[push]
+	default = current
+
+[rerere]
+	enabled = true
+
+[pull]
+	rebase = true
+
+[help]
+	autocorrect = 10
+
+[merge]
+	tool = vimdiff
+
+[mergetool]
+	keepBackup = false
+    
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
