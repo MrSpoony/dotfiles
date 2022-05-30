@@ -6,6 +6,7 @@ I cannot remember all of them so I made a quick cheatsheet.
 
 
 ```bash
+g         = 'git'
 
 ga        = 'git add'
 gaa       = 'git add --all'
