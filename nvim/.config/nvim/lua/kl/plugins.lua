@@ -110,6 +110,10 @@ return require("packer").startup(function(use)
     use { "tpope/vim-dadbod" }                              -- Database integration
     use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
     use { "NTBBloodbath/rest.nvim" }                        -- Make HTTP rest requests
+    use {
+        "KadoBOT/nvim-spotify",
+        run = 'make'
+    }                                                       -- Spotify controls in vim
     -- use { "aquach/vim-http-client" }
 
 

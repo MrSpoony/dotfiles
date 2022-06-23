@@ -1,6 +1,8 @@
 local od = require("onedark")
 local mat = require("material")
-local monokai = require('monokai')
+local monokai = require("monokai")
+
+local spotify_status = require("nvim-spotify").status
 
 
 local ll = require("lualine")
@@ -22,18 +24,16 @@ vim.g.neon_style = "doom"
 
 mat.setup({
     lualine_style = "stealth",
-    italics = {
-        comments = true,
-    },
+    italics = { comments = true },
 })
 
 vim.g.material_style = "deep ocean"
-vim.cmd([[colorscheme material]])
--- vim.cmd([[colorscheme onedark]])
 
 gps.setup({
     separator = "  ",
 })
+
+spotify_status:start()
 
 ll.setup({
     sections = {
@@ -45,6 +45,10 @@ ll.setup({
                 gps.get_location,
                 cond = gps.is_available
             },
+        },
+        lualine_x = {
+            spotify_status.listen
         }
     }
 })
+vim.cmd([[colorscheme gruvbox-material]])
