@@ -18,11 +18,6 @@ local b = utils.b
 local rep = utils.rep
 
 ls.add_snippets("go", {
-    b("fm", {
-        t { "func main() {", "\t" },
-        i(0),
-        t { "", "}" },
-    }),
     b("ef", {
         i(1, "val"), ", err := ", i(2, "f"), "(", i(3), t { ")", "" },
         i(0),
@@ -33,3 +28,11 @@ ls.add_snippets("go", {
         t { "", "}" },
     }),
 }, { type = "autosnippets" })
+
+ls.add_snippets("go", {
+    b("fm", {
+        t { "func main() {", "\t" },
+        i(0),
+        t { "", "}" },
+    }),
+})
