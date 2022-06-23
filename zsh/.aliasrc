@@ -93,14 +93,15 @@ alias py="python3"
 # so that all aliases also work with sudo
 alias sudo="sudo "
 
-# vim as default
+# neovim as default
 alias vi="nvim"
 alias v="nvim"
 alias vim="nvim"
 alias svi="sudo vi"
-alias vis="vim '+set si'"
-alias edit="vim"
+alias edit="vim "
 alias nano="vim "
+function nvim_as_man() { nvim -R -c "Man $1 | only" }
+alias man="nvim_as_man"
 
 # fun remaps
 alias why="man "
@@ -113,6 +114,7 @@ alias wq="exit"
 alias q="exit"
 alias c="dbus-launch codium .;exit"
 alias t="thunar . &"
+alias b="byobu"
 alias cm="clipmenu"
 alias diff="colordiff"
 alias lol="lolcat"
@@ -153,24 +155,7 @@ alias serve="browser-sync start --server --files ."
 alias servejs="nodemon "
 alias nvmsource="source ~/.nvm/nvm.sh"
 
-# git commands
 alias lg="lazygit"
-alias addup="git add -u"
-alias addall="git add ."
-alias gadd="git add "
-alias branch="git branch"
-alias checkout="git checkout"
-alias clone="git clone"
-alias commit="git commit -m"
-alias fetch="git fetch"
-alias merge="git merge"
-alias pull="git pull origin"
-alias push="git push origin"
-alias stat="git status"  # status is protected so stat it is
-alias glog="git log"  # log is also protected so glog it is
-alias glogp="git log --all --decorate --oneline --graph"  # log is also protected so glog it is
-alias gdiff="git diff" # diff is its own command so gdiff it is
-alias gsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
 alias rickroll="~/bin/zsh/roll.sh"

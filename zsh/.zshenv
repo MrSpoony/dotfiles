@@ -3,14 +3,14 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin/
 export PATH=$PATH:~/apps/rofi-translate
-export PATH=$PATH:~/code/python/rofi_spotify/bin
+export PATH=$PATH:~/code/py/rofi-spotify/bin
 export PYTHONPATH=$PYTHONPATH:~/code/python/rofi_spotify
 
 # clipboard things
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
 export CM_OUTPUT_CLIP=0
-export CM_MAX_CLIPS=1000
+export CM_MAX_CLIPS=10000
 export CM_HISTLENGTH=16
 export CM_LAUNCHER="rofi"
 export CM_IGNORE_WINDOW="Bitwarden"
