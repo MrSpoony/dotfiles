@@ -101,12 +101,6 @@ require 'nvim-treesitter.configs'.setup {
             enable = false,
         },
         clear_on_cursor_move = false,
-        smart_rename = {
-            enable = true,
-            keymaps = {
-                smart_rename = "grr"
-            }
-        }
     },
     -- textsubjects = {
     --     enable = true,

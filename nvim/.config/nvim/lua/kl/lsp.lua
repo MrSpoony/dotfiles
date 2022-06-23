@@ -67,6 +67,20 @@ clang_options.on_attach = function(client, bufnr)
     end
 end
 
+clang_options.cmd = {
+    "clangd",
+    "-j=4",
+    "--query-driver=/usr/bin/g*",
+    "--background-index",
+    "--clang-tidy",
+    "--fallback-style=llvm",
+    "--all-scopes-completion",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--pch-storage=memory",
+}
+
 clangd_extensions.setup({
     server = clang_options
 })
@@ -110,11 +124,8 @@ end
 cmp.setup({
     snippet = {
         expand = function(args)
-            ls.lsp_expand(args.body) -- For `luasnip` users.
-            if lspsnips[args.body] then
-                ls.snip_expand(lspsnips[args.body])
-            else
-                ls.lsp_expand(args.body)
+            if lspsnips[args.body] then ls.snip_expand(lspsnips[args.body])
+            else ls.lsp_expand(args.body)
             end
         end,
     },
@@ -135,8 +146,8 @@ cmp.setup({
         ["<C-q>"] = cmp.mapping.close();
         ["<C-i>"] = cmp.mapping(
             function()
-            ls.expand_or_jump()
-        end
+                ls.expand_or_jump()
+            end
         ),
         ["<c-y>"] = cmp.mapping(
             cmp.mapping.confirm {
