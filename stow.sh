@@ -4,8 +4,8 @@ stow alacritty
 stow bin
 stow bspwm
 stow gdb
+stow git
 stow important
-stow lazygit
 stow nvim
 stow personal
 stow picom
