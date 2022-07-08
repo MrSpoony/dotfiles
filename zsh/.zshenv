@@ -5,6 +5,8 @@ export PATH=$PATH:~/bin/
 export PATH=$PATH:~/apps/rofi-translate
 export PATH=$PATH:~/code/py/rofi-spotify/bin
 export PYTHONPATH=$PYTHONPATH:~/code/python/rofi_spotify
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/mnt/c/Windows/System32/
 
 # clipboard things
 export CM_SELECTIONS="clipboard"
@@ -67,8 +69,8 @@ export HISTFILE=~/.zsh_history
 export QT_STYLE_OVERRIDE=gtk2
 
 # Go stuff
-export GOPATH="/home/kimil/code/go"
-export GOBIN="/home/kimil/code/go/bin"
+export GOPATH="/home/ws-bloefk/code/go"
+export GOBIN="/home/ws-bloefk/code/go/bin"
 
 
 # Keyring stuff

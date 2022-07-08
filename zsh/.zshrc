@@ -9,15 +9,15 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kimil/.oh-my-zsh"
+export ZSH="/home/ws-bloefk/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
-ZSH_THEME_RANDOM_CANDIDATES=( "powerline" "agnoster" "powerlevel10k/powerlevel10k" "pre" )
-ZSH_THEME_RANDOM_QUIET=false
+ZSH_THEME="agnoster"
+# ZSH_THEME_RANDOM_CANDIDATES=( "powerline" "agnoster" "powerlevel10k/powerlevel10k" "pre" )
+# ZSH_THEME_RANDOM_QUIET=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -87,7 +87,6 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-    wakatime
 )
 
 # source /usr/share/zsh/plugins/zsh-vi/mode/zsh-vi-mode.plugin.zsh
@@ -118,8 +117,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-(cat ~/.config/wpg/sequences &)
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -131,9 +128,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 eval "$(zoxide init zsh)"
 # eval "$(starship init zsh)"
-source ~/.privenv
+# source ~/.privenv
 source ~/.aliasrc
-fastfetch
 # clef
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -145,5 +141,4 @@ setopt completealiases
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-# [ -f "/home/kimil/.ghcup/env" ] && source "/home/kimil/.ghcup/env" # ghcup-env
+# [ -f "/home/ws-bloefk/.ghcup/env" ] && source "/home/ws-bloefk/.ghcup/env" # ghcup-env

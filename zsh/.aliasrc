@@ -9,7 +9,6 @@ alias llt="ll -T -L 3"
 alias lat="la -T -L 3"
 
 # remove commands
-alias rm="trash -i"
 alias rf="rm -rf"
 
 # confirm before overwriting stuff
@@ -36,8 +35,8 @@ alias lcear="clear"
 alias cls="clear"
 alias clearl="clear; la"
 alias cll="clear;ll"
-alias clearall="nextbackground; /bin/clear; colorscript random; echo ; fastfetch"
-alias {clsall,cleall,cla}="/bin/clear; colorscript random; echo ; fastfetch"
+alias clearall="clear"
+alias {clsall,cleall,cla}="clear"
 
 # different fetches
 alias clea="/bin/clear; colorscript random"
@@ -45,11 +44,6 @@ alias clef="/bin/clear; fastfetch"
 alias clen="/bin/clear; neofetch"
 alias cler="/bin/clear; rxfetch"
 alias clep="/bin/clear; pfetch"
-
-# pacman and yay update etc.
-alias autorm="sudo pacman -Rcns $(pacman -Qdtq)" 
-alias pacsyu="sudo pacman -Syyu"
-alias yaysyu="yay -Syu --noconfirm"  
 
 # quick access scripts
 alias zshrc="vim ~/.zshrc"
@@ -156,6 +150,22 @@ alias servejs="nodemon "
 alias nvmsource="source ~/.nvm/nvm.sh"
 
 alias lg="lazygit"
+# alias addup="git add -u"
+# alias addall="git add ."
+# alias gadd="git add "
+# alias branch="git branch"
+# alias checkout="git checkout"
+# alias clone="git clone"
+# alias commit="git commit -m"
+# alias fetch="git fetch"
+# alias merge="git merge"
+# alias pull="git pull origin"
+# alias push="git push origin"
+# alias stat="git status"  # status is protected so stat it is
+# alias glog="git log"  # log is also protected so glog it is
+# alias glogp="git log --all --decorate --oneline --graph"  # log is also protected so glog it is
+# alias gdiff="git diff" # diff is its own command so gdiff it is
+# alias gsize="git gc;git count-objects -vH"
 
 # just test it out its fine believe me...
 alias rickroll="~/bin/zsh/roll.sh"
