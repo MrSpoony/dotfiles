@@ -9,14 +9,14 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ws-bloefk/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
-# ZSH_THEME_RANDOM_CANDIDATES=( "powerline" "agnoster" "powerlevel10k/powerlevel10k" "pre" )
+ZSH_THEME="random"
+ZSH_THEME_RANDOM_CANDIDATES=( "powerline" "agnoster" "powerlevel10k/powerlevel10k" "pre" )
 # ZSH_THEME_RANDOM_QUIET=false
 
 # Set list of themes to pick from when loading at random
@@ -87,6 +87,7 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+	wakatime
 )
 
 # source /usr/share/zsh/plugins/zsh-vi/mode/zsh-vi-mode.plugin.zsh
@@ -126,11 +127,13 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # . "~/.cache/wal/colors.sh"
 
+(cat ~/.config/wpg/sequences &)
+
 eval "$(zoxide init zsh)"
 # eval "$(starship init zsh)"
 # source ~/.privenv
 source ~/.aliasrc
-# clef
+fastfetch
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
