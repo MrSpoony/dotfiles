@@ -69,8 +69,8 @@ export HISTFILE=~/.zsh_history
 export QT_STYLE_OVERRIDE=gtk2
 
 # Go stuff
-export GOPATH="/home/ws-bloefk/code/go"
-export GOBIN="/home/ws-bloefk/code/go/bin"
+export GOPATH="~/code/go"
+export GOBIN="~/code/go/bin"
 
 
 # Keyring stuff
