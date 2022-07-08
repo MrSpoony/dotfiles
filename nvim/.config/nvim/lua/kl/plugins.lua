@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
     use { "tanvirtin/monokai.nvim" }                      -- Monokai
     use { "shaunsingh/nord.nvim" }                        -- Nord
     use { "rafamadriz/neon" }                             -- Neon
+    use { "projekt0n/github-nvim-theme" }                 -- Github
 
     use { "anuvyklack/pretty-fold.nvim" }  -- Prettier folds
     use { "SmiteshP/nvim-gps" }            -- Location widget in lualine
@@ -139,6 +140,7 @@ return require("packer").startup(function(use)
     -- LSP stuff
     use { "neovim/nvim-lspconfig" }                     -- Nvim lsp support
     use { "williamboman/nvim-lsp-installer" }           -- Easy installation for lsp`s
+    use { "ray-x/lsp_signature.nvim" }                  -- LSP signatures as overlay
     use { "ThePrimeagen/refactoring.nvim" }             -- Some refactoring tools
     use { "p00f/clangd_extensions.nvim" }               -- Clang extension for nvim-lsp
     use { "hrsh7th/nvim-cmp" }                          -- Autocompletion engine
@@ -157,13 +159,14 @@ return require("packer").startup(function(use)
 
 
     -- Language specific stuff
-    use { "ray-x/go.nvim" }                -- Go
-    use { "hdiniz/vim-gradle" }            -- Java Gradle
-    use { "ap/vim-css-color" }             -- CSS
-    use { "mattn/emmet-vim" }              -- HTML
-    use { "neoclide/vim-jsx-improve" }     -- JSX
-    use { "lervag/vimtex" }                -- LaTeX
-    use { "engeljh/vim-latexfmt" }         -- LaTex Formatter
+    use { "ray-x/go.nvim" }                          -- Go
+    use { "hdiniz/vim-gradle" }                      -- Java Gradle
+    use { "ap/vim-css-color" }                       -- CSS
+    use { "mattn/emmet-vim" }                        -- HTML
+    use { "neoclide/vim-jsx-improve" }               -- JSX
+    use { "neoclide/npm.nvim", run = "npm install" } -- NPM JS
+    use { "lervag/vimtex" }                          -- LaTeX
+    use { "engeljh/vim-latexfmt" }                   -- LaTex Formatter
     use {
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
@@ -187,7 +190,7 @@ return require("packer").startup(function(use)
     use { "L3MON4D3/LuaSnip" } -- Snippet engine with really nice functionalities
 
     -- Own plugins
-    use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
+    -- use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
     -- use { "~/code/lua/nvim/plugins/soicode.nvim",
     --     rocks = { "lua-toml" },
     --     config = function()

@@ -25,4 +25,4 @@ ls.add_snippets("javascript", {
             { t"\"", i(1, "text"), t"\"" },
         }), t");"
     }),
-}, { type = "autosnippets" })
+})

@@ -1,22 +1,20 @@
 local od = require("onedark")
 local mat = require("material")
 local monokai = require("monokai")
+local gh = require("github-theme");
 
 local spotify_status = require("nvim-spotify").status
-
 
 local ll = require("lualine")
 local gps = require("nvim-gps")
 
--- od.setup({
---     theme = "deep"
--- })
--- od.load()
---
+od.setup({
+    theme = "deep"
+})
 
 vim.g.gruvbox_material_background = "hard"
 
--- monokai.setup()
+monokai.setup()
 
 vim.g.tokyonight_style = "night"
 
@@ -35,12 +33,14 @@ gps.setup({
 
 spotify_status:start()
 
+gh.setup({
+
+})
+
 ll.setup({
     sections = {
         lualine_c = {
-            {
-                "filename",
-            },
+            { "filename" },
             {
                 gps.get_location,
                 cond = gps.is_available
@@ -51,4 +51,5 @@ ll.setup({
         }
     }
 })
-vim.cmd([[colorscheme gruvbox-material]])
+
+vim.cmd([[colorscheme github_dimmed]])

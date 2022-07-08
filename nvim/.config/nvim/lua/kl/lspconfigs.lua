@@ -1,5 +1,8 @@
 local utils = require("kl.utils")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspsignature = require("lsp_signature");
+
+lspsignature.setup({});
 
 local M = {}
 
@@ -23,9 +26,14 @@ local function set_default_formatter_for_filetypes(language_server_name, filetyp
 end
 
 M.on_attach = function(client, bufnr)
-
+    lspsignature.on_attach({
+        bind = true,
+        handler_opts = {
+            border = "rounded"
+        }
+    }, bufnr);
     set_default_formatter_for_filetypes("gopls", { "go" })
-    set_default_formatter_for_filetypes("eslint", { "javascript", "javascriptreact" })
+    -- set_default_formatter_for_filetypes("eslint", { "javascript", "javascriptreact" })
 
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

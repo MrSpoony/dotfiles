@@ -4,8 +4,9 @@ local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local tabnine = require('cmp_tabnine')
 local lspkind = require('lspkind')
-local lspconfigs = require("kl.lspconfigs")
-local golsp = require("go.lsp")
+local lspconfigs = require("kl.lspconfigs");
+local lspsignature = require("lsp_signature");
+-- local golsp = require("go.lsp")
 local fidget = require("fidget")
 local ls = require("luasnip")
 local s = ls.snippet
@@ -120,12 +121,13 @@ local tcode = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-
 cmp.setup({
     snippet = {
         expand = function(args)
-            if lspsnips[args.body] then ls.snip_expand(lspsnips[args.body])
-            else ls.lsp_expand(args.body)
+            if lspsnips[args.body] then
+                ls.snip_expand(lspsnips[args.body])
+            else
+                ls.lsp_expand(args.body)
             end
         end,
     },
@@ -229,7 +231,6 @@ cmp.setup({
             mode = 'symbol',
             maxwidth = 50,
             menu = source_mapping,
-
             before = function(entry, vim_item)
                 vim_item.kind = lspkind.presets.default[vim_item.kind]
                 local menu = source_mapping[entry.source.name]
@@ -301,6 +302,6 @@ cmp.setup.cmdline(":", {
     sources = cmp.config.sources({
         { name = "path" }
     }, {
-        { name = "cmdline" }
+        { name = "cmdline", keyword_pattern=[=[[^[:blank:]\!]*]=], keyword_length = 3}
     })
 })

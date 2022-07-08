@@ -1,28 +1,37 @@
 local nvim_tree = require("nvim-tree")
 
-
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "S",
-		unmerged = "",
-		renamed = "➜",
-		deleted = "",
-		untracked = "U",
-		ignored = "◌",
-	},
-	folder = {
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
-
 nvim_tree.setup({
+	renderer = {
+		group_empty = true,
+		highlight_opened_files = "icon",
+		special_files = {
+			['README.md'] = 1,
+			['Makefile']  = 1,
+			['MAKEFILE']  = 1,
+		},
+		icons = {
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "S",
+					unmerged = "",
+					renamed = "➜",
+					deleted = "",
+					untracked = "U",
+					ignored = "◌",
+				},
+				folder = {
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+				},
+			}
+		}
+	},
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
@@ -64,14 +73,6 @@ nvim_tree.setup({
 	},
 })
 
-vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-
-vim.g.nvim_tree_special_files = {
-	['README.md'] = 1,
-	['Makefile']  = 1,
-	['MAKEFILE']  = 1
-}
 vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
 
 Nnoremap("<C-f>", "<cmd>NvimTreeToggle<cr>")
