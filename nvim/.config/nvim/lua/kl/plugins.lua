@@ -5,9 +5,9 @@ return require("packer").startup(function(use)
     use { "wbthomason/packer.nvim" }
 
     -- Dependencies for others
+    use { "nvim-lua/plenary.nvim" }                         -- Some helpful lua functions other plugins (telecope) need
     use { "nvim-lua/popup.nvim" }                           -- Popups
     use { "rcarriga/nvim-notify" }                          -- Notifcations
-    use { "nvim-lua/plenary.nvim" }                         -- Some helpful lua functions other plugins (telecope) need
     use { "ray-x/guihua.lua", run = 'cd lua/fzy && make' }  -- UI for lua plugins
     use { "tami5/sqlite.lua", rocks = { "sqlite", "luv" } } -- Store stuff in sqlite database for more speed
     use { "BurntSushi/ripgrep" }                            -- Line-oriented search tool
@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
     use { "nvim-lualine/lualine.nvim" }    -- Line at the bottom
     use { "j-hui/fidget.nvim" }            -- Loading bar for lsp
     use { "justinmk/vim-syntax-extra" }    -- Extra syntax
-    use { "mhinz/vim-startify" }           -- Fancy startup screen `:h startify` `:h startify-faq`
+    use { "mhinz/vim-startify" }           -- Fancy startup screen
     use { "tpope/vim-obsession" }          -- Session management
     use { "stevearc/dressing.nvim" }       -- Better standard vim ui's
     use { "karb94/neoscroll.nvim" }        -- Smooth scroll
@@ -53,7 +53,6 @@ return require("packer").startup(function(use)
     use { "nvim-treesitter/playground" }                         -- TreeSitter playground :TSPlaygroundToggle
     use { "nvim-treesitter/nvim-treesitter-refactor" }           -- Refactoring tools
     use { "nvim-treesitter/nvim-treesitter-textobjects" }        -- Treesitter textobjects f (functions), etc
-    use { "RRethy/nvim-treesitter-textsubjects" }                -- Smart textsubjects from treesitter
     use { "p00f/nvim-ts-rainbow" }                               -- Rainbow brackets from treesitter
     use { "simrat39/symbols-outline.nvim" }                      -- Symbols outline
     use { "windwp/nvim-ts-autotag" }                             -- Close tags
@@ -96,8 +95,9 @@ return require("packer").startup(function(use)
     use { "gyim/vim-boxdraw" }                              -- Draw boxes `+o`
     use { "AndrewRadev/splitjoin.vim" }                     -- Split up oneliners `gS` or oneline multiliners `gJ`
     -- TODO: Configure neorg
-    use { "nvim-neorg/neorg" }                              -- Neovim orgmode
+    -- use { "nvim-neorg/neorg" }                              -- Neovim orgmode
     use { "mattn/webapi-vim" }                              -- Webapi for backend development
+    use { "vim-test/vim-test" }                             -- Testing inside vim
     use { "folke/todo-comments.nvim" }                      -- Highlight comments
     use { "AckslD/nvim-neoclip.lua" }                       -- Clipboard management inside vim
     use {
@@ -182,9 +182,10 @@ return require("packer").startup(function(use)
 
 
     -- Git
-    use { "tpope/vim-fugitive" }      -- Git integration
-    use { "lewis6991/gitsigns.nvim" } -- Git signs (gitgutter, Line blame etc.)
-    use { "rhysd/committia.vim" }     -- Better commit buffers
+    use { "tpope/vim-fugitive" }        -- Git integration
+    use { "lewis6991/gitsigns.nvim" }   -- Git signs (gitgutter, Line blame etc.)
+    use { "akinsho/git-conflict.nvim" } -- Resolve Git merge conflicts in vim
+    use { "rhysd/committia.vim" }       -- Better commit buffers
 
     -- Snippets
     use { "L3MON4D3/LuaSnip" } -- Snippet engine with really nice functionalities

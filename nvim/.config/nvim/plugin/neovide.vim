@@ -8,5 +8,5 @@ set guifont=JetBrainsMono_Nerd_Font_Mono:h8
 " set guifont=Monoid_Nerd_Font_Mono:h7
 " set guifont=VictorMono_Nerd_Font_Mono:h8
 " set guifont=Inconsolata_Nerd_Font_Mono:h10
-set guifont=CaskaydiaCove_Nerd_Font_Mono:h8.5
+set guifont=CaskaydiaCove_Nerd_Font_Mono:h8
 " set guifont=Hack_Nerd_Font_Mono:h7.5
