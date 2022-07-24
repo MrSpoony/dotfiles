@@ -27,7 +27,7 @@ o.wildmode = { 'longest:full', 'full' }
 o.showmode = false
 o.ruler = true
 o.showcmd = true
-o.laststatus = 2
+o.laststatus = 3
 
 o.cmdheight = 1
 o.incsearch = true

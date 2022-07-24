@@ -51,5 +51,4 @@ ll.setup({
         }
     }
 })
-
-vim.cmd([[colorscheme github_dimmed]])
+vim.cmd("colorscheme gruvbox-material")

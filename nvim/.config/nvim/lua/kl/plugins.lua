@@ -57,11 +57,6 @@ return require("packer").startup(function(use)
     use { "simrat39/symbols-outline.nvim" }                      -- Symbols outline
     use { "windwp/nvim-ts-autotag" }                             -- Close tags
 
-
-    use { "milisims/nvim-luaref" } -- Reference for builtin lua functions
-    use { "nanotee/luv-vimdocs" }  -- Luv docs as a vim plugin
-
-
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }                      -- Telescope search etc.
     use { "jvgrootveld/telescope-zoxide" }                       -- Like z command
@@ -75,7 +70,6 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope-smart-history.nvim" }        -- Store search history in sqlite database
     use { "nvim-telescope/telescope-frecency.nvim" }             -- Frequently visited files
     use { "nvim-telescope/telescope-cheat.nvim" }                -- Cheat.sh
-
 
     -- Other stuff
     use { "tpope/vim-repeat" }                              -- Repeat commands
@@ -92,11 +86,7 @@ return require("packer").startup(function(use)
     use { "mizlan/iswap.nvim" }                             -- Swap function arguments etc.
     use { "ckarnell/Antonys-macro-repeater" }               -- Repeat macros with `.`
     use { "chrisbra/NrrwRgn", cmd = "NR" }                  -- Open text in other window
-    use { "gyim/vim-boxdraw" }                              -- Draw boxes `+o`
     use { "AndrewRadev/splitjoin.vim" }                     -- Split up oneliners `gS` or oneline multiliners `gJ`
-    -- TODO: Configure neorg
-    -- use { "nvim-neorg/neorg" }                              -- Neovim orgmode
-    use { "mattn/webapi-vim" }                              -- Webapi for backend development
     use { "vim-test/vim-test" }                             -- Testing inside vim
     use { "folke/todo-comments.nvim" }                      -- Highlight comments
     use { "AckslD/nvim-neoclip.lua" }                       -- Clipboard management inside vim
@@ -111,12 +101,7 @@ return require("packer").startup(function(use)
     use { "tpope/vim-dadbod" }                              -- Database integration
     use { "kristijanhusak/vim-dadbod-ui" }                  -- Pretty database integration
     use { "NTBBloodbath/rest.nvim" }                        -- Make HTTP rest requests
-    use {
-        "KadoBOT/nvim-spotify",
-        run = 'make'
-    }                                                       -- Spotify controls in vim
-    -- use { "aquach/vim-http-client" }
-
+    use { "KadoBOT/nvim-spotify", run = 'make' }            -- Spotify controls in vim
 
     -- New "Verbs"
     use { "numToStr/Comment.nvim" }           -- Comments from treesitter `gc`
@@ -171,7 +156,6 @@ return require("packer").startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     }                                      -- Markdown
-    -- use { "davidgranstrom/nvim-markdown-preview" } -- Markdown
     use { "OmniSharp/omnisharp-vim" }      -- C#
 
     -- Debugging
@@ -190,16 +174,8 @@ return require("packer").startup(function(use)
     -- Snippets
     use { "L3MON4D3/LuaSnip" } -- Snippet engine with really nice functionalities
 
-    -- Own plugins
-    -- use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
-    -- use { "~/code/lua/nvim/plugins/soicode.nvim",
-    --     rocks = { "lua-toml" },
-    --     config = function()
-    --         vim.opt.rtp:append(",~/code/lua/nvim/plugins/soicode.nvim")
-    --         require("soicode").setup();
-    --     end
-    -- }
-
+    -- Own plugin
+    use { "~/code/vim/plugins/soicode.vim" } -- For soi stuff with the .stoml support
 
     -- Some would say it"s useless...
     use { "alec-gibson/nvim-tetris" } -- Tetris
