@@ -71,10 +71,3 @@ export QT_STYLE_OVERRIDE=gtk2
 # Go stuff
 export GOPATH="~/code/go"
 export GOBIN="~/code/go/bin"
-
-
-# Keyring stuff
-if [ -n "$DESKTOP_SESSION" ]; then
-    eval $(gnome-keyring-daemon --start --start)
-    export SSH_AUTH_SOCK
-fi
