@@ -8,6 +8,10 @@ export PYTHONPATH=$PYTHONPATH:~/code/python/rofi_spotify
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/mnt/c/Windows/System32/
 
+# Language
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
 # clipboard things
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
