@@ -6,7 +6,6 @@ recentrepos:
 - /home/kimil/code/vim/plugins/soicode.vim
 - /home/kimil/dotfiles/personal
 - /home/kimil/.local/share/nvim/site/pack/packer/start/splitjoin.vim
-- /home/kimil/.local/share/nvim/site/pack/packer/start/refactoring.nvim
 - /home/kimil/code/asm/assemblyAdventure
 - /home/kimil/.config
 startuppopupversion: 5
