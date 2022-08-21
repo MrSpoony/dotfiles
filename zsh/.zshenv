@@ -1,11 +1,11 @@
 # Path variable and stuff
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:~/bin/
-export PATH=$PATH:~/apps/rofi-translate
-export PATH=$PATH:~/code/py/rofi-spotify/bin
-export PYTHONPATH=$PYTHONPATH:~/code/python/rofi_spotify
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:$HOME/bin/
+export PATH=$PATH:$HOME/apps/rofi-translate
+export PATH=$PATH:$HOME/code/py/rofi-spotify/bin
+export PYTHONPATH=$PYTHONPATH:$HOME/code/python/rofi_spotify
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/mnt/c/Windows/System32/
 
 # Language
@@ -68,10 +68,10 @@ export _JAVA_AWT_WM_NONREPARTENTING=1
 export SAVEHIST=1000000000
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
-export HISTFILE=~/.zsh_history
+export HISTFILE=$HOME/.zsh_history
 
 export QT_STYLE_OVERRIDE=gtk2
 
 # Go stuff
-export GOPATH="~/code/go"
-export GOBIN="~/code/go/bin"
+export GOPATH="$HOME/code/go"
+export GOBIN="$HOME/code/go/bin"
