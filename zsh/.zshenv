@@ -2,6 +2,8 @@
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/bin/
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/opt/node/bin
 export PATH=$PATH:$HOME/apps/rofi-translate
 export PATH=$PATH:$HOME/code/py/rofi-spotify/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/python/rofi_spotify
@@ -11,6 +13,7 @@ export PATH=$PATH:/mnt/c/Windows/System32/
 # Language
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+export NVM_DIR="$HOME/.nvm"
 
 # clipboard things
 export CM_SELECTIONS="clipboard"
@@ -71,6 +74,8 @@ export HISTSIZE=1000000000
 export HISTFILE=$HOME/.zsh_history
 
 export QT_STYLE_OVERRIDE=gtk2
+
+export LANG="en_US.UTF-8"
 
 # Go stuff
 export GOPATH="$HOME/code/go"
