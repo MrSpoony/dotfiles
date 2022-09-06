@@ -1,16 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/kimil/dotfiles
-- /home/kimil/code/py/rofi-spotify
-- /home/kimil/code/soi
-- /home/kimil/code/vim/plugins/soicode.vim
-- /home/kimil/dotfiles/personal
-- /home/kimil/.local/share/nvim/site/pack/packer/start/splitjoin.vim
-- /home/kimil/code/asm/assemblyAdventure
-- /home/kimil/.config
+- /Users/u80860794/dotfiles
+- /Users/u80860794/code/ng/cism
 startuppopupversion: 5
-customcommandshistory:
-- q
-- ""
-- git commit --amend
+customcommandshistory: []
 hidecommandlog: false

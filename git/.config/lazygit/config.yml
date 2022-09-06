@@ -1,18 +1,10 @@
 os:
-  editCommand: 'floaterm'
-keybinding:
-  universal:
-    return: '<c-\>'
-    return: '<Esc>'
-
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
 gui:
-  theme:
-    selectedLineBgColor:
-      - underline
-    selectedRangeBgColor:
-      - underline
-
+  showIcons: true
 git:
+  showIcons: true
   paging:
-    colorArg: never
+    colorArg: always
     pager: delta --dark --paging=never
