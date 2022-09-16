@@ -1,0 +1,135 @@
+set clipboard+=unnamed,unnamedplus,ideaput
+set ideajoin
+set NERDTree
+set surround
+set commentary
+set ReplaceWithRegister
+set textobj-entire
+set textobj-indent
+set highlightedyank
+let g:highlightedyank_highlight_duration = "40"
+
+nnoremap <C-f> :NERDTree<CR>
+
+
+set encoding=utf-8
+
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set autoindent
+set number
+set relativenumber
+set signcolumn=yes
+
+set textwidth=0
+set wrap
+set linebreak
+set formatoptions-=cro
+
+set modifiable
+set wildmenu
+set wildmode=longest:full,full
+
+set noshowmode
+set ruler
+set showcmd
+set laststatus=3
+
+set cmdheight=1
+set incsearch
+set hlsearch
+set noignorecase
+set path+=**
+
+set hidden
+set showmatch
+set autoread
+set noswapfile
+set updatetime=100
+set nobackup
+set history=10000
+set undofile
+
+set scrolloff=8
+set cursorline
+set mouse=nvc
+
+set visualbell
+
+set splitright
+set splitbelow
+
+set modifiable
+
+set background=dark
+set termguicolors
+
+command! WQ :wq<CR>
+command! Wq :wq<CR>
+command! W :w<CR>
+command! Q :q<CR>
+
+filetype plugin on
+syntax on
+
+
+let g:mapleader=" "
+
+
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
+
+
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
+
+
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Left> <Nop>
+
+" Center cursor on search or scroll
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+nnoremap '' ''zz
+
+nnoremap J mzJ`z
+
+nnoremap <Esc> :noh<CR>
+inoremap ;w<CR> ;w<CR>
+
+vnoremap <leader><Up> :'<,'>m '>+1<CR>gv=gv
+vnoremap <leader><Down> :'<,'>m '<-2<CR>gv=gv
+nnoremap <leader><Up> :m .+1<CR>==
+nnoremap <leader><Down> :m .-2<CR>==
+
+nnoremap <leader>+ :vertical resize +5<CR>
+nnoremap <leader>- :vertical resize -5<CR>
+
+nnoremap <C-C> :vsplit<CR>
+nnoremap <C-B> :split<CR>
+
+nnoremap <leader>q :bdelete!<CR>
+nnoremap <leader>bq :quit!<CR>
+nnoremap <leader>bd :bdelete<CR>
+nnoremap <leader>ba :quitall!<CR>
+
+
+nmap s gr
+xmap s gr
+nnoremap ss grr
