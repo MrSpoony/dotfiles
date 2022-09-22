@@ -50,3 +50,10 @@ the time to read the documentation.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'``)
 * Tmux
   * TPM (Plugin Manager `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`)
+* Anki
+  * 374005964
+  * 1771074083
+  * 1362209126
+  * 1556734708
+  * 2055492159
+  * 308574457

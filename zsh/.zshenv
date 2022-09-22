@@ -60,6 +60,8 @@ export EXPOSE_PORT=5080
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+export BROWSER="brave"
+
 export TERMINAL="$TERM"
 
 # for wine idk why but it helps
