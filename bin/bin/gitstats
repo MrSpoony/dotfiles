@@ -1,0 +1,14 @@
+#!/bin/bash
+commitstats=$(git shortlog -sn --all)
+names=$(echo "$commitstats" | awk '{$1=""}1')
+authors=$(git log --pretty="%an" | sort | uniq)
+echo "$authors" | while read -r author; do
+    commits=$(git rev-list HEAD --author="^$author" --count)
+    allstats=$(git log --author="$author" --format=tformat: --numstat | awk '{print $1 " " $2}' | grep -v "-")
+    allstats1=$(echo "$allstats" | awk '{print $1}')
+    allstats2=$(echo "$allstats" | awk '{print $2}')
+    stats1=$(echo "$allstats1" | paste -sd+ - | bc)
+    stats2=$(echo "$allstats2" | paste -sd+ - | bc)
+    echo -ne "$author\t$commits\t$stats1\t$stats2\t"
+    echo ""
+done | sed '1s/^/author\tcommits\tadded\tremoved\n/' | column -t -s$'\t'
