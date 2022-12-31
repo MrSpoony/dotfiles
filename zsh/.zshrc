@@ -87,7 +87,6 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	zsh-wakatime
 )
 
 # source /usr/share/zsh/plugins/zsh-vi/mode/zsh-vi-mode.plugin.zsh
@@ -143,7 +142,7 @@ setopt completealiases
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-# [ -f "/home/ws-bloefk/.ghcup/env" ] && source "/home/ws-bloefk/.ghcup/env" # ghcup-env
+# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
