@@ -100,7 +100,7 @@ alias vim="nvim"
 alias svi="sudo vi"
 alias edit="vim "
 alias nano="vim "
-function nvim_as_man() { nvim -R -c "Man $1 | only" }
+function nvim_as_man() { nvim -R -c "Man $1 $2 $3 | only" }
 alias man="nvim_as_man"
 
 # fun remaps
@@ -180,3 +180,6 @@ alias rr="~/bin/zsh/roll.sh"
 alias parrot="curl parrot.live"
 
 alias weather="curl wttr.in/Zollikofen"
+
+alias mountrc="rclone mount main-s3-backup:kimi-loeffel-backup-files ~/nc/main"
+alias mounts3="rclone mount main-s3-backup:kimi-loeffel-backup-files ~/nc/main"
