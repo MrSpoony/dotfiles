@@ -1,5 +1,6 @@
 # Path variable and stuff
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/bin/
 export PATH=$PATH:/usr/local/sbin
@@ -9,6 +10,11 @@ export PATH=$PATH:$HOME/code/py/rofi-spotify/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/python/rofi_spotify
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/mnt/c/Windows/System32/
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+export PATH=$PATH:$JAVA_HOME/bin
 
 # Language
 export LANG=en_US.UTF-8
@@ -68,6 +74,7 @@ export TERMINAL="$TERM"
 export _JAVA_AWT_WM_NONPARENTING=1
 export _JAVA_AWT_WM_NONREPARTENTING=1
 # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
 
 # History
 export SAVEHIST=1000000000
