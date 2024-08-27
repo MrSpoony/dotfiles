@@ -30,7 +30,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias jctl="journalctl -p 3 -xb"
 
 # clear commands
-alias clear="~/bin/clearcommand.sh"
+alias clear="clear"
 alias claer="clear"
 alias lcear="clear"
 alias cls="clear"
@@ -154,24 +154,11 @@ alias discord="Discord"
 alias serve="browser-sync start --server --files ."
 alias servejs="nodemon "
 alias nvmsource="source ~/.nvm/nvm.sh"
+alias docker="podman "
+alias docker-compose="podman-compose "
 
 alias lg="lazygit"
-# alias addup="git add -u"
-# alias addall="git add ."
-# alias gadd="git add "
-# alias branch="git branch"
-# alias checkout="git checkout"
-# alias clone="git clone"
-# alias commit="git commit -m"
-# alias fetch="git fetch"
-# alias merge="git merge"
-# alias pull="git pull origin"
-# alias push="git push origin"
-# alias stat="git status"  # status is protected so stat it is
-# alias glog="git log"  # log is also protected so glog it is
-# alias glogp="git log --all --decorate --oneline --graph"  # log is also protected so glog it is
-# alias gdiff="git diff" # diff is its own command so gdiff it is
-# alias gsize="git gc;git count-objects -vH"
+alias mux="tmuxinator"
 
 # just test it out its fine believe me...
 alias rickroll="~/bin/zsh/roll.sh"
@@ -183,3 +170,4 @@ alias weather="curl wttr.in/Zollikofen"
 
 alias mountrc="rclone mount main-s3-backup:kimi-loeffel-backup-files ~/nc/main"
 alias mounts3="rclone mount main-s3-backup:kimi-loeffel-backup-files ~/nc/main"
+unalias gg
