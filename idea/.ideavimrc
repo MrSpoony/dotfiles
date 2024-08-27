@@ -37,8 +37,8 @@ set showcmd
 set laststatus=3
 
 set cmdheight=1
-set incsearch
-set hlsearch
+" set incsearch
+" set hlsearch
 set noignorecase
 set path+=**
 
@@ -112,6 +112,15 @@ nnoremap J mzJ`z
 
 nnoremap <Esc> :noh<CR>
 inoremap ;w<CR> ;w<CR>
+
+
+nnoremap <leader>p +p
+nnoremap <leader>P +P
+vnoremap <leader>p +p
+
+nnoremap <leader>y +y
+nnoremap <leader>Y +y$
+vnoremap <leader>y +y
 
 vnoremap <leader><Up> :'<,'>m '>+1<CR>gv=gv
 vnoremap <leader><Down> :'<,'>m '<-2<CR>gv=gv
