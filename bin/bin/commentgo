@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LINES=$(find . -type f -name "*.go" ! -name "*_test.go" ! -path "*test*" ! -path "*mock*" | xargs cat | pcregrep -M -e '^.*\n^(func|type) (\(.*\) )?[A-Z].*')
+LINES=$(find . -type f -name "*.go" ! -name "*_test.go" ! -path "*test*" ! -path "*mock*" -exec cat {} \; | pcregrep -M -e '^.*\n^(func|type) (\(.*\) )?[A-Z].*')
 COMMENT_LINES=$(echo -e "$LINES" | grep "\/\/")
 LINE_COUNT=$(echo -e "$LINES" | wc -l | xargs)
 COMMENT_LINE_COUNT=$(echo -e "$COMMENT_LINES" | wc -l | xargs)

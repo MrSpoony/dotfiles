@@ -1,0 +1,4 @@
+#!/bin/bash
+
+golangci-lint --out-format html run --enable-all --disable wrapcheck,gci,contextcheck,nlreturn,nakedret,exhaustivestruct,testpackage,paralleltest,nonamedreturns,exhaustruct,varnamelen,gochecknoglobals --skip-files 'genb_*' --skip-files 'gen_*' --skip-files '.*spec.*' --skip-files '.*mock.*' ./... > /tmp/golangci-lint-html-report.html || echo
+open /tmp/golangci-lint-html-report.html
