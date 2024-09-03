@@ -83,7 +83,7 @@ plugins=(
 	git
 	fzf
     # nvm
-	zsh-vi-mode
+	# zsh-vi-mode
 	history-substring-search
 	colored-man-pages
 	zsh-autosuggestions
@@ -131,6 +131,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 eval "$(zoxide init zsh)"
 # eval "$(starship init zsh)"
+source ~/.zshenv
 source ~/.privenv
 source ~/.aliasrc
 # fastfetch
@@ -177,3 +178,7 @@ npx() {
 
 # bun completions
 # [ -s "/Users/u80860794/.bun/_bun" ] && source "/Users/u80860794/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
