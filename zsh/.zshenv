@@ -14,8 +14,12 @@ export PATH=$PATH:/mnt/c/Windows/System32/
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk/
 export PATH=$PATH:$JAVA_HOME/bin
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Language
 export LANG=en_US.UTF-8
@@ -67,7 +71,7 @@ export EXPOSE_PORT=5080
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export BROWSER="brave"
+# export BROWSER="firefox"
 
 export TERMINAL="$TERM"
 

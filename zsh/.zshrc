@@ -82,7 +82,6 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	fzf
-    # nvm
 	# zsh-vi-mode
 	history-substring-search
 	colored-man-pages
@@ -168,16 +167,12 @@ npx() {
   npx $@
 }
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # Load Angular CLI autocompletion.
-# source <(ng completion script)
+source <(ng completion script)
 
 # bun completions
-# [ -s "/Users/u80860794/.bun/_bun" ] && source "/Users/u80860794/.bun/_bun"
+[ -s "/home/kimil/.bun/_bun" ] && source "/home/kimil/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
