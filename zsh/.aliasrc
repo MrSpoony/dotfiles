@@ -122,6 +122,7 @@ alias open="open "
 # alias s="startx"
 alias sshlin="ssh -p 5040 172.105.79.115"
 
+
 # simply usefull
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
@@ -154,8 +155,8 @@ alias discord="Discord"
 alias serve="browser-sync start --server --files ."
 alias servejs="nodemon "
 alias nvmsource="source ~/.nvm/nvm.sh"
-alias docker="podman "
-alias docker-compose="podman-compose "
+# alias docker="podman "
+# alias docker-compose="podman-compose "
 
 alias lg="lazygit"
 alias mux="tmuxinator"

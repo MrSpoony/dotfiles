@@ -142,31 +142,34 @@ source ~/.aliasrc
 
 unsetopt completealiases
 
-lazynvm() {
-  unset -f nvm node npm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
+# export NVM_DIR=~/.nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-nvm() {
-  lazynvm
-  nvm $@
-}
-
-node() {
-  lazynvm
-  node $@
-}
-
-npm() {
-  lazynvm
-  npm $@
-}
-
-npx() {
-  lazynvm
-  npx $@
-}
+# lazynvm() {
+#   unset -f nvm node npm
+#   export NVM_DIR=~/.nvm
+#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# }
+#
+# nvm() {
+#   lazynvm
+#   nvm $@
+# }
+#
+# node() {
+#   lazynvm
+#   node $@
+# }
+#
+# npm() {
+#   lazynvm
+#   npm $@
+# }
+#
+# npx() {
+#   lazynvm
+#   npx $@
+# }
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -182,3 +185,6 @@ npx() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/u80860794/.opencode/bin:$PATH

@@ -11,10 +11,13 @@ export PATH=$PATH:$HOME/code/py/rofi-spotify/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/python/rofi_spotify
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/mnt/c/Windows/System32/
+export PATH=$PATH:$HOME/.local/share/nvim/mason/bin
+export PATH=$PATH:/opt/pgFormatter/
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+# export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+export JAVA_HOME=/opt/homebrew/opt/openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 
 # Language
@@ -67,7 +70,7 @@ export EXPOSE_PORT=5080
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export BROWSER="brave"
+export BROWSER="edge"
 
 export TERMINAL="$TERM"
 
@@ -87,6 +90,14 @@ export QT_STYLE_OVERRIDE=gtk2
 
 export LANG="en_US.UTF-8"
 
+# export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+
 # Go stuff
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/code/go/bin"
+
+export TESTCONTAINERS_RYUK_DISABLED=true
+. "$HOME/.cargo/env"
+
+
+export ATLAS_DBUSER="u80860794"
